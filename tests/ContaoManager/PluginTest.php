@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace ManiaxAtWork\ContaoJobsBundle\Tests\ContaoManager;
 
+use PHPUnit\Framework\TestCase;
 use Contao\CoreBundle\ContaoCoreBundle;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsBundle;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use PHPUnit\Framework\TestCase;
 use ManiaxAtWork\ContaoJobsBundle\ContaoManager\Plugin;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsBundle;
 
 class PluginTest extends TestCase
 {

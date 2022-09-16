@@ -160,7 +160,6 @@ class InsertTagsListenerTest extends ContaoTestCase
 
         $listener = new InsertTagsListener($this->mockContaoFramework($adapters));
 
-        $this->assertSame('', $listener('jobs_feed::3', false, null, []));
         $this->assertSame('', $listener('jobs_url::3', false, null, []));
     }
 }

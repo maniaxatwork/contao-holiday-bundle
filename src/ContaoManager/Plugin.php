@@ -14,10 +14,11 @@ declare(strict_types=1);
 
 namespace ManiaxAtWork\ContaoJobsBundle\ContaoManager;
 
+use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use ManiaxAtWork\ContaoJobsBundle;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsBundle;
 
 /**
  * Class Plugin
