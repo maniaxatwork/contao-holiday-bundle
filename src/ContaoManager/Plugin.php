@@ -28,7 +28,7 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(ContaoJobsBundle::class)
-            ->setLoadAfter([ContaoJobsBundle::class])
+            ->setLoadAfter([ContaoCoreBundle::class])
             ->setReplace(['jobs']),
         ];
     }
