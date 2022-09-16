@@ -7,13 +7,6 @@ services:
             calls:
                 - [setFramework, ['@contao.framework']]
 
-    contao_jobs.listener.generate_page:
-        class: ManiaxAtWork\ContaoJobsBundle\EventListener\GeneratePageListener
-        arguments:
-            - '@contao.framework'
-        tags:
-            - { name: contao.hook, hook: generatePage }
-
     contao_jobs.listener.insert_tags:
         class: ManiaxAtWork\ContaoJobsBundle\EventListener\InsertTagsListener
         arguments:
