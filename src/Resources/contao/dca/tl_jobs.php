@@ -52,7 +52,7 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
             'keys' => array(
                 'id' => 'primary',
 				'alias' => 'index',
-				'pid,published,featured,start,stop' => 'index'
+				'pid,published,start,stop' => 'index'
             )
         ),
     ),
