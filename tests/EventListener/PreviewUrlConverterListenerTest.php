@@ -16,11 +16,11 @@ namespace ManiaxAtWork\ContaoJobsBundle\Tests\EventListener;
 
 use Contao\CoreBundle\Event\PreviewUrlConvertEvent;
 use Contao\CoreBundle\Framework\ContaoFramework;
-use ManiaxAtWork\ContaoJobs;
-use ManiaxAtWork\ContaoJobsBundle\EventListener\PreviewUrlConvertListener;
-use ManiaxAtWork\ContaoJobsModel;
 use Contao\TestCase\ContaoTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobs;
+use ManiaxAtWork\ContaoJobsBundle\EventListener\PreviewUrlConvertListener;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 
 class PreviewUrlConverterListenerTest extends ContaoTestCase
 {

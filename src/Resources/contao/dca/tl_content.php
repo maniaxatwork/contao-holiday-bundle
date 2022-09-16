@@ -12,12 +12,13 @@ declare(strict_types=1);
  * @link https://github.com/maniaxatwork/contao-jobs-bundle
  */
 
+use Contao\Input;
+use Contao\System;
 use Contao\Backend;
 use Contao\BackendUser;
-use Contao\CoreBundle\Exception\AccessDeniedException;
-use Contao\Input;
 use ManiaxAtWork\ContaoJobsBundle;
-use Contao\System;
+use Contao\CoreBundle\Exception\AccessDeniedException;
+
 
 // Dynamically add the permission check and other callbacks
 if (Input::get('do') == 'jobs')

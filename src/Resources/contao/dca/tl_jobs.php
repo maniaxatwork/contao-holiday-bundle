@@ -12,20 +12,20 @@ declare(strict_types=1);
  * @link https://github.com/maniaxatwork/contao-jobs-bundle
  */
 
-use Contao\Backend;
-use Contao\BackendUser;
-use Contao\Config;
-use Contao\CoreBundle\Exception\AccessDeniedException;
-use Contao\CoreBundle\Security\ContaoCorePermissions;
-use Contao\DataContainer;
-use Contao\DC_Table;
 use Contao\Input;
-use Contao\LayoutModel;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobs;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
-use Contao\PageModel;
+use Contao\Config;
 use Contao\System;
+use Contao\Backend;
+use Contao\DC_Table;
+use Contao\PageModel;
+use Contao\BackendUser;
+use Contao\LayoutModel;
+use Contao\DataContainer;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobs;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
+use Contao\CoreBundle\Security\ContaoCorePermissions;
+use Contao\CoreBundle\Exception\AccessDeniedException;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
 
 System::loadLanguageFile('tl_content');
 

@@ -15,9 +15,6 @@ declare(strict_types=1);
 namespace ManiaxAtWork\ContaoJobsBundle\Tests\Picker;
 
 use Contao\CoreBundle\Picker\PickerConfig;
-use ManiaxAtWork\ContaoJobsArchiveModel;
-use ManiaxAtWork\ContaoJobsBundle\Picker\JobsPickerProvider;
-use ManiaxAtWork\ContaoJobsModel;
 use Contao\TestCase\ContaoTestCase;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
@@ -25,6 +22,9 @@ use Knp\Menu\MenuItem;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
+use ManiaxAtWork\ContaoJobsBundle\Picker\JobsPickerProvider;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 
 class JobsPickerProviderTest extends ContaoTestCase
 {

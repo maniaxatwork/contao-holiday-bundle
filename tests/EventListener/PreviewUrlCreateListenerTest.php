@@ -16,11 +16,11 @@ namespace ManiaxAtWork\ContaoJobsBundle\Tests\EventListener;
 
 use Contao\CoreBundle\Event\PreviewUrlCreateEvent;
 use Contao\CoreBundle\Framework\ContaoFramework;
-use ManiaxAtWork\ContaoJobsBundle\EventListener\PreviewUrlCreateListener;
-use ManiaxAtWork\ContaoJobsModel;
 use Contao\TestCase\ContaoTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use ManiaxAtWork\ContaoJobsBundle\EventListener\PreviewUrlCreateListener;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 
 class PreviewUrlCreateListenerTest extends ContaoTestCase
 {

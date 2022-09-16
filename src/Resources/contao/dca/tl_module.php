@@ -12,12 +12,12 @@ declare(strict_types=1);
  * @link https://github.com/maniaxatwork/contao-jobs-bundle
  */
 
+use Contao\System;
 use Contao\Backend;
-use Contao\BackendUser;
 use Contao\Controller;
+use Contao\BackendUser;
 use Contao\DataContainer;
 use ManiaxAtWork\ContaoJobsBundle\Security\ContaoJobsPermissions;
-use Contao\System;
 
 // Add a palette selector
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'jobs_format';

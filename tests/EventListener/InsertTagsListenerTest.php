@@ -14,11 +14,10 @@ declare(strict_types=1);
 
 namespace ManiaxAtWork\ContaoJobsBundle\Tests\EventListener;
 
-use ManiaxAtWork\ContaoJobs;
-use ManiaxAtWork\ContaoJobsBundle\EventListener\InsertTagsListener;
-use ManiaxAtWork\ContaoJobsFeedModel;
-use ManiaxAtWork\ContaoJobsModel;
 use Contao\TestCase\ContaoTestCase;
+use ManiaxAtWork\ContaoJobsBundle\EventListener\InsertTagsListener;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobs;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 
 class InsertTagsListenerTest extends ContaoTestCase
 {

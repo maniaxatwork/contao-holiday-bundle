@@ -21,8 +21,8 @@ use Contao\UserModel;
 use Contao\FilesModel;
 use Contao\StringUtil;
 use Contao\Environment;
-use Symfony\Component\HttpFoundation\Request;
 use Contao\Image\Image;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 

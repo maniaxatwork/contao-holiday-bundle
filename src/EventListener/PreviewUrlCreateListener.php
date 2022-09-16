@@ -16,9 +16,9 @@ namespace ManiaxAtWork\ContaoJobsBundle\EventListener;
 
 use Contao\CoreBundle\Event\PreviewUrlCreateEvent;
 use Contao\CoreBundle\Framework\ContaoFramework;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 
 /**
  * @internal

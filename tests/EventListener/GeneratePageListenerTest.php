@@ -18,10 +18,10 @@ use Contao\CoreBundle\Framework\Adapter;
 use Contao\Environment;
 use Contao\LayoutModel;
 use Contao\Model\Collection;
-use ManiaxAtWork\ContaoJobsBundle\EventListener\GeneratePageListener;
 use Contao\PageModel;
 use Contao\Template;
 use Contao\TestCase\ContaoTestCase;
+use ManiaxAtWork\ContaoJobsBundle\EventListener\GeneratePageListener;
 
 class GeneratePageListenerTest extends ContaoTestCase
 {

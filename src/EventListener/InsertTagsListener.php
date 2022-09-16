@@ -15,9 +15,9 @@ declare(strict_types=1);
 namespace ManiaxAtWork\ContaoJobsBundle\EventListener;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\StringUtil;
 use ManiaxAtWork\ContaoJobsBundle\ContaoJobs;
 use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
-use Contao\StringUtil;
 
 /**
  * @internal
