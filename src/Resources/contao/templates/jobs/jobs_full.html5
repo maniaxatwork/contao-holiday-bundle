@@ -33,4 +33,4 @@
 
 <?php
 
-$this->addSchemaOrg($schemaOrg);
+$this->addSchemaOrg($this->getSchemaOrgData());

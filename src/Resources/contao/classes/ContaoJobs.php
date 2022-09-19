@@ -23,6 +23,8 @@ use Contao\StringUtil;
 use Contao\Environment;
 use Contao\Image\Image;
 use Contao\Image\ResizeConfiguration;
+use Contao\Image\PictureConfiguration;
+use Contao\Image\PictureConfigurationItem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
@@ -198,7 +200,9 @@ class ContaoJobs extends Frontend
 	 */
 	public static function getSchemaOrgData(ContaoJobsModel $objArticle): array
 	{
-		$htmlDecoder = System::getContainer()->get('contao.string.html_decoder');
+        $container = System::getContainer();
+		$htmlDecoder = $container->get('contao.string.html_decoder');
+        $rootDir = $container->getParameter('kernel.project_dir');
 
 		$jsonLd = array(
 			'@type' => 'JobPosting',
@@ -229,12 +233,36 @@ class ContaoJobs extends Frontend
 
         if ($objArticle->addImage)
 		{
-            $image = System::getContainer()->pictureFactory->create(
-                $objArticle->singleSRC,
-                [700, 700, ResizeConfiguration::MODE_PROPORTIONAL]
-            );
 
-            $jsonLd['hiringOrganization']['logo'] = Environment::get('url').'/'.$image->path;
+            $uuid = $objArticle->singleSRC;
+
+            if (null !== $uuid && '' !== $uuid) {
+                $image = FilesModel::findByUuid($uuid);
+
+
+                $staticUrl = $container->get('contao.assets.files_context')->getStaticUrl();
+
+                $imageConfigItem = new PictureConfigurationItem();
+                $resizeConfig = new ResizeConfiguration();
+                $pictureConfiguration = new PictureConfiguration();
+
+                // Set sizes
+                $resizeConfig->setWidth(700);
+                $resizeConfig->setHeight(700);
+                $resizeConfig->setZoomLevel(100);
+                $resizeConfig->setMode(ResizeConfiguration::MODE_PROPORTIONAL);
+                $pictureConfiguration->setSize($imageConfigItem->setResizeConfig($resizeConfig));
+
+                // Create Contao picture factory object
+                $picture = $container->get('contao.image.picture_factory')->create(
+                    $rootDir.'/'.$image->path,
+                    $pictureConfiguration
+                );
+
+                $imgSrc = $picture->getImg($rootDir, $staticUrl)['src'];
+
+                $jsonLd['hiringOrganization']['logo'] = Environment::get('url').'/'.$imgSrc;
+            }
 		}
 
         $jsonLd['baseSalary'] = array(
