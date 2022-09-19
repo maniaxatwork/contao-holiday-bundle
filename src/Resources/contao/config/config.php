@@ -12,13 +12,12 @@
 
 use Contao\ListWizard;
 use Contao\TableWizard;
-use Contao\ModuleJobsList;
-use Contao\ModuleJobsMenu;
-use Contao\ModuleJobsReader;
-use Contao\ModuleJobsArchive;
 use ManiaxAtWork\ContaoJobsBundle\ContaoJobs;
 use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
+use ManiaxAtWork\ContaoJobsBundle\ModuleContaoJobsList;
+use ManiaxAtWork\ContaoJobsBundle\ModuleContaoJobsMenu;
 use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
+use ManiaxAtWork\ContaoJobsBundle\ModuleContaoJobsReader;
 
 // Back end modules
 $GLOBALS['BE_MOD']['content']['jobs'] = array
