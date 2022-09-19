@@ -31,10 +31,10 @@ $GLOBALS['BE_MOD']['content']['jobs'] = array
 // Front end modules
 $GLOBALS['FE_MOD']['jobs'] = array
 (
-	'jobslist'    => ModuleJobsList::class,
-	'jobsreader'  => ModuleJobsReader::class,
-	'jobsarchive' => ModuleJobsArchive::class,
-	'jobsmenu'    => ModuleJobsMenu::class
+	'jobslist'    => ModuleContaoJobsList::class,
+	'jobsreader'  => ModuleContaoJobsReader::class,
+	'jobsarchive' => ModuleContaoJobsArchive::class,
+	'jobsmenu'    => ModuleContaoJobsMenu::class
 );
 
 // Register hooks

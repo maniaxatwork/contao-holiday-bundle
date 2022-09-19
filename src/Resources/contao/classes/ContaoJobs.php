@@ -22,6 +22,7 @@ use Contao\FilesModel;
 use Contao\StringUtil;
 use Contao\Environment;
 use Contao\Image\Image;
+use Contao\Image\ResizeConfiguration;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
@@ -146,7 +147,7 @@ class ContaoJobs extends Frontend
 	/**
 	 * Generate a URL and return it as string
 	 *
-	 * @param JobsModel $objItem
+	 * @param ContaoJobsModel $objItem
 	 * @param boolean   $blnAddArchive
 	 * @param boolean   $blnAbsolute
 	 *
@@ -160,21 +161,6 @@ class ContaoJobs extends Frontend
 		if (isset(self::$arrUrlCache[$strCacheKey]))
 		{
 			return self::$arrUrlCache[$strCacheKey];
-		}
-
-		// Initialize the cache
-		self::$arrUrlCache[$strCacheKey] = null;
-
-		switch ($objItem->source)
-		{
-			// Link to an internal page
-			case 'internal':
-				if (($objTarget = $objItem->getRelated('jumpTo')) instanceof PageModel)
-				{
-					/** @var PageModel $objTarget */
-					self::$arrUrlCache[$strCacheKey] = StringUtil::ampersand($blnAbsolute ? $objTarget->getAbsoluteUrl() : $objTarget->getFrontendUrl());
-				}
-				break;
 		}
 
 		// Link to the default page
@@ -206,7 +192,7 @@ class ContaoJobs extends Frontend
 	/**
 	 * Return the schema.org data from a jobs article
 	 *
-	 * @param JobsModel $objArticle
+	 * @param ContaoJobsModel $objArticle
 	 *
 	 * @return array
 	 */
@@ -217,41 +203,61 @@ class ContaoJobs extends Frontend
 		$jsonLd = array(
 			'@type' => 'JobPosting',
             'title' => $htmlDecoder->inputEncodedToPlainText($objArticle->headline),
-            "employmentType" => $objArticle->id,
+            'employmentType' => $objArticle->id,
 			'identifier' => '#/schema/news/' . $objArticle->id,
 			'url' => self::generateJobsUrl($objArticle),
-			'datePosted' => date('Y-m-d\TH:i:sP', $objArticle->date),
-
+			'datePosted' => date('Y-m-d\TH:i:sP', $objArticle->datePosted),
+            'employmentType' => $objArticle->employmentType,
+            'workHours' => $objArticle->workHours,
 		);
 
-		if ($objArticle->teaser)
+		if ($objArticle->shortDescription)
 		{
-			$jsonLd['description'] = $htmlDecoder->htmlToPlainText($objArticle->teaser);
-		}
-        if ($objArticle->enddate)
-		{
-			$jsonLd['validThrough'] = date('Y-m-d\TH:i:sP', $objArticle->enddate);
+			$jsonLd['description'] = $htmlDecoder->htmlToPlainText($objArticle->shortDescription);
 		}
 
-		/** @var UserModel $objAuthor */
-		if (($objAuthor = $objArticle->getRelated('author')) instanceof UserModel)
+        if ($objArticle->validThrough)
 		{
-			$jsonLd['hiringOrganization'] = array(
-				'@type' => 'Organization',
-				'name' => $objArticle->organization,
-                'sameAs' => $objArticle->organizationUrl
-			);
-
-            $uuid = $objArticle->logo;
-            if (null !== $uuid && '' !== $uuid) {
-                $image = FilesModel::findByUuid($uuid);
-
-                $img = Image::get($image, 700, 700, 'proportional');
-                $jsonLd['hiringOrganization']['logo'] = Environment::get('url').'/'.$img->path;
-            }
+			$jsonLd['validThrough'] = date('Y-m-d\TH:i:sP', $objArticle->validThrough);
 		}
 
+        $jsonLd['hiringOrganization'] = array(
+            '@type' => 'Organization',
+            'name' => $objArticle->hiringName,
+            'sameAs' => $objArticle->hiringURL
+        );
 
+        if ($objArticle->addImage)
+		{
+            $image = System::getContainer()->pictureFactory->create(
+                $objArticle->singleSRC,
+                [700, 700, ResizeConfiguration::MODE_PROPORTIONAL]
+            );
+
+            $jsonLd['hiringOrganization']['logo'] = Environment::get('url').'/'.$image->path;
+		}
+
+        $jsonLd['baseSalary'] = array(
+            '@type' => 'MonetaryAmount',
+            'currency' => $objArticle->baseSalaryCurrency,
+            'value' => [
+                '@type'=> 'QuantitativeValue',
+                'value' => $objArticle->baseSalaryValue,
+                'unitText' => $objArticle->baseSalaryunitText,
+            ]
+        );
+
+        $jsonLd['jobLocation'] = array(
+            '@type' => 'Place',
+            'address' => [
+                '@type'=> 'PostalAddress',
+                'streetAddress'=> $objArticle->jobLocationStreet,
+                'addressLocality'=> $objArticle->jobLocationPostalCode,
+                'postalCode'=> $objArticle->jobLocationPostalCode,
+                'addressRegion'=> $objArticle->jobLocationRegion,
+                'addressCountry'=> $objArticle->jobLocationCountry,
+            ]
+        );
 
 		return $jsonLd;
 	}
@@ -259,7 +265,7 @@ class ContaoJobs extends Frontend
 	/**
 	 * Return the link of a jobs article
 	 *
-	 * @param JobsModel $objItem
+	 * @param ContaoJobsModel $objItem
 	 * @param string    $strUrl
 	 * @param string    $strBase
 	 *
@@ -267,17 +273,6 @@ class ContaoJobs extends Frontend
 	 */
 	protected function getLink($objItem, $strUrl, $strBase='')
 	{
-		switch ($objItem->source)
-		{
-			// Link to an internal page
-			case 'internal':
-				if (($objTarget = $objItem->getRelated('jumpTo')) instanceof PageModel)
-				{
-					/** @var PageModel $objTarget */
-					return $objTarget->getAbsoluteUrl();
-				}
-				break;
-		}
 
 		// Backwards compatibility (see #8329)
 		if ($strBase && !preg_match('#^https?://#', $strUrl))

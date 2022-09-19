@@ -60,12 +60,12 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
     'list'        => array(
         'sorting'           => array(
             'mode'        => DataContainer::MODE_PARENT,
-            'fields'      => array('date'),
-            'headerFields'=> array('title', 'jumpTo', 'tstamp', 'protected'),
+            'fields'      => array('datePosted'),
+            'headerFields'=> array('title', 'tstamp', 'protected'),
             'panelLayout' => 'filter;sort,search,limit'
         ),
         'label'             => array(
-            'fields' => array('headline', 'date', 'time'),
+            'fields' => array('headline', 'datePosted', 'time'),
             'format' => '%s <span style="color:#999;padding-left:3px">[%s %s]</span>',
         ),
         'global_operations' => array(
@@ -111,14 +111,14 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
     ),
     // Palettes
     'palettes'    => array(
-        '__selector__' => array('source', 'addImage', 'overwriteMeta'),
-        'default'      => '{title_legend},headline,alias,author;{date_legend},date;{source_legend:hide},source;{meta_legend},pageTitle,robots,description,serpPreview;{teaser_legend},subheadline,teaser;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
-		'internal'     => '{title_legend},headline,alias,author;{date_legend},date;{source_legend},source,jumpTo;{teaser_legend},subheadline,teaser;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        '__selector__' => array('addImage', 'overwriteMeta'),
+        'default'      => '{title_legend},headline,alias;{date_legend},datePosted,validThrough;{meta_legend},pageTitle,robots,description,serpPreview;{job_legend},shortDescription, employmentType, workHours, jobLocationStreet, jobLocationPostalCode, jobLocationRegion, jobLocationCountry;{salary_legend},baseSalaryCurrency, ,baseSalaryValue, ,baseSalaryUnitText;{image_legend},addImage;{hiringOrganization_legend},hiringName, hiringURL;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+		'internal'     => '{title_legend},headline,alias;{date_legend},datePosted,validThrough;{job_legend},shortDescription, employmentType, workHours, jobLocationStreet, jobLocationPostalCode, jobLocationRegion, jobLocationCountry;{salary_legend},baseSalaryCurrency, ,baseSalaryValue, ,baseSalaryUnitText;{image_legend},addImage;{hiringOrganization_legend},hiringName, hiringURL;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
 	),
     // Subpalettes
     'subpalettes' => array(
-        'addImage'     => 'singleSRC,size,floating,imagemargin,fullsize,overwriteMeta',
-        'overwriteMeta'=> 'alt,imageTitle,imageUrl,caption'
+        'addImage'     => 'singleSRC,overwriteMeta',
+        'overwriteMeta'=> 'alt,imageTitle'
     ),
     // Fields
     'fields'      => array(
@@ -154,20 +154,7 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 			),
 			'sql'                     => "varchar(255) BINARY NOT NULL default ''"
 		),
-		'author' => array (
-			'default'                 => BackendUser::getInstance()->id,
-			'exclude'                 => true,
-			'search'                  => true,
-			'filter'                  => true,
-			'sorting'                 => true,
-			'flag'                    => DataContainer::SORT_ASC,
-			'inputType'               => 'select',
-			'foreignKey'              => 'tl_user.name',
-			'eval'                    => array('doNotCopy'=>true, 'chosen'=>true, 'mandatory'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "int(10) unsigned NOT NULL default 0",
-			'relation'                => array('type'=>'hasOne', 'load'=>'lazy')
-		),
-        'date' => array (
+        'datePosted' => array (
 			'default'                 => time(),
 			'exclude'                 => true,
 			'filter'                  => true,
@@ -180,6 +167,11 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 				array('tl_jobs', 'loadDate')
 			),
 			'sql'                     => "int(10) unsigned NOT NULL default 0"
+		),
+        'validThrough' => array (
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'date', 'doNotCopy'=>true, 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+			'sql'                     => "int(10) unsigned NULL"
 		),
         'pageTitle' => array (
 			'exclude'                 => true,
@@ -210,19 +202,75 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 			'eval'                    => array('url_callback'=>array('tl_jobs', 'getSerpUrl'), 'title_tag_callback'=>array('tl_jobs', 'getTitleTag'), 'titleFields'=>array('pageTitle', 'headline'), 'descriptionFields'=>array('description', 'teaser')),
 			'sql'                     => null
 		),
-        'subheadline' => array (
-			'exclude'                 => true,
-			'search'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>255, 'tl_class'=>'long'),
-			'sql'                     => "varchar(255) NOT NULL default ''"
-		),
-		'teaser' => array (
+		'shortDescription' => array (
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'textarea',
 			'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr'),
 			'sql'                     => "text NULL"
+		),
+        'employmentType' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'jobLocationStreet' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'jobLocationPostalCode' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'jobLocationRegion' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'jobLocationCountry' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'baseSalaryCurrency' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'baseSalaryValue' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'baseSalaryUnitText' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'workHours' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'addImage' => array (
 			'exclude'                 => true,
@@ -260,88 +308,19 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 			'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
-		'size' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['MSC']['imgSize'],
-			'exclude'                 => true,
-			'inputType'               => 'imageSize',
-			'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-			'eval'                    => array('rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
-			'options_callback' => static function ()
-			{
-				return System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance());
-			},
-			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
-		'imagemargin' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['tl_content']['imagemargin'],
-			'exclude'                 => true,
-			'inputType'               => 'trbl',
-			'options'                 => array('px', '%', 'em', 'rem'),
-			'eval'                    => array('includeBlankOption'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(128) NOT NULL default ''"
-		),
-		'imageUrl' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['tl_content']['imageUrl'],
+        'hiringName' => array (
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(2048) NOT NULL default ''"
-		),
-		'fullsize' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['tl_content']['fullsize'],
-			'exclude'                 => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'w50 m12'),
-			'sql'                     => "char(1) NOT NULL default ''"
-		),
-		'caption' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['tl_content']['caption'],
-			'exclude'                 => true,
-			'search'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>255, 'allowHtml'=>true, 'tl_class'=>'w50'),
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
-		'floating' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['tl_content']['floating'],
-			'exclude'                 => true,
-			'inputType'               => 'radioTable',
-			'options'                 => array('above', 'left', 'right', 'below'),
-			'eval'                    => array('cols'=>4, 'tl_class'=>'w50'),
-			'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-			'sql'                     => "varchar(12) NOT NULL default 'above'"
-		),
-        'jumpTo' => array (
-			'exclude'                 => true,
-			'inputType'               => 'pageTree',
-			'foreignKey'              => 'tl_page.title',
-			'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio'),
-			'sql'                     => "int(10) unsigned NOT NULL default 0",
-			'relation'                => array('type'=>'belongsTo', 'load'=>'lazy')
-		),
-		'articleId' => array (
-			'exclude'                 => true,
-			'inputType'               => 'select',
-			'options_callback'        => array('tl_jobs', 'getArticleAlias'),
-			'eval'                    => array('chosen'=>true, 'mandatory'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "int(10) unsigned NOT NULL default 0",
-			'relation'                => array('table'=>'tl_article', 'type'=>'hasOne', 'load'=>'lazy'),
-		),
-		'url' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['MSC']['url'],
+        'hiringURL' => array (
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'text',
 			'eval'                    => array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(2048) NOT NULL default ''"
-		),
-		'target' => array (
-			'label'                   => &$GLOBALS['TL_LANG']['MSC']['target'],
-			'exclude'                 => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'w50 m12'),
-			'sql'                     => "char(1) NOT NULL default ''"
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'cssClass' => array (
 			'exclude'                 => true,

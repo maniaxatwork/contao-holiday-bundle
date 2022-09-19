@@ -86,15 +86,9 @@ abstract class ModuleContaoJobs extends Module
 			$strClass = ' ' . $objArticle->cssClass . $strClass;
 		}
 
-		if ($objArticle->featured)
-		{
-			$strClass = ' featured' . $strClass;
-		}
-
 		$objTemplate->class = $strClass;
 		$objTemplate->jobsHeadline = $objArticle->headline;
 		$objTemplate->subHeadline = $objArticle->subheadline;
-		$objTemplate->hasSubHeadline = $objArticle->subheadline ? true : false;
 		$objTemplate->linkHeadline = $this->generateLink($objArticle->headline, $objArticle, $blnAddArchive);
 		$objTemplate->more = $this->generateLink($GLOBALS['TL_LANG']['MSC']['more'], $objArticle, $blnAddArchive, true);
 		$objTemplate->link = ContaoJobs::generateJobsUrl($objArticle, $blnAddArchive);
@@ -109,16 +103,8 @@ abstract class ModuleContaoJobs extends Module
 		if ($objArticle->teaser)
 		{
 			$objTemplate->hasTeaser = true;
-			$objTemplate->teaser = $objArticle->teaser;
-			$objTemplate->teaser = StringUtil::encodeEmail($objTemplate->teaser);
-		}
-
-		// Display the "read more" button for external/article links
-		if ($objArticle->source != 'default')
-		{
-			$objTemplate->text = true;
-			$objTemplate->hasText = true;
-			$objTemplate->hasReader = false;
+			$objTemplate->shortDescription = $objArticle->shortDescription;
+			$objTemplate->shortDescription = StringUtil::encodeEmail($objTemplate->shortDescription);
 		}
 
 		// Compile the jobs text
@@ -153,9 +139,8 @@ abstract class ModuleContaoJobs extends Module
 		// Add the meta information
 		$objTemplate->date = $arrMeta['date'] ?? null;
 		$objTemplate->hasMetaFields = !empty($arrMeta);
-		$objTemplate->timestamp = $objArticle->date;
-		$objTemplate->author = $arrMeta['author'] ?? null;
-		$objTemplate->datetime = date('Y-m-d\TH:i:sP', $objArticle->date);
+		$objTemplate->timestamp = $objArticle->datePosted;
+		$objTemplate->datetime = date('Y-m-d\TH:i:sP', $objArticle->datePosted);
 		$objTemplate->addImage = false;
 		$objTemplate->addBefore = false;
 
@@ -182,12 +167,6 @@ abstract class ModuleContaoJobs extends Module
 				->setSize($imgSize)
 				->setMetadata($objArticle->getOverwriteMetadata())
 				->enableLightbox((bool) $objArticle->fullsize);
-
-			// If the external link is opened in a new window, open the image link in a new window as well (see #210)
-			if ('external' === $objTemplate->source && $objTemplate->target)
-			{
-				$figureBuilder->setLinkAttribute('target', '_blank');
-			}
 
 			if (null !== ($figure = $figureBuilder->buildIfResourceExists()))
 			{
@@ -312,17 +291,8 @@ abstract class ModuleContaoJobs extends Module
 		{
 			switch ($field)
 			{
-				case 'date':
-					$return['date'] = Date::parse($objPage->datimFormat, $objArticle->date);
-					break;
-
-				case 'author':
-					/** @var UserModel $objAuthor */
-					if (($objAuthor = $objArticle->getRelated('author')) instanceof UserModel)
-					{
-						$return['author'] = $GLOBALS['TL_LANG']['MSC']['by'] . ' ' . $objAuthor->name;
-						$return['authorModel'] = $objAuthor;
-					}
+				case 'datePosted':
+					$return['datePosted'] = Date::parse($objPage->datimFormat, $objArticle->datePosted);
 					break;
 			}
 		}

@@ -237,15 +237,6 @@ class ContaoJobsModel extends Model
 		$t = static::$strTable;
 		$arrColumns = array("$t.pid IN(" . implode(',', array_map('\intval', $arrPids)) . ")");
 
-		if ($blnFeatured === true)
-		{
-			$arrColumns[] = "$t.featured='1'";
-		}
-		elseif ($blnFeatured === false)
-		{
-			$arrColumns[] = "$t.featured=''";
-		}
-
 		if (!static::isPreviewMode($arrOptions))
 		{
 			$time = Date::floorToMinute();
@@ -254,7 +245,7 @@ class ContaoJobsModel extends Model
 
 		if (!isset($arrOptions['order']))
 		{
-			$arrOptions['order']  = "$t.date DESC";
+			$arrOptions['order']  = "$t.datePosted DESC";
 		}
 
 		$arrOptions['limit']  = $intLimit;
@@ -282,15 +273,6 @@ class ContaoJobsModel extends Model
 		$t = static::$strTable;
 		$arrColumns = array("$t.pid IN(" . implode(',', array_map('\intval', $arrPids)) . ")");
 
-		if ($blnFeatured === true)
-		{
-			$arrColumns[] = "$t.featured='1'";
-		}
-		elseif ($blnFeatured === false)
-		{
-			$arrColumns[] = "$t.featured=''";
-		}
-
 		if (!static::isPreviewMode($arrOptions))
 		{
 			$time = Date::floorToMinute();
@@ -311,7 +293,7 @@ class ContaoJobsModel extends Model
 	public static function findPublishedDefaultByPid($intPid, array $arrOptions=array())
 	{
 		$t = static::$strTable;
-		$arrColumns = array("$t.pid=? AND $t.source='default'");
+		$arrColumns = array("$t.pid=?");
 
 		if (!static::isPreviewMode($arrOptions))
 		{
@@ -321,7 +303,7 @@ class ContaoJobsModel extends Model
 
 		if (!isset($arrOptions['order']))
 		{
-			$arrOptions['order'] = "$t.date DESC";
+			$arrOptions['order'] = "$t.datePosted DESC";
 		}
 
 		return static::findBy($arrColumns, $intPid, $arrOptions);
@@ -349,7 +331,7 @@ class ContaoJobsModel extends Model
 
 		if (!isset($arrOptions['order']))
 		{
-			$arrOptions['order'] = "$t.date DESC";
+			$arrOptions['order'] = "$t.datePosted DESC";
 		}
 
 		if ($intLimit > 0)
@@ -380,7 +362,7 @@ class ContaoJobsModel extends Model
 		}
 
 		$t = static::$strTable;
-		$arrColumns = array("$t.date>=? AND $t.date<=? AND $t.pid IN(" . implode(',', array_map('\intval', $arrPids)) . ")");
+		$arrColumns = array("$t.datePosted>=? AND $t.datePosted<=? AND $t.pid IN(" . implode(',', array_map('\intval', $arrPids)) . ")");
 
 		if (!static::isPreviewMode($arrOptions))
 		{
@@ -390,7 +372,7 @@ class ContaoJobsModel extends Model
 
 		if (!isset($arrOptions['order']))
 		{
-			$arrOptions['order']  = "$t.date DESC";
+			$arrOptions['order']  = "$t.datePosted DESC";
 		}
 
 		$arrOptions['limit']  = $intLimit;
@@ -417,7 +399,7 @@ class ContaoJobsModel extends Model
 		}
 
 		$t = static::$strTable;
-		$arrColumns = array("$t.date>=? AND $t.date<=? AND $t.pid IN(" . implode(',', array_map('\intval', $arrPids)) . ")");
+		$arrColumns = array("$t.datePosted>=? AND $t.datePosted<=? AND $t.pid IN(" . implode(',', array_map('\intval', $arrPids)) . ")");
 
 		if (!static::isPreviewMode($arrOptions))
 		{

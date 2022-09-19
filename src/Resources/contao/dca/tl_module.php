@@ -63,10 +63,10 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['jobs_metaFields'] = array
 (
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'options'                 => array('date', 'author'),
+	'options'                 => array('datePosted'),
 	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
 	'eval'                    => array('multiple'=>true),
-	'sql'                     => "varchar(255) COLLATE ascii_bin NOT NULL default 'a:2:{i:0;s:4:\"date\";i:1;s:6:\"author\";}'"
+	'sql'                     => "varchar(255) COLLATE ascii_bin NOT NULL default 'a:2:{i:0;s:4:\"datePosted\";}'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['jobs_template'] = array

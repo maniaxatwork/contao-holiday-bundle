@@ -216,11 +216,11 @@ class ModuleJobsArchive extends ModuleContaoJobs
 				break;
 
 			case 'order_date_asc':
-				$arrOptions['order'] = "$t.date";
+				$arrOptions['order'] = "$t.datePosted";
 				break;
 
 			default:
-				$arrOptions['order'] = "$t.date DESC";
+				$arrOptions['order'] = "$t.datePosted DESC";
 		}
 
 		// Get the jobs items

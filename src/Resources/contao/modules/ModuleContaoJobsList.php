@@ -29,7 +29,7 @@ use Contao\CoreBundle\Exception\PageNotFoundException;
  * @property string $jobs_featured
  * @property string $jobs_order
  */
-class ModuleJobsList extends ModuleContaoJobs
+class ModuleContaoJobsList extends ModuleContaoJobs
 {
 	/**
 	 * Template
@@ -252,11 +252,11 @@ class ModuleJobsList extends ModuleContaoJobs
 				break;
 
 			case 'order_date_asc':
-				$order .= "$t.date";
+				$order .= "$t.datePosted";
 				break;
 
 			default:
-				$order .= "$t.date DESC";
+				$order .= "$t.datePosted DESC";
 		}
 
 		return ContaoJobsModel::findPublishedByPids($jobsArchives, $blnFeatured, $limit, $offset, array('order'=>$order));
