@@ -26,6 +26,7 @@ use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 use Contao\CoreBundle\Security\ContaoCorePermissions;
 use Contao\CoreBundle\Exception\AccessDeniedException;
 use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
+use Symfony\Component\Intl\Currencies;
 
 System::loadLanguageFile('tl_content');
 
@@ -111,14 +112,16 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
     ),
     // Palettes
     'palettes'    => array(
-        '__selector__' => array('addImage', 'overwriteMeta'),
-        'default'      => '{title_legend},headline,alias;{date_legend},datePosted,validThrough;{meta_legend},pageTitle,robots,description,serpPreview;{job_legend},shortDescription, employmentType, workHours, jobLocationStreet, jobLocationPostalCode, jobLocationRegion, jobLocationCountry;{salary_legend},baseSalaryCurrency, ,baseSalaryValue, ,baseSalaryUnitText;{image_legend},addImage;{hiringOrganization_legend},hiringName, hiringURL;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
-		'internal'     => '{title_legend},headline,alias;{date_legend},datePosted,validThrough;{job_legend},shortDescription, employmentType, workHours, jobLocationStreet, jobLocationPostalCode, jobLocationRegion, jobLocationCountry;{salary_legend},baseSalaryCurrency, ,baseSalaryValue, ,baseSalaryUnitText;{image_legend},addImage;{hiringOrganization_legend},hiringName, hiringURL;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        '__selector__' => array('addImage', 'addSalary', 'addEnclosure', 'overwriteMeta'),
+        'default'      => '{title_legend},headline,alias;{date_legend},datePosted,validThrough;{meta_legend},pageTitle,robots,description,serpPreview;{job_legend},shortDescription, employmentType, workHours, jobLocationStreet, jobLocationPostalCode, jobLocationCity, jobLocationRegion, jobLocationCountry;{salary_legend},addSalary;{image_legend},addImage;{enclosure_legend:hide},addEnclosure;{hiringOrganization_legend},hiringName, hiringURL;{apply_legend},directApply;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+		'internal'     => '{title_legend},headline,alias;{date_legend},datePosted,validThrough;{job_legend},shortDescription, employmentType, workHours, jobLocationStreet, jobLocationPostalCode, jobLocationCity, jobLocationRegion, jobLocationCountry;{salary_legend},addSalary;{image_legend},addImage;{enclosure_legend:hide},addEnclosure;{hiringOrganization_legend},hiringName, hiringURL;{apply_legend},directApply;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
 	),
     // Subpalettes
     'subpalettes' => array(
-        'addImage'     => 'singleSRC,overwriteMeta',
-        'overwriteMeta'=> 'alt,imageTitle'
+        'addSalary'     => 'baseSalaryCurrency, baseSalaryValue, baseSalaryUnitText',
+        'addImage'     	=> 'singleSRC,overwriteMeta',
+        'overwriteMeta'	=> 'alt,imageTitle',
+		'addEnclosure'	=> 'enclosure',
     ),
     // Fields
     'fields'      => array(
@@ -209,12 +212,36 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 			'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr'),
 			'sql'                     => "text NULL"
 		),
-        'employmentType' => array (
+        'shortDescription' => array (
 			'exclude'                 => true,
 			'search'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(255) NOT NULL default ''"
+			'inputType'               => 'textarea',
+			'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr'),
+			'sql'                     => "text NULL"
+		),
+        'shortDescription' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'textarea',
+			'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr'),
+			'sql'                     => "text NULL"
+		),
+        'shortDescription' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'textarea',
+			'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr'),
+			'sql'                     => "text NULL"
+		),
+        'employmentType' => array (
+			'exclude'                 => true,
+            'filter'                  => true,
+			'inputType'               => 'select',
+            'default'                 => 'FULL_TIME',
+            'options'                 => ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY', 'INTERN', 'VOLUNTEER', 'PER_DIEM', 'OTHER'],
+			'eval'                    => array('includeBlankOption' => true, 'mandatory'=>true, 'tl_class'=>'w50','multiple' => true, 'chosen' => true),
+            'reference'               => &$GLOBALS['TL_LANG']['tl_jobs']['employmentTypes'],
+            'sql'                     => "varchar(255) NOT NULL default ''",
 		),
         'jobLocationStreet' => array (
 			'exclude'                 => true,
@@ -224,6 +251,13 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
         'jobLocationPostalCode' => array (
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50 clr'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+        'jobLocationCity' => array (
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'text',
@@ -244,26 +278,48 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
+		'addEnclosure' => array
+		(
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('submitOnChange'=>true),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
+		'enclosure' => array
+		(
+			'exclude'                 => true,
+			'inputType'               => 'fileTree',
+			'eval'                    => array('multiple'=>true, 'fieldType'=>'checkbox', 'filesOnly'=>true, 'isDownloads'=>true, 'extensions'=>Config::get('allowedDownload'), 'mandatory'=>true),
+			'sql'                     => "blob NULL"
+		),
+        'addSalary' => array (
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('submitOnChange'=>true),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
         'baseSalaryCurrency' => array (
 			'exclude'                 => true,
-			'search'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'inputType'               => 'select',
+            'default'                 => 'EUR',
+            'options'                 => Currencies::getNames(),
+			'eval'                    => array('chosen' => true, 'mandatory'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
         'baseSalaryValue' => array (
 			'exclude'                 => true,
-			'search'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
+			'eval'                    => array('mandatory'=>true, 'rgxp' => 'digit', 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
         'baseSalaryUnitText' => array (
 			'exclude'                 => true,
-			'search'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(255) NOT NULL default ''"
+			'inputType'               => 'select',
+            'default'                 => 'MONTH',
+            'options'                 => ['HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR'],
+			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
+            'reference'               => &$GLOBALS['TL_LANG']['tl_jobs']['baseSalaryUnitTexts'],
+            'sql'                     => "varchar(255) NOT NULL default ''",
 		),
         'workHours' => array (
 			'exclude'                 => true,
@@ -272,6 +328,12 @@ $GLOBALS['TL_DCA']['tl_jobs'] = array(
 			'eval'                    => array('maxlength'=>255, 'decodeEntities'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
+        'directApply' => array (
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class' => 'w50 m12', 'isBoolean' => true),
+            'sql'                     => "char(1) NOT NULL default true",
+        ),
 		'addImage' => array (
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',

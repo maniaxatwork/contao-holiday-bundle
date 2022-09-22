@@ -207,13 +207,13 @@ class ContaoJobs extends Frontend
 		$jsonLd = array(
 			'@type' => 'JobPosting',
             'title' => $htmlDecoder->inputEncodedToPlainText($objArticle->headline),
-            'employmentType' => $objArticle->id,
 			'identifier' => '#/schema/news/' . $objArticle->id,
-			'url' => self::generateJobsUrl($objArticle),
+			'url' => Environment::get('url').'/'.self::generateJobsUrl($objArticle),
 			'datePosted' => date('Y-m-d\TH:i:sP', $objArticle->datePosted),
-            'employmentType' => $objArticle->employmentType,
+            'employmentType' => StringUtil::deserialize($objArticle->employmentType),
             'workHours' => $objArticle->workHours,
 		);
+
 
 		if ($objArticle->shortDescription)
 		{
@@ -223,6 +223,11 @@ class ContaoJobs extends Frontend
         if ($objArticle->validThrough)
 		{
 			$jsonLd['validThrough'] = date('Y-m-d\TH:i:sP', $objArticle->validThrough);
+		}
+
+        if ($objArticle->directApply)
+		{
+			$jsonLd['directApply'] = true;
 		}
 
         $jsonLd['hiringOrganization'] = array(
@@ -271,7 +276,7 @@ class ContaoJobs extends Frontend
             'value' => [
                 '@type'=> 'QuantitativeValue',
                 'value' => $objArticle->baseSalaryValue,
-                'unitText' => $objArticle->baseSalaryunitText,
+                'unitText' => $objArticle->baseSalaryUnitText,
             ]
         );
 

@@ -88,7 +88,6 @@ abstract class ModuleContaoJobs extends Module
 
 		$objTemplate->class = $strClass;
 		$objTemplate->jobsHeadline = $objArticle->headline;
-		$objTemplate->subHeadline = $objArticle->subheadline;
 		$objTemplate->linkHeadline = $this->generateLink($objArticle->headline, $objArticle, $blnAddArchive);
 		$objTemplate->more = $this->generateLink($GLOBALS['TL_LANG']['MSC']['more'], $objArticle, $blnAddArchive, true);
 		$objTemplate->link = ContaoJobs::generateJobsUrl($objArticle, $blnAddArchive);
@@ -99,8 +98,27 @@ abstract class ModuleContaoJobs extends Module
 		$objTemplate->hasTeaser = false;
 		$objTemplate->hasReader = true;
 
+        // Job Location Address
+        $address = $objArticle->jobLocationStreet .", ". $objArticle->jobLocationPostalCode ." ". $objArticle->jobLocationCity;
+
+        if ($objArticle->jobLocationRegion)
+        {
+            $address .= " | ". $objArticle->jobLocationRegion;
+        }
+
+        if ($objArticle->jobLocationCountry)
+        {
+            if ($objArticle->jobLocationRegion)
+            {
+                $address .= ",";
+            }
+
+            $address .= " ". $objArticle->jobLocationCountry;
+        }
+        $objTemplate->address = $address;
+
 		// Clean the RTE output
-		if ($objArticle->teaser)
+		if ($objArticle->shortDescription)
 		{
 			$objTemplate->hasTeaser = true;
 			$objTemplate->shortDescription = $objArticle->shortDescription;
@@ -147,26 +165,13 @@ abstract class ModuleContaoJobs extends Module
 		// Add an image
 		if ($objArticle->addImage)
 		{
-			$imgSize = $objArticle->size ?: null;
-
-			// Override the default image size
-			if ($this->imgSize)
-			{
-				$size = StringUtil::deserialize($this->imgSize);
-
-				if ($size[0] > 0 || $size[1] > 0 || is_numeric($size[2]) || ($size[2][0] ?? null) === '_')
-				{
-					$imgSize = $this->imgSize;
-				}
-			}
-
 			$figureBuilder = System::getContainer()
 				->get('contao.image.studio')
 				->createFigureBuilder()
 				->from($objArticle->singleSRC)
-				->setSize($imgSize)
+				->setSize([400, 400, 'proportional'])
 				->setMetadata($objArticle->getOverwriteMetadata())
-				->enableLightbox((bool) $objArticle->fullsize);
+				->enableLightbox(false);
 
 			if (null !== ($figure = $figureBuilder->buildIfResourceExists()))
 			{
@@ -176,12 +181,12 @@ abstract class ModuleContaoJobs extends Module
 					$linkTitle = StringUtil::specialchars(sprintf($GLOBALS['TL_LANG']['MSC']['readMore'], $objArticle->headline), true);
 
 					$figure = $figureBuilder
-						->setLinkHref($objTemplate->link)
-						->setLinkAttribute('title', $linkTitle)
+						->setLinkHref(null)
+						->setLinkAttribute('title', null)
 						->build();
 				}
 
-				$figure->applyLegacyTemplateData($objTemplate, $objArticle->imagemargin, $objArticle->floating);
+				$figure->applyLegacyTemplateData($objTemplate);
 			}
 		}
 
