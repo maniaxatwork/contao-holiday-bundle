@@ -1,49 +1,35 @@
 <?php
 
-/*
- * This file is part of contao-jobs-bundle.
+declare(strict_types=1);
+
+/**
+ * maniax-at-work.de Contao Jobs  Bundle for Contao Open Source CMS
  *
- * (c) Stephan Buder 2022 <stephan@maniax-at-work.de>
- * @license GPL-3.0-or-later
- * For the full copyright and license information,
- * please view the LICENSE file that was distributed with this source code.
- * @link https://github.com/maniaxatwork/contao-jobs-bundle
+ * @copyright     Copyright (c) 2022, maniax-at-work.de
+ * @author        maniax-at-work.de <https://www.maniax-at-work.de>
+ * @link          https://github.com/maniaxatwork/
  */
 
-use Contao\ListWizard;
-use Contao\TableWizard;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobs;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
-use ManiaxAtWork\ContaoJobsBundle\ModuleContaoJobsList;
-use ManiaxAtWork\ContaoJobsBundle\ModuleContaoJobsMenu;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
-use ManiaxAtWork\ContaoJobsBundle\ModuleContaoJobsReader;
+use Composer\InstalledVersions;
 
-// Back end modules
-$GLOBALS['BE_MOD']['content']['jobs'] = array
-(
-	'tables'      => array('tl_jobs_archive', 'tl_jobs', 'tl_content'),
-	'table'       => array(TableWizard::class, 'importTable'),
-	'list'        => array(ListWizard::class, 'importList')
-);
+array_insert($GLOBALS['BE_MOD'], 1, [
+    'maniax_contao_jobs' => [
+        'maniax_contao_jobs_offers' => [
+            'tables' => ['tl_maniax_contao_jobs_offer', 'tl_content'],
+        ],
+        'maniax_contao_jobs_organizations' => [
+            'tables' => ['tl_maniax_contao_jobs_organization', 'tl_maniax_contao_jobs_job_location'],
+            'hideInNavigation' => true,
+        ],
+        'maniax_contao_jobs_settings_employment_type' => [
+            'tables' => ['tl_maniax_contao_jobs_settings_employment_type'],
+            'hideInNavigation' => true,
+        ],
+    ],
+]);
 
-// Front end modules
-$GLOBALS['FE_MOD']['jobs'] = array
-(
-	'jobslist'    => ModuleContaoJobsList::class,
-	'jobsreader'  => ModuleContaoJobsReader::class,
-	'jobsarchive' => ModuleContaoJobsArchive::class,
-	'jobsmenu'    => ModuleContaoJobsMenu::class
-);
+if (defined('TL_MODE') && TL_MODE == 'BE') {
+    $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaojobs/jobs.min.css|static';
+}
 
-// Register hooks
-$GLOBALS['TL_HOOKS']['getSearchablePages'][] = array(ContaoJobs::class, 'getSearchablePages');
-
-
-// Add permissions
-$GLOBALS['TL_PERMISSIONS'][] = 'jobs';
-$GLOBALS['TL_PERMISSIONS'][] = 'jobp';
-
-// Models
-$GLOBALS['TL_MODELS']['tl_jobs_archive'] = ContaoJobsArchiveModel::class;
-$GLOBALS['TL_MODELS']['tl_jobs'] = ContaoJobsModel::class;
+$GLOBALS['TL_MODELS'][Maniax\ContaoJobs\Contao\Model\ManiaxContaoJobsOfferModel::getTable()] = Maniax\ContaoJobs\Contao\Model\ManiaxContaoJobsOfferModel::class;
