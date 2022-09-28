@@ -2,40 +2,30 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+        public: false
 
-    _instanceof:
-        Contao\CoreBundle\Framework\FrameworkAwareInterface:
-            calls:
-                - [setFramework, ['@contao.framework']]
+    Maniax\ContaoJobs\:
+        resource: ../src
+        exclude: ../src/{Entity,Migrations,Resources,Tests}
 
-    contao_jobs.listener.insert_tags:
-        class: ManiaxAtWork\ContaoJobsBundle\EventListener\InsertTagsListener
+    Maniax\ContaoJobs\Helper\EmploymentType:
+        class: Maniax\ContaoJobs\Helper\EmploymentType
         arguments:
-            - '@contao.framework'
-        tags:
-            - { name: contao.hook, hook: replaceInsertTags }
-
-    contao_jobs.listener.preview_url_convert:
-        class: ManiaxAtWork\ContaoJobsBundle\EventListener\PreviewUrlConvertListener
-        arguments:
-            - '@contao.framework'
-        tags:
-            - kernel.event_listener
-
-    contao_jobs.listener.preview_url_create:
-        class: ManiaxAtWork\ContaoJobsBundle\EventListener\PreviewUrlCreateListener
-        arguments:
+            - '@translator'
+            - '@Doctrine\Persistence\ManagerRegistry'
             - '@request_stack'
-            - '@contao.framework'
-        tags:
-            - kernel.event_listener
 
-    contao_jobs.picker.jobs_provider:
-        class: ManiaxAtWork\ContaoJobsBundle\Picker\JobsPickerProvider
+    Maniax\ContaoJobs\Helper\DataTypeMapper:
+        class: Maniax\ContaoJobs\Helper\DataTypeMapper
         arguments:
-            - '@knp_menu.factory'
-            - '@router'
-            - '@?translator'
-            - '@security.helper'
-        tags:
-            - { name: contao.picker_provider, priority: 128 }
+            - '@contao.framework'
+
+    Maniax\ContaoJobs\GoogleForJobs\GoogleForJobs:
+        public: true
+        class: Maniax\ContaoJobs\GoogleForJobs\GoogleForJobs
+        arguments:
+            - '@Doctrine\Persistence\ManagerRegistry'
+            - '@contao.image.picture_factory'
+            - '@contao.assets.files_context'
+            - '@Maniax\ContaoJobs\Helper\EmploymentType'
+            - '%kernel.project_dir%'

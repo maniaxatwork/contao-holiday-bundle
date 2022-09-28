@@ -19,12 +19,12 @@ use Contao\CoreBundle\Framework\FrameworkAwareTrait;
 use Contao\CoreBundle\Picker\AbstractInsertTagPickerProvider;
 use Contao\CoreBundle\Picker\DcaPickerProviderInterface;
 use Contao\CoreBundle\Picker\PickerConfig;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsArchiveModel;
+use ManiaxAtWork\ContaoJobsBundle\ContaoJobsModel;
 
 class JobsPickerProvider extends AbstractInsertTagPickerProvider implements DcaPickerProviderInterface, FrameworkAwareInterface
 {
