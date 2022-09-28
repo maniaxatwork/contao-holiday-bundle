@@ -2,35 +2,57 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of contao-jobs-bundle.
+/**
+ * maniax-at-work.de Contao Jobs  Bundle for Contao Open Source CMS
  *
- * (c) Stephan Buder 2022 <stephan@maniax-at-work.de>
- * @license GPL-3.0-or-later
- * For the full copyright and license information,
- * please view the LICENSE file that was distributed with this source code.
- * @link https://github.com/maniaxatwork/contao-jobs-bundle
+ * @copyright     Copyright (c) 2022, maniax-at-work.de
+ * @author        maniax-at-work.de <https://www.maniax-at-work.de>
+ * @link          https://github.com/maniaxatwork/
  */
 
-namespace ManiaxAtWork\ContaoJobsBundle\ContaoManager;
+namespace Maniax\ContaoJobs\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use ManiaxAtWork\ContaoJobsBundle\ContaoJobsBundle;
+use Contao\ManagerPlugin\Routing\RoutingPluginInterface;
+use Exception;
+use Maniax\ContaoJobs\ManiaxContaoJobsBundle;
+use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\Config\Loader\LoaderResolverInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Routing\RouteCollection;
 
 /**
  * Class Plugin
  */
-class Plugin implements BundlePluginInterface
+class Plugin implements BundlePluginInterface, RoutingPluginInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getBundles(ParserInterface $parser): array
     {
         return [
-            BundleConfig::create(ContaoJobsBundle::class)
-            ->setLoadAfter([ContaoCoreBundle::class])
-            ->setReplace(['jobs']),
+            BundleConfig::create(ManiaxContaoJobsBundle::class)
+            ->setLoadAfter([ContaoCoreBundle::class]),
         ];
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig): void
+    {
+        $loader->load('@ManiaxContaoJobsBundle/Resources/config/config.yaml');
+    }
+
+    public function getRouteCollection(LoaderResolverInterface $resolver, KernelInterface $kernel)
+    {
+        return $resolver
+            ->resolve('@ManiaxContaoJobsBundle/Resources/config/routing.yaml')
+            ->load('@ManiaxContaoJobsBundle/Resources/config/routing.yaml')
+            ;
     }
 }
