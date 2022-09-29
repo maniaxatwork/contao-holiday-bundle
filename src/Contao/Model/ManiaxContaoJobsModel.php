@@ -4,11 +4,11 @@ namespace Maniax\ContaoJobs\Contao\Model;
 
 use Contao\Model;
 
-class ContaoJobsModel extends Model
+class ManiaxContaoJobsOfferModel extends Model
 {
 	/**
 	 * Table name
 	 * @var string
 	 */
-	protected static $strTable = 'tl_maniax_contao_jobs';
+	protected static $strTable = 'tl_maniax_Contao_jobs_offer';
 }
