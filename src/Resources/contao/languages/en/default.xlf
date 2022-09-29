@@ -1,36 +1,55 @@
-<?xml version="1.0" ?><xliff version="1.1">
-  <file datatype="php" original="src/Resources/contao/languages/en/default.php" source-language="en" target-language="de">
-    <body>
-      <trans-unit id="MSC.open">
-        <source>Read more on %s</source>
-      </trans-unit>
-      <trans-unit id="MSC.author">
-        <source>Author</source>
-      </trans-unit>
-      <trans-unit id="MSC.by">
-        <source>by</source>
-      </trans-unit>
-      <trans-unit id="MSC.empty">
-        <source>There are no jobs items for this period.</source>
-      </trans-unit>
-      <trans-unit id="MSC.emptyList">
-        <source>Currently there are no jobs items.</source>
-      </trans-unit>
-      <trans-unit id="MSC.jobs_items">
-        <source>%d item(s)</source>
-      </trans-unit>
-      <trans-unit id="MSC.jobs_previous">
-        <source>&amp;lt;</source>
-      </trans-unit>
-      <trans-unit id="MSC.jobs_next">
-        <source>&amp;gt;</source>
-      </trans-unit>
-      <trans-unit id="MSC.jobsPicker">
-        <source>Jobs</source>
-      </trans-unit>
-      <trans-unit id="MSC.jobsOverview">
-        <source>Back to the jobs overview</source>
-      </trans-unit>
-    </body>
-  </file>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.FULL_TIME">
+                <target>Full time</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.PART_TIME">
+                <target>Part time</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.CONTRACTOR">
+                <target>Contractor</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.TEMPORARY">
+                <target>Temporary</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.INTERN">
+                <target>Intern</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.VOLUNTEER">
+                <target>Volunteer</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.PER_DIEM">
+                <target>Per diem</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.OTHER">
+                <target>Other</target>
+            </trans-unit>
+            <trans-unit id="CTE.maniaxContaoJobs">
+                <target>Contao Jobs</target>
+            </trans-unit>
+            <trans-unit id="CTE.maniax_contao_jobs_job_offer_details.0">
+                <target>Job offer details</target>
+            </trans-unit>
+            <trans-unit id="CTE.maniax_contao_jobs_job_offer_details.1">
+                <target>Job offer details</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.emptyList">
+                <target>There are no jobs available at the moment.</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.DASHBOARD.documentation">
+                <target>Documentation</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.DASHBOARD.report_error">
+                <target>Report a error</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.DASHBOARD.sponsor">
+                <target>Become a sponsor</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_JOBS.remote">
+                <target>Remote</target>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>

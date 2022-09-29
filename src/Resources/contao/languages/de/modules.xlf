@@ -39,7 +39,7 @@
                 <target>Hier können Sie weitere Stellenarten konfigurieren.</target>
             </trans-unit>
             <trans-unit id="FMD.maniaxContaoJobs">
-                <target>Jobs (Basic)</target>
+                <target>Contao Jobs</target>
             </trans-unit>
             <trans-unit id="FMD.maniax_contao_jobs_offer_list.0">
                 <target>Stellenanzeigen Liste</target>

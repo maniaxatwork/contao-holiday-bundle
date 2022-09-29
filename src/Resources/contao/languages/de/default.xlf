@@ -27,7 +27,7 @@
                 <target>Andere</target>
             </trans-unit>
             <trans-unit id="CTE.maniaxContaoJobs">
-                <target>Jobs (Basic)</target>
+                <target>Contao Jobs</target>
             </trans-unit>
             <trans-unit id="CTE.maniax_contao_jobs_job_offer_details.0">
                 <target>Details zum Jobangebot</target>
