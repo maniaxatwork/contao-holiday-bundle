@@ -41,7 +41,7 @@ class TlManiaxContaoJobsOrganization extends DCADefault
 
     /**
      * @var Collection|TlManiaxContaoJobsJobLocation[]
-     * @ORM\OneToMany(targetEntity="Plenta\ContaoJobsBasic\Entity\TlManiaxContaoJobsJobLocation", mappedBy="organization")
+     * @ORM\OneToMany(targetEntity="Maniax\ContaoJobs\Entity\TlManiaxContaoJobsJobLocation", mappedBy="organization")
      */
     protected Collection $jobLocation;
 
