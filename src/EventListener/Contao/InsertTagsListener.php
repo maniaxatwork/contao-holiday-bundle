@@ -17,7 +17,6 @@ use Contao\Config;
 use Doctrine\ORM\EntityManagerInterface;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsOffer;
-use Maniax\ContaoJobs\Entity\TlPlentaContaoJobsOfferTranslation;
 
 /**
  * @Hook("replaceInsertTags")
