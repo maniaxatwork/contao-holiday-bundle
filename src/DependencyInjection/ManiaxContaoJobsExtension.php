@@ -2,17 +2,15 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of contao-jobs-bundle.
+/**
+ * maniax-at-work.de Contao Jobs Bundle for Contao Open Source CMS
  *
- * (c) Stephan Buder 2022 <stephan@maniax-at-work.de>
- * @license GPL-3.0-or-later
- * For the full copyright and license information,
- * please view the LICENSE file that was distributed with this source code.
- * @link https://github.com/maniaxatwork/contao-jobs-bundle
+ * @copyright     Copyright (c) 2022, maniax-at-work.de
+ * @author        maniax-at-work.de <https://www.maniax-at-work.de>
+ * @link          https://github.com/maniaxatwork/
  */
 
-namespace ManiaxAtWork\ContaoJobsBundle\DependencyInjection;
+namespace Maniax\ContaoJobs\DependencyInjection;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;
@@ -21,11 +19,12 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class ContaoJobsExtension extends Extension
+class ManiaxContaoJobsExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');
+        $loader->load('listener.yaml');
     }
 }
