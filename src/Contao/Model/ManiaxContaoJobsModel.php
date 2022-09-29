@@ -10,5 +10,5 @@ class ManiaxContaoJobsOfferModel extends Model
 	 * Table name
 	 * @var string
 	 */
-	protected static $strTable = 'tl_maniax_Contao_jobs_offer';
+	protected static $strTable = 'tl_maniax_contao_jobs_offer';
 }
