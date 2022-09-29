@@ -38,11 +38,11 @@ class BackendMenuListener
             return;
         }
 
-        $contentNode = $tree->getChild('plenta_jobs_basic');
+        $contentNode = $tree->getChild('maniax_contao_jobs');
 
         if (PermissionsHelper::canAccessModule('settings')) {
             $node = $factory
-                ->createItem('plenta-jobs-basic-settings')
+                ->createItem('maniax-contao-jobs-settings')
                 ->setUri($this->router->generate(SettingsController::class))
                 ->setLabel($GLOBALS['TL_LANG']['MOD']['maniax_contao_jobs_settings'][0])
                 ->setLinkAttribute('title', $GLOBALS['TL_LANG']['MOD']['maniax_contao_jobs_settings'][1])
