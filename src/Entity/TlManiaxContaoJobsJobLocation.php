@@ -16,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="Maniax\ContaoJobs\Repository\TlManiaxContaoJobsJobLocationRepository")
- * @ORM\Table(name="tl_maniax_Contao_jobs_job_location")
+ * @ORM\Table(name="tl_maniax_contao_jobs_job_location")
  */
 class TlManiaxContaoJobsJobLocation extends DCADefault
 {
