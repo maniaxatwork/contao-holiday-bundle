@@ -30,7 +30,6 @@ use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsJobLocation;
 use Maniax\ContaoJoContaoJobsbsBasic\Entity\TlManiaxContaoJobsOffer;
-use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsOfferTranslation;
 use Maniax\ContaoJobs\GoogleForJobs\GoogleForJobs;
 use Maniax\ContaoJobs\Helper\MetaFieldsHelper;
 use Maniax\ContaoJobs\Helper\NumberHelper;
@@ -86,18 +85,10 @@ class ContaoJobOfferReaderController extends AbstractFrontendModuleController
         }
 
         $jobOfferRepository = $this->registry->getRepository(TlManiaxContaoJobsOffer::class);
-        $jobOfferTranslationRepository = $this->registry->getRepository(TlManiaxContaoJobsOfferTranslation::class);
 
         $alias = Input::get('auto_item');
 
         $jobOffer = $jobOfferRepository->findPublishedByIdOrAlias($alias);
-
-        if (null === $jobOffer) {
-            $translation = $jobOfferTranslationRepository->findByAliasAndLanguage($alias, $request->getLocale());
-            if ($translation) {
-                $jobOffer = $translation->getOffer();
-            }
-        }
 
         if (null === $jobOffer) {
             throw new PageNotFoundException('Page not found: '.Environment::get('uri'));

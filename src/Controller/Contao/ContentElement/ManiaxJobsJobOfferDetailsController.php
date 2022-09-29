@@ -21,7 +21,6 @@ use Contao\StringUtil;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsOffer;
-use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsOfferTranslation;
 use Maniax\ContaoJobs\Helper\MetaFieldsHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -65,7 +64,6 @@ class ManiaxJobsJobOfferDetailsController extends AbstractContentElementControll
         }
 
         $jobOfferRepository = $this->registry->getRepository(TlManiaxContaoJobsOffer::class);
-        $jobOfferTransRepository = $this->registry->getRepository(TlManiaxContaoJobsOfferTranslation::class);
 
         $alias = Input::get('auto_item');
 
@@ -77,13 +75,6 @@ class ManiaxJobsJobOfferDetailsController extends AbstractContentElementControll
             $this->jobOffer = $jobOfferRepository->findOneBy(['alias' => $alias]);
         } else {
             $this->jobOffer = $jobOfferRepository->find($alias);
-        }
-
-        if (!$this->jobOffer && $language) {
-            $translation = $jobOfferTransRepository->findByAliasAndLanguage($alias, $language);
-            if ($translation) {
-                $this->jobOffer = $translation->getOffer();
-            }
         }
 
         return $this->jobOffer;
