@@ -5,8 +5,8 @@ services:
         public: false
 
     Maniax\ContaoJobs\:
-        resource: ../src
-        exclude: ../src/{Entity,Migrations,Resources,Tests}
+        resource: ../../../src
+        exclude: ../../../src/{Entity,Migrations,Resources,Tests}
 
     Maniax\ContaoJobs\Helper\EmploymentType:
         class: Maniax\ContaoJobs\Helper\EmploymentType
