@@ -1,7 +1,35 @@
-# Composer
-/composer.lock
-/vendor/
+# OS
+.DS_Store
+Thumbs.db
 
-# PhpUnit
-/.phpunit.result.cache
-/phpunit.xml
+# IDEs
+.buildpath
+.project
+.settings/
+.build/
+.idea/
+nbproject/
+
+# App config
+/app/config/parameters.yml
+
+# Generated folders
+/assets/
+/files/
+/system/
+/templates/
+/var/
+/vendor/
+/web/*
+.htaccess
+composer.phar
+gulp.config.js
+/node_modules/
+/app/Resources/contao/config/runonce.php
+.phpunit.result.cache
+
+# Contao Manager
+/contao-manager/
+
+# Custom
+/packages
