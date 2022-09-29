@@ -2,43 +2,30 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of contao-jobs-bundle.
+/**
+ * maniax-at-work.de Contao Jobs  Bundle for Contao Open Source CMS
  *
- * (c) Stephan Buder 2022 <stephan@maniax-at-work.de>
- * @license GPL-3.0-or-later
- * For the full copyright and license information,
- * please view the LICENSE file that was distributed with this source code.
- * @link https://github.com/maniaxatwork/contao-jobs-bundle
+ * @copyright     Copyright (c) 2022, maniax-at-work.de
+ * @author        maniax-at-work.de <https://www.maniax-at-work.de>
+ * @link          https://github.com/maniaxatwork/
  */
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
-// Extend the default palettes
+$GLOBALS['TL_DCA']['tl_user_group']['fields']['maniax_contao_jobs_settings'] = [
+    'inputType' => 'checkbox',
+    'exclude' => true,
+    'options' => [
+        'settings',
+    ],
+    'reference' => &$GLOBALS['TL_LANG']['tl_user_group']['maniax_contao_jobs_settings'],
+    'eval' => [
+        'multiple' => true,
+    ],
+    'sql' => 'blob NULL',
+];
+
 PaletteManipulator::create()
-	->addLegend('jobs_legend', 'amg_legend', PaletteManipulator::POSITION_BEFORE)
-	->addField(array('jobs', 'jobp'), 'jobs_legend', PaletteManipulator::POSITION_APPEND)
-	->applyToPalette('default', 'tl_user_group')
+    ->addField('maniax_contao_jobs_settings', 'modules', PaletteManipulator::POSITION_AFTER)
+    ->applyToPalette('default', 'tl_user_group')
 ;
-
-// Add fields to tl_user_group
-$GLOBALS['TL_DCA']['tl_user_group']['fields']['jobs'] = array
-(
-    'label'                   => &$GLOBALS['TL_LANG']['tl_user']['jobs'],
-	'exclude'                 => true,
-	'inputType'               => 'checkbox',
-	'foreignKey'              => 'tl_jobs_archive.title',
-	'eval'                    => array('multiple'=>true),
-	'sql'                     => "blob NULL"
-);
-
-$GLOBALS['TL_DCA']['tl_user_group']['fields']['jobp'] = array
-(
-    'label'                   => &$GLOBALS['TL_LANG']['tl_user']['jobp'],
-	'exclude'                 => true,
-	'inputType'               => 'checkbox',
-	'options'                 => array('create', 'delete'),
-	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('multiple'=>true),
-	'sql'                     => "blob NULL"
-);

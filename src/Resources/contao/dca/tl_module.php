@@ -2,197 +2,196 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of contao-jobs-bundle.
- *
- * (c) Stephan Buder 2022 <stephan@maniax-at-work.de>
- * @license GPL-3.0-or-later
- * For the full copyright and license information,
- * please view the LICENSE file that was distributed with this source code.
- * @link https://github.com/maniaxatwork/contao-jobs-bundle
- */
-
-use Contao\System;
-use Contao\Backend;
-use Contao\Controller;
-use Contao\BackendUser;
-use Contao\DataContainer;
-use ManiaxAtWork\ContaoJobsBundle\Security\ContaoJobsPermissions;
-
-// Add a palette selector
-$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'jobs_format';
-
-// Add palettes to tl_module
-$GLOBALS['TL_DCA']['tl_module']['palettes']['jobslist']         = '{title_legend},name,headline,type;{config_legend},jobs_archives,jobs_readerModule,numberOfItems,jobs_order,skipFirst,perPage;{template_legend:hide},jobs_metaFields,jobs_template,customTpl;{image_legend:hide},imgSize;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['jobsreader']       = '{title_legend},name,headline,type;{config_legend},jobs_archives,overviewPage,customLabel;{template_legend:hide},jobs_metaFields,jobs_template,customTpl;{image_legend:hide},imgSize;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['jobsarchive']      = '{title_legend},name,headline,type;{config_legend},jobs_archives,jobs_readerModule,jobs_format,jobs_order,jobs_jumpToCurrent,perPage;{template_legend:hide},jobs_metaFields,jobs_template,customTpl;{image_legend:hide},imgSize;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['jobsmenu']         = '{title_legend},name,headline,type;{config_legend},jobs_archives,jobs_showQuantity,jobs_format,jobs_order;{redirect_legend},jumpTo;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['jobsmenujobs_day'] = '{title_legend},name,headline,type;{config_legend},jobs_archives,jobs_showQuantity,jobs_format,jobs_startDay;{redirect_legend},jumpTo;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
-
-// Add fields to tl_module
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_archives'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'checkbox',
-	'options_callback'        => array('tl_module_jobs', 'getJobsArchives'),
-	'eval'                    => array('multiple'=>true, 'mandatory'=>true),
-	'sql'                     => "blob NULL"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_jumpToCurrent'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options'                 => array('hide_module', 'show_current', 'all_items'),
-	'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
-	'eval'                    => array('tl_class'=>'w50'),
-	'sql'                     => "varchar(16) COLLATE ascii_bin NOT NULL default ''"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_readerModule'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options_callback'        => array('tl_module_jobs', 'getReaderModules'),
-	'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
-	'eval'                    => array('includeBlankOption'=>true, 'tl_class'=>'w50'),
-	'sql'                     => "int(10) unsigned NOT NULL default 0"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_metaFields'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'checkbox',
-	'options'                 => array('datePosted'),
-	'reference'               => &$GLOBALS['TL_LANG']['MSC'],
-	'eval'                    => array('multiple'=>true),
-	'sql'                     => "varchar(255) COLLATE ascii_bin NOT NULL default 'a:2:{i:0;s:4:\"datePosted\";}'"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_template'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options_callback' => static function ()
-	{
-		return Controller::getTemplateGroup('jobs_');
-	},
-	'eval'                    => array('includeBlankOption'=>true, 'chosen'=>true, 'tl_class'=>'w50'),
-	'sql'                     => "varchar(64) COLLATE ascii_bin NOT NULL default ''"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_format'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options'                 => array('jobs_day', 'jobs_month', 'jobs_year'),
-	'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
-	'eval'                    => array('tl_class'=>'w50 clr', 'submitOnChange'=>true),
-	'sql'                     => "varchar(32) COLLATE ascii_bin NOT NULL default 'jobs_month'"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_startDay'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options'                 => array(0, 1, 2, 3, 4, 5, 6),
-	'reference'               => &$GLOBALS['TL_LANG']['DAYS'],
-	'eval'                    => array('tl_class'=>'w50'),
-	'sql'                     => "smallint(5) unsigned NOT NULL default 0"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_order'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options_callback'        => array('tl_module_jobs', 'getSortingOptions'),
-	'reference'               => &$GLOBALS['TL_LANG']['tl_module'],
-	'eval'                    => array('tl_class'=>'w50'),
-	'sql'                     => "varchar(32) COLLATE ascii_bin NOT NULL default 'order_date_desc'"
-);
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['jobs_showQuantity'] = array
-(
-	'exclude'                 => true,
-	'inputType'               => 'checkbox',
-	'sql'                     => "char(1) COLLATE ascii_bin NOT NULL default ''"
-);
-
-$bundles = System::getContainer()->getParameter('kernel.bundles');
-
 /**
- * Provide miscellaneous methods that are used by the data configuration array.
+ * maniax-at-work.de Contao Jobs  Bundle for Contao Open Source CMS
+ *
+ * @copyright     Copyright (c) 2022, maniax-at-work.de
+ * @author        maniax-at-work.de <https://www.maniax-at-work.de>
+ * @link          https://github.com/maniaxatwork/
  */
-class tl_module_jobs extends Backend
-{
-	/**
-	 * Import the back end user object
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-		$this->import(BackendUser::class, 'User');
-	}
 
-	/**
-	 * Get all news archives and return them as array
-	 *
-	 * @return array
-	 */
-	public function getJobsArchives()
-	{
-		if (!$this->User->isAdmin && !is_array($this->User->jobs))
-		{
-			return array();
-		}
+use Maniax\ContaoJobs\EventListener\Contao\DCA\JobOfferFields;
+use Maniax\ContaoJobs\EventListener\Contao\DCA\TlModule;
 
-		$arrArchives = array();
-		$objArchives = $this->Database->execute("SELECT id, title FROM tl_jobs_archive ORDER BY title");
-		$security = System::getContainer()->get('security.helper');
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoJobsShowTypes';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoJobsShowLocations';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoJobsShowButton';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoJobsShowSorting';
 
-		while ($objArchives->next())
-		{
-			if ($security->isGranted(ContaoJobsPermissions::USER_CAN_EDIT_ARCHIVE, $objArchives->id))
-			{
-				$arrArchives[$objArchives->id] = $objArchives->title;
-			}
-		}
+$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_jobs_offer_list'] =
+    '{title_legend},name,type;
+    {config_legend},maniaxContaoJobsHeadlineTag,maniaxContaoJobsSortingDefaultField,maniaxContaoJobsSortingDefaultDirection,maniaxContaoJobsShowSorting,maniaxContaoJobsLocations,maniaxContaoJobsNoFilter;
+    {redirect_legend},jumpTo;
+    {template_legend:hide},customTpl;
+    {expert_legend:hide},cssID'
+;
 
-		return $arrArchives;
-	}
+$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_jobs_offer_reader'] =
+    '{title_legend},name,type;
+    {config_legend},maniaxContaoJobsHeadlineTag,imgSize,maniaxContaoJobsTemplateParts,maniaxContaoJobsShowLogo;
+    {template_legend:hide},customTpl;
+    {expert_legend:hide},cssID'
+;
 
-	/**
-	 * Get all jobs reader modules and return them as array
-	 *
-	 * @return array
-	 */
-	public function getReaderModules()
-	{
-		$arrModules = array();
-		$objModules = $this->Database->execute("SELECT m.id, m.name, t.name AS theme FROM tl_module m LEFT JOIN tl_theme t ON m.pid=t.id WHERE m.type='jobsreader' ORDER BY t.name, m.name");
+$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_jobs_filter'] =
+    '{title_legend},name,type;
+    {config_legend},maniaxContaoJobsShowButton,maniaxContaoJobsShowTypes,maniaxContaoJobsShowLocations;
+    {template_legend:hide},customTpl;
+    {redirect_legend},jumpTo;
+    {expert_legend:hide},cssID'
+;
 
-		while ($objModules->next())
-		{
-			$arrModules[$objModules->theme][$objModules->id] = $objModules->name . ' (ID ' . $objModules->id . ')';
-		}
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoJobsShowButton'] = 'maniaxContaoJobsSubmit';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoJobsShowTypes'] = 'maniaxContaoJobsTypesHeadline,maniaxContaoJobsShowAllTypes,maniaxContaoJobsShowQuantity';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoJobsShowLocations'] = 'maniaxContaoJobsLocationsHeadline,maniaxContaoJobsLocations,maniaxContaoJobsShowAllLocations,maniaxContaoJobsShowLocationQuantity';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoJobsShowSorting'] = 'maniaxContaoJobsSortingFields';
 
-		return $arrModules;
-	}
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsHeadlineTag'] = [
+    'exclude' => true,
+    'search' => true,
+    'inputType' => 'select',
+    'options' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'],
+    'eval' => ['maxlength' => 8, 'tl_class' => 'w50 clr'],
+    'sql' => "varchar(8) NOT NULL default 'h2'",
+];
 
-	/**
-	 * Return the sorting options
-	 *
-	 * @param DataContainer $dc
-	 *
-	 * @return array
-	 */
-	public function getSortingOptions(DataContainer $dc)
-	{
-		if ($dc->activeRecord && $dc->activeRecord->type == 'jobsmenu')
-		{
-			return array('order_date_asc', 'order_date_desc');
-		}
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowButton'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['submitOnChange' => true, 'tl_class' => 'clr'],
+    'sql' => "char(1) NOT NULL default ''",
+];
 
-		return array('order_date_asc', 'order_date_desc', 'order_headline_asc', 'order_headline_desc', 'order_random');
-	}
-}
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsSubmit'] = [
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50 clr'],
+    'sql' => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowTypes'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['submitOnChange' => true, 'tl_class' => 'clr'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsTypesHeadline'] = [
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['allowHtml' => true, 'tl_class' => 'w50'],
+    'sql' => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowAllTypes'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'clr w50'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowQuantity'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w50'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowLocations'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['submitOnChange' => true, 'tl_class' => 'clr'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsLocationsHeadline'] = [
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['allowHtml' => true, 'tl_class' => 'w50 clr'],
+    'sql' => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowAllLocations'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'clr w50'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowLocationQuantity'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class' => 'w50'],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowSorting'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'eval' => [
+        'submitOnChange' => true,
+        'tl_class' => 'clr',
+    ],
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsSortingFields'] = [
+    'exclude' => true,
+    'inputType' => 'checkboxWizard',
+    'options' => JobOfferFields::getFields(),
+    'eval' => [
+        'multiple' => true,
+    ],
+    'reference' => &$GLOBALS['TL_LANG']['tl_module']['maniaxContaoJobsSortingFields']['fields'],
+    'sql' => 'mediumtext NULL',
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsSortingDefaultField'] = [
+    'exclude' => true,
+    'inputType' => 'select',
+    'options' => JobOfferFields::getFields(),
+    'eval' => [
+        'tl_class' => 'w50 clr',
+    ],
+    'reference' => &$GLOBALS['TL_LANG']['tl_module']['maniaxContaoJobsSortingFields']['fields'],
+    'sql' => "varchar(255) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsSortingDefaultDirection'] = [
+    'exclude' => true,
+    'inputType' => 'select',
+    'options' => ['ASC', 'DESC'],
+    'eval' => [
+        'tl_class' => 'w50',
+    ],
+    'sql' => "varchar(4) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsTemplateParts'] = [
+    'exclude' => true,
+    'inputType' => 'checkboxWizard',
+    'options' => ['title', 'image', 'elements', 'description', 'employmentType', 'validThrough', 'salary', 'jobLocation', 'backlink'],
+    'eval' => ['multiple' => true, 'tl_class' => 'clr'],
+    'reference' => &$GLOBALS['TL_LANG']['tl_module']['maniaxContaoJobsReaderTemplate']['parts'],
+    'sql' => 'mediumtext null',
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsLocations'] = [
+    'exclude' => true,
+    'inputType' => 'checkboxWizard',
+    'options_callback' => [TlModule::class, 'jobLocationOptionsCallback'],
+    'eval' => ['multiple' => true, 'tl_class' => 'clr'],
+    'sql' => 'mediumtext null',
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsShowLogo'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'sql' => "char(1) NOT NULL default ''",
+];
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoJobsNoFilter'] = [
+    'exclude' => true,
+    'inputType' => 'checkbox',
+    'sql' => "char(1) NOT NULL default ''",
+];

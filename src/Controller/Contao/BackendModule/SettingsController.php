@@ -38,7 +38,7 @@ class SettingsController extends AbstractController
 
         System::loadLanguageFile('modules');
 
-        $GLOBALS['TL_CSS'][] = 'bundles/contaojobs/dashboard.min.css';
+        $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaojobs/dashboard.min.css';
 
         $mods = [];
 
