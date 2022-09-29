@@ -1,142 +1,190 @@
-<?xml version="1.0" ?><xliff version="1.1">
-  <file datatype="php" original="src/Resources/contao/languages/en/tl_module.php" source-language="en" target-language="de">
-    <body>
-      <trans-unit id="tl_module.jobs_archives.0">
-        <source>Jobs archives</source>
-        <target>Stellenangebotearchive</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_archives.1">
-        <source>Please select one or more jobs archives.</source>
-        <target>Bitte wählen Sie ein oder mehrere Stellenangebotarchive.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_featured.0">
-        <source>Featured items</source>
-        <target>Hervorgehobene Beiträge</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_featured.1">
-        <source>Here you can choose how featured items are handled.</source>
-        <target>Hier legen Sie fest, wie hervorgehobene Beiträge gehandhabt werden.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_jumpToCurrent.0">
-        <source>No period selected</source>
-        <target>Kein Zeitraum ausgewählt</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_jumpToCurrent.1">
-        <source>Here you can define what to display if no period is selected.</source>
-        <target>Hier legen Sie fest, was angezeigt wird, wenn kein Zeitraum ausgewählt ist.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_readerModule.0">
-        <source>Jobs reader module</source>
-        <target>Stellenangebotleser</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_readerModule.1">
-        <source>Automatically switch to the jobs reader if an item has been selected.</source>
-        <target>Automatisch zum Stellenangebotleser wechseln, wenn ein Beitrag ausgewählt wurde.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_metaFields.0">
-        <source>Meta fields</source>
-        <target>Meta-Felder</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_metaFields.1">
-        <source>Here you can select the meta fields.</source>
-        <target>Hier können Sie die Meta-Felder auswählen.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_template.0">
-        <source>Jobs template</source>
-        <target>Stellenangebots-Template</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_template.1">
-        <source>Here you can select a jobs template.</source>
-        <target>Hier können Sie ein Stellenangebots-Template auswählen.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_format.0">
-        <source>Archive format</source>
-        <target>Archivformat</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_format.1">
-        <source>Here you can choose the jobs archive format.</source>
-        <target>Hier können Sie das Archivformat auswählen.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_startDay.0">
-        <source>Week start day</source>
-        <target>Erster Wochentag</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_startDay.1">
-        <source>Here you can choose the week start day.</source>
-        <target>Hier können Sie den ersten Tag der Woche festlegen.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_order.0">
-        <source>Sort order</source>
-        <target>Sortierreihenfolge</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_order.1">
-        <source>Here you can choose the sort order.</source>
-        <target>Hier können Sie die Sortierreihenfolge festlegen.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_showQuantity.0">
-        <source>Show number of items</source>
-        <target>Anzahl der Beiträge anzeigen</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_showQuantity.1">
-        <source>Show the number of jobs items of each month.</source>
-        <target>Die Anzahl der Beiträge jedes Monats anzeigen.</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_day">
-        <source>Day</source>
-        <target>Tag</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_month">
-        <source>Month</source>
-        <target>Monat</target>
-      </trans-unit>
-      <trans-unit id="tl_module.jobs_year">
-        <source>Year</source>
-        <target>Jahr</target>
-      </trans-unit>
-      <trans-unit id="tl_module.hide_module">
-        <source>Hide the module</source>
-        <target>Das Modul ausblenden</target>
-      </trans-unit>
-      <trans-unit id="tl_module.show_current">
-        <source>Jump to the current period</source>
-        <target>Zum aktuellen Zeitraum springen</target>
-      </trans-unit>
-      <trans-unit id="tl_module.all_items">
-        <source>Show all jobs items</source>
-        <target>Alle Beiträge anzeigen</target>
-      </trans-unit>
-      <trans-unit id="tl_module.featured">
-        <source>Show featured jobs items only</source>
-        <target>Nur hervorgehobene Beiträge anzeigen</target>
-      </trans-unit>
-      <trans-unit id="tl_module.unfeatured">
-        <source>Skip featured jobs items</source>
-        <target>Hervorgehobene Beiträge überspringen</target>
-      </trans-unit>
-      <trans-unit id="tl_module.featured_first">
-        <source>Show featured jobs items first</source>
-        <target>Hervorgehobene Beiträge zuerst anzeigen</target>
-      </trans-unit>
-      <trans-unit id="tl_module.order_date_asc">
-        <source>Date ascending</source>
-        <target>Datum aufsteigend</target>
-      </trans-unit>
-      <trans-unit id="tl_module.order_date_desc">
-        <source>Date descending</source>
-        <target>Datum absteigend</target>
-      </trans-unit>
-      <trans-unit id="tl_module.order_headline_asc">
-        <source>Headline ascending</source>
-        <target>Überschrift aufsteigend</target>
-      </trans-unit>
-      <trans-unit id="tl_module.order_headline_desc">
-        <source>Headline descending</source>
-        <target>Überschrift absteigend</target>
-      </trans-unit>
-      <trans-unit id="tl_module.order_random">
-        <source>Random order</source>
-        <target>Zufällige Reihenfolge</target>
-      </trans-unit>
-    </body>
-  </file>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_module.maniaxContaoJobsHeadlineTag.0">
+                <target>Überschriftentyp</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsHeadlineTag.1">
+                <target>Bitte wählen Sie ein Überschriftentyp aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSubmit.0">
+                <target>Bezeichnung der Absende-Schaltfläche</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSubmit.1">
+                <target>Bitte geben Sie die Bezeichnung der Absende-Schaltfläche ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsListModule.0">
+                <target>Listenmodul</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsListModule.1">
+                <target>Bitte wählen Sie das zugehörige Listenmodul.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowButton.0">
+                <target>Absende-Button hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowButton.1">
+                <target>Soll ein Absende-Button dem Filter hinzufügt werden?</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowTypes.0">
+                <target>Stellenarten-Filter hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowTypes.1">
+                <target>Sollen die Stellenarten filterbar werden?</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsTypesHeadline.0">
+                <target>Stellenarten-Überschrift</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsTypesHeadline.1">
+                <target>Hier können Sie den Stellenarten eine Überschrift hinzufügen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowAllTypes.0">
+                <target>Alle Stellenarten anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowAllTypes.1">
+                <target>Alle Stellenarten werden im Filter anzeigen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowQuantity.0">
+                <target>Anzahl der Stellenanzeigen pro Stellenarten</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowQuantity.1">
+                <target>Die Anzahl der Stellenanzeigen pro Stellenart werden angezeigt.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowLocations.0">
+                <target>Standorte-Filter hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowLocations.1">
+                <target>Sollen die Standorte filterbar werden?</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsLocationsHeadline.0">
+                <target>Standorte-Überschrift</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsLocationsHeadline.1">
+                <target>Hier können Sie den Standorten eine Überschrift hinzufügen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowAllLocations.0">
+                <target>Alle Standorte anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowAllLocations.1">
+                <target>Alle ausgewählten Standorte werden im Filter anzeigen, auch wenn dort keine Stellenanzeigen verfügbar sind.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowLocationQuantity.0">
+                <target>Anzahl der Stellenanzeigen pro Standort</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowLocationQuantity.1">
+                <target>Die Anzahl der Stellenanzeigen pro Standort werden angezeigt.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowSorting.0">
+                <target>Sortierung anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowSorting.1">
+                <target>Im Frontend wird eine Sortier-Funktion angezeigt.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.0">
+                <target>Sortierungs-Felder</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.1">
+                <target>Bitte wählen Sie die Felder aus, die dem Nutzer zur Sortierung angezeigt werden sollen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingDefaultField.0">
+                <target>Sortierung: Standard-Feld</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingDefaultField.1">
+                <target>Bitte wählen Sie das Feld aus, nach dem standardmäßig sortiert werden soll.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingDefaultDirection.0">
+                <target>Sortierung: Standard-Richtung</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingDefaultDirection.1">
+                <target>Bitte wählen Sie die Richtung aus, nach der standardmäßig sortiert werden soll.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.tstamp">
+                <target>Aktualisierungsdatum</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.datePosted">
+                <target>Veröffentlichungsdatum</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.title">
+                <target>Anzeigentitel</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.jobLocation">
+                <target>Standort</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.tstamp__ASC">
+                <target>Aktualisierungsdatum (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.datePosted__ASC">
+                <target>Veröffentlichungsdatum (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.title__ASC">
+                <target>A-Z</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.tstamp__DESC">
+                <target>Aktualisierungsdatum (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.datePosted__DESC">
+                <target>Veröffentlichungsdatum (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.title__DESC">
+                <target>Z-A</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.jobLocation__ASC">
+                <target>Standort (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsSortingFields.fields.jobLocation__DESC">
+                <target>Standort (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.title">
+                <target>Stellentitel</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.image">
+                <target>Stellenbild</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.description">
+                <target>Stellenbeschreibung</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.employmentType">
+                <target>Stellenart</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.validThrough">
+                <target>Bewerbungsfrist</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.jobLocation">
+                <target>Arbeitsort</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.backlink">
+                <target>Zurück-Link</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.elements">
+                <target>Inhaltselemente</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsReaderTemplate.parts.salary">
+                <target>Gehalt</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsTemplateParts.0">
+                <target>Template-Teile</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsTemplateParts.1">
+                <target>Bitte wählen Sie die Template-Teile aus, die von diesem Modul angezeigt werden sollen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsLocations.0">
+                <target>Standorte</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsLocations.1">
+                <target>Bitte wählen Sie die Standorte aus, die angezeigt werden sollen. Wenn kein Standort ausgewählt ist, werden alle angezeigt.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowLogo.0">
+                <target>Unternehmens-Logo anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsShowLogo.1">
+                <target>Bitte wählen Sie diese Option nur aus, wenn das Unternehmens-Logo im Arbeitsort-Teil der Jobdetailansicht angezeigt werden soll.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsNoFilter.0">
+                <target>Filter nicht auf diese Liste anwenden</target>
+            </trans-unit>
+            <trans-unit id="tl_module.maniaxContaoJobsNoFilter.1">
+                <target>Filter auf der gleichen Seite werden nicht auf diese Liste angewendet.</target>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>

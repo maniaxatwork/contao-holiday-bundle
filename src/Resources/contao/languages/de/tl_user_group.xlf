@@ -1,10 +1,16 @@
-<?xml version="1.0" ?><xliff version="1.1">
-  <file datatype="php" original="src/Resources/contao/languages/en/tl_user_group.php" source-language="en" target-language="de">
-    <body>
-      <trans-unit id="tl_user_group.jobs_legend">
-        <source>Jobs permissions</source>
-        <target>Archivrechte</target>
-      </trans-unit>
-    </body>
-  </file>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_user_group.maniax_contao_jobs_settings.0">
+                <target>Contao Jobs Module</target>
+            </trans-unit>
+            <trans-unit id="tl_user_group.maniax_contao_jobs_settings.1">
+                <target>Hier können Sie den Zugriff auf ein oder mehrere Contao Jobs Module erlauben.</target>
+            </trans-unit>
+            <trans-unit id="tl_user_group.maniax_contao_jobs_settings.settings">
+                <target>Einstellungen</target>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>
