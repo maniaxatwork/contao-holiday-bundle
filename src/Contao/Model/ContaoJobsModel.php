@@ -1,6 +1,6 @@
 <?php
 
-namespace Maniax\ContaoJobsBundle\Contao\Model;
+namespace Maniax\ContaoJobs\Contao\Model;
 
 use Contao\Model;
 
