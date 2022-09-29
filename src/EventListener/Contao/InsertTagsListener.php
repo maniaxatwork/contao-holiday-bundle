@@ -21,7 +21,7 @@ use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsOffer;
 /**
  * @Hook("replaceInsertTags")
  */
-class InsertTagListener
+class InsertTagsListener
 {
     public const TAG = 'job';
 
