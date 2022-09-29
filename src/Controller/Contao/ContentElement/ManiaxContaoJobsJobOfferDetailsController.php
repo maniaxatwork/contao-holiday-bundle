@@ -26,9 +26,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @ContentElement(category="maniaxJobsBasic",template="ce_maniax_contao_jobs_job_offer_details")
+ * @ContentElement(category="maniaxContaoJobs",template="ce_maniax_contao_jobs_job_offer_details")
  */
-class ManiaxJobsJobOfferDetailsController extends AbstractContentElementController
+class ManiaxContaoJobsJobOfferDetailsController extends AbstractContentElementController
 {
     protected ManagerRegistry $registry;
 
