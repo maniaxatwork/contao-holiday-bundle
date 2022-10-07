@@ -62,7 +62,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_jobs_settings_employment_type'] = [
 
     // Palettes
     'palettes' => [
-        'default' => '{settings_legend},title,google_for_jobs_mapping;translation',
+        'default' => '{settings_legend},title,google_for_jobs_mapping;',
     ],
 
     // Fields
@@ -92,25 +92,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_jobs_settings_employment_type'] = [
                 'tl_class' => 'w50',
                 'mandatory' => true,
             ],
-        ],
-        'translation' => [
-            'inputType' => 'metaWizard',
-            'eval' => [
-                'class' => 'clr',
-                'allowHtml' => true,
-                'multiple' => true,
-                'metaFields' => [
-                    'title' => 'maxlength="255"',
-                ],
-            ],
-            'load_callback' => [[
-                TlManiaxContaoJobsSettingsEmploymentType::class,
-                'translationLoadCallback',
-            ]],
-            'save_callback' => [[
-                TlManiaxContaoJobsSettingsEmploymentType::class,
-                'translationSaveCallback',
-            ]],
         ],
     ],
 ];

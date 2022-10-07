@@ -87,7 +87,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_jobs_offer'] = [
 
     'palettes' => [
         '__selector__' => ['addImage', 'isRemote', 'hasLocationRequirements', 'addSalary'],
-        'default' => '{title_legend},title,alias,description,translations;{settings_legend},employmentType,validThrough,directApply;{location_legend},jobLocation,isRemote;{salary_legend},addSalary;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'default' => '{title_legend},title,alias,description;{settings_legend},employmentType,validThrough,directApply;{location_legend},jobLocation,isRemote;{salary_legend},addSalary;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
     'subpalettes' => [
         'addImage' => 'singleSRC',
@@ -332,22 +332,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_jobs_offer'] = [
                 'tl_class' => 'w50',
             ],
             'reference' => &$GLOBALS['TL_LANG']['tl_maniax_contao_jobs_offer']['salaryUnits'],
-        ],
-
-        'translations' => [
-            'inputType' => 'group',
-            'storage' => 'entity',
-            'palette' => ['language', 'title', 'alias', 'description'],
-            'fields' => [
-                'language' => [
-                    'inputType' => 'select',
-                    'options_callback' => [TlManiaxContaoJobsOffer::class, 'getLanguages'],
-                    'eval' => [
-                        'chosen' => true,
-                        'mandatory' => true,
-                    ],
-                ],
-            ],
         ],
     ],
 ];
