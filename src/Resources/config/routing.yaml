@@ -1,5 +1,5 @@
 maniax_contao_jobs.offer_filter:
-    path: /_maniax-contao-jobs-basic/offer/filter
+    path: /_maniax-contao-jobs/offer/filter
     defaults:
         _scope: frontend
         _token_check: false

@@ -24,8 +24,8 @@ use Contao\System;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form;
-use Maniax\ContaoJobs\Entity\TlManiaxJobsBasicJobLocation;
-use Maniax\ContaoJobs\Entity\TlManiaxJobsBasicOffer;
+use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsJobLocation;
+use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsOffer;
 use Maniax\ContaoJobs\Helper\MetaFieldsHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -102,7 +102,7 @@ class ContaoJobOfferListController extends AbstractFrontendModuleController
         $sortBy = $request->get('sortBy') ?? $model->maniaxContaoJobsSortingDefaultField;
         $order = $request->get('order') ?? $model->maniaxContaoJobsSortingDefaultDirection;
 
-        if ($model->plentaJobsBasicShowSorting) {
+        if ($model->maniaxContaoJobsShowSorting) {
             System::loadLanguageFile('tl_module');
 
             $formId = 'maniax_Contao_jobs_sorting_'.$model->id;

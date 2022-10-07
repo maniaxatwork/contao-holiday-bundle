@@ -462,7 +462,7 @@ class TlManiaxContaoJobsOffer extends DCADefault
     /**
      * @param string $applicantLocationRequirements
      *
-     * @return TlPlentaJobsBasicOffer
+     * @return TlManiaxContaoJobsOffer
      */
     public function setApplicantLocationRequirements(string $applicantLocationRequirements): self
     {

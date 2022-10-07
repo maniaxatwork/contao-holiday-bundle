@@ -29,7 +29,7 @@ use Contao\System;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsJobLocation;
-use Maniax\ContaoJoContaoJobsbsBasic\Entity\TlManiaxContaoJobsOffer;
+use Maniax\ContaoJobs\Entity\TlManiaxContaoJobsOffer;
 use Maniax\ContaoJobs\GoogleForJobs\GoogleForJobs;
 use Maniax\ContaoJobs\Helper\MetaFieldsHelper;
 use Maniax\ContaoJobs\Helper\NumberHelper;
@@ -241,7 +241,7 @@ class ContaoJobOfferReaderController extends AbstractFrontendModuleController
             foreach ($locations as $location) {
                 $organization = $location->getOrganization();
                 if (!\array_key_exists($organization->getId(), $organizations)) {
-                    if ($model->plentaJobsBasicShowLogo && $organization->getLogo()) {
+                    if ($model->maniaxContaoJobsShowLogo && $organization->getLogo()) {
                         $imgTpl = new FrontendTemplate('ce_image');
                         $image = FilesModel::findByUuid(StringUtil::binToUuid($organization->getLogo()));
                         Controller::addImageToTemplate($imgTpl, [

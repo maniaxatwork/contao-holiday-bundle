@@ -103,7 +103,7 @@ class EmploymentType
 
     public function getEmploymentTypeNameFromDatabase(string $identifier): ?string
     {
-        /** @var TlPlentaJobsBasicSettingsEmploymentType[] $employmentTypes */
+        /** @var TlManiaxContaoJobsSettingsEmploymentType[] $employmentTypes */
         $employmentTypes = $this->getAndSetCustomEmploymentTypes();
 
         if (empty($employmentTypes)) {

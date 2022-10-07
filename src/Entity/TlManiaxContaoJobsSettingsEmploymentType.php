@@ -15,7 +15,7 @@ namespace Maniax\ContaoJobs\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Maniax\ContaoJobsBasic\Repository\TlManiaxContaoJobsSettingsEmploymentTypeRepository")
+ * @ORM\Entity(repositoryClass="Maniax\ContaoJobs\Repository\TlManiaxContaoJobsSettingsEmploymentTypeRepository")
  * @ORM\Table(name="tl_maniax_contao_jobs_settings_employment_type")
  */
 class TlManiaxContaoJobsSettingsEmploymentType extends DCADefault

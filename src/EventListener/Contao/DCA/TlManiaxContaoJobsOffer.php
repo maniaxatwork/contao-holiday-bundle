@@ -170,7 +170,7 @@ class TlManiaxContaoJobsOffer
     {
         $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaojobs/dashboard.min.css';
         $info = $this->twig->render('@ManiaxContaoJobs/be_maniax_info.html.twig', [
-            'version' => PackageUtil::getVersion('maniaxatwork/contao-jobs-basic-bundle'),
+            'version' => PackageUtil::getVersion('maniaxatwork/contao-jobs-bundle'),
         ]);
 
         Message::addRaw($info);
