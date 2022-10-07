@@ -1,5 +1,5 @@
 services:
-    Maniax\ContaoJobs\EventListener\Contao\DCA\TlManiaxContaoJobs:
+    Maniax\ContaoJobs\EventListener\Contao\DCA\TlManiaxContaoJobsOffer:
         public: true
         arguments:
             - '@Maniax\ContaoJobs\Helper\EmploymentType'

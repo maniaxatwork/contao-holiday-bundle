@@ -32,7 +32,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_jobs_organization'] = [
         ],
         'global_operations' => [
             'back' => [
-                'route' => 'Maniax\ContaoJobc\Controller\Contao\BackendModule\SettingsController',
+                'route' => 'Maniax\ContaoJobs\Controller\Contao\BackendModule\SettingsController',
                 'label' => &$GLOBALS['TL_LANG']['MSC']['backBT'],
                 'icon' => 'back.svg',
             ],
