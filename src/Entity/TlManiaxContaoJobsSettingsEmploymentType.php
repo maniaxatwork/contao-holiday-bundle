@@ -31,6 +31,11 @@ class TlManiaxContaoJobsSettingsEmploymentType extends DCADefault
     protected string $googleForJobsMapping = '';
 
     /**
+     * @ORM\Column (type="json", nullable=true, options={"default": NULL})
+     */
+    protected ?array $translation;
+
+    /**
      * @return string
      */
     public function getTitle(): string
@@ -66,6 +71,26 @@ class TlManiaxContaoJobsSettingsEmploymentType extends DCADefault
     public function setGoogleForJobsMapping(string $googleForJobsMapping): self
     {
         $this->googleForJobsMapping = $googleForJobsMapping;
+
+        return $this;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getTranslation(): ?array
+    {
+        return $this->translation;
+    }
+
+    /**
+     * @param array|null $translation
+     *
+     * @return TlManiaxContaoJobsSettingsEmploymentType
+     */
+    public function setTranslation(?array $translation): self
+    {
+        $this->translation = $translation;
 
         return $this;
     }
