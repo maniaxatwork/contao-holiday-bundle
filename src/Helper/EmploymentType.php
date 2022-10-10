@@ -134,12 +134,12 @@ class EmploymentType
     public function getEmploymentTypeNameFromTranslator(string $employmentType): ?string
     {
         $translation = $this->translator->trans(
-            'MSC.PLENTA_JOBS.'.$employmentType,
+            'MSC.MANIAX_CONTAO_JOBS.'.$employmentType,
             [],
             'contao_default'
         );
 
-        if ($translation === 'MSC.PLENTA_JOBS.'.$employmentType) {
+        if ($translation === 'MSC.MANIAX_CONTAO_JOBS.'.$employmentType) {
             return null;
         }
 
