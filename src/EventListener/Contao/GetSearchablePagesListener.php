@@ -65,7 +65,7 @@ class GetSearchablePagesListener
         return $pages;
     }
 
-    public function generateJobOfferUrl(TlTlManiaxContaoJobsOffer $jobOffer, ModuleModel $model): ?string
+    public function generateJobOfferUrl(TlManiaxContaoJobsOffer $jobOffer, ModuleModel $model): ?string
     {
         $objPage = $model->getRelated('jumpTo');
 

@@ -39,7 +39,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @FrontendModule("maniax_contao_jobs_offer_reader",
- *   category="plentaContaoJobs",
+ *   category="maniaxContaoJobs",
  *   template="mod_maniax_contao_jobs_offer_reader",
  *   renderer="forward"
  * )
