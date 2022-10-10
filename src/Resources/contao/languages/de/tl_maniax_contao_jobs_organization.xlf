@@ -12,7 +12,7 @@
                 <target>Bitte geben Sie den Namen des Unternehmens ein.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_jobs_organization.sameAs.0">
-                <target>Unternehmens-Url</target>
+                <target>Unternehmens-URL</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_jobs_organization.sameAs.1">
                 <target>Bitte geben Sie die Website-Adresse des Unternehmens ein.</target>
