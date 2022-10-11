@@ -18,12 +18,13 @@
     },
     "require": {
         "php": "^7.4 || ^8.0",
-	"ext-json": "*",
-	"contao/conflicts": "@dev",
+	    "ext-json": "*",
+	    "contao/conflicts": "@dev",
         "contao/core-bundle": "^4.9",
-	"doctrine/orm": "^2.6.4",
+	    "doctrine/orm": "^2.6.4",
         "doctrine/data-fixtures": "^1.4.2",
-        "doctrine/dbal": "^2.10.1 || ^3.2.0"
+        "doctrine/dbal": "^2.10.1 || ^3.2.0",
+        "symfony/intl": "^5.4"
     },
     "require-dev": {
         "contao/manager-bundle": "^4.9.1",
@@ -34,7 +35,6 @@
         "phpstan/phpstan-symfony": "^0.12.44",
         "contao/phpstan": "^0.12.9",
         "phpstan/phpstan-phpunit": "^0.12.22",
-        "contao/news-bundle": "4.9.*",
         "friendsofphp/php-cs-fixer": "^3.2"
     },
     "autoload": {

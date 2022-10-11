@@ -1,17 +1,19 @@
 <?php
 
-/*
- * This file is part of [package name].
+declare(strict_types=1);
+
+/**
+ * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
  *
- * (c) John Doe
- *
- * @license LGPL-3.0-or-later
+ * @copyright     Copyright (c) 2022, maniax-at-work.de
+ * @author        maniax-at-work.de <https://www.maniax-at-work.de>
+ * @link          https://github.com/maniaxatwork/
  */
 
-namespace maniaxatwork\ContaoPortfolioBundle;
+namespace Maniax\ContaoPortfolio;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ContaoPortfolioBundle extends Bundle
+class ManiaxContaoPortfolioBundle extends Bundle
 {
 }

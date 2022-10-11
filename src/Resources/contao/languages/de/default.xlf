@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="CTE.maniaxContaoPortfolio">
+                <target>Contao Portfolio</target>
+            </trans-unit>
+            <trans-unit id="CTE.MANIAX_CONTAO_PORTFOLIO_item_details.0">
+                <target>Details zur Referenz</target>
+            </trans-unit>
+            <trans-unit id="CTE.MANIAX_CONTAO_PORTFOLIO_item_details.1">
+                <target>Details zur Referenz</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_PORTFOLIO.emptyList">
+                <target>Es sind momentan keine Referenzen vorhanden.</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_PORTFOLIO.DASHBOARD.documentation">
+                <target>Dokumentation</target>
+            </trans-unit>
+            <trans-unit id="MSC.MANIAX_CONTAO_PORTFOLIO.DASHBOARD.report_error">
+                <target>Fehler melden</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
