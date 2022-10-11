@@ -3,29 +3,3 @@ services:
         autowire: true
         autoconfigure: true
         public: false
-
-    Maniax\ContaoJobs\:
-        resource: ../../../src
-        exclude: ../../../src/{Entity,Migrations,Resources,Tests}
-
-    Maniax\ContaoJobs\Helper\EmploymentType:
-        class: Maniax\ContaoJobs\Helper\EmploymentType
-        arguments:
-            - '@translator'
-            - '@Doctrine\Persistence\ManagerRegistry'
-            - '@request_stack'
-
-    Maniax\ContaoJobs\Helper\DataTypeMapper:
-        class: Maniax\ContaoJobs\Helper\DataTypeMapper
-        arguments:
-            - '@contao.framework'
-
-    Maniax\ContaoJobs\GoogleForJobs\GoogleForJobs:
-        public: true
-        class: Maniax\ContaoJobs\GoogleForJobs\GoogleForJobs
-        arguments:
-            - '@Doctrine\Persistence\ManagerRegistry'
-            - '@contao.image.picture_factory'
-            - '@contao.assets.files_context'
-            - '@Maniax\ContaoJobs\Helper\EmploymentType'
-            - '%kernel.project_dir%'

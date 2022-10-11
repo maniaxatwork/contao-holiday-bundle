@@ -1,14 +1,8 @@
 {
-    "name": "maniaxatwork/contao-jobs-bundle",
-    "description": "Adds job functionality to Contao",
-    "keywords": [
-        "contao",
-        "bundle",
-        "jobs",
-        "employment"
-    ],
+    "name": "maniaxatwork/contao-portfolio-bundle",
+    "description": "Referenzen von MAW",
     "type": "contao-bundle",
-    "license": "GPL-3.0-or-later",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Stephan Buder",
@@ -19,20 +13,17 @@
     ],
     "homepage": "https://www.maniax-at-work.de",
     "support": {
-        "issues": "https://github.com/maniaxatwork/contao-jobs-bundle/issues",
-        "source": "https://github.com/maniaxatwork/contao-jobs-bundle"
+        "issues": "https://github.com/maniaxatwork/contao-portfolio-bundle/issues",
+        "source": "https://github.com/maniaxatwork/contao-portfolio-bundle"
     },
     "require": {
         "php": "^7.4 || ^8.0",
-        "ext-json": "*",
-        "contao/conflicts": "@dev",
+	"ext-json": "*",
+	"contao/conflicts": "@dev",
         "contao/core-bundle": "^4.9",
-        "codefog/contao-haste": "^4.25",
-        "doctrine/orm": "^2.6.4",
+	"doctrine/orm": "^2.6.4",
         "doctrine/data-fixtures": "^1.4.2",
-        "doctrine/dbal": "^2.10.1 || ^3.2.0",
-        "mvo/contao-group-widget": "^1.4",
-        "symfony/intl": "^5.4"
+        "doctrine/dbal": "^2.10.1 || ^3.2.0"
     },
     "require-dev": {
         "contao/manager-bundle": "^4.9.1",
@@ -48,8 +39,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Maniax\\ContaoJobs\\": "src/"
-        }
+  	    "Maniax\\ContaoPortfolio\\": "src/"
+	}
     },
     "config": {
         "allow-plugins": {
@@ -60,6 +51,6 @@
         }
     },
     "extra": {
-        "contao-manager-plugin": "Maniax\\ContaoJobs\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Maniax\\ContaoPortfolio\\ContaoManager\\Plugin"
     }
 }
