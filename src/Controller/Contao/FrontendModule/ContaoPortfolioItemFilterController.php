@@ -22,7 +22,6 @@ use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form as HasteForm;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
-use Maniax\ContaoPortfolio\Helper\MetaFieldsHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
@@ -37,7 +36,6 @@ use Symfony\Component\Routing\RouterInterface;
 class ContaoPortfolioItemFilterController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
-    protected MetaFieldsHelper $metaFieldsHelper;
     protected RouterInterface $router;
     protected array $counterSubCategory = [];
     protected array $subCategories = [];
@@ -45,11 +43,9 @@ class ContaoPortfolioItemFilterController extends AbstractFrontendModuleControll
 
     public function __construct(
         ManagerRegistry $registry,
-        MetaFieldsHelper $metaFieldsHelper,
         RouterInterface $router
     ) {
         $this->registry = $registry;
-        $this->metaFieldsHelper = $metaFieldsHelper;
         $this->router = $router;
     }
 
