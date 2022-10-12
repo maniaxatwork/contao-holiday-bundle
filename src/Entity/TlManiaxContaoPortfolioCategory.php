@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="tl_maniax_contao_portfolio_category")
  */
-class TlManiaxContaoContaoPortfolio extends DCADefault
+class TlManiaxContaoPortfolioCategory extends DCADefault
 {
     /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
