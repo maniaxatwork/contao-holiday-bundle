@@ -41,17 +41,13 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
 
-    protected MetaFieldsHelper $metaFieldsHelper;
-
     protected TranslatorInterface $translator;
 
     public function __construct(
         ManagerRegistry $registry,
-        MetaFieldsHelper $metaFieldsHelper,
         TranslatorInterface $translator
     ) {
         $this->registry = $registry;
-        $this->metaFieldsHelper = $metaFieldsHelper;
         $this->translator = $translator;
     }
 
@@ -144,7 +140,6 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
         foreach ($portfolioItems as $portfolioItem) {
             $itemTemplate = new FrontendTemplate('maniax_contao_portfolio_item_default');
             $itemTemplate->portfolioItem = $portfolioItem;
-            $itemTemplate->portfolioItemMeta = $this->metaFieldsHelper->getMetaFields($portfolioItem);
             $itemTemplate->headlineUnit = $model->maniaxContaoPortfolioHeadlineTag;
 
             if (null !== $sortBySubCategory) {
