@@ -5,10 +5,10 @@
             <trans-unit id="CTE.maniaxContaoPortfolio">
                 <target>Contao Portfolio</target>
             </trans-unit>
-            <trans-unit id="CTE.MANIAX_CONTAO_PORTFOLIO_item_details.0">
+            <trans-unit id="CTE.MANIAX_CONTAO_PORTFOLIO_items_details.0">
                 <target>Details zur Referenz</target>
             </trans-unit>
-            <trans-unit id="CTE.MANIAX_CONTAO_PORTFOLIO_item_details.1">
+            <trans-unit id="CTE.MANIAX_CONTAO_PORTFOLIO_items_details.1">
                 <target>Details zur Referenz</target>
             </trans-unit>
             <trans-unit id="MSC.MANIAX_CONTAO_PORTFOLIO.emptyList">

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 use Contao\BackendUser;
 use Contao\System;
-use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItem;
+use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItems;
 
-$GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
+$GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items'] = [
     'config' => [
         'dataContainer' => 'Table',
         'ctable' => ['tl_content'],
@@ -22,11 +22,11 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
         'markAsCopy' => 'title',
         'enableVersioning' => true,
         'onload_callback' => [[
-            TlManiaxContaoPortfolioItem::class,
+            TlManiaxContaoPortfolioItems::class,
             'onShowInfoCallback',
         ]],
         'onsubmit_callback' => [[
-            TlManiaxContaoPortfolioItem::class,
+            TlManiaxContaoPortfolioItems::class,
             'saveCallbackGlobal',
         ]],
     ],
@@ -75,12 +75,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     ],
 
     'palettes' => [
-        '__selector__' => ['addImage', 'overwriteMeta'],
+        '__selector__' => ['addImage', 'overwritemeta'],
         'default' => '{title_legend},title,alias,description;{settings_legend},category;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
     'subpalettes' => [
-        'addImage' => 'singleSRC,size,fullsize,overwriteMeta',
-        'overwriteMeta' => 'alt,imageTitle,imageUrl,caption'
+        'addImage' => 'singleSRC,size,fullsize,overwritemeta',
+        'overwritemeta' => 'alt,imageTitle,imageUrl,caption'
     ],
 
     'fields' => [
@@ -106,7 +106,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'exclude' => true,
             'eval' => ['tl_class' => 'w50', 'doNotCopy' => true],
             'save_callback' => [[
-                TlManiaxContaoPortfolioItem::class,
+                TlManiaxContaoPortfolioItems::class,
                 'aliasSaveCallback',
             ]],
         ],
@@ -124,7 +124,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'exclude' => true,
             'filter' => true,
             'options_callback' => [
-                TlManiaxContaoPortfolioItem::class,
+                TlManiaxContaoPortfolioItems::class,
                 'categoryOptionsCallback',
             ],
             'eval' => [
@@ -190,7 +190,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'inputType' => 'fileTree',
             'eval' => ['fieldType' => 'radio', 'filesOnly' => true, 'extensions'=>'%contao.image.valid_extensions%', 'mandatory' => true, 'tl_class' => 'clr'],
         ],
-        'overwriteMeta' => [
+        'overwritemeta' => [
 			'exclude' => true,
 			'inputType' => 'checkbox',
 			'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 clr'],
@@ -224,7 +224,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     ],
 ];
 
-class tl_maniax_contao_portfolio_item extends \Contao\Backend
+class tl_maniax_contao_portfolio_items extends \Contao\Backend
 {
     /**
      * Import the back end user object.
@@ -255,7 +255,7 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Check permissions AFTER checking the tid, so hacking attempts are logged
-        if (!$this->User->hasAccess('tl_maniax_contao_portfolio_item::published', 'alexf')) {
+        if (!$this->User->hasAccess('tl_maniax_contao_portfolio_items::published', 'alexf')) {
             return '';
         }
 
@@ -288,8 +288,8 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Trigger the onload_callback
-        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onload_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onload_callback'])) {
-            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onload_callback'] as $callback) {
+        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['config']['onload_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['config']['onload_callback'])) {
+            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['config']['onload_callback'] as $callback) {
                 if (is_array($callback)) {
                     $this->import($callback[0]);
                     $this->{$callback[0]}->{$callback[1]}($dc);
@@ -300,11 +300,11 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Check the field access
-        if (!$this->User->hasAccess('tl_maniax_contao_portfolio_item::published', 'alexf')) {
+        if (!$this->User->hasAccess('tl_maniax_contao_portfolio_items::published', 'alexf')) {
             throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to publish/unpublish portfolio item ID "'.$intId.'".');
         }
 
-        $objRow = $this->Database->prepare('SELECT * FROM tl_maniax_contao_portfolio_item WHERE id=?')
+        $objRow = $this->Database->prepare('SELECT * FROM tl_maniax_contao_portfolio_items WHERE id=?')
             ->limit(1)
             ->execute($intId);
 
@@ -317,12 +317,12 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
             $dc->activeRecord = $objRow;
         }
 
-        $objVersions = new Contao\Versions('tl_maniax_contao_portfolio_item', $intId);
+        $objVersions = new Contao\Versions('tl_maniax_contao_portfolio_items', $intId);
         $objVersions->initialize();
 
         // Trigger the save_callback
-        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['save_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['fields']['published']['save_callback'])) {
-            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['fields']['published']['save_callback'] as $callback) {
+        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['config']['save_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['fields']['published']['save_callback'])) {
+            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['fields']['published']['save_callback'] as $callback) {
                 if (is_array($callback)) {
                     $this->import($callback[0]);
                     $blnVisible = $this->{$callback[0]}->{$callback[1]}($blnVisible, $dc);
@@ -335,7 +335,7 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         $time = time();
 
         // Update the database
-        $this->Database->prepare("UPDATE tl_maniax_contao_portfolio_item SET tstamp=$time, published='".($blnVisible ? '1' : '0')."' WHERE id=?")
+        $this->Database->prepare("UPDATE tl_maniax_contao_portfolio_items SET tstamp=$time, published='".($blnVisible ? '1' : '0')."' WHERE id=?")
             ->execute($intId);
 
         if ($dc) {
@@ -344,8 +344,8 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Trigger the onsubmit_callback
-        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onsubmit_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onsubmit_callback'])) {
-            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onsubmit_callback'] as $callback) {
+        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['config']['onsubmit_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['config']['onsubmit_callback'])) {
+            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_items']['config']['onsubmit_callback'] as $callback) {
                 if (is_array($callback)) {
                     $this->import($callback[0]);
                     $this->{$callback[0]}->{$callback[1]}($dc);
