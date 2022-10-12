@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoPortolio\DependencyInjection;
+namespace Maniax\ContaoPortfolio\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
