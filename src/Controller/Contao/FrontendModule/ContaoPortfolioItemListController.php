@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoJobs\Controller\Contao\FrontendModule;
+namespace Maniax\ContaoPortfolio\Controller\Contao\FrontendModule;
 
 use Contao\Config;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
@@ -26,7 +26,6 @@ use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
-use Maniax\ContaoJobs\Helper\MetaFieldsHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
