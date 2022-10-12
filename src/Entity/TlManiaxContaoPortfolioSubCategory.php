@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoJobs\Entity;
+namespace Maniax\ContaoPortfolio\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
