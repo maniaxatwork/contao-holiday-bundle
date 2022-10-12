@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ContaoPortfolioFilterRequestController extends AbstractController
 {
-    public function filterOffersAction(Request $request): Response
+    public function filterItemsAction(Request $request): Response
     {
         $module = Module::getFrontendModule($request->get('id'));
 

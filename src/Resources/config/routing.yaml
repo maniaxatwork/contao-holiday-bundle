@@ -1,0 +1,12 @@
+maniax_contao_portfolio.item_filter:
+    path: /_maniax-contao-portfolio/item/filter
+    defaults:
+        _scope: frontend
+        _token_check: false
+        _controller: Maniax\ContaoPortfolio\Controller\ContaoPortfolioItemFilterRequestController::filterItemsAction
+
+Maniax\ContaoPortfolio\Controller\Contao\BackendModule\SettingsController:
+    path: /contao/maniaxcontaoportfolio/settings
+    defaults:
+        _scope: backend
+        _controller: Maniax\ContaoPortfolio\Controller\Contao\BackendModule\SettingsController::showSettings
