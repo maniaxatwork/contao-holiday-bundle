@@ -10,14 +10,14 @@ declare(strict_types=1);
  * @link          https://github.com/maniaxatwork/
  */
 
-use Maniax\ContaoPortfolio\EventListener\Contao\DCA\PortfolioItemsFields;
+use Maniax\ContaoPortfolio\EventListener\Contao\DCA\PortfolioItemFields;
 use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlModule;
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoPortfolioShowCategories';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoPortfolioShowSubCategories';
 
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_portfolio_items_list'] =
+$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_portfolio_item_list'] =
     '{title_legend},title,category;
     {config_legend},maniaxContaoPortfolioHeadlineTag,maniaxContaoPortfolioShowCategories,maniaxContaoPortfolioShowSubCategories;
     {template_legend:hide},customTpl;
@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioShowAllSubCatego
 $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioCategories'] = [
     'exclude' => true,
     'inputType' => 'checkboxWizard',
-    'options_callback' => [TlModule::class, 'oortfolioCategoriesOptionsCallback'],
+    'options_callback' => [TlModule::class, 'portfolioCategoriesOptionsCallback'],
     'eval' => ['multiple' => true, 'tl_class' => 'clr'],
     'sql' => 'mediumtext null',
 ];

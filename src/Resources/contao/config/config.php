@@ -14,8 +14,8 @@ use Composer\InstalledVersions;
 
 array_insert($GLOBALS['BE_MOD'], 1, [
     'maniax_contao_portfolio' => [
-        'maniax_contao_portfolio_items' => [
-            'tables' => ['tl_maniax_contao_portfolio_items', 'tl_content'],
+        'maniax_contao_portfolio_item' => [
+            'tables' => ['tl_maniax_contao_portfolio_item', 'tl_content'],
         ],
         'maniax_contao_portfolio_settings_type' => [
             'tables' => ['tl_maniax_contao_portfolio_settings'],
@@ -28,4 +28,4 @@ if (defined('TL_MODE') && TL_MODE == 'BE') {
     $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoportfolio/portfolio.min.css|static';
 }
 
-$GLOBALS['TL_MODELS'][Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemsModel::getTable()] = Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemsModel::class;
+$GLOBALS['TL_MODELS'][Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::getTable()] = Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::class;
