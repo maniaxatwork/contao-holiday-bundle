@@ -22,12 +22,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
     'list' => [
         'sorting' => [
             'mode' => 2,
-            'fields' => ['name'],
+            'fields' => ['title'],
             'flag' => 1,
             'disableGrouping' => true,
         ],
         'label' => [
-            'fields' => ['name'],
+            'fields' => ['title'],
             'format' => '%s',
         ],
         'global_operations' => [
@@ -66,7 +66,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
         'tstamp' => [
         ],
         'title' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['name'],
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['title'],
             'exclude' => true,
             'inputType' => 'text',
             'default' => '',

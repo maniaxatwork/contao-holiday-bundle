@@ -14,11 +14,11 @@ use Composer\InstalledVersions;
 
 array_insert($GLOBALS['BE_MOD'], 1, [
     'maniax_contao_portfolio' => [
-        'maniax_contao_portfolio_item' => [
+        'maniax_contao_portfolio_items' => [
             'tables' => ['tl_maniax_contao_portfolio_item', 'tl_content'],
         ],
-        'maniax_contao_portfolio_settings_category' => [
-            'tables' => ['tl_maniax_contao_portfolio_settings'],
+        'maniax_contao_portfolio_categories' => [
+            'tables' => ['tl_maniax_contao_portfolio_category', 'tl_maniax_contao_portfolio_subcategory'],
             'hideInNavigation' => true,
         ],
     ],
