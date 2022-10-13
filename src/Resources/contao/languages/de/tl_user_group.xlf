@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_user_group.maniax_contao_portfolio_settings.0">
+                <target>Contao Portfolio Module</target>
+            </trans-unit>
+            <trans-unit id="tl_user_group.maniax_contao_portfolio_settings.1">
+                <target>Hier können Sie den Zugriff auf ein oder mehrere Contao Portfolio Module erlauben.</target>
+            </trans-unit>
+            <trans-unit id="tl_user_group.maniax_contao_portfolio_settings.settings">
+                <target>Einstellungen</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

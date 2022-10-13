@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_maniax_contao_portfolio_category.category_legend">
+                <target>Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_category.title.0">
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_category.title.1">
+                <target>Bitte geben Sie den Titel der Kategorie ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_category.new.0">
+                <target>Neue Kategorie</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_category.new.1">
+                <target>Eine neue Kategorie anlegen</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
