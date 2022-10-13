@@ -17,7 +17,7 @@ array_insert($GLOBALS['BE_MOD'], 1, [
         'maniax_contao_portfolio_item' => [
             'tables' => ['tl_maniax_contao_portfolio_item', 'tl_content'],
         ],
-        'maniax_contao_portfolio_settings_type' => [
+        'maniax_contao_portfolio_settings_category' => [
             'tables' => ['tl_maniax_contao_portfolio_settings'],
             'hideInNavigation' => true,
         ],
