@@ -85,7 +85,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
-    protected string $alt    = '';
+    protected string $alt = '';
 
     /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
@@ -96,6 +96,11 @@ class TlManiaxContaoPortfolioItem extends DCADefault
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
     protected string $imageUrl;
+
+    /**
+     * @ORM\Column(type="string", length=255, options={"default": ""})
+     */
+    protected string $size;
 
     /**
      * @return string|null
@@ -305,7 +310,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
         $this->overwriteMeta = $overwriteMeta;
     }
 
-
     /**
      * @return string
      */
@@ -347,22 +351,43 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getMetaDescription(): ?string
+    public function getImageUrl(): string
     {
-        return $this->metaDescription;
+        return $this->imageUrl;
     }
 
     /**
-     * @param string|null $metaDescription
+     * @param string $imageUrl
      *
      * @return TlManiaxContaoPortfolioItem
      */
-    public function setMetaDescription(?string $metaDescription): self
+    public function setImageUrl(string $imageUrl): self
     {
-        $this->metaDescription = $metaDescription;
+        $this->imageUrl = $imageUrl;
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getSize(): string
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param string $size
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setSize(string $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
 }
