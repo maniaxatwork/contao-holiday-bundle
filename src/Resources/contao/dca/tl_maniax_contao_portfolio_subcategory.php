@@ -27,7 +27,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_subcategory'] = [
             'mode' => 4,
             'flag' => 1,
             'fields' => ['pid'],
-            'headerFields' => ['name'],
+            'headerFields' => ['title'],
             'child_record_callback' => [TlManiaxContaoPortfolioSubCategory::class, 'listSubCategories'],
             'child_record_class' => 'no_padding',
             'panelLayout' => 'filter;sort,search,limit',
@@ -35,7 +35,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_subcategory'] = [
         ],
         'label' => [
             'fields' => [
-                'title'
+                'title',
             ],
             'format' => '%s',
         ],

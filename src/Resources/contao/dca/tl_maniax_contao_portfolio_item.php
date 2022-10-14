@@ -119,13 +119,13 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'tl_class' => 'clr',
             ],
         ],
-        'category' => [
+        'subcategory' => [
             'inputType' => 'select',
             'exclude' => true,
             'filter' => true,
             'options_callback' => [
                 TlManiaxContaoPortfolioItem::class,
-                'categoryOptionsCallback',
+                'subCategoryOptionsCallback',
             ],
             'eval' => [
                 'includeBlankOption' => true,
@@ -210,6 +210,15 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
 			'sql' => "varchar(255) NOT NULL default ''"
         ],
+        'imageUrl' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_content']['imageUrl'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50 wizard'),
+			'sql'                     => "varchar(2048) NOT NULL default ''"
+		),
 		'size' => [
 			'exclude' => true,
 			'inputType' => 'imageSize',
