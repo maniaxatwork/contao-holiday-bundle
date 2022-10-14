@@ -80,7 +80,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     ],
     'subpalettes' => [
         'addImage' => 'singleSRC,size,fullsize,overwriteMeta',
-        'overwriteMeta' => 'alt,imageTitle,imageUrl,caption'
+        'overwriteMeta' => 'alt,imageTitle,imageUrl'
     ],
 
     'fields' => [

@@ -85,13 +85,12 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
-    protected string $metaTitle = '';
+    protected string $imageTitle = '';
 
     /**
-     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
+     * @ORM\Column(type="string", length=255, options={"default": ""})
      */
-    protected ?string $metaDescription;
-
+    protected string $imageUrl;
 
     /**
      * @return string|null
@@ -304,19 +303,19 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     /**
      * @return string
      */
-    public function getMetaTitle(): string
+    public function getImageTitle(): string
     {
-        return $this->metaTitle;
+        return $this->imageTitle;
     }
 
     /**
-     * @param string $metaTitle
+     * @param string $imageTitle
      *
      * @return TlManiaxContaoPortfolioItem
      */
-    public function setMetaTitle(string $metaTitle): self
+    public function setImageTitle(string $imageTitle): self
     {
-        $this->metaTitle = $metaTitle;
+        $this->imageTitle = $imageTitle;
 
         return $this;
     }
