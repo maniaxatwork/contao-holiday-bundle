@@ -78,6 +78,11 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     protected $singleSRC;
 
     /**
+     * @ORM\Column(type="string", length=1, nullable=false, options={"fixed"=true, "default"=""})
+     */
+    protected bool $overwriteMeta;
+
+    /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
     protected string $metaTitle = '';
@@ -278,6 +283,22 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     public function setSingleSRC($singleSRC): void
     {
         $this->singleSRC = $singleSRC;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOverwriteMeta(): bool
+    {
+        return $this->overwriteMeta;
+    }
+
+    /**
+     * @param bool $overwriteMeta
+     */
+    public function setOverwriteMeta(bool $overwriteMeta): void
+    {
+        $this->overwriteMeta = $overwriteMeta;
     }
 
     /**

@@ -75,12 +75,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     ],
 
     'palettes' => [
-        '__selector__' => ['addImage', 'overwritemeta'],
+        '__selector__' => ['addImage', 'overwriteMeta'],
         'default' => '{title_legend},title,alias,description;{settings_legend},category;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
     'subpalettes' => [
-        'addImage' => 'singleSRC,size,fullsize,overwritemeta',
-        'overwritemeta' => 'alt,imageTitle,imageUrl,caption'
+        'addImage' => 'singleSRC,size,fullsize,overwriteMeta',
+        'overwriteMeta' => 'alt,imageTitle,imageUrl,caption'
     ],
 
     'fields' => [
@@ -190,7 +190,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'inputType' => 'fileTree',
             'eval' => ['fieldType' => 'radio', 'filesOnly' => true, 'extensions'=>'%contao.image.valid_extensions%', 'mandatory' => true, 'tl_class' => 'clr'],
         ],
-        'overwritemeta' => [
+        'overwriteMeta' => [
 			'exclude' => true,
 			'inputType' => 'checkbox',
 			'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 clr'],
