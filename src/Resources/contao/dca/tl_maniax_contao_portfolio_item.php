@@ -208,7 +208,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 			'search' => true,
 			'inputType' => 'text',
 			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
-			'sql' => "varchar(255) NOT NULL default ''"
+			'sql' => "varchar(255) NOT NULL default ''",
         ],
         'imageUrl' => [
 			'label' => &$GLOBALS['TL_LANG']['tl_content']['imageUrl'],
@@ -216,8 +216,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 			'search' => true,
 			'inputType' => 'text',
 			'eval' => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50 wizard'],
-			'sql' => "varchar(2048) NOT NULL default ''"
-		),
+			'sql' => "varchar(2048) NOT NULL default ''",
+        ],
 		'size' => [
 			'exclude' => true,
 			'inputType' => 'imageSize',
@@ -227,7 +227,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 			{
 				return System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance());
 			},
-			'sql' => "varchar(64) NOT NULL default ''"
+			'sql' => "varchar(64) NOT NULL default ''",
 		],
     ],
 ];
