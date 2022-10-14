@@ -203,6 +203,14 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
 			'sql' => "varchar(255) NOT NULL default ''",
         ],
+        'alt' => [
+			'label' => &$GLOBALS['TL_LANG']['tl_content']['alt'],
+			'exclude' => true,
+			'search' => true,
+			'inputType' => 'text',
+			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
+			'sql' => "varchar(255) NOT NULL default ''",
+		],
 		'imageTitle' => [
 			'exclude' => true,
 			'search' => true,

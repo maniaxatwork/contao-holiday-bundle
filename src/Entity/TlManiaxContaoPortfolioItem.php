@@ -82,6 +82,11 @@ class TlManiaxContaoPortfolioItem extends DCADefault
      */
     protected bool $overwriteMeta;
 
+/**
+     * @ORM\Column(type="string", length=255, options={"default": ""})
+     */
+    protected string $alt    = '';
+
     /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
@@ -298,6 +303,27 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     public function setOverwriteMeta(bool $overwriteMeta): void
     {
         $this->overwriteMeta = $overwriteMeta;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getAlt(): string
+    {
+        return $this->alt;
+    }
+
+    /**
+     * @param string $alt
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setAlt(string $alt): self
+    {
+        $this->alt = $alt;
+
+        return $this;
     }
 
     /**
