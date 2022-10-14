@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 
     'palettes' => [
         '__selector__' => ['addImage', 'overwriteMeta'],
-        'default' => '{title_legend},title,alias,description;{settings_legend},category;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'default' => '{title_legend},title,alias,description;{settings_legend},subcategory;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
     'subpalettes' => [
         'addImage' => 'singleSRC,size,fullsize,overwriteMeta',

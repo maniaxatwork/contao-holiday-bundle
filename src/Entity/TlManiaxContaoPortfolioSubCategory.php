@@ -52,14 +52,6 @@ class TlManiaxContaoPortfolioSubCategory extends DCADefault
     }
 
     /**
-     * @return string
-     */
-    public function getStreetAddress(): string
-    {
-        return $this->streetAddress;
-    }
-
-    /**
      * @param string $title
      *
      * @return TlManiaxContaoPortfolioSubCategory
