@@ -10,6 +10,9 @@ services:
     Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioSubCategory:
         public: true
 
+    Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioCategory:
+        public: true
+
     # Contao Hooks
     Maniax\ContaoPortfolio\EventListener\Contao\DCA\SetPtableForContentListener:
         tags:

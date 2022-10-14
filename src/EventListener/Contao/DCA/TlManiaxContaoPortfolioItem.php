@@ -23,6 +23,7 @@ use Contao\System;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory;
+use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem as TlManiaxContaoPortfolioItemEntity;
 use Maniax\ContaoPortfolio\Helper\NumberHelper;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -88,11 +89,9 @@ class TlManiaxContaoPortfolioItem
 
         $return = [];
         foreach ($subCategories as $subCategory) {
-            $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
+            $category = $subCategory->getCategory() ;
 
-            $category = $categoryRepository->findPublishedById($subCategory->getPid()); 
-
-            $return[$subCategory->getId()] = $category->getCategory()->getTitle().": ". $subCategory->getSubCategory()->getTitle();
+            $return[$subCategory->getId()] = $category->getTitle().": ".$subCategory->getTitle();
         }
 
         return $return;

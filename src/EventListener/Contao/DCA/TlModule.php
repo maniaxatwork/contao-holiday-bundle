@@ -38,11 +38,9 @@ class TlModule
         $subCategories = $subCategoryRepository->findAll();
 
         foreach ($subCategories as $subCategory) {
-            $return[$subCategory->getId()] = $subCategory->getCategory()->getTitle();
+            $category = $subCategory->getCategory() ;
 
-            if ('' !== $subCategory->getTitle()) {
-                $return[$subCategory->getId()] .= ', '.$subCategory->getTitle();
-            }
+            $return[$subCategory->getId()] = $category->getTitle().": ".$subCategory->getTitle();
         }
 
         return $return;
