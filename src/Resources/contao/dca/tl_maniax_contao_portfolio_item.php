@@ -138,7 +138,9 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'type' => 'haste-ManyToMany',
                 'load' => 'lazy',
                 'table' => 'tl_maniax_contao_portfolio_category',
-                'field' => 'id',
+                'referenceColumn' => 'portfolio_id',
+                'fieldColumn' => 'category_id',
+                'relationTable' => 'tl_portfolio_categories',
             ],
         ],
         'url' => [
