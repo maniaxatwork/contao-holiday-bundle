@@ -131,7 +131,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'includeBlankOption' => true,
                 'tl_class' => 'w50',
                 'mandatory' => true,
-                'multiple' => true,
+                'multiple' => false,
                 'chosen' => true,
             ],
         ],

@@ -88,10 +88,9 @@ class TlManiaxContaoPortfolioItem
         $subCategories = $subCategoryRepository->findAll();
 
         $return = [];
-        foreach ($subCategories as $subCategory) {
-            $category = $subCategory->getCategory() ;
 
-            $return[$subCategory->getId()] = $category->getTitle().": ".$subCategory->getTitle();
+        foreach ($subCategories as $subCategory) {
+            $return[$subCategory->getId()] = $subCategory->getCategory()->getTitle().": ".$subCategory->getTitle();
         }
 
         return $return;

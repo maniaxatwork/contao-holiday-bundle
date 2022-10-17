@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioShowAllSubCatego
 $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioCategories'] = [
     'exclude' => true,
     'inputType' => 'checkboxWizard',
-    'options_callback' => [TlModule::class, 'portfolioCategoriesOptionsCallback'],
+    'options_callback' => [TlModule::class, 'subCategoryOptionsCallback'],
     'eval' => ['multiple' => true, 'tl_class' => 'clr'],
     'sql' => 'mediumtext null',
 ];

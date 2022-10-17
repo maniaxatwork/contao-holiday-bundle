@@ -21,10 +21,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
 
     'list' => [
         'sorting' => [
-            'mode' => 2,
-            'fields' => ['title'],
-            'flag' => 1,
-            'disableGrouping' => true,
+            'mode' => 5,
         ],
         'label' => [
             'fields' => ['title'],
@@ -62,6 +59,9 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
     // Fields
     'fields' => [
         'id' => [
+        ],
+        'pid' => [
+            'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
         ],
         'tstamp' => [
         ],
