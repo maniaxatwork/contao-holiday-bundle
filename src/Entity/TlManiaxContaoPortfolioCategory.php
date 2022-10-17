@@ -30,6 +30,11 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
     protected int $pid;
 
     /**
+     * @ORM\Column(type="integer", options={"unsigned": true})
+     */
+    protected int $sorting;
+
+    /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
     protected string $title = '';
@@ -81,6 +86,27 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
     public function setPid(string $pid): self
     {
         $this->pid = $pid;
+
+        return $this;
+    }
+
+    
+    /**
+     * @return int
+     */
+    public function getSorting(): int
+    {
+        return $this->sorting;
+    }
+
+    /**
+     * @param string $sorting
+     *
+     * @return TlManiaxContaoPortfolioCategory
+     */
+    public function setSorting(string $sorting): self
+    {
+        $this->sorting = $sorting;
 
         return $this;
     }
