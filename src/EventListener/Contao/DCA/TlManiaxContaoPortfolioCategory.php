@@ -12,10 +12,11 @@ declare(strict_types=1);
 
 namespace Maniax\ContaoPortfolio\EventListener\Contao\DCA;
 
-class TlManiaxContaoPortfolioSubCategory
+class TlManiaxContaoPortfolioCategory
 {
-    public function listSubCategories(array $arrRow): string
+    public function listCategories(array $arrRow): string
     {
         return '<div class="tl_content_left">'.$arrRow['title'].'</div>';
     }
+    
 }
