@@ -25,7 +25,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     /**
      * @ORM\Column(type="text", nullable=true, options={"default": NULL})
      */
-    protected ?string $subCategory;
+    protected ?string $category;
 
     /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
@@ -145,19 +145,19 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     /**
      * @return string|null
      */
-    public function getSubCategory(): ?string
+    public function getCategory(): ?string
     {
-        return $this->subCategory;
+        return $this->category;
     }
 
     /**
-     * @param string|null $subCategory
+     * @param string|null $category
      *
      * @return TlManiaxContaoPortfolioItem
      */
-    public function setSubCategory(?string $subCategory): self
+    public function setCategory(?string $category): self
     {
-        $this->subCategory = $subCategory;
+        $this->category = $category;
 
         return $this;
     }
