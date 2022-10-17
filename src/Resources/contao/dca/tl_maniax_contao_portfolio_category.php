@@ -14,7 +14,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
     // Config
     'config' => [
         'dataContainer' => 'Table',
-        'ctable' => ['tl_maniax_contao_portfolio_subcategory'],
         'switchToEdit' => true,
         'enableVersioning' => true,
     ],
@@ -41,12 +40,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
         ],
         'operations' => [
             'edit' => [
-                'href' => 'table=tl_maniax_contao_portfolio_subcategory',
-                'icon' => 'edit.svg',
-            ],
-            'editheader' => [
                 'href' => 'act=edit',
-                'icon' => 'header.svg',
+                'icon' => 'edit.svg',
             ],
         ],
     ],

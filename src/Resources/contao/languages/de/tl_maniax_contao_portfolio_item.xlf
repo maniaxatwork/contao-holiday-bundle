@@ -62,12 +62,6 @@
             <trans-unit id="tl_maniax_contao_portfolio_item.tstamp.1">
                 <target>Datum und Uhrzeit der letzten Änderung</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.subcategory.0">
-                <target>Kategorie</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.subcategory.1">
-                <target>Bitte wählen Sie die Kategorie aus.</target>
-            </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.addImage.0">
                 <target>Ein Bild hinzufügen</target>
             </trans-unit>

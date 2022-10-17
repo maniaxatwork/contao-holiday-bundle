@@ -20,7 +20,6 @@ use Contao\StringUtil;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form as HasteForm;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,8 +36,8 @@ class ContaoPortfolioItemFilterController extends AbstractFrontendModuleControll
 {
     protected ManagerRegistry $registry;
     protected RouterInterface $router;
-    protected array $counterSubCategory = [];
-    protected array $subCategories = [];
+    protected array $counterCategory = [];
+    protected array $categories = [];
     protected array $portfolioItems = [];
 
     public function __construct(
@@ -53,14 +52,14 @@ class ContaoPortfolioItemFilterController extends AbstractFrontendModuleControll
     {
         if (empty($this->portfolioItems)) {
             $portfolioItemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItem::class);
-            $moduleSubCategories = StringUtil::deserialize($model->maniaxContaoPortfolioSubCategories);
-            if (!\is_array($moduleSubCategories)) {
-                $moduleSubCategories = [];
+            $moduleCategories = StringUtil::deserialize($model->maniaxContaoPortfolioCategories);
+            if (!\is_array($moduleCategories)) {
+                $moduleCategories = [];
             }
-            $portfolioItems = $portfolioItemRepository->findAllPublishedBySubCategories([], $moduleSubCategories);
+            $portfolioItems = $portfolioItemRepository->findAllPublishedByCategories([], $moduleCategories);
 
             foreach ($portfolioItems as $portfolioItem) {
-                $this->collectSubCategories($portfolioItem, $model);
+                $this->collectCategories($portfolioItem, $model);
                 $this->portfolioItems[] = $portfolioItem;
             }
         }
@@ -68,42 +67,42 @@ class ContaoPortfolioItemFilterController extends AbstractFrontendModuleControll
         return $this->portfolioItems;
     }
 
-    public function collectSubCategories(?TlManiaxContaoPortfolioItem $portfolioItem, $model): void
+    public function collectCategories(?TlManiaxContaoPortfolioItem $portfolioItem, $model): void
     {
-        $subCategories = StringUtil::deserialize($portfolioItem->getSubCategories());
-        $addedSubCategories = [];
-        if (\is_array($subCategories)) {
-            foreach ($subCategories as $subCategoriesId) {
-                /** @var TlManiaxContaoPortfolioSubCategory $subCategory */
-                $subCategory = $this->getAllSubCategories($model)[(int) $subCategoryId] ?? null;
+        $categories = StringUtil::deserialize($portfolioItem->getCategories());
+        $addedCategories = [];
+        if (\is_array($categories)) {
+            foreach ($categories as $categoriesId) {
+                /** @var TlManiaxContaoPortfolioCategory $category */
+                $category = $this->getAllCategories($model)[(int) $categoryId] ?? null;
 
-                if (null === $subCategory) {
+                if (null === $category) {
                     continue;
                 }
 
-                if (\in_array($subCategory->getTitle(), $addedSubCategories, true)) {
+                if (\in_array($category->getTitle(), $addedCategories, true)) {
                     continue;
                 }
 
-                if (\array_key_exists($subCategory->getTitle(), $this->counterSubCategory)) {
-                    ++$this->counterSubCategory[$subCategory->getTitle()];
+                if (\array_key_exists($category->getTitle(), $this->counterCategory)) {
+                    ++$this->counterCategory[$category->getTitle()];
                 } else {
-                    $this->counterSubCategory[$subCategory->getTitle()] = 1;
+                    $this->counterCategory[$category->getTitle()] = 1;
                 }
 
-                $addedSubCategories[] = $subCategory->getTitle();
+                $addedCategories[] = $category->getTitle();
             }
         }
     }
 
-    public function getSubCategories(ModuleModel $model): ?array
+    public function getCategories(ModuleModel $model): ?array
     {
         $this->getAllItems($model);
 
         $options = [];
 
-        foreach ($this->getAllSubCategories($model) as $k) {
-            if (!$model->maniaxContaPortfolioShowAllSubCategories) {
+        foreach ($this->getAllCategories($model) as $k) {
+            if (!$model->maniaxContaPortfolioShowAllCategories) {
                 continue;
             }
             if (\array_key_exists($k->getTitle(), $options)) {
@@ -116,29 +115,26 @@ class ContaoPortfolioItemFilterController extends AbstractFrontendModuleControll
         $options = array_flip($options);
 
         foreach ($options as $key => $option) {
-            $options[$key] = $option.$this->addgetSubCategoryCounter($model, $option);
+            $options[$key] = $option.$this->addgetCategoryCounter($model, $option);
         }
 
         return $options;
     }
 
-    public function getAllSubCategories($model): array
+    public function getAllCategories($model): array
     {
-        if (empty($this->subCategories)) {
-            $subCategoriesRepository = $this->registry->getRepository(TlManiaxContaoPortfolioSubCategory::class);
-            $moduleSubCategories = StringUtil::deserialize($model->maniaxContaoPortfolioSubCategories);
-            if (!\is_array($moduleLocations) || empty($moduleLocations)) {
-                $subCategories = $subCategoriesRepository->findAll();
-            } else {
-                $subCategories = $subCategoriesRepository->findBy(['id' => $moduleSubCategories]);
-            }
+        if (empty($this->categories)) {
+            $categoriesRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
+            $moduleCategories = StringUtil::deserialize($model->maniaxContaoPortfolioCategories);
 
-            foreach ($subCategories as $subCategory) {
-                $this->subCategories[$subCategory->getId()] = $subCategory;
+            $categories = $categoriesRepository->findAll();
+
+            foreach ($categories as $category) {
+                $this->categories[$category->getId()] = $category;
             }
         }
 
-        return $this->subCategories;
+        return $this->categories;
     }
 
     public function getHeadlineHtml(string $content, string $type): string
@@ -162,18 +158,18 @@ class ContaoPortfolioItemFilterController extends AbstractFrontendModuleControll
             $form->setFormActionFromPageId($model->jumpTo);
         }
 
-        if ($model->maniaxContaoPortfolioShowSubCategories) {
-            $form->addFormField('subCategoryHeadline', [
+        if ($model->maniaxContaoPortfolioShowCategories) {
+            $form->addFormField('categoryHeadline', [
                 'inputType' => 'html',
                 'eval' => [
-                    'html' => $this->getHeadlineHtml($model->maniaxContaoPortfolioSubCategoriesHeadline, 'subCategory'),
+                    'html' => $this->getHeadlineHtml($model->maniaxContaoPortfolioCategoriesHeadline, 'category'),
                 ],
             ]);
 
-            $form->addFormField('subCategory', [
+            $form->addFormField('category', [
                 'inputType' => 'checkbox',
-                'default' => $request->get('subCategory'),
-                'options' => $this->getSubCategory($model),
+                'default' => $request->get('category'),
+                'options' => $this->getCategory($model),
                 'eval' => ['multiple' => true],
             ]);
         }

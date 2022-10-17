@@ -40,37 +40,6 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
     protected string $title = '';
 
     /**
-     * @var Collection|TlManiaxContaoPortfolioSubCategory[]
-     * @ORM\OneToMany(targetEntity="Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory", mappedBy="category")
-     */
-    protected Collection $subCategory;
-
-    public function __construct()
-    {
-        $this->subCategory = new ArrayCollection();
-    }
-
-    /**
-     * @return Collection|TlManiaxContaoPortfolioSubCategory[]
-     */
-    public function getSubCategory(): Collection
-    {
-        return $this->subCategory;
-    }
-
-    /**
-     * @param TlManiaxContaoPortfolioSubCategory $subCategory
-     *
-     * @return $this
-     */
-    public function addSubCategory(TlManiaxContaoPortfolioSubCategory $subCategory): self
-    {
-        $this->subCategory->add($subCategory);
-
-        return $this;
-    }
-
-    /**
      * @return int
      */
     public function getPid(): int
@@ -90,7 +59,6 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
         return $this;
     }
 
-    
     /**
      * @return int
      */

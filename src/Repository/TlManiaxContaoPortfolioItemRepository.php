@@ -64,7 +64,7 @@ class TlManiaxContaoPortfolioItemRepository extends ServiceEntityRepository
         return false;
     }
 
-    public function findAllPublishedBySubCategory(array $subCategories, ?string $sortBy = null, ?string $order = null): array
+    public function findAllPublishedByCategory(array $categories, ?string $sortBy = null, ?string $order = null): array
     {
         $qb = $this->createQueryBuilder('a');
 
@@ -77,16 +77,16 @@ class TlManiaxContaoPortfolioItemRepository extends ServiceEntityRepository
             ->setParameter('empty', '')
         ;
 
-        $criterionSubCategory = [];
+        $criterionCategory = [];
 
-        foreach ($subCategories as $subCategory) {
-            foreach (explode('|', $subCategory) as $s) {
-                $criterionSubCategory[] = "a.subCategory LIKE '%\"".$s."\"%'";
+        foreach ($categories as $category) {
+            foreach (explode('|', $category) as $s) {
+                $criterionCategory[] = "a.category LIKE '%\"".$s."\"%'";
             }
         }
 
-        if (\count($criterionSubCategory)) {
-            $qb->andWhere(implode(' OR ', $criterionSubCategory));
+        if (\count($criterionCategory)) {
+            $qb->andWhere(implode(' OR ', $criterionCategory));
         }
 
         if (null !== $sortBy) {

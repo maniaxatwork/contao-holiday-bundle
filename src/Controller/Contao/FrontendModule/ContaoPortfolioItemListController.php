@@ -24,7 +24,6 @@ use Contao\System;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,23 +60,23 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
         $portfolioItemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItem::class);
-        $subCategoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioSubCategory::class);
+        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
 
-        $moduleSubCategories = StringUtil::deserialize($model->maniaxContaoPortfolioSubCategories);
-        if (!\is_array($moduleSubCategories)) {
-            $moduleSubCategories = [];
+        $moduleCategories = StringUtil::deserialize($model->maniaxContaoPortfolioCategories);
+        if (!\is_array($moduleCategories)) {
+            $moduleCategories = [];
         }
 
-        $subCategories = \is_array($request->get('subCategory')) && !$model->maniaxContaoPortfolioNoFilter ? $request->get('subCategory') : $moduleSubCategories;
+        $categories = \is_array($request->get('category')) && !$model->maniaxContaoPortfolioNoFilter ? $request->get('category') : $moduleCategories;
 
-        if (!empty($moduleSubCategories)) {
-            $subCategories = array_filter($subCategories, static fn ($element) => \in_array($element, $moduleSubCategories, true));
-            if (empty($subCategories)) {
-                $subCategories = $moduleSubCategories;
+        if (!empty($moduleCategories)) {
+            $categories = array_filter($categories, static fn ($element) => \in_array($element, $moduleCategories, true));
+            if (empty($categories)) {
+                $categories = $moduleCategories;
             }
         }
 
-        $sortBySubCategory = null;
+        $sortByCategory = null;
         $sortBy = $request->get('sortBy') ?? $model->maniaxContaoPortfolioSortingDefaultField;
         $order = $request->get('order') ?? $model->maniaxContaoPortfolioSortingDefaultDirection;
 
@@ -107,8 +106,8 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
             $template->showSorting = true;
             $template->formId = $formId;
 
-            if ('jobLocation' === $sortBy) {
-                $sortBySubCategory = $order;
+            if ('category' === $sortBy) {
+                $sortByCategory = $order;
                 $sortBy = null;
                 $order = null;
             }
@@ -117,20 +116,20 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
             $order = null;
         }
 
-        $portfolioItems = $portfolioItemRepository->findAllPublishedBySubCategory($subCategory, $sortBy, $order);
+        $portfolioItems = $portfolioItemRepository->findAllPublishedByCategory($category, $sortBy, $order);
 
-        if (null !== $sortBySubCategory) {
+        if (null !== $sortByCategory) {
             $itemParts = [];
-            if (empty($subCategories)) {
-                foreach ($subCategoryRepository->findAll() as $subCategory) {
-                    $subCategories[] = (string) $subCategory->getId();
+            if (empty($categories)) {
+                foreach ($categoryRepository->findAll() as $category) {
+                    $categories[] = (string) $category->getId();
                 }
             }
-            $subCategoryArr = 'DESC' === $sortBySubCategory ? array_reverse($subCategories) : $subCategories;
-            foreach ($subCategoryArr as $subCategory) {
-                $joinedsubCategories = explode('|', $subCategory);
-                foreach ($joinedsubCategories as $joinedsubCategory) {
-                    $itemParts[(string) $joinedsubCategory] = [];
+            $categoryArr = 'DESC' === $sortByCategory ? array_reverse($categories) : $categories;
+            foreach ($categoryArr as $category) {
+                $joinedCategories = explode('|', $category);
+                foreach ($joinedCategories as $joinedCategory) {
+                    $itemParts[(string) $joinedCategory] = [];
                 }
             }
         }
@@ -142,14 +141,14 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
             $itemTemplate->portfolioItem = $portfolioItem;
             $itemTemplate->headlineUnit = $model->maniaxContaoPortfolioHeadlineTag;
 
-            if (null !== $sortBySubCategory) {
-                $subCategories = StringUtil::deserialize($portfolioItem->getSubCategory());
+            if (null !== $sortByCategory) {
+                $categories = StringUtil::deserialize($portfolioItem->getCategory());
 
-                foreach ($subCategoryArr as $subCategory) {
-                    $joinedSubCategories = explode('|', $subCategory);
-                    foreach ($joinedSubCategories as $joinedSubCategory) {
-                        if (\in_array((string) $joinedSubCategory, $subCategories, true)) {
-                            $itemParts[$subCategory][] = $itemTemplate->parse();
+                foreach ($categoryArr as $category) {
+                    $joinedCategories = explode('|', $category);
+                    foreach ($joinedCategories as $joinedCategory) {
+                        if (\in_array((string) $joinedCategory, $categories, true)) {
+                            $itemParts[$category][] = $itemTemplate->parse();
                             break 2;
                         }
                     }
@@ -159,7 +158,7 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
             }
         }
 
-        if (null !== $sortBySubCategory) {
+        if (null !== $sortByCategory) {
             foreach ($itemParts as $part) {
                 $items = array_merge($items, $part);
             }

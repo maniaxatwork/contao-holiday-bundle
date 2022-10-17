@@ -14,18 +14,15 @@ use Maniax\ContaoPortfolio\EventListener\Contao\DCA\PortfolioItemFields;
 use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlModule;
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoPortfolioShowCategories';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoPortfolioShowSubCategories';
-
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_portfolio_item_list'] =
     '{title_legend},title,category;
-    {config_legend},maniaxContaoPortfolioHeadlineTag,maniaxContaoPortfolioShowCategories,maniaxContaoPortfolioShowSubCategories;
+    {config_legend},maniaxContaoPortfolioHeadlineTag,maniaxContaoPortfolioShowCategories;
     {template_legend:hide},customTpl;
     {expert_legend:hide},cssID'
 ;
 
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoPortfolioShowCategories'] = 'maniaxContaoPortfolioCategoriesHeadline,maniaxContaoPortfolioShowAllCategories';
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoPortfolioShowSubCategories'] = 'maniaxContaoPortfolioSubCategoriesHeadline,maniaxContaoPortfolioSubCategories,maniaxContaoPortfolioShowAllSubCategories';
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioHeadlineTag'] = [
     'exclude' => true,
@@ -58,32 +55,10 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioShowAllCategorie
     'sql' => "char(1) NOT NULL default ''",
 ];
 
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioShowSubCategories'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'eval' => ['submitOnChange' => true, 'tl_class' => 'clr'],
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioSubCategoriesHeadline'] = [
-    'exclude' => true,
-    'inputType' => 'text',
-    'eval' => ['allowHtml' => true, 'tl_class' => 'w50 clr'],
-    'sql' => "varchar(255) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioShowAllSubCategories'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'eval' => ['tl_class' => 'clr w50'],
-    'sql' => "char(1) NOT NULL default ''",
-];
-
 $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioCategories'] = [
     'exclude' => true,
     'inputType' => 'checkboxWizard',
-    'options_callback' => [TlModule::class, 'subCategoryOptionsCallback'],
+    'options_callback' => [TlModule::class, 'categoryOptionsCallback'],
     'eval' => ['multiple' => true, 'tl_class' => 'clr'],
     'sql' => 'mediumtext null',
 ];

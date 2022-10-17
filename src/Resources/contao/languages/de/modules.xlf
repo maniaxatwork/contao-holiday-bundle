@@ -17,15 +17,6 @@
             <trans-unit id="MOD.maniax_contao_portfolio_categories.1">
                 <target>Kategorien verwalten</target>
             </trans-unit>
-            <trans-unit id="MOD.tl_maniax_contao_portfolio_subcategory">
-                <target>Unterkategorien</target>
-            </trans-unit>
-            <trans-unit id="MOD.maniax_contao_portfolio_subcategory.0">
-                <target>Unterkategorien</target>
-            </trans-unit>
-            <trans-unit id="MOD.maniax_contao_portfolio_subcategory.1">
-                <target>Unterkategorien verwalten</target>
-            </trans-unit>
             <trans-unit id="MOD.maniax_contao_portfolio_settings.0">
                 <target>Einstellungen</target>
             </trans-unit>

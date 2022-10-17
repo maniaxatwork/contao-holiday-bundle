@@ -15,13 +15,13 @@ namespace Maniax\ContaoPortfolio\Repository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory;
+use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
 
-class TlManiaxContaoPortfolioSubCategoryRepository extends ServiceEntityRepository
+class TlManiaxContaoPortfolioCategoryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TlManiaxContaoPortfolioSubCategory::class);
+        parent::__construct($registry, TlManiaxContaoPortfolioCategory::class);
     }
 
     public function findAll(): array

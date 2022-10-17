@@ -22,7 +22,6 @@ use Contao\StringUtil;
 use Contao\System;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioSubCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem as TlManiaxContaoPortfolioItemEntity;
 use Maniax\ContaoPortfolio\Helper\NumberHelper;
@@ -81,16 +80,16 @@ class TlManiaxContaoPortfolioItem
         return $varValue;
     }
 
-    public function subCategoryOptionsCallback(): array
+    public function categoryOptionsCallback(): array
     {
-        $subCategoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioSubCategory::class);
+        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
 
-        $subCategories = $subCategoryRepository->findAll();
+        $categories = $categoryRepository->findAll();
 
         $return = [];
 
-        foreach ($subCategories as $subCategory) {
-            $return[$subCategory->getId()] = $subCategory->getCategory()->getTitle().": ".$subCategory->getTitle();
+        foreach ($categories as $category) {
+            $return[$category->getId()] = $category->getTitle();
         }
 
         return $return;
@@ -136,15 +135,15 @@ class TlManiaxContaoPortfolioItem
 
     public function labelCallback(array $row, string $label, DataContainer $dc, array $labels): string
     {
-        $subCategories = [];
-        $sCategories = $this->subCategoryOptionsCallback();
-        $subCategoriesArr = StringUtil::deserialize($row['subCategory']);
-        foreach ($subCategoriesArr as $subCategory) {
-            $subCategories[] = $sCategories[$subCategory];
+        $categories = [];
+        $sCategories = $this->categoryOptionsCallback();
+        $categoriesArr = StringUtil::deserialize($row['category']);
+        foreach ($categoriesArr as $category) {
+            $categories[] = $sCategories[$category];
         }
 
         $label = '<h2>'.$row['title'].'</h2>';
-        $label .= implode(' | ', $subCategories);
+        $label .= implode(' | ', $categories);
         return $label;
     }
 }
