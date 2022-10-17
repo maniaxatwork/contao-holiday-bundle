@@ -103,4 +103,12 @@ class ManiaxContaoPortfolioCategoriesPickerProvider extends AbstractPickerProvid
 
         return true;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getRouteParameters(PickerConfig $config = null)
+    {
+        return ['do' => 'tl_maniax_contao_portfolio_items', 'table' => 'tl_maniax_contao_portfolio_category'];
+    }
 }
