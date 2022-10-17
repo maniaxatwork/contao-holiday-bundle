@@ -13,7 +13,7 @@ declare(strict_types=1);
 use Contao\BackendUser;
 use Contao\System;
 use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItem;
- 
+
 $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     'config' => [
         'dataContainer' => 'Table',
@@ -123,10 +123,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'inputType' => 'select',
             'exclude' => true,
             'filter' => true,
-            'options_callback' => [
+            'inputType' => 'maniaxContaoPortfolioCategoriesPicker',
+            'foreignKey' => 'tl_maniax_contao_portfolio__category.title',
+            'options_callback' => [[
                 TlManiaxContaoPortfolioItem::class,
-                'categoryOptionsCallback',
-            ],
+                'onCategoriesOptionsCallback'
+            ]],
             'eval' => [
                 'includeBlankOption' => true,
                 'tl_class' => 'w50',

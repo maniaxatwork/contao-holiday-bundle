@@ -16,6 +16,6 @@ class PortfolioItemFields
 {
     public static function getFields()
     {
-        return ['title', 'tstamp', 'subCategory'];
+        return ['title', 'tstamp', 'category'];
     }
 }
