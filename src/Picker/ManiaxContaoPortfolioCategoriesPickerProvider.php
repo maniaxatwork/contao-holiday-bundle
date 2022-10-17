@@ -17,7 +17,7 @@ use Contao\CoreBundle\Picker\AbstractPickerProvider;
 use Contao\CoreBundle\Picker\DcaPickerProviderInterface;
 use Contao\CoreBundle\Picker\PickerConfig;
 
-class ManiaxContaoPortfolioCategoryPickerProvider extends AbstractPickerProvider implements DcaPickerProviderInterface
+class ManiaxContaoPortfolioCategoriesPickerProvider extends AbstractPickerProvider implements DcaPickerProviderInterface
 {
     /**
      * @var PermissionsHelper
