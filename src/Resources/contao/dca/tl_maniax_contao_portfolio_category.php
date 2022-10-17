@@ -63,6 +63,9 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
         'pid' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
         ],
+        'sorting' => [
+            'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
+        ],
         'tstamp' => [
         ],
         'title' => [
