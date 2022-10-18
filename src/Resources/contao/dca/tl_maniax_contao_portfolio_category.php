@@ -98,6 +98,10 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
             'eval' => [
                 'isBoolean' => true,
             ],
+            'sql' => [
+                'type' => 'boolean',
+                'default' => false,
+            ],
         ],
     ],
 ];
