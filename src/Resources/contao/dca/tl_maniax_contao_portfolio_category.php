@@ -43,12 +43,28 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
                 'href' => 'act=edit',
                 'icon' => 'edit.svg',
             ],
+            'toggle' => [
+                'attributes' => 'onclick="Backend.getScrollOffset();"',
+                'haste_ajax_operation' => [
+                    'field' => 'published',
+                    'options' => [
+                        [
+                            'value' => 0,
+                            'icon' => 'invisible.svg',
+                        ],
+                        [
+                            'value' => 1,
+                            'icon' => 'visible.svg',
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
 
     // Palettes
     'palettes' => [
-        'default' => '{category_legend},title',
+        'default' => '{category_legend},title;{publish_legend},published',
     ],
 
     // Fields
@@ -73,6 +89,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
                 'tl_class' => 'w50',
                 'mandatory' => true,
             ],
+        ],
+        'published' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['published'],
+            'exclude' => true,
+            'filter' => true,
+            'inputType' => 'checkbox',
         ],
     ],
 ];

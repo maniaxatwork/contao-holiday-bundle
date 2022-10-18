@@ -31,6 +31,16 @@ class TlManiaxContaoPortfolioCategoryRepository extends ServiceEntityRepository
             ->getResult(AbstractQuery::HYDRATE_OBJECT);
     }
 
+    public function findAllByPublished(): array
+    {
+        $qb = $this->createQueryBuilder('l');
+
+        return $qb
+            ->where($qb->expr()->in('l.published', 1))
+            ->getQuery()
+            ->getResult(AbstractQuery::HYDRATE_OBJECT);
+    }
+
     public function findByMultipleIds($ids): array
     {
         $qb = $this->createQueryBuilder('l');

@@ -40,6 +40,11 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
     protected string $title = '';
 
     /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     */
+    protected bool $published;
+
+    /**
      * @return int
      */
     public function getPid(): int
@@ -95,6 +100,26 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->published;
+    }
+
+    /**
+     * @param bool $published
+     *
+     * @return TlManiaxContaoPortfolioCategory
+     */
+    public function setPublished(bool $published): self
+    {
+        $this->published = $published;
 
         return $this;
     }
