@@ -91,10 +91,13 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
             ],
         ],
         'published' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['published'],
             'exclude' => true,
             'filter' => true,
+            'flag' => 1,
             'inputType' => 'checkbox',
+            'eval' => [
+                'isBoolean' => true,
+            ],
         ],
     ],
 ];

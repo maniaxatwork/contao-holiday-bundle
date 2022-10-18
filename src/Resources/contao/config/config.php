@@ -28,4 +28,12 @@ if (defined('TL_MODE') && TL_MODE == 'BE') {
     $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoportfolio/portfolio.min.css|static';
 }
 
+/*
+ * Back end form fields
+ */
+$GLOBALS['BE_FFL']['maniaxContaoPortfolioCategoriesPicker'] = \Maniax\ContaoPortfolio\Widget\ManiaxContaoPortfolioCategoriesPickerWidget::class;
+
+/*
+ * Models
+ */
 $GLOBALS['TL_MODELS'][Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::getTable()] = Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::class;

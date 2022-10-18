@@ -120,7 +120,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             ],
         ],
         'category' => [
-            'inputType' => 'select',
             'exclude' => true,
             'filter' => true,
             'inputType' => 'maniaxContaoPortfolioCategoriesPicker',
