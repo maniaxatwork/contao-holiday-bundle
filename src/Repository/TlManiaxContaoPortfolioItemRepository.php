@@ -18,6 +18,8 @@ use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
 use Doctrine\ORM\NoResultException;
+use Haste\Model\Model;
+use Haste\Model\Relations;
 
 class TlManiaxContaoPortfolioItemRepository extends ServiceEntityRepository
 {

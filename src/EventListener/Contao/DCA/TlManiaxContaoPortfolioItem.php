@@ -22,6 +22,8 @@ use Contao\StringUtil;
 use Contao\System;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
+use Haste\Model\Model;
+use Haste\Model\Relations;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem as TlManiaxContaoPortfolioItemEntity;
 use Maniax\ContaoPortfolio\Helper\NumberHelper;
@@ -82,39 +84,24 @@ class TlManiaxContaoPortfolioItem
 
     public function onCategoryOptionsCallback(): array
     {
-        /** @var Input $input */
-        $input = $this->framework->getAdapter(Input::class);
+        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
 
-        // Do not generate the options for other views than listings
-        if ($input->get('act') && $input->get('act') !== 'select') {
-            return [];
-        }
+        $categories = $categoryRepository->findAll();
 
-        return $this->generateOptionsRecursively();
-    }
+        $return = [];
+        foreach ($categories as $category) {
 
-    /**
-     * Generate the options recursively
-     *
-     * @param int    $pid
-     * @param string $prefix
-     *
-     * @return array
-     */
-    private function generateOptionsRecursively($pid = 0, $prefix = '')
-    {
-        $options = [];
-        $records = $this->db->fetchAllAssociative('SELECT * FROM tl_maniax_contao_portfolio_category WHERE pid=? ORDER BY sorting', [$pid]);
+            if (0 !== $category->getPid()) {
+                $mainCategoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
+                $mainCategory = $mainCategoryRepository->find($category->getPid());
 
-        foreach ($records as $record) {
-            $options[$record['id']] = $prefix . $record['title'];
-
-            foreach ($this->generateOptionsRecursively($record['id'], $record['title'] . ' / ') as $k => $v) {
-                $options[$k] = $v;
+                $return[$category->getId()] = $mainCategory->getTitle() .': '.$category->getTitle();
+            }else{
+                $return[$category->getId()] = $category->getTitle();
             }
         }
 
-        return $options;
+        return $return;
     }
 
     public function saveCallbackGlobal(DataContainer $dc): void

@@ -120,26 +120,19 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             ],
         ],
         'category' => [
+            'inputType' => 'select',
             'exclude' => true,
             'filter' => true,
-            'inputType' => 'maniaxContaoPortfolioCategoriesPicker',
-            'foreignKey' => 'tl_maniax_contao_portfolio_category.title',
-            'options_callback' => [[
+            'options_callback' => [
                 TlManiaxContaoPortfolioItem::class,
-                'onCategoriesOptionsCallback'
-            ]],
+                'onCategoryOptionsCallback'
+            ],
             'eval' => [
+                'includeBlankOption' => true,
+                'tl_class' => 'w50',
                 'mandatory' => true,
                 'multiple' => true,
-                'fieldType' => 'checkbox',
-            ],
-            'relation' => [
-                'type' => 'haste-ManyToMany',
-                'load' => 'lazy',
-                'table' => 'tl_maniax_contao_portfolio_category',
-                'referenceColumn' => 'portfolio_id',
-                'fieldColumn' => 'category_id',
-                'relationTable' => 'tl_portfolio_categories',
+                'chosen' => true,
             ],
         ],
         'url' => [
