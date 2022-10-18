@@ -17,6 +17,12 @@
             <trans-unit id="tl_maniax_contao_portfolio_category.new.1">
                 <target>Eine neue Kategorie anlegen</target>
             </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_category.type.0">
+                <target>Art der Kategorie</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_category.type.1">
+                <target>Hier können Sie die Art der Kategorie einstellen.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

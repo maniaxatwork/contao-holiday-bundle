@@ -40,6 +40,11 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
     protected string $title = '';
 
     /**
+     * @ORM\Column(type="string", length=255, options={"default": ""})
+     */
+    protected string $type = '';
+
+    /**
      * @ORM\Column(type="boolean", nullable=false, options={"default": false})
      */
     protected bool $published;
@@ -100,6 +105,26 @@ class TlManiaxContaoPortfolioCategory extends DCADefault
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     *
+     * @return TlManiaxContaoPortfolioCategory
+     */
+    public function setType(string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

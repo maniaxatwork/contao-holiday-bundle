@@ -43,6 +43,11 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
                 'href' => 'act=edit',
                 'icon' => 'edit.svg',
             ],
+            'delete' => [
+                'href' => 'act=delete',
+                'icon' => 'delete.svg',
+                'attributes' => 'onclick="if(!confirm(\''.($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null).'\'))return false;Backend.getScrollOffset()"',
+            ],
             'toggle' => [
                 'attributes' => 'onclick="Backend.getScrollOffset();"',
                 'haste_ajax_operation' => [
@@ -64,7 +69,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
 
     // Palettes
     'palettes' => [
-        'default' => '{category_legend},title;{publish_legend},published',
+        'default' => '{category_legend},title;{type_legend},type;{publish_legend},published',
     ],
 
     // Fields
@@ -87,6 +92,20 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
             'eval' => [
                 'maxlength' => 255,
                 'tl_class' => 'w50',
+                'mandatory' => true,
+            ],
+        ],
+        'type' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['type'],
+            'exclude' => true,
+            'filter' => true,
+            'inputType' => 'radio',
+            'options_callback' => [
+                TlManiaxContaoPortfolioItem::class,
+                'onTypeOptionsCallback'
+            ],
+            'reference' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category'],
+            'eval' => [
                 'mandatory' => true,
             ],
         ],

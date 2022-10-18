@@ -43,10 +43,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'showColumns' => false,
         ],
         'operations' => [
-            'edit' => [
-                'href' => 'table=tl_content',
-                'icon' => 'edit.svg',
-            ],
             'editheader' => [
                 'href' => 'act=edit',
                 'icon' => 'header.svg',
