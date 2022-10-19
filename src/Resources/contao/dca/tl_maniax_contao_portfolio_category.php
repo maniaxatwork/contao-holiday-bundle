@@ -10,6 +10,8 @@ declare(strict_types=1);
  * @link          https://github.com/maniaxatwork/
  */
 
+use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItem;
+
 $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
     // Config
     'config' => [

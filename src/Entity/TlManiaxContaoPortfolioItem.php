@@ -23,11 +23,6 @@ use Doctrine\ORM\Mapping as ORM;
 class TlManiaxContaoPortfolioItem extends DCADefault
 {
     /**
-     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
-     */
-    protected ?string $category;
-
-    /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
     protected string $title = '';
@@ -40,49 +35,39 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     /**
      * @ORM\Column(type="text", nullable=true, options={"default": NULL})
      */
+    protected ?string $category;
+
+    /**
+     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
+     */
     protected ?string $description;
 
     /**
-     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
-     */
-    protected bool $published;
-
-    /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
-    protected string $cssClass = '';
-
-    /**
-     * @ORM\Column(type="string", length=255, options={"default": ""})
-     */
-    protected string $url;
-
-    /**
-     * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
-     */
-    protected string $start;
-
-    /**
-     * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
-     */
-    protected string $stop;
-
-    /**
-     * @ORM\Column(type="string", length=1, nullable=false, options={"fixed"=true, "default"=""})
-     */
-    protected bool $addImage;
-
+    protected string $videoUrl;
+    
     /**
      * @ORM\Column (type="binary_string", nullable=true)
      */
     protected $singleSRC;
 
     /**
+     * @ORM\Column(type="string", length=255, options={"default": ""})
+     */
+    protected string $size;
+
+    /**
+     * @ORM\Column(type="string", length=1, nullable=false, options={"fixed"=true, "default"=""})
+     */
+    protected bool $fullsize;
+
+    /**
      * @ORM\Column(type="string", length=1, nullable=false, options={"fixed"=true, "default"=""})
      */
     protected bool $overwriteMeta;
 
-/**
+    /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
     protected string $alt = '';
@@ -98,29 +83,64 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     protected string $imageUrl;
 
     /**
+     * @ORM\Column (type="blob", nullable=true)
+     */
+    protected $multiSRC;
+
+    /**
+     * @ORM\Column (type="blob", nullable=true)
+     */
+    protected $orderSRC;
+
+    /**
+     * @ORM\Column(type="smallint", options={"default": 4})
+     */
+    protected string $perRow;
+
+    /**
+     * @ORM\Column(type="smallint", options={"default": 0})
+     */
+    protected string $perPage;
+
+    /**
+     * @ORM\Column(type="smallint", options={"default": 0})
+     */
+    protected string $numberOfItems;
+
+    /**
+     * @ORM\Column(type="string", length=32, options={"default": ""})
+     */
+    protected string $sortBy;
+
+    /**
+     * @ORM\Column(type="string", length=64, options={"default": ""})
+     */
+    protected string $galleryTpl;
+
+    /**
+     * @ORM\Column(type="string", length=64, options={"default": ""})
+     */
+    protected string $customTpl;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     */
+    protected bool $published;
+
+    /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
-    protected string $size;
+    protected string $cssClass = '';
 
     /**
-     * @return string|null
+     * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
      */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
+    protected string $start;
 
     /**
-     * @param string|null $description
-     *
-     * @return TlManiaxContaoPortfolioItem
+     * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
      */
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
+    protected string $stop;
 
     /**
      * @return string
@@ -138,26 +158,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    /**
-     * @param string|null $category
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-    public function setCategory(?string $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
@@ -183,99 +183,63 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStart(): string
+    public function getCategory(): ?string
     {
-        return $this->start;
+        return $this->category;
     }
 
     /**
-     * @param string $start
+     * @param string|null $category
      *
      * @return TlManiaxContaoPortfolioItem
      */
-    public function setStart(string $start): self
+    public function setCategory(?string $category): self
     {
-        $this->start = $start;
+        $this->category = $category;
+
+        return $this;
+    }
+    
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string|null $description
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStop(): string
+    public function getVideoUrl(): ?string
     {
-        return $this->stop;
+        return $this->videoUrl;
     }
 
     /**
-     * @param string $stop
+     * @param string|null $videoUrl
      *
      * @return TlManiaxContaoPortfolioItem
      */
-    public function setStop(string $stop): self
+    public function setVideoUrl(?string $videoUrl): self
     {
-        $this->stop = $stop;
+        $this->videoUrl = $videoUrl;
 
         return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isPublished(): bool
-    {
-        return $this->published;
-    }
-
-    /**
-     * @param bool $published
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-    public function setPublished(bool $published): self
-    {
-        $this->published = $published;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCssClass(): string
-    {
-        return $this->cssClass;
-    }
-
-    /**
-     * @param string $cssClass
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-    public function setCssClass(string $cssClass): self
-    {
-        $this->cssClass = $cssClass;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isAddImage(): bool
-    {
-        return $this->addImage;
-    }
-
-    /**
-     * @param bool $addImage
-     */
-    public function setAddImage(bool $addImage): void
-    {
-        $this->addImage = $addImage;
     }
 
     /**
@@ -288,12 +252,54 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
     /**
      * @param mixed $singleSRC
+     * 
+     * @return TlManiaxContaoPortfolioItem
      */
     public function setSingleSRC($singleSRC): void
     {
         $this->singleSRC = $singleSRC;
     }
 
+    /**
+     * @return string
+     */
+    public function getSize(): string
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param string $size
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setSize(string $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFullsize(): bool
+    {
+        return $this->fullsize;
+    }
+
+    /**
+     * @param bool $fullsize
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setFullsize(bool $fullsize): self
+    {
+        $this->fullsize = $fullsize;
+
+        return $this;
+    }
+    
     /**
      * @return bool
      */
@@ -304,6 +310,8 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
     /**
      * @param bool $overwriteMeta
+     * 
+     * @return TlManiaxContaoPortfolioItem
      */
     public function setOverwriteMeta(bool $overwriteMeta): void
     {
@@ -371,23 +379,234 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getSize(): string
+    public function getMultiSRC()
     {
-        return $this->size;
+        return $this->multiSRC;
     }
 
     /**
-     * @param string $size
+     * @param mixed $multiSRC
      *
      * @return TlManiaxContaoPortfolioItem
      */
-    public function setSize(string $size): self
+    public function setMultiSRC($multiSRC): void
     {
-        $this->size = $size;
+        $this->multiSRC = $multiSRC;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrderSRC()
+    {
+        return $this->orderSRC;
+    }
+
+    /**
+     * @param mixed $orderSRC
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setOrderSRC($orderSRC): void
+    {
+        $this->orderSRC = $orderSRC;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getPerRow()
+    {
+        return $this->perRow;
+    }
+
+    /**
+     * @param mixed $perRow
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setPerRow($perRow): void
+    {
+        $this->perRow = $perRow;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getPerPage()
+    {
+        return $this->perPage;
+    }
+
+    /**
+     * @param mixed $perPage
+     * 
+     * @return TlManiaxContaoPortfolioItem
+     */
+
+    public function setPerPage($perPage): void
+    {
+        $this->perPage = $perPage;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getNumberOfItems()
+    {
+        return $this->numberOfItems;
+    }
+
+    /**
+     * @param mixed $numberOfItems
+     * 
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setNumberOfItems($numberOfItems): void
+    {
+        $this->numberOfItems = $numberOfItems;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSortBy(): string
+    {
+        return $this->sortBy;
+    }
+
+    /**
+     * @param string $sortBy
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setSortBy(string $sortBy): self
+    {
+        $this->sortBy = $sortBy;
 
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getGalleryTpl(): string
+    {
+        return $this->galleryTpl;
+    }
+
+    /**
+     * @param string $galleryTpl
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setGalleryTpl(string $galleryTpl): self
+    {
+        $this->galleryTpl = $galleryTpl;
+
+        return $this;
+    }
+
+    
+    /**
+     * @return string
+     */
+    public function getCustomTpl(): string
+    {
+        return $this->customTpl;
+    }
+
+    /**
+     * @param string $customTpl
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setCustomTpl(string $customTpl): self
+    {
+        $this->customTpl = $customTpl;
+
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getCssClass(): string
+    {
+        return $this->cssClass;
+    }
+
+    /**
+     * @param string $cssClass
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setCssClass(string $cssClass): self
+    {
+        $this->cssClass = $cssClass;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->published;
+    }
+
+    /**
+     * @param bool $published
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setPublished(bool $published): self
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStart(): string
+    {
+        return $this->start;
+    }
+
+    /**
+     * @param string $start
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setStart(string $start): self
+    {
+        $this->start = $start;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStop(): string
+    {
+        return $this->stop;
+    }
+
+    /**
+     * @param string $stop
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setStop(string $stop): self
+    {
+        $this->stop = $stop;
+
+        return $this;
+    }
 }

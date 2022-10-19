@@ -72,11 +72,14 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 
     'palettes' => [
         '__selector__' => ['addImage', 'overwriteMeta'],
-        'default' => '{title_legend},title,alias,description;{settings_legend},category;{image_legend},addImage;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'default' => '{title_legend},title,alias;{settings_legend},category;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'text' => 'description',
+        'video' => 'videoUrl',
+        'image'   => '{source_legend},singleSRC,size,fullsize,overwriteMeta;{template_legend:hide},customTpl;',
+        'gallery' => '{source_legend},multiSRC,sortBy;{image_legend},size,perRow,fullsize,perPage,numberOfItems;{template_legend:hide},galleryTpl,customTpl;',
     ],
     'subpalettes' => [
-        'addImage' => 'singleSRC,size,fullsize,overwriteMeta',
-        'overwriteMeta' => 'alt,imageTitle,imageUrl'
+        'overwriteMeta' => 'alt,imageTitle,imageUrl',
     ],
 
     'fields' => [
@@ -106,6 +109,23 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'aliasSaveCallback',
             ]],
         ],
+        'category' => [
+            'inputType' => 'select',
+            'exclude' => true,
+            'filter' => true,
+            'options_callback' => [[
+                TlManiaxContaoPortfolioItem::class,
+                'onCategoryOptionsCallback'
+            ]],
+            'eval' => [
+                'submitOnChange'=>true,
+                'includeBlankOption' => true,
+                'tl_class' => 'w50',
+                'mandatory' => true,
+                'multiple' => true,
+                'chosen' => true,
+            ],
+        ],
         'description' => [
             'exclude' => true,
             'search' => true,
@@ -115,36 +135,110 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'tl_class' => 'clr',
             ],
         ],
-        'category' => [
-            'inputType' => 'select',
-            'exclude' => true,
-            'filter' => true,
-            'options_callback' => [
-                TlManiaxContaoPortfolioItem::class,
-                'onCategoryOptionsCallback'
-            ],
-            'eval' => [
-                'includeBlankOption' => true,
-                'tl_class' => 'w50',
-                'mandatory' => true,
-                'multiple' => true,
-                'chosen' => true,
-            ],
-        ],
-        'url' => [
-            'label' => &$GLOBALS['TL_LANG']['MSC']['url'],
+        'videoUrl' => [
             'exclude' => true,
             'inputType' => 'text',
             'eval' => [
                 'mandatory' => true,
-                'rgxp' => 'url',
                 'decodeEntities' => true,
                 'maxlength' => 255,
-                'dcaPicker' => true,
-                'addWizardClass' => false,
+                'dcaPicker'=>true,
                 'tl_class' => 'w50',
             ],
-            'sql' => "varchar(255) NOT NULL default ''",
+        ],
+        'singleSRC' => [
+            'exclude' => true,
+            'inputType' => 'fileTree',
+            'eval' => ['fieldType' => 'radio', 'filesOnly' => true, 'extensions'=>'%contao.image.valid_extensions%', 'mandatory' => true, 'tl_class' => 'clr'],
+        ],
+        'size' => [
+			'exclude' => true,
+			'inputType' => 'imageSize',
+			'reference' => &$GLOBALS['TL_LANG']['MSC'],
+			'eval' => ['rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'],
+			'options_callback' => static function ()
+			{
+				return System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance());
+			},
+			'sql' => "varchar(64) NOT NULL default ''",
+		],
+        'fullsize' => [
+			'exclude' => true,
+			'inputType' => 'checkbox',
+			'eval' => array('tl_class'=>'w50 m12'),
+		],
+        'overwriteMeta' => [
+			'exclude' => true,
+			'inputType' => 'checkbox',
+			'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 clr'],
+			'sql' => ['type' => 'boolean', 'default' => false],
+		],
+        'alt' => [
+			'exclude' => true,
+			'search' => true,
+			'inputType' => 'text',
+			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
+			'sql' => "varchar(255) NOT NULL default ''",
+        ],
+		'imageTitle' => [
+			'exclude' => true,
+			'search' => true,
+			'inputType' => 'text',
+			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
+			'sql' => "varchar(255) NOT NULL default ''",
+        ],
+        'imageUrl' => [
+			'label' => &$GLOBALS['TL_LANG']['tl_content']['imageUrl'],
+			'exclude' => true,
+			'search' => true,
+			'inputType' => 'text',
+			'eval' => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50 wizard'],
+			'sql' => "varchar(2048) NOT NULL default ''",
+        ],
+        'multiSRC' => [
+			'exclude' => true,
+			'inputType' => 'fileTree',
+			'eval' => ['multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'extensions'=>'%contao.image.valid_extensions%'],
+        ],
+		'orderSRC' => [
+			'label' => &$GLOBALS['TL_LANG']['MSC']['sortOrder'],
+        ],
+        'perRow' => [
+			'exclude' => true,
+			'inputType' => 'select',
+			'options' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+			'eval' => ['tl_class'=>'w50'],
+		],
+		'perPage' => [
+			'exclude' => true,
+			'inputType' => 'text',
+			'eval' => ['rgxp'=>'natural', 'tl_class'=>'w50'],
+        ],
+		'numberOfItems' => [
+			'label' => &$GLOBALS['TL_LANG']['MSC']['numberOfItems'],
+			'exclude' => true,
+			'inputType' => 'text',
+			'eval' => ['rgxp'=>'natural', 'tl_class'=>'w50'],
+        ],
+		'sortBy' => [
+			'exclude' => true,
+			'inputType' => 'select',
+			'options' => ['custom', 'name_asc', 'name_desc', 'date_asc', 'date_desc', 'random'],
+			'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+			'eval' => ['tl_class'=>'w50 clr'],
+        ],
+		'galleryTpl' => [
+			'exclude' => true,
+			'inputType' => 'select',
+			'options_callback' => static function (){
+				return Controller::getTemplateGroup('gallery_');
+			},
+			'eval'=> ['includeBlankOption'=>true, 'chosen'=>true, 'tl_class'=>'w50'],
+		],
+		'customTpl' => [
+			'exclude' => true,
+			'inputType' => 'select',
+			'eval' => ['chosen'=>true, 'tl_class'=>'w50'],
         ],
         'cssClass' => [
             'exclude' => true,
@@ -175,56 +269,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'inputType' => 'text',
             'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
         ],
-        'addImage' => [
-            'exclude' => true,
-            'inputType' => 'checkbox',
-            'eval' => ['submitOnChange' => true],
-            'sql' => ['type' => 'boolean', 'default' => false],
-        ],
-        'singleSRC' => [
-            'exclude' => true,
-            'inputType' => 'fileTree',
-            'eval' => ['fieldType' => 'radio', 'filesOnly' => true, 'extensions'=>'%contao.image.valid_extensions%', 'mandatory' => true, 'tl_class' => 'clr'],
-        ],
-        'overwriteMeta' => [
-			'exclude' => true,
-			'inputType' => 'checkbox',
-			'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 clr'],
-			'sql' => ['type' => 'boolean', 'default' => false],
-		],
-        'alt' => [
-			'exclude' => true,
-			'search' => true,
-			'inputType' => 'text',
-			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
-			'sql' => "varchar(255) NOT NULL default ''",
-        ],
-		'imageTitle' => [
-			'exclude' => true,
-			'search' => true,
-			'inputType' => 'text',
-			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
-			'sql' => "varchar(255) NOT NULL default ''",
-        ],
-        'imageUrl' => [
-			'label' => &$GLOBALS['TL_LANG']['tl_content']['imageUrl'],
-			'exclude' => true,
-			'search' => true,
-			'inputType' => 'text',
-			'eval' => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50 wizard'],
-			'sql' => "varchar(2048) NOT NULL default ''",
-        ],
-		'size' => [
-			'exclude' => true,
-			'inputType' => 'imageSize',
-			'reference' => &$GLOBALS['TL_LANG']['MSC'],
-			'eval' => ['rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'],
-			'options_callback' => static function ()
-			{
-				return System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance());
-			},
-			'sql' => "varchar(64) NOT NULL default ''",
-		],
     ],
 ];
 
