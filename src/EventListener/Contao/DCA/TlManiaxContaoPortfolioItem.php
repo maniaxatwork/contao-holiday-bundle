@@ -22,11 +22,8 @@ use Contao\StringUtil;
 use Contao\System;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use Haste\Model\Model;
-use Haste\Model\Relations;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem as TlManiaxContaoPortfolioItemEntity;
-use Maniax\ContaoPortfolio\Helper\NumberHelper;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment as TwigEnvironment;
 
