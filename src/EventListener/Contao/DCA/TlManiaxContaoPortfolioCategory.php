@@ -18,5 +18,10 @@ class TlManiaxContaoPortfolioCategory
     {
         return '<div class="tl_content_left">'.$arrRow['title'].'</div>';
     }
-    
+
+    public function onTypeOptionsCallback(): array
+    {
+        return array('text', 'video', 'image', 'gallery');
+    }
+
 }

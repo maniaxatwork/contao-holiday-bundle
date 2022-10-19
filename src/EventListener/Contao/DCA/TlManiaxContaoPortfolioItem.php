@@ -103,11 +103,6 @@ class TlManiaxContaoPortfolioItem
 
         return $return;
     }
-    
-    public function onTypeOptionsCallback(): array
-    {
-        return array('text', 'video', 'image');
-    }
 
     public function saveCallbackGlobal(DataContainer $dc): void
     {
