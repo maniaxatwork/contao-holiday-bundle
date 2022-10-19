@@ -29,11 +29,6 @@ if (defined('TL_MODE') && TL_MODE == 'BE') {
 }
 
 /*
- * Back end form fields
- */
-$GLOBALS['BE_FFL']['maniaxContaoPortfolioCategoriesPicker'] = \Maniax\ContaoPortfolio\Widget\ManiaxContaoPortfolioCategoriesPickerWidget::class;
-
-/*
  * Models
  */
 $GLOBALS['TL_MODELS'][Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::getTable()] = Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::class;
