@@ -12,6 +12,11 @@ declare(strict_types=1);
 
 namespace Maniax\ContaoPortfolio\EventListener\Contao\DCA;
 
+use Contao\CoreBundle\Slug\Slug;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Twig\Environment as TwigEnvironment;
+
 class TlManiaxContaoPortfolioCategory
 {
     public function __construct(

@@ -9,6 +9,11 @@ services:
 
     Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioCategory:
         public: true
+        arguments:
+            - '@Doctrine\Persistence\ManagerRegistry'
+            - '@contao.slug'
+            - '@request_stack'
+            - '@twig'
 
     # Contao Hooks
     Maniax\ContaoPortfolio\EventListener\Contao\BackendMenuListener:

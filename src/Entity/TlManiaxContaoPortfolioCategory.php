@@ -12,14 +12,12 @@ declare(strict_types=1);
 
 namespace Maniax\ContaoPortfolio\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class TlManiaxContaoPortfolioCategory.
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Maniax\ContaoPortfolio\Repository\TlManiaxContaoPortfolioCategoryRepository")
  * @ORM\Table(name="tl_maniax_contao_portfolio_category")
  */
 class TlManiaxContaoPortfolioCategory extends DCADefault

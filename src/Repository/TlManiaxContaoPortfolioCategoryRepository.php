@@ -14,6 +14,7 @@ namespace Maniax\ContaoPortfolio\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
 
