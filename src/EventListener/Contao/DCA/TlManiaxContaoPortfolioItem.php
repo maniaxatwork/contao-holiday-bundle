@@ -22,7 +22,7 @@ use Contao\StringUtil;
 use Contao\System;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
+use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory as TlManiaxContaoPortfolioCategoryEntity;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem as TlManiaxContaoPortfolioItemEntity;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment as TwigEnvironment;
@@ -49,47 +49,17 @@ class TlManiaxContaoPortfolioItem
         $this->twig = $twig;
     }
 
-    /**
-     * @param mixed $varValue
-     *
-     * @throws Exception
-     */
-    public function aliasSaveCallback($varValue, DataContainer $dc): string
-    {
-        $portfolioItemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItemEntity::class);
-        if ($dc->inputName === 'alias') {
-            $title = $dc->activeRecord->title;
-            $aliasExists = fn (string $alias): bool => $portfolioItemRepository->doesAliasExist($alias, (int) $dc->activeRecord->id);
-        } else {
-            $aliasExists = fn (string $alias): bool => $portfolioItemRepository->doesAliasExist($alias);
-        }
-
-        if (empty($varValue)) {
-            $varValue = $this->slugGenerator->generate(
-                $title,
-                [],
-                $aliasExists
-            );
-        } elseif (preg_match('/^[1-9]\d*$/', $varValue)) {
-            throw new Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasNumeric'], $varValue));
-        } elseif ($aliasExists($varValue)) {
-            throw new Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasExists'], $varValue));
-        }
-
-        return $varValue;
-    }
-
     public function onCategoryOptionsCallback(): array
     {
-        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
+        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategoryEntity::class);
 
-        $categories = $categoryRepository->findAll();
+        $categories = $categoryRepository->findAllByPublished();
 
         $return = [];
         foreach ($categories as $category) {
 
             if (0 !== $category->getPid()) {
-                $mainCategoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
+                $mainCategoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategoryEntity::class);
                 $mainCategory = $mainCategoryRepository->find($category->getPid());
 
                 $return[$category->getId()] = $mainCategory->getTitle() .': '.$category->getTitle();
@@ -134,14 +104,39 @@ class TlManiaxContaoPortfolioItem
 
         Message::addRaw($info);
 
-
         // Show correct palette for category
-        if ($dc !== null){
+        if (Input::get('act') == 'edit'){
+            $activeId = Input::get('id');
+
             $itemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItemEntity::class);
-            //$item = $itemRepository->find(->id);
+            $item = $itemRepository->find($activeId);
 
-            var_dump($dc->activeRecord);
+            if (null === $item || $item->getCategory() === null) {
+                return;
+            }
 
+            $palette = $GLOBALS['TL_DCA'][$dc->table]['palettes']['default'];
+
+            $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategoryEntity::class);
+
+            $category = $categoryRepository->find($item->getCategory());
+
+            switch ($category->getType()){
+                case "text":
+                    $palette = '{title_legend},title;{settings_legend},category,description;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    break;
+                case "video":
+                    $palette = '{title_legend},title;{settings_legend},category,videoUrl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    break;
+                case "image":
+                    $palette = '{title_legend},title;{settings_legend},category,singleSRC,size,fullsize,overwriteMeta;{template_legend:hide},customTpl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    break;
+                case "gallery":
+                    $palette = '{title_legend},title;{settings_legend},category,multiSRC,sortBy;{image_legend},size,perRow,fullsize,perPage,numberOfItems;{template_legend:hide},galleryTpl,customTpl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    break;
+            }
+
+            $GLOBALS['TL_DCA'][$dc->table]['palettes']['default'] = $palette;
         }
 
     }

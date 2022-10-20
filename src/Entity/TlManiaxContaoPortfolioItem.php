@@ -30,11 +30,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     /**
      * @ORM\Column(type="text", nullable=true, options={"default": NULL})
      */
-    protected ?string $alias;
-
-    /**
-     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
-     */
     protected ?string $category;
 
     /**
@@ -46,7 +41,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
     protected string $videoUrl;
-    
+
     /**
      * @ORM\Column (type="binary_string", nullable=true)
      */
@@ -165,26 +160,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     /**
      * @return string|null
      */
-    public function getAlias(): ?string
-    {
-        return $this->alias;
-    }
-
-    /**
-     * @param string|null $alias
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-    public function setAlias(?string $alias): self
-    {
-        $this->alias = $alias;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getCategory(): ?string
     {
         return $this->category;
@@ -201,7 +176,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
         return $this;
     }
-    
+
     /**
      * @return string|null
      */
@@ -252,7 +227,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
     /**
      * @param mixed $singleSRC
-     * 
+     *
      * @return TlManiaxContaoPortfolioItem
      */
     public function setSingleSRC($singleSRC): void
@@ -299,7 +274,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
         return $this;
     }
-    
+
     /**
      * @return bool
      */
@@ -310,7 +285,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
     /**
      * @param bool $overwriteMeta
-     * 
+     *
      * @return TlManiaxContaoPortfolioItem
      */
     public function setOverwriteMeta(bool $overwriteMeta): void
@@ -442,7 +417,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
     /**
      * @param mixed $perPage
-     * 
+     *
      * @return TlManiaxContaoPortfolioItem
      */
 
@@ -461,7 +436,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
     /**
      * @param mixed $numberOfItems
-     * 
+     *
      * @return TlManiaxContaoPortfolioItem
      */
     public function setNumberOfItems($numberOfItems): void
@@ -509,7 +484,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
         return $this;
     }
 
-    
+
     /**
      * @return string
      */
@@ -529,7 +504,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
 
         return $this;
     }
-    
+
     /**
      * @return string
      */

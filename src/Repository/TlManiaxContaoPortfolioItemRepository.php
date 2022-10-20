@@ -18,8 +18,6 @@ use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
 use Doctrine\ORM\NoResultException;
-use Haste\Model\Model;
-use Haste\Model\Relations;
 
 class TlManiaxContaoPortfolioItemRepository extends ServiceEntityRepository
 {
@@ -28,7 +26,7 @@ class TlManiaxContaoPortfolioItemRepository extends ServiceEntityRepository
         parent::__construct($registry, TlManiaxContaoPortfolioItem::class);
     }
 
-    public function findAllPublished(): array
+    public function findAllByPublished(): array
     {
         return $this->createQueryBuilder('a')
             ->andwhere('a.published=:published')
@@ -39,31 +37,6 @@ class TlManiaxContaoPortfolioItemRepository extends ServiceEntityRepository
             ->setParameter('empty', '')
             ->getQuery()
             ->getResult(AbstractQuery::HYDRATE_OBJECT);
-    }
-
-    /**
-     * @throws NonUniqueResultException
-     */
-    public function doesAliasExist(string $alias, int $id = null): bool
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->select('COUNT(a.id)')
-            ->where('a.alias=:alias');
-
-        if ($id) {
-            $qb->andWhere('a.id!=:id')
-                ->setParameter('id', $id);
-        }
-
-        $portfolioItem = $qb->setParameter('alias', $alias)
-            ->getQuery()
-            ->getOneOrNullResult(AbstractQuery::HYDRATE_SINGLE_SCALAR);
-
-        if ($portfolioItem > 0) {
-            return true;
-        }
-
-        return false;
     }
 
     public function findAllPublishedByCategory(array $categories, ?string $sortBy = null, ?string $order = null): array
@@ -102,19 +75,13 @@ class TlManiaxContaoPortfolioItemRepository extends ServiceEntityRepository
      * @throws NonUniqueResultException
      * @throws \Doctrine\ORM\NoResultException
      */
-    public function findPublishedByIdOrAlias(string $alias): ?TlManiaxContaoPortfolioItem
+    public function findPublishedById(string $id): ?TlManiaxContaoPortfolioItem
     {
         $qb = $this->createQueryBuilder('a');
 
-        if (!preg_match('/^[1-9]\d*$/', $alias)) {
-            $qb
-                ->where('a.alias=:alias')
-                ->setParameter('alias', $alias);
-        } else {
-            $qb
-                ->where('a.id=:id')
-                ->setParameter('id', $alias);
-        }
+        $qb
+            ->where('a.id=:id')
+            ->setParameter('id', $id);
 
         $qb
             ->andwhere('a.published=:published')

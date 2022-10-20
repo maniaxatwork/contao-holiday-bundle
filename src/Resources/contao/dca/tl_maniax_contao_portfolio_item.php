@@ -72,7 +72,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 
     'palettes' => [
         '__selector__' => ['category', 'addImage', 'overwriteMeta'],
-        'default' => '{title_legend},title,alias;{settings_legend},category;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'default' => '{title_legend},title;{settings_legend},category;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
     'subpalettes' => [
         'overwriteMeta' => 'alt,imageTitle,imageUrl',
@@ -94,15 +94,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'mandatory' => true,
                 'maxlength' => 255,
                 'tl_class' => 'w50',
-            ],
-        ],
-        'alias' => [
-            'inputType' => 'text',
-            'exclude' => true,
-            'eval' => ['tl_class' => 'w50', 'doNotCopy' => true],
-            'save_callback' => [
-                TlManiaxContaoPortfolioItem::class,
-                'aliasSaveCallback',
             ],
         ],
         'category' => [

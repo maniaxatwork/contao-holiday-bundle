@@ -14,6 +14,18 @@ namespace Maniax\ContaoPortfolio\EventListener\Contao\DCA;
 
 class TlManiaxContaoPortfolioCategory
 {
+    public function __construct(
+        ManagerRegistry $registry,
+        Slug $slugGenerator,
+        RequestStack $requestStack,
+        TwigEnvironment $twig
+    ) {
+        $this->registry = $registry;
+        $this->slugGenerator = $slugGenerator;
+        $this->requestStack = $requestStack;
+        $this->twig = $twig;
+    }
+
     public function listCategories(array $arrRow): string
     {
         return '<div class="tl_content_left">'.$arrRow['title'].'</div>';
