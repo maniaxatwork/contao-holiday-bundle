@@ -98,16 +98,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     protected string $sortBy;
 
     /**
-     * @ORM\Column(type="string", length=64, options={"default": ""})
-     */
-    protected string $galleryTpl;
-
-    /**
-     * @ORM\Column(type="string", length=64, options={"default": ""})
-     */
-    protected string $customTpl;
-
-    /**
      * @ORM\Column(type="boolean", nullable=false, options={"default": false})
      */
     protected bool $published;
@@ -413,47 +403,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     public function setSortBy(string $sortBy): self
     {
         $this->sortBy = $sortBy;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getGalleryTpl(): string
-    {
-        return $this->galleryTpl;
-    }
-
-    /**
-     * @param string $galleryTpl
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-    public function setGalleryTpl(string $galleryTpl): self
-    {
-        $this->galleryTpl = $galleryTpl;
-
-        return $this;
-    }
-
-
-    /**
-     * @return string
-     */
-    public function getCustomTpl(): string
-    {
-        return $this->customTpl;
-    }
-
-    /**
-     * @param string $customTpl
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-    public function setCustomTpl(string $customTpl): self
-    {
-        $this->customTpl = $customTpl;
 
         return $this;
     }

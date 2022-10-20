@@ -130,7 +130,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'decodeEntities' => true,
                 'maxlength' => 255,
                 'dcaPicker'=>true,
-                'tl_class' => 'w50',
+                'tl_class' => 'w50 clr',
             ],
         ],
         'singleSRC' => [
@@ -196,36 +196,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 			'options' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 			'eval' => ['tl_class'=>'w50'],
 		],
-		'perPage' => [
-			'exclude' => true,
-			'inputType' => 'text',
-			'eval' => ['rgxp'=>'natural', 'tl_class'=>'w50'],
-        ],
-		'numberOfItems' => [
-			'label' => &$GLOBALS['TL_LANG']['MSC']['numberOfItems'],
-			'exclude' => true,
-			'inputType' => 'text',
-			'eval' => ['rgxp'=>'natural', 'tl_class'=>'w50'],
-        ],
 		'sortBy' => [
 			'exclude' => true,
 			'inputType' => 'select',
 			'options' => ['custom', 'name_asc', 'name_desc', 'date_asc', 'date_desc', 'random'],
 			'reference' => &$GLOBALS['TL_LANG']['tl_content'],
 			'eval' => ['tl_class'=>'w50 clr'],
-        ],
-		'galleryTpl' => [
-			'exclude' => true,
-			'inputType' => 'select',
-			'options_callback' => static function (){
-				return Controller::getTemplateGroup('gallery_');
-			},
-			'eval'=> ['includeBlankOption'=>true, 'chosen'=>true, 'tl_class'=>'w50'],
-		],
-		'customTpl' => [
-			'exclude' => true,
-			'inputType' => 'select',
-			'eval' => ['chosen'=>true, 'tl_class'=>'w50'],
         ],
         'cssClass' => [
             'exclude' => true,

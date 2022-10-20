@@ -129,10 +129,10 @@ class TlManiaxContaoPortfolioItem
                     $palette = '{title_legend},title;{settings_legend},category,videoUrl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
                     break;
                 case "image":
-                    $palette = '{title_legend},title;{settings_legend},category,singleSRC,size,fullsize,overwriteMeta;{template_legend:hide},customTpl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    $palette = '{title_legend},title;{settings_legend},category,singleSRC,size,fullsize,overwriteMeta;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
                     break;
                 case "gallery":
-                    $palette = '{title_legend},title;{settings_legend},category,multiSRC,sortBy;{image_legend},size,fullsize,perRow;{template_legend:hide},galleryTpl,customTpl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    $palette = '{title_legend},title;{settings_legend},category,multiSRC,sortBy;{image_legend},size,fullsize,perRow;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
                     break;
             }
 
