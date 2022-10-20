@@ -100,7 +100,7 @@ class TlManiaxContaoPortfolioItem
 
         return $return;
     }
-    
+
     public function onTypeOptionsCallback(): array
     {
         return array('text', 'video', 'image', 'gallery');
@@ -133,6 +133,17 @@ class TlManiaxContaoPortfolioItem
         ]);
 
         Message::addRaw($info);
+
+
+        // Show correct palette for category
+        if ($dc !== null){
+            $itemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItemEntity::class);
+            //$item = $itemRepository->find(->id);
+
+            var_dump($dc->activeRecord);
+
+        }
+
     }
 
     public function getLanguages(): array

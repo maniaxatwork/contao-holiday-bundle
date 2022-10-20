@@ -71,12 +71,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     ],
 
     'palettes' => [
-        '__selector__' => ['addImage', 'overwriteMeta'],
+        '__selector__' => ['category', 'addImage', 'overwriteMeta'],
         'default' => '{title_legend},title,alias;{settings_legend},category;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
-        'text' => 'description',
-        'video' => 'videoUrl',
-        'image'   => '{source_legend},singleSRC,size,fullsize,overwriteMeta;{template_legend:hide},customTpl;',
-        'gallery' => '{source_legend},multiSRC,sortBy;{image_legend},size,perRow,fullsize,perPage,numberOfItems;{template_legend:hide},galleryTpl,customTpl;',
     ],
     'subpalettes' => [
         'overwriteMeta' => 'alt,imageTitle,imageUrl',
@@ -104,25 +100,25 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'inputType' => 'text',
             'exclude' => true,
             'eval' => ['tl_class' => 'w50', 'doNotCopy' => true],
-            'save_callback' => [[
+            'save_callback' => [
                 TlManiaxContaoPortfolioItem::class,
                 'aliasSaveCallback',
-            ]],
+            ],
         ],
         'category' => [
             'inputType' => 'select',
             'exclude' => true,
             'filter' => true,
-            'options_callback' => [[
+            'options_callback' => [
                 TlManiaxContaoPortfolioItem::class,
-                'onCategoryOptionsCallback'
-            ]],
+                'onCategoryOptionsCallback',
+            ],
             'eval' => [
                 'submitOnChange'=>true,
                 'includeBlankOption' => true,
                 'tl_class' => 'w50',
                 'mandatory' => true,
-                'multiple' => true,
+                'multiple' => false,
                 'chosen' => true,
             ],
         ],

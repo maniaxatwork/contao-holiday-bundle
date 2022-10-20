@@ -14,7 +14,6 @@ namespace Maniax\ContaoPortfolio\EventListener\Contao\DCA;
 
 class TlManiaxContaoPortfolioCategory
 {
-
     public function listCategories(array $arrRow): string
     {
         return '<div class="tl_content_left">'.$arrRow['title'].'</div>';
