@@ -93,16 +93,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     protected string $perRow;
 
     /**
-     * @ORM\Column(type="smallint", options={"default": 0})
-     */
-    protected string $perPage;
-
-    /**
-     * @ORM\Column(type="smallint", options={"default": 0})
-     */
-    protected string $numberOfItems;
-
-    /**
      * @ORM\Column(type="string", length=32, options={"default": ""})
      */
     protected string $sortBy;
@@ -405,43 +395,6 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     public function setPerRow($perRow): void
     {
         $this->perRow = $perRow;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getPerPage()
-    {
-        return $this->perPage;
-    }
-
-    /**
-     * @param mixed $perPage
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-
-    public function setPerPage($perPage): void
-    {
-        $this->perPage = $perPage;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getNumberOfItems()
-    {
-        return $this->numberOfItems;
-    }
-
-    /**
-     * @param mixed $numberOfItems
-     *
-     * @return TlManiaxContaoPortfolioItem
-     */
-    public function setNumberOfItems($numberOfItems): void
-    {
-        $this->numberOfItems = $numberOfItems;
     }
 
     /**

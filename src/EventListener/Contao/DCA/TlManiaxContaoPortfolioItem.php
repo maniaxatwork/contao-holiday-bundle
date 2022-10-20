@@ -53,7 +53,7 @@ class TlManiaxContaoPortfolioItem
     {
         $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategoryEntity::class);
 
-        $categories = $categoryRepository->findAllByPublished();
+        $categories = $categoryRepository->findAllPublished();
 
         $return = [];
         foreach ($categories as $category) {
@@ -132,7 +132,7 @@ class TlManiaxContaoPortfolioItem
                     $palette = '{title_legend},title;{settings_legend},category,singleSRC,size,fullsize,overwriteMeta;{template_legend:hide},customTpl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
                     break;
                 case "gallery":
-                    $palette = '{title_legend},title;{settings_legend},category,multiSRC,sortBy;{image_legend},size,perRow,fullsize,perPage,numberOfItems;{template_legend:hide},galleryTpl,customTpl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    $palette = '{title_legend},title;{settings_legend},category,multiSRC,sortBy;{image_legend},size,fullsize,perRow;{template_legend:hide},galleryTpl,customTpl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
                     break;
             }
 

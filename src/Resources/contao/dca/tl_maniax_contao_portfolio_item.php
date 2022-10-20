@@ -185,7 +185,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
         'multiSRC' => [
 			'exclude' => true,
 			'inputType' => 'fileTree',
-			'eval' => ['multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'extensions'=>'%contao.image.valid_extensions%'],
+			'eval' => ['tl_class'=>'clr', 'multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'isGallery'=>true, 'extensions'=>'%contao.image.valid_extensions%'],
         ],
 		'orderSRC' => [
 			'label' => &$GLOBALS['TL_LANG']['MSC']['sortOrder'],

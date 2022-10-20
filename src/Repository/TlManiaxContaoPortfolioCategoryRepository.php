@@ -14,7 +14,6 @@ namespace Maniax\ContaoPortfolio\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
-use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
 
@@ -32,12 +31,11 @@ class TlManiaxContaoPortfolioCategoryRepository extends ServiceEntityRepository
             ->getResult(AbstractQuery::HYDRATE_OBJECT);
     }
 
-    public function findAllByPublished(): array
+    public function findAllPublished(): array
     {
-        $qb = $this->createQueryBuilder('l');
-
-        return $qb
-            ->where($qb->expr()->in('l.published', 1))
+        return $this->createQueryBuilder('a')
+            ->andwhere('a.published=:published')
+            ->setParameter('published', '1')
             ->getQuery()
             ->getResult(AbstractQuery::HYDRATE_OBJECT);
     }
