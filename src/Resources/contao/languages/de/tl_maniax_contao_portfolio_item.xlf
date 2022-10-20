@@ -3,10 +3,13 @@
     <file>
         <body>
             <trans-unit id="tl_maniax_contao_portfolio_item.title_legend">
-                <target>Portfoliotitel und Details</target>
+                <target>Portfoliotitel</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.settings_legend">
                 <target>Eigenschaften</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.image_legend">
+                <target>Bildeinstellungen</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.title.0">
                 <target>Portfoliotitel</target>
@@ -15,16 +18,10 @@
                 <target>Bitte geben Sie den Portfoliotitel ein.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.description.0">
-                <target>Portfoliobeschreibung</target>
+                <target>Beschreibung</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.description.1">
-                <target>Bitte geben sie eine aussagekräftige Portfoliobeschreibung ein.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.alias.0">
-                <target>Alias</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.alias.1">
-                <target>Der Portfolioalias ist eine eindeutige Referenz, die anstelle der numerischen Portfolio-ID aufgerufen werden kann.</target>
+                <target>Bitte geben sie eine aussagekräftige Beschreibung ein.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.expert_legend">
                 <target>Experteneinstellungen</target>
@@ -62,11 +59,11 @@
             <trans-unit id="tl_maniax_contao_portfolio_item.tstamp.1">
                 <target>Datum und Uhrzeit der letzten Änderung</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.addImage.0">
-                <target>Ein Bild hinzufügen</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.category.0">
+                <target>Kategorie</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.addImage.1">
-                <target>Dem Portfolio ein Bild hinzufügen. (Frontend)</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.category.1">
+                <target>Bitte wählen Sie eine kategorie aus.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.singleSRC.0">
                 <target>Quelldatei</target>
@@ -74,24 +71,71 @@
             <trans-unit id="tl_maniax_contao_portfolio_item.singleSRC.1">
                 <target>Bitte wählen Sie eine Datei aus der Dateiübersicht.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.image_legend">
-                <target>Bildeinstellungen</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.size.0">
+                <target>Bildgröße</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.meta_legend">
-                <source>Meta data</source>
-                <target>Metadaten</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.size.1">
+                <target>Hier können Sie die Abmessungen des Bildes und den Skalierungsmodus festlegen.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.translations.0">
-                <target>Übersetzungen</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.overwriteMeta.0">
+                <target>Metadaten überschreiben</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.translations.1">
-                <target>Hier können Sie Übersetzungen für das Portfolio definieren.</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.overwriteMeta.1">
+                <target>Die Metadaten aus der Dateiverwaltung überschreiben.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.language.0">
-                <target>Sprache</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.alt.0">
+                <target>Alternativer Text</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_portfolio_item.language.1">
-                <target>Bitte wählen Sie eine Sprache aus der Liste aus.</target>
+            <trans-unit id="tl_maniax_contao_portfolio_item.alt.1">
+                <target>Hier können Sie einen alternativen Text für das Bild eingeben (&lt;em&gt;alt&lt;/em&gt;-Attribut).</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.imageTitle.0">
+                <target>Bildtitel</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.imageTitle.1">
+                <target>Hier können Sie den Titel des Bildes eingeben (&lt;em&gt;title&lt;/em&gt;-Attribut).</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.imageUrl.0">
+                <target>Bildlink-Adresse</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.imageUrl.1">
+                <target>Eine eigene Bildlink-Adresse überschreibt den Lightbox-Link, so dass das Bild nicht mehr in der Großansicht dargestellt werden kann.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.fullsize.0">
+                <target>Großansicht/Neues Fenster</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.fullsize.1">
+                <target>Großansicht des Bildes in einer Lightbox bzw. den Link in einem neuen Browserfenster öffnen.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.videoUrl.0">
+                <target>Video-URL oder YouTube ID</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.videoUrl.1">
+                <target>Bitte geben Sie die Video-URL oder YouTube-Video-ID ein (z. B. &lt;em&gt;j0sYj4wxyk0&lt;/em&gt;)..</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.multiSRC.0">
+                <target>Quelldateien</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.multiSRC.1">
+                <target>Bitte wählen Sie eine oder mehr Dateien oder Ordner aus der Dateiübersicht. Wenn Sie einen Ordner auswählen, werden die darin enthaltenen Dateien automatisch eingefügt.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.sortBy.0">
+                <target>Sortieren nach</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.sortBy.1">
+                <target>Bitte wählen Sie die Sortierreihenfolge aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.perRow.0">
+                <target>Vorschaubilder pro Reihe</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.perRow.1">
+                <target>Die Anzahl an Vorschaubildern pro Reihe.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.url.0">
+                <target>Link-Adresse</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.url.1">
+                <target>Geben Sie eine Web-Adresse (http://…) ein.</target>
             </trans-unit>
         </body>
     </file>

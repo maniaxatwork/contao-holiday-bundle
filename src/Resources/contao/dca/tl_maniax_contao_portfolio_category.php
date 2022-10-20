@@ -71,7 +71,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
 
     // Palettes
     'palettes' => [
-        'default' => '{category_legend},title;{type_legend},type;{publish_legend},published',
+        'default' => '{category_legend},title,type;{publish_legend},published',
     ],
 
     // Fields
@@ -87,7 +87,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
         'tstamp' => [
         ],
         'title' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['title'],
             'exclude' => true,
             'inputType' => 'text',
             'default' => '',
@@ -98,7 +97,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
             ],
         ],
         'type' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['type'],
             'exclude' => true,
             'filter' => true,
             'inputType' => 'radio',
@@ -106,9 +104,9 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
                 TlManiaxContaoPortfolioItem::class,
                 'onTypeOptionsCallback'
             ],
-            'reference' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category'],
             'eval' => [
                 'mandatory' => true,
+                'tl_class' => 'clr',
             ],
         ],
         'published' => [
