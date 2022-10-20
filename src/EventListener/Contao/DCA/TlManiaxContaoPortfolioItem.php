@@ -73,7 +73,7 @@ class TlManiaxContaoPortfolioItem
 
     public function onTypeOptionsCallback(): array
     {
-        return array('text', 'video', 'image', 'gallery');
+        return array('text', 'video', 'url', 'image', 'gallery');
     }
 
     public function saveCallbackGlobal(DataContainer $dc): void
@@ -127,6 +127,9 @@ class TlManiaxContaoPortfolioItem
                     break;
                 case "video":
                     $palette = '{title_legend},title;{settings_legend},category,videoUrl;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
+                    break;
+                case "url":
+                    $palette = '{title_legend},title;{settings_legend},category,url;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';
                     break;
                 case "image":
                     $palette = '{title_legend},title;{settings_legend},category,singleSRC,size,fullsize,overwriteMeta;{expert_legend:hide},cssClass;{publish_legend},published,start,stop';

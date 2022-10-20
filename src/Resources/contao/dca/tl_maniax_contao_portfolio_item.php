@@ -133,6 +133,18 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'tl_class' => 'w50 clr',
             ],
         ],
+        'url' => [
+            'exclude' => true,
+            'inputType' => 'text',
+            'eval' => [
+                'mandatory' => true,
+                'rgxp'=>'url',
+                'decodeEntities' => true,
+                'maxlength' => 255,
+                'dcaPicker'=>true,
+                'tl_class' => 'w50 clr',
+            ],
+        ],
         'singleSRC' => [
             'exclude' => true,
             'inputType' => 'fileTree',

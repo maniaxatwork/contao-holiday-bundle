@@ -42,6 +42,11 @@ class TlManiaxContaoPortfolioItem extends DCADefault
      */
     protected string $videoUrl;
 
+        /**
+     * @ORM\Column(type="string", length=255, options={"default": ""})
+     */
+    protected string $url;
+
     /**
      * @ORM\Column (type="binary_string", nullable=true)
      */
@@ -193,6 +198,27 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     public function setVideoUrl(?string $videoUrl): self
     {
         $this->videoUrl = $videoUrl;
+
+        return $this;
+    }
+
+
+    /**
+     * @return string|null
+     */
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string|null $url
+     *
+     * @return TlManiaxContaoPortfolioItem
+     */
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
 
         return $this;
     }
