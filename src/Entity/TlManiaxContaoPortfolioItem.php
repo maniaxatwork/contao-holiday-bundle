@@ -58,7 +58,7 @@ class TlManiaxContaoPortfolioItem extends DCADefault
     protected string $size;
 
     /**
-     * @ORM\Column(type="string", length=1, nullable=false, options={"fixed"=true, "default"=""})
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
      */
     protected bool $fullsize;
 

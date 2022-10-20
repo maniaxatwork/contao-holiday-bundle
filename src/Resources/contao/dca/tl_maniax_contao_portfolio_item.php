@@ -39,8 +39,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'panelLayout' => 'filter;sort,search,limit',
         ],
         'label' => [
-            'fields' => ['title'],
-            'showColumns' => false,
+            'fields' => ['category', 'title'],
+            'format' => '%s | %s',
+            'label_callback' => [
+                TlManiaxContaoPortfolioItem::class,
+                'onLabelCallback'
+            ],
         ],
         'operations' => [
             'editheader' => [
@@ -115,7 +119,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
         ],
         'description' => [
             'exclude' => true,
-            'search' => true,
             'inputType' => 'textarea',
             'eval' => [
                 'rte' => 'tinyMCE',
@@ -174,14 +177,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 		],
         'alt' => [
 			'exclude' => true,
-			'search' => true,
 			'inputType' => 'text',
 			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
 			'sql' => "varchar(255) NOT NULL default ''",
         ],
 		'imageTitle' => [
 			'exclude' => true,
-			'search' => true,
 			'inputType' => 'text',
 			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
 			'sql' => "varchar(255) NOT NULL default ''",
@@ -189,7 +190,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
         'imageUrl' => [
 			'label' => &$GLOBALS['TL_LANG']['tl_content']['imageUrl'],
 			'exclude' => true,
-			'search' => true,
 			'inputType' => 'text',
 			'eval' => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50 wizard'],
 			'sql' => "varchar(2048) NOT NULL default ''",
@@ -197,7 +197,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
         'multiSRC' => [
 			'exclude' => true,
 			'inputType' => 'fileTree',
-			'eval' => ['tl_class'=>'clr', 'multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'isGallery'=>true, 'extensions'=>'%contao.image.valid_extensions%'],
+			'eval' => ['mandatory'=>true, 'tl_class'=>'clr', 'multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'isGallery'=>true, 'extensions'=>'%contao.image.valid_extensions%'],
         ],
 		'orderSRC' => [
 			'label' => &$GLOBALS['TL_LANG']['MSC']['sortOrder'],
@@ -212,7 +212,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
 			'exclude' => true,
 			'inputType' => 'select',
 			'options' => ['custom', 'name_asc', 'name_desc', 'date_asc', 'date_desc', 'random'],
-			'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+			'reference' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_item'],
 			'eval' => ['tl_class'=>'w50 clr'],
         ],
         'cssClass' => [

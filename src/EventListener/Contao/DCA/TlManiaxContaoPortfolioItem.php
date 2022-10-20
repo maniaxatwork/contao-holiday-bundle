@@ -78,7 +78,7 @@ class TlManiaxContaoPortfolioItem
             'video' => 'Video',
             'url' => 'Link',
             'image' => 'Bild',
-            'gallery' => 'Gallerie'
+            'gallery' => 'Galerie'
         ];
     }
 
@@ -150,26 +150,22 @@ class TlManiaxContaoPortfolioItem
 
     }
 
-    public function getLanguages(): array
+    public function onLabelCallback(array $row, $label, DataContainer $dc, $attributes): string
     {
-        if (version_compare(InstalledVersions::getVersion('contao/core-bundle'), '4.13', '>=')) {
-            return System::getContainer()->get('contao.intl.locales')->getLanguages();
+        $labelArr = explode('|', $label);
+
+        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategoryEntity::class);
+        $category = $categoryRepository->find((int) $labelArr[0]);
+
+        if (0 !== $category->getPid()) {
+            $mainCategoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategoryEntity::class);
+            $mainCategory = $mainCategoryRepository->find($category->getPid());
+
+            $label = '<strong>'.$labelArr[1] .'</strong>: <small>' .$mainCategory->getTitle(). ' -> ' .$category->getTitle(). '</small>';
+        }else{
+            $label = '<strong>'.$labelArr[1] .'</strong>: <small>' .$category->getTitle(). '</small>';
         }
 
-        return System::getLanguages();
-    }
-
-    public function labelCallback(array $row, string $label, DataContainer $dc, array $labels): string
-    {
-        $categories = [];
-        $sCategories = $this->categoryOptionsCallback();
-        $categoriesArr = StringUtil::deserialize($row['category']);
-        foreach ($categoriesArr as $category) {
-            $categories[] = $sCategories[$category];
-        }
-
-        $label = '<h2>'.$row['title'].'</h2>';
-        $label .= implode(' | ', $categories);
         return $label;
     }
 }

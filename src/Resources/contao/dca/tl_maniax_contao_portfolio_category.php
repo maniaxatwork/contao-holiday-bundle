@@ -11,6 +11,8 @@ declare(strict_types=1);
  */
 
 use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItem;
+use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioCategory;
+
 
 $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
     // Config
@@ -49,6 +51,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
                 'href' => 'act=delete',
                 'icon' => 'delete.svg',
                 'attributes' => 'onclick="if(!confirm(\''.($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null).'\'))return false;Backend.getScrollOffset()"',
+            ],
+            'cut' => [
+                'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['cut'],
+                'href' => 'act=paste&amp;mode=cut',
+                'icon' => 'cut.svg',
+                'attributes' => 'onclick="Backend.getScrollOffset()"',
             ],
             'toggle' => [
                 'attributes' => 'onclick="Backend.getScrollOffset();"',

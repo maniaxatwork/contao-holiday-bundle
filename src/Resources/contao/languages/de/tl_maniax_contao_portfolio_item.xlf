@@ -125,6 +125,24 @@
             <trans-unit id="tl_maniax_contao_portfolio_item.sortBy.1">
                 <target>Bitte wählen Sie die Sortierreihenfolge aus.</target>
             </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.custom">
+                <target>Individuelle Reihenfolge</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.name_asc">
+                <target>Dateiname (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.name_desc">
+                <target>Dateiname (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.date_asc">
+                <target>Datum (aufsteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.date_desc">
+                <target>Datum (absteigend)</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_portfolio_item.random">
+                <target>Zufällige Reihenfolge</target>
+            </trans-unit>
             <trans-unit id="tl_maniax_contao_portfolio_item.perRow.0">
                 <target>Vorschaubilder pro Reihe</target>
             </trans-unit>
