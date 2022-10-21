@@ -36,7 +36,7 @@ use Symfony\Component\Routing\RouterInterface;
  *   renderer="forward"
  * )
  */
-class ContaoPortfolioItemListController extends AbstractFrontendModuleController
+class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
     protected RouterInterface $router;
