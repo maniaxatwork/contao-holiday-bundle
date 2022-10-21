@@ -15,10 +15,8 @@ namespace Maniax\ContaoPortfolio\Controller\Contao\FrontendModule;
 use Contao\Config;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
-use Contao\Environment;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
-use Contao\PageModel;
 use Contao\StringUtil;
 use Contao\System;
 use Contao\Template;
@@ -30,15 +28,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * @FrontendModule("maniax_contao_portfolio_item_list",
- *   category="maniaxContaoPortfolio",
- *   template="mod_maniax_contao_portfolio_item_list",
- *   renderer="forward"
- * )
+ * @FrontendModule("maniax_contao_portfolio_item_list", category="maniaxContaoPortfolio", template="mod_maniax_contao_portfolio_item_list", renderer="forward")
  */
 class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleController
 {
-    protected ManagerRegistry $registry;
+   /* protected ManagerRegistry $registry;
     protected RouterInterface $router;
 
     public function __construct(
@@ -48,9 +42,11 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
         $this->registry = $registry;
         $this->router = $router;
     }
+    */
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
+        /*
         $portfolioItemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItem::class);
         $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
 
@@ -150,6 +146,8 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
 
         $template->items = $items;
 
+*/
+        $template->message = "hi";
         return $template->getResponse();
     }
 }

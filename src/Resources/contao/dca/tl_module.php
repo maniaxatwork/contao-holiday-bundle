@@ -16,12 +16,10 @@ use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlModule;
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'maniaxContaoPortfolioShowCategories';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_portfolio_item_list'] =
-    '{title_legend},title,category;
-    {config_legend},maniaxContaoPortfolioHeadlineTag,maniaxContaoPortfolioDefaultField,maniaxContaoPortfolioShowCategories;
-    {expert_legend:hide},cssID'
-;
+    '{title_legend},title,category;{config_legend},maniaxContaoPortfolioHeadlineTag,maniaxContaoPortfolioDefaultField,maniaxContaoPortfolioShowCategories;{expert_legend:hide},cssID';
 
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoPortfolioShowCategories'] = 'maniaxContaoPortfolioCategoriesHeadline,maniaxContaoPortfolioShowAllCategories';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['maniaxContaoPortfolioShowCategories'] =
+    'maniaxContaoPortfolioCategoriesHeadline,maniaxContaoPortfolioShowAllCategories';
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxContaoPortfolioHeadlineTag'] = [
     'exclude' => true,
