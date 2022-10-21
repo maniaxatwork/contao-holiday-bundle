@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @link          https://github.com/maniaxatwork/
  */
 
-use Maniax\ContaoPortfolio\EventListener\Contao\DCA\PortfolioItemFiles;
+use Maniax\ContaoPortfolio\EventListener\Contao\DCA\PortfolioItemFields;
 use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlModule;
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_portfolio_item_list'] =
@@ -46,7 +46,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['portfolioHeadline'] = [
 $GLOBALS['TL_DCA']['tl_module']['fields']['portfolioSortingDefaultField'] = [
     'exclude' => true,
     'inputType' => 'select',
-    'options' => PortfolioItemFiles::getFields(),
+    'options' => PortfolioItemFields::getFields(),
     'eval' => [
         'tl_class' => 'w50 clr',
     ],
