@@ -95,6 +95,45 @@
             <trans-unit id="tl_module.maniaxContaoPortfolioNoFilter.1">
                 <target>Filter auf der gleichen Seite werden nicht auf diese Liste angewendet.</target>
             </trans-unit>
+            <trans-unit id="tl_module.portfolioCategory.0">
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioCategory.1">
+                <target>Bitte wählen Sie eine Kategorie aus, die angezeigt werden soll.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioHeadline.0">
+                <target>Überschrift</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioHeadline.1">
+                <target>Hier können Sie der Liste eine Überschrift hinzufügen.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultField.0">
+                <target>Sortieren nach</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultField.1">
+                <target>Bitte wählen Sie aus, nach welchem Feld sortiert werden soll.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultField.fields.title">
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultField.fields.tstamp">
+                <target>Datum</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultField.fields.category">
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultDirection.0">
+                <target>Sortierreihenfolge</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultDirection.1">
+                <target>Bitte wählen Sie die Sortierreihenfolge aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultDirection.fields.ASC">
+                <target>Aufsteigend</target>
+            </trans-unit>
+            <trans-unit id="tl_module.portfolioSortingDefaultDirection.fields.DESC">
+                <target>Absteigend</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

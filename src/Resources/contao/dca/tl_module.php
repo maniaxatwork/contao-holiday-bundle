@@ -27,20 +27,16 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['portfolioCategory'] = [
     'sql' => 'mediumtext null',
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['portfolioHeadlineTag'] = [
-    'exclude' => true,
-    'search' => true,
-    'inputType' => 'select',
-    'options' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'],
-    'eval' => ['maxlength' => 8, 'tl_class' => 'w50 clr'],
-    'sql' => "varchar(8) NOT NULL default 'h2'",
-];
-
 $GLOBALS['TL_DCA']['tl_module']['fields']['portfolioHeadline'] = [
     'exclude' => true,
-    'inputType' => 'text',
-    'eval' => ['allowHtml' => true, 'tl_class' => 'w50'],
-    'sql' => "varchar(255) NOT NULL default ''",
+    'search' => true,
+    'inputType' => 'inputUnit',
+    'options' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+    'eval' => [
+        'maxlength'=>200,
+        'tl_class'=>'w50 clr'
+    ],
+    'sql' => "varchar(255) NOT NULL default 'a:2:{s:5:\"value\";s:0:\"\";s:4:\"unit\";s:2:\"h2\";}'"
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['portfolioSortingDefaultField'] = [
@@ -61,5 +57,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['portfolioSortingDefaultDirection'] = 
     'eval' => [
         'tl_class' => 'w50',
     ],
+    'reference' => &$GLOBALS['TL_LANG']['tl_module']['portfolioSortingDefaultDirection']['fields'],
     'sql' => "varchar(4) NOT NULL default ''",
 ];
