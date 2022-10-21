@@ -27,7 +27,7 @@ use Haste\Form\Form;
 use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * @FrontendModule("maniax_contao_portfolio_item_list",
@@ -39,30 +39,22 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class ContaoPortfolioItemListController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
-
-    protected TranslatorInterface $translator;
+    protected RouterInterface $router;
 
     public function __construct(
         ManagerRegistry $registry,
-        TranslatorInterface $translator
+        RouterInterface $router
     ) {
         $this->registry = $registry;
-        $this->translator = $translator;
+        $this->router = $router;
     }
 
-    /**
-     * @param Template    $template
-     * @param ModuleModel $model
-     * @param Request     $request
-     *
-     * @return Response|null
-     */
     protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
         $portfolioItemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItem::class);
         $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
 
-        $moduleCategories = StringUtil::deserialize($model->maniaxContaoPortfolioCategories);
+        $moduleCategories = $model->maniaxContaoPortfolioCategories;
         if (!\is_array($moduleCategories)) {
             $moduleCategories = [];
         }
@@ -78,13 +70,12 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
 
         $sortByCategory = null;
         $sortBy = $request->get('sortBy') ?? $model->maniaxContaoPortfolioSortingDefaultField;
-        $order = $request->get('order') ?? $model->maniaxContaoPortfolioSortingDefaultDirection;
 
         if ($model->maniaxContaoPortfolioShowSorting) {
             System::loadLanguageFile('tl_module');
 
             $formId = 'maniax_contao_portfolio_sorting_'.$model->id;
-            $default = $sortBy.'__'.$order;
+            $default = $sortBy;
 
             $fields = StringUtil::deserialize($model->maniaxContaoPortfolioSortingFields);
             $options = [];
@@ -107,7 +98,6 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
             $template->formId = $formId;
 
             if ('category' === $sortBy) {
-                $sortByCategory = $order;
                 $sortBy = null;
                 $order = null;
             }
@@ -116,7 +106,7 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
             $order = null;
         }
 
-        $portfolioItems = $portfolioItemRepository->findAllPublishedByCategory($category, $sortBy, $order);
+        $portfolioItems = $portfolioItemRepository->findAllPublishedByCategory($categories, $sortBy, $order);
 
         if (null !== $sortByCategory) {
             $itemParts = [];
@@ -142,17 +132,7 @@ class ContaoPortfolioItemListController extends AbstractFrontendModuleController
             $itemTemplate->headlineUnit = $model->maniaxContaoPortfolioHeadlineTag;
 
             if (null !== $sortByCategory) {
-                $categories = StringUtil::deserialize($portfolioItem->getCategory());
-
-                foreach ($categoryArr as $category) {
-                    $joinedCategories = explode('|', $category);
-                    foreach ($joinedCategories as $joinedCategory) {
-                        if (\in_array((string) $joinedCategory, $categories, true)) {
-                            $itemParts[$category][] = $itemTemplate->parse();
-                            break 2;
-                        }
-                    }
-                }
+                $itemParts[$category][] = $itemTemplate->parse();
             } else {
                 $items[] = $itemTemplate->parse();
             }
