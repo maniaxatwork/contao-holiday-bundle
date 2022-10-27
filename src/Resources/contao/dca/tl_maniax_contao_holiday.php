@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 use Contao\BackendUser;
 use Contao\System;
-use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItem;
+use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHoliday;
 
-$GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
+$GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
     'config' => [
         'dataContainer' => 'Table',
         'ctable' => ['tl_content'],
@@ -22,11 +22,11 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
         'markAsCopy' => 'title',
         'enableVersioning' => true,
         'onload_callback' => [[
-            TlManiaxContaoPortfolioItem::class,
+            TlManiaxContaoHoliday::class,
             'onShowInfoCallback',
         ]],
         'onsubmit_callback' => [[
-            TlManiaxContaoPortfolioItem::class,
+            TlManiaxContaoHoliday::class,
             'saveCallbackGlobal',
         ]],
     ],
@@ -34,15 +34,15 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     'list' => [
         'sorting' => [
             'mode' => 2,
-            'fields' => ['title'],
+            'fields' => ['tstmp'],
             'flag' => 1,
             'panelLayout' => 'filter;sort,search,limit',
         ],
         'label' => [
-            'fields' => ['category', 'title'],
+            'fields' => ['doc', 'title'],
             'format' => '%s | %s',
             'label_callback' => [
-                TlManiaxContaoPortfolioItem::class,
+                TlManiaxContaoHoliday::class,
                 'onLabelCallback'
             ],
         ],
@@ -64,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'href' => null,
                 'icon' => 'visible.svg',
                 'attributes' => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-                'button_callback' => ['tl_maniax_contao_portfolio_item', 'toggleIcon'],
+                'button_callback' => ['tl_maniax_contao_holiday_item', 'toggleIcon'],
                 'showInHeader' => true,
             ],
             'show' => [
@@ -75,13 +75,9 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     ],
 
     'palettes' => [
-        '__selector__' => ['category', 'addImage', 'overwriteMeta'],
-        'default' => '{title_legend},title;{settings_legend},category;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        '__selector__' => ['doc'],
+        'default' => '{date_legend},holidayStart,holidayStop,showBefore;{extend_legend},extend,extendText;{footerline_legend},footerline,footerlineText;{doc_legend},doc1,doc2,doc3,doc4;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
-    'subpalettes' => [
-        'overwriteMeta' => 'alt,imageTitle,imageUrl',
-    ],
-
     'fields' => [
         'id' => [
         ],
@@ -89,35 +85,28 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
             'sorting' => true,
             'flag' => 6,
         ],
-        'title' => [
+        'holidayStart' => [
+            'exclude' => true,
             'inputType' => 'text',
-            'exclude' => true,
-            'sorting' => true,
-            'search' => true,
-            'eval' => [
-                'mandatory' => true,
-                'maxlength' => 255,
-                'tl_class' => 'w50',
-            ],
+            'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
         ],
-        'category' => [
-            'inputType' => 'select',
+        'holidayStop' => [
             'exclude' => true,
-            'filter' => true,
-            'options_callback' => [
-                TlManiaxContaoPortfolioItem::class,
-                'onCategoryOptionsCallback',
-            ],
-            'eval' => [
-                'submitOnChange'=>true,
-                'includeBlankOption' => true,
-                'tl_class' => 'w50',
-                'mandatory' => true,
-                'multiple' => false,
-                'chosen' => true,
-            ],
+            'inputType' => 'text',
+            'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
         ],
-        'description' => [
+        'showBefore' => [
+			'exclude' => true,
+			'inputType' => 'select',
+			'options' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+			'eval' => ['tl_class'=>'w50'],
+		],
+        'extend' => [
+			'exclude' => true,
+			'inputType' => 'checkbox',
+			'eval' => array('tl_class'=>'w50 m12'),
+		],
+        'extendText' => [
             'exclude' => true,
             'inputType' => 'textarea',
             'eval' => [
@@ -125,95 +114,82 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
                 'tl_class' => 'clr',
             ],
         ],
-        'videoUrl' => [
-            'exclude' => true,
-            'inputType' => 'text',
-            'eval' => [
-                'mandatory' => true,
-                'decodeEntities' => true,
-                'maxlength' => 255,
-                'dcaPicker'=>true,
-                'tl_class' => 'w50 clr',
-            ],
-        ],
-        'url' => [
-            'exclude' => true,
-            'inputType' => 'text',
-            'eval' => [
-                'mandatory' => true,
-                'rgxp'=>'url',
-                'decodeEntities' => true,
-                'maxlength' => 255,
-                'dcaPicker'=>true,
-                'tl_class' => 'w50 clr',
-            ],
-        ],
-        'singleSRC' => [
-            'exclude' => true,
-            'inputType' => 'fileTree',
-            'eval' => ['fieldType' => 'radio', 'filesOnly' => true, 'extensions'=>'%contao.image.valid_extensions%', 'mandatory' => true, 'tl_class' => 'clr'],
-        ],
-        'size' => [
-			'exclude' => true,
-			'inputType' => 'imageSize',
-			'reference' => &$GLOBALS['TL_LANG']['MSC'],
-			'eval' => ['rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'],
-			'options_callback' => static function ()
-			{
-				return System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance());
-			},
-			'sql' => "varchar(64) NOT NULL default ''",
-		],
-        'fullsize' => [
+        'footerline' => [
 			'exclude' => true,
 			'inputType' => 'checkbox',
 			'eval' => array('tl_class'=>'w50 m12'),
 		],
-        'overwriteMeta' => [
-			'exclude' => true,
-			'inputType' => 'checkbox',
-			'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 clr'],
-			'sql' => ['type' => 'boolean', 'default' => false],
-		],
-        'alt' => [
-			'exclude' => true,
-			'inputType' => 'text',
-			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
-			'sql' => "varchar(255) NOT NULL default ''",
+        'footerlineText' => [
+            'exclude' => true,
+            'inputType' => 'textarea',
+            'eval' => [
+                'rte' => 'tinyMCE',
+                'tl_class' => 'clr',
+            ],
         ],
-		'imageTitle' => [
-			'exclude' => true,
-			'inputType' => 'text',
-			'eval' => ['maxlength'=>255, 'tl_class'=>'w50'],
-			'sql' => "varchar(255) NOT NULL default ''",
+        'doc1' => [
+            'inputType' => 'select',
+            'exclude' => true,
+            'filter' => true,
+            'options_callback' => [
+                TlManiaxContaoHoliday::class,
+                'onDocOptionsCallback',
+            ],
+            'eval' => [
+                'includeBlankOption' => true,
+                'tl_class' => 'w50',
+                'mandatory' => true,
+                'multiple' => true,
+                'chosen' => true,
+            ],
         ],
-        'imageUrl' => [
-			'label' => &$GLOBALS['TL_LANG']['tl_content']['imageUrl'],
-			'exclude' => true,
-			'inputType' => 'text',
-			'eval' => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50 wizard'],
-			'sql' => "varchar(2048) NOT NULL default ''",
+        'doc2' => [
+            'inputType' => 'select',
+            'exclude' => true,
+            'filter' => true,
+            'options_callback' => [
+                TlManiaxContaoHoliday::class,
+                'onDocOptionsCallback',
+            ],
+            'eval' => [
+                'includeBlankOption' => true,
+                'tl_class' => 'w50',
+                'mandatory' => true,
+                'multiple' => true,
+                'chosen' => true,
+            ],
         ],
-        'multiSRC' => [
-			'exclude' => true,
-			'inputType' => 'fileTree',
-			'eval' => ['mandatory'=>true, 'tl_class'=>'clr', 'multiple'=>true, 'fieldType'=>'checkbox', 'orderField'=>'orderSRC', 'files'=>true, 'isGallery'=>true, 'extensions'=>'%contao.image.valid_extensions%'],
+        'doc3' => [
+            'inputType' => 'select',
+            'exclude' => true,
+            'filter' => true,
+            'options_callback' => [
+                TlManiaxContaoHoliday::class,
+                'onDocOptionsCallback',
+            ],
+            'eval' => [
+                'includeBlankOption' => true,
+                'tl_class' => 'w50',
+                'mandatory' => true,
+                'multiple' => true,
+                'chosen' => true,
+            ],
         ],
-		'orderSRC' => [
-			'label' => &$GLOBALS['TL_LANG']['MSC']['sortOrder'],
-        ],
-        'perRow' => [
-			'exclude' => true,
-			'inputType' => 'select',
-			'options' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-			'eval' => ['tl_class'=>'w50'],
-		],
-		'sortBy' => [
-			'exclude' => true,
-			'inputType' => 'select',
-			'options' => ['custom', 'name_asc', 'name_desc', 'date_asc', 'date_desc', 'random'],
-			'reference' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_item'],
-			'eval' => ['tl_class'=>'w50 clr'],
+        'doc4' => [
+            'inputType' => 'select',
+            'exclude' => true,
+            'filter' => true,
+            'options_callback' => [
+                TlManiaxContaoHoliday::class,
+                'onDocOptionsCallback',
+            ],
+            'eval' => [
+                'includeBlankOption' => true,
+                'tl_class' => 'w50',
+                'mandatory' => true,
+                'multiple' => true,
+                'chosen' => true,
+            ],
         ],
         'cssClass' => [
             'exclude' => true,
@@ -247,7 +223,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item'] = [
     ],
 ];
 
-class tl_maniax_contao_portfolio_item extends \Contao\Backend
+class tl_maniax_contao_holiday_item extends \Contao\Backend
 {
     /**
      * Import the back end user object.
@@ -278,7 +254,7 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Check permissions AFTER checking the tid, so hacking attempts are logged
-        if (!$this->User->hasAccess('tl_maniax_contao_portfolio_item::published', 'alexf')) {
+        if (!$this->User->hasAccess('tl_maniax_contao_holiday_item::published', 'alexf')) {
             return '';
         }
 
@@ -292,7 +268,7 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
     }
 
     /**
-     * Disable/enable a portfolio item.
+     * Disable/enable a holiday item.
      *
      * @param int                  $intId
      * @param bool                 $blnVisible
@@ -311,8 +287,8 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Trigger the onload_callback
-        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onload_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onload_callback'])) {
-            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onload_callback'] as $callback) {
+        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['config']['onload_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['config']['onload_callback'])) {
+            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['config']['onload_callback'] as $callback) {
                 if (is_array($callback)) {
                     $this->import($callback[0]);
                     $this->{$callback[0]}->{$callback[1]}($dc);
@@ -323,16 +299,16 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Check the field access
-        if (!$this->User->hasAccess('tl_maniax_contao_portfolio_item::published', 'alexf')) {
-            throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to publish/unpublish portfolio item ID "'.$intId.'".');
+        if (!$this->User->hasAccess('tl_maniax_contao_holiday_item::published', 'alexf')) {
+            throw new Contao\CoreBundle\Exception\AccessDeniedException('Not enough permissions to publish/unpublish holiday item ID "'.$intId.'".');
         }
 
-        $objRow = $this->Database->prepare('SELECT * FROM tl_maniax_contao_portfolio_item WHERE id=?')
+        $objRow = $this->Database->prepare('SELECT * FROM tl_maniax_contao_holiday_item WHERE id=?')
             ->limit(1)
             ->execute($intId);
 
         if ($objRow->numRows < 1) {
-            throw new Contao\CoreBundle\Exception\AccessDeniedException('Invalid portfolio item ID "'.$intId.'".');
+            throw new Contao\CoreBundle\Exception\AccessDeniedException('Invalid holiday item ID "'.$intId.'".');
         }
 
         // Set the current record
@@ -340,12 +316,12 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
             $dc->activeRecord = $objRow;
         }
 
-        $objVersions = new Contao\Versions('tl_maniax_contao_portfolio_item', $intId);
+        $objVersions = new Contao\Versions('tl_maniax_contao_holiday_item', $intId);
         $objVersions->initialize();
 
         // Trigger the save_callback
-        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['save_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['fields']['published']['save_callback'])) {
-            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['fields']['published']['save_callback'] as $callback) {
+        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['config']['save_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['fields']['published']['save_callback'])) {
+            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['fields']['published']['save_callback'] as $callback) {
                 if (is_array($callback)) {
                     $this->import($callback[0]);
                     $blnVisible = $this->{$callback[0]}->{$callback[1]}($blnVisible, $dc);
@@ -358,7 +334,7 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         $time = time();
 
         // Update the database
-        $this->Database->prepare("UPDATE tl_maniax_contao_portfolio_item SET tstamp=$time, published='".($blnVisible ? '1' : '0')."' WHERE id=?")
+        $this->Database->prepare("UPDATE tl_maniax_contao_holiday_item SET tstamp=$time, published='".($blnVisible ? '1' : '0')."' WHERE id=?")
             ->execute($intId);
 
         if ($dc) {
@@ -367,8 +343,8 @@ class tl_maniax_contao_portfolio_item extends \Contao\Backend
         }
 
         // Trigger the onsubmit_callback
-        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onsubmit_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onsubmit_callback'])) {
-            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_item']['config']['onsubmit_callback'] as $callback) {
+        if (isset($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['config']['onsubmit_callback']) && is_array($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['config']['onsubmit_callback'])) {
+            foreach ($GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item']['config']['onsubmit_callback'] as $callback) {
                 if (is_array($callback)) {
                     $this->import($callback[0]);
                     $this->{$callback[0]}->{$callback[1]}($dc);

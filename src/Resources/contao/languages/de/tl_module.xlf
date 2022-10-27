@@ -2,136 +2,136 @@
 <xliff version="1.1">
     <file>
         <body>
-            <trans-unit id="tl_module.maniaxContaoPortfolioHeadlineTag.0">
+            <trans-unit id="tl_module.maniaxContaoHolidayHeadlineTag.0">
                 <target>Überschriftentyp</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioHeadlineTag.1">
+            <trans-unit id="tl_module.maniaxContaoHolidayHeadlineTag.1">
                 <target>Bitte wählen Sie ein Überschriftentyp aus.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSubmit.0">
+            <trans-unit id="tl_module.maniaxContaoHolidaySubmit.0">
                 <target>Bezeichnung der Absende-Schaltfläche</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSubmit.1">
+            <trans-unit id="tl_module.maniaxContaoHolidaySubmit.1">
                 <target>Bitte geben Sie die Bezeichnung der Absende-Schaltfläche ein.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioListModule.0">
+            <trans-unit id="tl_module.maniaxContaoHolidayListModule.0">
                 <target>Listenmodul</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioListModule.1">
+            <trans-unit id="tl_module.maniaxContaoHolidayListModule.1">
                 <target>Bitte wählen Sie das zugehörige Listenmodul.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioShowButton.0">
+            <trans-unit id="tl_module.maniaxContaoHolidayShowButton.0">
                 <target>Absende-Button hinzufügen</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioShowButton.1">
+            <trans-unit id="tl_module.maniaxContaoHolidayShowButton.1">
                 <target>Soll ein Absende-Button dem Filter hinzufügt werden?</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioShowSorting.0">
+            <trans-unit id="tl_module.maniaxContaoHolidayShowSorting.0">
                 <target>Sortierung anzeigen</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioShowSorting.1">
+            <trans-unit id="tl_module.maniaxContaoHolidayShowSorting.1">
                 <target>Im Frontend wird eine Sortier-Funktion angezeigt.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.0">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.0">
                 <target>Sortierungs-Felder</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.1">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.1">
                 <target>Bitte wählen Sie die Felder aus, die dem Nutzer zur Sortierung angezeigt werden sollen.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingDefaultField.0">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingDefaultField.0">
                 <target>Sortierung: Standard-Feld</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingDefaultField.1">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingDefaultField.1">
                 <target>Bitte wählen Sie das Feld aus, nach dem standardmäßig sortiert werden soll.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingDefaultDirection.0">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingDefaultDirection.0">
                 <target>Sortierung: Standard-Richtung</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingDefaultDirection.1">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingDefaultDirection.1">
                 <target>Bitte wählen Sie die Richtung aus, nach der standardmäßig sortiert werden soll.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.fields.tstamp">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.fields.tstamp">
                 <target>Aktualisierungsdatum</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.fields.title">
-                <target>Portfoliotitel</target>
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.fields.title">
+                <target>Holidaytitel</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.fields.tstamp__ASC">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.fields.tstamp__ASC">
                 <target>Aktualisierungsdatum (aufsteigend)</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.fields.title__ASC">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.fields.title__ASC">
                 <target>A-Z</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.fields.tstamp__DESC">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.fields.tstamp__DESC">
                 <target>Aktualisierungsdatum (absteigend)</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioSortingFields.fields.title__DESC">
+            <trans-unit id="tl_module.maniaxContaoHolidaySortingFields.fields.title__DESC">
                 <target>Z-A</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioReaderTemplate.parts.title">
-                <target>Portfoliotitel</target>
+            <trans-unit id="tl_module.maniaxContaoHolidayReaderTemplate.parts.title">
+                <target>Holidaytitel</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioReaderTemplate.parts.image">
-                <target>Portfoliobild</target>
+            <trans-unit id="tl_module.maniaxContaoHolidayReaderTemplate.parts.image">
+                <target>Holidaybild</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioReaderTemplate.parts.description">
-                <target>Portfoliobeschreibung</target>
+            <trans-unit id="tl_module.maniaxContaoHolidayReaderTemplate.parts.description">
+                <target>Holidaybeschreibung</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioReaderTemplate.parts.backlink">
+            <trans-unit id="tl_module.maniaxContaoHolidayReaderTemplate.parts.backlink">
                 <target>Zurück-Link</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioReaderTemplate.parts.elements">
+            <trans-unit id="tl_module.maniaxContaoHolidayReaderTemplate.parts.elements">
                 <target>Inhaltselemente</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioTemplateParts.0">
+            <trans-unit id="tl_module.maniaxContaoHolidayTemplateParts.0">
                 <target>Template-Teile</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioTemplateParts.1">
+            <trans-unit id="tl_module.maniaxContaoHolidayTemplateParts.1">
                 <target>Bitte wählen Sie die Template-Teile aus, die von diesem Modul angezeigt werden sollen.</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioNoFilter.0">
+            <trans-unit id="tl_module.maniaxContaoHolidayNoFilter.0">
                 <target>Filter nicht auf diese Liste anwenden</target>
             </trans-unit>
-            <trans-unit id="tl_module.maniaxContaoPortfolioNoFilter.1">
+            <trans-unit id="tl_module.maniaxContaoHolidayNoFilter.1">
                 <target>Filter auf der gleichen Seite werden nicht auf diese Liste angewendet.</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioCategory.0">
+            <trans-unit id="tl_module.holidayCategory.0">
                 <target>Kategorie</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioCategory.1">
+            <trans-unit id="tl_module.holidayCategory.1">
                 <target>Bitte wählen Sie eine Kategorie aus, die angezeigt werden soll.</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioHeadline.0">
+            <trans-unit id="tl_module.holidayHeadline.0">
                 <target>Überschrift</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioHeadline.1">
+            <trans-unit id="tl_module.holidayHeadline.1">
                 <target>Hier können Sie der Liste eine Überschrift hinzufügen.</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultField.0">
+            <trans-unit id="tl_module.holidaySortingDefaultField.0">
                 <target>Sortieren nach</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultField.1">
+            <trans-unit id="tl_module.holidaySortingDefaultField.1">
                 <target>Bitte wählen Sie aus, nach welchem Feld sortiert werden soll.</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultField.fields.title">
+            <trans-unit id="tl_module.holidaySortingDefaultField.fields.title">
                 <target>Titel</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultField.fields.tstamp">
+            <trans-unit id="tl_module.holidaySortingDefaultField.fields.tstamp">
                 <target>Datum</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultField.fields.category">
+            <trans-unit id="tl_module.holidaySortingDefaultField.fields.category">
                 <target>Kategorie</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultDirection.0">
+            <trans-unit id="tl_module.holidaySortingDefaultDirection.0">
                 <target>Sortierreihenfolge</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultDirection.1">
+            <trans-unit id="tl_module.holidaySortingDefaultDirection.1">
                 <target>Bitte wählen Sie die Sortierreihenfolge aus.</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultDirection.fields.ASC">
+            <trans-unit id="tl_module.holidaySortingDefaultDirection.fields.ASC">
                 <target>Aufsteigend</target>
             </trans-unit>
-            <trans-unit id="tl_module.portfolioSortingDefaultDirection.fields.DESC">
+            <trans-unit id="tl_module.holidaySortingDefaultDirection.fields.DESC">
                 <target>Absteigend</target>
             </trans-unit>
         </body>

@@ -3,25 +3,25 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoPortfolio\Repository;
+namespace Maniax\ContaoHoliday\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
 
-class TlManiaxContaoPortfolioCategoryRepository extends ServiceEntityRepository
+class TlManiaxContaoHolidayDocRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TlManiaxContaoPortfolioCategory::class);
+        parent::__construct($registry, TlManiaxContaoHolidayDoc::class);
     }
 
     public function findAll(): array

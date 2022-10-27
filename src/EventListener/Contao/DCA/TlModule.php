@@ -3,14 +3,14 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoPortfolio\EventListener\Contao\DCA;
+namespace Maniax\ContaoHoliday\EventListener\Contao\DCA;
 
 use Contao\CoreBundle\Slug\Slug;
 use Contao\DataContainer;
@@ -18,8 +18,8 @@ use Contao\Input;
 use Contao\StringUtil;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioCategory;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem as TlManiaxContaoPortfolioItemEntity;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHoliday as TlManiaxContaoHolidayEntity;
 
 class TlModule
 {
@@ -31,23 +31,15 @@ class TlModule
         $this->registry = $registry;
     }
 
-    public function onCategoryOptionsCallback(): array
+    public function onDocOptionsCallback(): array
     {
-        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
+        $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDoc::class);
 
-        $categories = $categoryRepository->findAll();
+        $docs = $docRepository->findAll();
 
         $return = [];
-        foreach ($categories as $category) {
-
-            if (0 !== $category->getPid()) {
-                $mainCategoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
-                $mainCategory = $mainCategoryRepository->find($category->getPid());
-
-                $return[$category->getId()] = $mainCategory->getTitle() .': '.$category->getTitle();
-            }else{
-                $return[$category->getId()] = $category->getTitle();
-            }
+        foreach ($docs as $doc) {
+            $return[$doc->getId()] = $doc->getTitle();
         }
 
         return $return;

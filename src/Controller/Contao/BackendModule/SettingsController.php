@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoPortfolio\Controller\Contao\BackendModule;
+namespace Maniax\ContaoHoliday\Controller\Contao\BackendModule;
 
 use Contao\CoreBundle\Controller\AbstractController;
 use Contao\CoreBundle\Exception\AccessDeniedException;
 use Contao\CoreBundle\Util\PackageUtil;
 use Contao\System;
-use Maniax\ContaoPortfolio\Helper\PermissionsHelper;
+use Maniax\ContaoHoliday\Helper\PermissionsHelper;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment as TwigEnvironment;
@@ -33,16 +33,16 @@ class SettingsController extends AbstractController
     public function showSettings(): Response
     {
         if (!PermissionsHelper::canAccessModule('settings')) {
-            throw new AccessDeniedException('The settings module of the maniax-at-work.de Portfolio Bundle is not allowed for user "'.BackendUser::getInstance()->username.'".');
+            throw new AccessDeniedException('The settings module of the maniax-at-work.de Holiday Bundle is not allowed for user "'.BackendUser::getInstance()->username.'".');
         }
 
         System::loadLanguageFile('modules');
 
-        $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoportfolio/dashboard.min.css';
+        $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoholiday/dashboard.min.css';
 
         $mods = [];
 
-        foreach ($GLOBALS['BE_MOD']['maniax_contao_portfolio'] as $key => $mod) {
+        foreach ($GLOBALS['BE_MOD']['maniax_contao_holiday'] as $key => $mod) {
             if (isset($mod['hideInNavigation']) && $mod['hideInNavigation']) {
                 if (!PermissionsHelper::canAccessModule($key, 'modules')) {
                     continue;
@@ -53,11 +53,11 @@ class SettingsController extends AbstractController
         }
 
         return new Response($this->twig->render(
-            '@ManiaxContaoPortfolio/be_maniax_contao_portfolio_settings.html.twig',
+            '@ManiaxContaoHoliday/be_maniax_contao_holiday_settings.html.twig',
             [
-                'title' => $GLOBALS['TL_LANG']['MOD']['maniax_contao_portfolio_settings'][0],
+                'title' => $GLOBALS['TL_LANG']['MOD']['maniax_contao_holiday_settings'][0],
                 'mods' => $mods,
-                'version' => PackageUtil::getVersion('maniaxatwork/contao-portfolio-bundle'),
+                'version' => PackageUtil::getVersion('maniaxatwork/contao-holiday-bundle'),
             ]
         ));
     }
@@ -65,7 +65,7 @@ class SettingsController extends AbstractController
     public static function isActive(RequestStack $requestStack)
     {
         $do = $requestStack->getCurrentRequest()->get('do');
-        if (isset($GLOBALS['BE_MOD']['maniax_contao_portfolio'][$do], $GLOBALS['BE_MOD']['maniax_contao_portfolio'][$do]['hideInNavigation']) && $GLOBALS['BE_MOD']['maniax_contao_portfolio'][$do]['hideInNavigation']) {
+        if (isset($GLOBALS['BE_MOD']['maniax_contao_holiday'][$do], $GLOBALS['BE_MOD']['maniax_contao_holiday'][$do]['hideInNavigation']) && $GLOBALS['BE_MOD']['maniax_contao_holiday'][$do]['hideInNavigation']) {
             return true;
         }
 

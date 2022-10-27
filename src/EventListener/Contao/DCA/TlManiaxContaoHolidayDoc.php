@@ -3,21 +3,21 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoPortfolio\EventListener\Contao\DCA;
+namespace Maniax\ContaoHoliday\EventListener\Contao\DCA;
 
 use Contao\CoreBundle\Slug\Slug;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment as TwigEnvironment;
 
-class TlManiaxContaoPortfolioCategory
+class TlManiaxContaoHolidayDoc
 {
     public function __construct(
         ManagerRegistry $registry,
@@ -31,7 +31,7 @@ class TlManiaxContaoPortfolioCategory
         $this->twig = $twig;
     }
 
-    public function listCategories(array $arrRow): string
+    public function listDocs(array $arrRow): string
     {
         return '<div class="tl_content_left">'.$arrRow['title'].'</div>';
     }

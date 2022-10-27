@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
@@ -13,22 +13,22 @@ declare(strict_types=1);
 use Composer\InstalledVersions;
 
 array_insert($GLOBALS['BE_MOD'], 1, [
-    'maniax_contao_portfolio' => [
-        'maniax_contao_portfolio_items' => [
-            'tables' => ['tl_maniax_contao_portfolio_item', 'tl_content'],
+    'maniax_contao_holiday' => [
+        'maniax_contao_holiday_items' => [
+            'tables' => ['tl_maniax_contao_holiday', 'tl_content'],
         ],
-        'maniax_contao_portfolio_categories' => [
-            'tables' => ['tl_maniax_contao_portfolio_category'],
+        'maniax_contao_holiday_docss' => [
+            'tables' => ['tl_maniax_contao_holiday_doc'],
             'hideInNavigation' => true,
         ],
     ],
 ]);
 
 if (defined('TL_MODE') && TL_MODE == 'BE') {
-    $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoportfolio/portfolio.min.css|static';
+    $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoholiday/holiday.min.css|static';
 }
 
 /*
  * Models
  */
-$GLOBALS['TL_MODELS'][Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::getTable()] = Maniax\ContaoPortfolio\Contao\Model\ManiaxContaoPortfolioItemModel::class;
+$GLOBALS['TL_MODELS'][Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayModel::getTable()] = Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayModel::class;

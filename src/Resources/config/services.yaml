@@ -4,6 +4,6 @@ services:
         autoconfigure: true
         public: false
 
-    Maniax\ContaoPortfolio\:
+    Maniax\ContaoHoliday\:
         resource: ../../../src
         exclude: ../../../src/{Entity,Migrations,Resources,Tests}

@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
  * @link          https://github.com/maniaxatwork/
  */
 
-use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItem;
-use Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioCategory;
+use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHoliday;
+use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayDoc;
 
 
-$GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
+$GLOBALS['TL_DCA']['tl_maniax_contao_holiday_doc'] = [
     // Config
     'config' => [
         'dataContainer' => 'Table',
@@ -32,7 +32,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
         ],
         'global_operations' => [
             'back' => [
-                'route' => 'Maniax\ContaoPortfolio\Controller\Contao\BackendModule\SettingsController',
+                'route' => 'Maniax\ContaoHoliday\Controller\Contao\BackendModule\SettingsController',
                 'label' => &$GLOBALS['TL_LANG']['MSC']['backBT'],
                 'icon' => 'back.svg',
             ],
@@ -53,7 +53,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
                 'attributes' => 'onclick="if(!confirm(\''.($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null).'\'))return false;Backend.getScrollOffset()"',
             ],
             'cut' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_portfolio_category']['cut'],
+                'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_doc']['cut'],
                 'href' => 'act=paste&amp;mode=cut',
                 'icon' => 'cut.svg',
                 'attributes' => 'onclick="Backend.getScrollOffset()"',
@@ -79,22 +79,16 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
 
     // Palettes
     'palettes' => [
-        'default' => '{category_legend},title,type;{publish_legend},published',
+        'default' => '{doc_legend},name,street,locality,telephone;{publish_legend},published',
     ],
 
     // Fields
     'fields' => [
         'id' => [
         ],
-        'pid' => [
-            'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
-        ],
-        'sorting' => [
-            'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
-        ],
         'tstamp' => [
         ],
-        'title' => [
+        'name' => [
             'exclude' => true,
             'inputType' => 'text',
             'default' => '',
@@ -104,17 +98,34 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_portfolio_category'] = [
                 'mandatory' => true,
             ],
         ],
-        'type' => [
+        'street' => [
             'exclude' => true,
-            'filter' => true,
-            'inputType' => 'radio',
-            'options_callback' => [
-                TlManiaxContaoPortfolioItem::class,
-                'onTypeOptionsCallback'
-            ],
+            'inputType' => 'text',
+            'default' => '',
             'eval' => [
+                'maxlength' => 255,
+                'tl_class' => 'w50',
                 'mandatory' => true,
-                'tl_class' => 'clr',
+            ],
+        ],
+        'locality' => [
+            'exclude' => true,
+            'inputType' => 'text',
+            'default' => '',
+            'eval' => [
+                'maxlength' => 255,
+                'tl_class' => 'w50',
+                'mandatory' => true,
+            ],
+        ],
+        'telephone' => [
+            'exclude' => true,
+            'inputType' => 'text',
+            'default' => '',
+            'eval' => [
+                'maxlength' => 255,
+                'tl_class' => 'w50',
+                'mandatory' => true,
             ],
         ],
         'published' => [

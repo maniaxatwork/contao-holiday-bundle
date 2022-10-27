@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_maniax_contao_holiday_doc.doc_legend">
+                <target>Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.name.0">
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.name.1">
+                <target>Bitte geben Sie den Namen des Arztes ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.street.0">
+                <target>Straße / Hausnummer</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.street.1">
+                <target>Bitte geben Sie die Straße und Hausnummer des Arztes ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.locality.0">
+                <target>Ort</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.locality.1">
+                <target>Bitte geben Sie den Ort des Arztes ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.telephone.0">
+                <target>Erreichbarkeit</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.telephone.1">
+                <target>Bitte geben Sie Die Erreichbarkeit (Telefon, etc.) des Arztes ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.new.0">
+                <target>Neuer Arzt</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.new.1">
+                <target>Einen neuen Arzt anlegen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.publish_legend">
+                <target>Veröffentlichung</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.published.0">
+                <target>Arzt veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_doc.published.1">
+                <target>Den Arzt auf der Webseite anzeigen.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

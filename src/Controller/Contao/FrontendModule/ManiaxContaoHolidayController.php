@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoPortfolio\Controller\Contao\FrontendModule;
+namespace Maniax\ContaoHoliday\Controller\Contao\FrontendModule;
 
 use Contao\Config;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
@@ -22,15 +22,15 @@ use Contao\System;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form;
-use Maniax\ContaoPortfolio\Entity\TlManiaxContaoPortfolioItem;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHoliday;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * @FrontendModule("maniax_contao_portfolio_item_list", category="maniaxContaoPortfolio", template="mod_maniax_contao_portfolio_item_list", renderer="forward")
+ * @FrontendModule("maniax_contao_holiday", category="maniaxContaoHoliday", template="mod_maniax_contao_holiday", renderer="forward")
  */
-class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleController
+class ManiaxContaoHolidayController extends AbstractFrontendModuleController
 {
    /* protected ManagerRegistry $registry;
     protected RouterInterface $router;
@@ -47,15 +47,15 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
         /*
-        $portfolioItemRepository = $this->registry->getRepository(TlManiaxContaoPortfolioItem::class);
-        $categoryRepository = $this->registry->getRepository(TlManiaxContaoPortfolioCategory::class);
+        $holidayItemRepository = $this->registry->getRepository(TlManiaxContaoHolidayItem::class);
+        $categoryRepository = $this->registry->getRepository(TlManiaxContaoHolidayCategory::class);
 
-        $moduleCategories = $model->maniaxContaoPortfolioCategories;
+        $moduleCategories = $model->maniaxContaoHolidayCategories;
         if (!\is_array($moduleCategories)) {
             $moduleCategories = [];
         }
 
-        $categories = \is_array($request->get('category')) && !$model->maniaxContaoPortfolioNoFilter ? $request->get('category') : $moduleCategories;
+        $categories = \is_array($request->get('category')) && !$model->maniaxContaoHolidayNoFilter ? $request->get('category') : $moduleCategories;
 
         if (!empty($moduleCategories)) {
             $categories = array_filter($categories, static fn ($element) => \in_array($element, $moduleCategories, true));
@@ -65,15 +65,15 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
         }
 
         $sortByCategory = null;
-        $sortBy = $request->get('sortBy') ?? $model->maniaxContaoPortfolioSortingDefaultField;
+        $sortBy = $request->get('sortBy') ?? $model->maniaxContaoHolidaySortingDefaultField;
 
-        if ($model->maniaxContaoPortfolioShowSorting) {
+        if ($model->maniaxContaoHolidayShowSorting) {
             System::loadLanguageFile('tl_module');
 
-            $formId = 'maniax_contao_portfolio_sorting_'.$model->id;
+            $formId = 'maniax_contao_holiday_sorting_'.$model->id;
             $default = $sortBy;
 
-            $fields = StringUtil::deserialize($model->maniaxContaoPortfolioSortingFields);
+            $fields = StringUtil::deserialize($model->maniaxContaoHolidaySortingFields);
             $options = [];
 
             foreach ($fields as $field) {
@@ -86,7 +86,7 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
                 'inputType' => 'select',
                 'default' => $default,
                 'options' => $options,
-                'reference' => &$GLOBALS['TL_LANG']['tl_module']['maniaxContaoPortfolioSortingFields']['fields'],
+                'reference' => &$GLOBALS['TL_LANG']['tl_module']['maniaxContaoHolidaySortingFields']['fields'],
             ]);
 
             $template->sortingForm = $form->generate();
@@ -102,7 +102,7 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
             $order = null;
         }
 
-        $portfolioItems = $portfolioItemRepository->findAllPublishedByCategory($categories, $sortBy, $order);
+        $holidayItems = $holidayItemRepository->findAllPublishedByCategory($categories, $sortBy, $order);
 
         if (null !== $sortByCategory) {
             $itemParts = [];
@@ -122,10 +122,10 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
 
         $items = [];
 
-        foreach ($portfolioItems as $portfolioItem) {
-            $itemTemplate = new FrontendTemplate('maniax_contao_portfolio_item_default');
-            $itemTemplate->portfolioItem = $portfolioItem;
-            $itemTemplate->headlineUnit = $model->maniaxContaoPortfolioHeadlineTag;
+        foreach ($holidayItems as $holidayItem) {
+            $itemTemplate = new FrontendTemplate('maniax_contao_holiday_item_default');
+            $itemTemplate->holidayItem = $holidayItem;
+            $itemTemplate->headlineUnit = $model->maniaxContaoHolidayHeadlineTag;
 
             if (null !== $sortByCategory) {
                 $itemParts[$category][] = $itemTemplate->parse();
@@ -142,7 +142,7 @@ class ManiaxContaoPortfolioItemListController extends AbstractFrontendModuleCont
 
         $template->attributes = 'data-id="'.$model->id.'"';
 
-        $template->empty = $this->translator->trans('MSC.MANIAX_CONTAO_PORTFOLIO.emptyList', [], 'contao_default');
+        $template->empty = $this->translator->trans('MSC.MANIAX_CONTAO_HOLIDAY.emptyList', [], 'contao_default');
 
         $template->items = $items;
 

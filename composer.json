@@ -1,6 +1,6 @@
 {
-    "name": "maniaxatwork/contao-portfolio-bundle",
-    "description": "Referenzen von MAW",
+    "name": "maniaxatwork/contao-holiday-bundle",
+    "description": "Urlaubsbundle von MAW",
     "type": "contao-bundle",
     "license": "LGPL-3.0-or-later",
     "authors": [
@@ -13,8 +13,8 @@
     ],
     "homepage": "https://www.maniax-at-work.de",
     "support": {
-        "issues": "https://github.com/maniaxatwork/contao-portfolio-bundle/issues",
-        "source": "https://github.com/maniaxatwork/contao-portfolio-bundle"
+        "issues": "https://github.com/maniaxatwork/contao-holiday-bundle/issues",
+        "source": "https://github.com/maniaxatwork/contao-holiday-bundle"
     },
     "require": {
         "php": "^7.4 || ^8.0",
@@ -39,7 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-  	    "Maniax\\ContaoPortfolio\\": "src/"
+  	    "Maniax\\ContaoHoliday\\": "src/"
 	}
     },
     "config": {
@@ -51,6 +51,6 @@
         }
     },
     "extra": {
-        "contao-manager-plugin": "Maniax\\ContaoPortfolio\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Maniax\\ContaoHoliday\\ContaoManager\\Plugin"
     }
 }

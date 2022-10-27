@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
-$GLOBALS['TL_DCA']['tl_user_group']['fields']['maniax_contao_portfolio_settings'] = [
+$GLOBALS['TL_DCA']['tl_user_group']['fields']['maniax_contao_holiday_settings'] = [
     'inputType' => 'checkbox',
     'exclude' => true,
     'options' => [
         'settings',
     ],
-    'reference' => &$GLOBALS['TL_LANG']['tl_user_group']['maniax_contao_portfolio_settings'],
+    'reference' => &$GLOBALS['TL_LANG']['tl_user_group']['maniax_contao_holiday_settings'],
     'eval' => [
         'multiple' => true,
     ],
@@ -26,6 +26,6 @@ $GLOBALS['TL_DCA']['tl_user_group']['fields']['maniax_contao_portfolio_settings'
 ];
 
 PaletteManipulator::create()
-    ->addField('maniax_contao_portfolio_settings', 'modules', PaletteManipulator::POSITION_AFTER)
+    ->addField('maniax_contao_holiday_settings', 'modules', PaletteManipulator::POSITION_AFTER)
     ->applyToPalette('default', 'tl_user_group')
 ;

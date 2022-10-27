@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Portfolio Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
  * @link          https://github.com/maniaxatwork/
  */
 
-namespace Maniax\ContaoPortfolio\EventListener\Contao;
+namespace Maniax\ContaoHoliday\EventListener\Contao;
 
 use Contao\CoreBundle\Event\MenuEvent;
-use Maniax\ContaoPortfolio\Controller\Contao\BackendModule\SettingsController;
-use Maniax\ContaoPortfolio\Helper\PermissionsHelper;
+use Maniax\ContaoHoliday\Controller\Contao\BackendModule\SettingsController;
+use Maniax\ContaoHoliday\Helper\PermissionsHelper;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -38,15 +38,15 @@ class BackendMenuListener
             return;
         }
 
-        $contentNode = $tree->getChild('maniax_contao_portfolio');
+        $contentNode = $tree->getChild('maniax_contao_holiday');
 
         if (PermissionsHelper::canAccessModule('settings')) {
             $node = $factory
-                ->createItem('maniax-contao-portfolio-settings')
+                ->createItem('maniax-contao-holiday-settings')
                 ->setUri($this->router->generate(SettingsController::class))
-                ->setLabel($GLOBALS['TL_LANG']['MOD']['maniax_contao_portfolio_settings'][0])
-                ->setLinkAttribute('title', $GLOBALS['TL_LANG']['MOD']['maniax_contao_portfolio_settings'][1])
-                ->setLinkAttribute('class', 'maniax-contao-portfolio-settings')
+                ->setLabel($GLOBALS['TL_LANG']['MOD']['maniax_contao_holiday_settings'][0])
+                ->setLinkAttribute('title', $GLOBALS['TL_LANG']['MOD']['maniax_contao_holiday_settings'][1])
+                ->setLinkAttribute('class', 'maniax-contao-holiday-settings')
                 ->setCurrent($this->requestStack->getCurrentRequest()->get('_controller') === SettingsController::class.'::showSettings' || SettingsController::isActive($this->requestStack))
             ;
 

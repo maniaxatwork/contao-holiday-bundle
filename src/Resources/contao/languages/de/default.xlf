@@ -2,13 +2,13 @@
 <xliff version="1.1">
     <file>
         <body>
-            <trans-unit id="MSC.MANIAX_CONTAO_PORTFOLIO.emptyList">
-                <target>Es sind momentan keine Referenzen vorhanden.</target>
+            <trans-unit id="MSC.MANIAX_CONTAO_HOLIDAY.emptyList">
+                <target>Es sind momentan keine Urlaubseinträge vorhanden.</target>
             </trans-unit>
-            <trans-unit id="MSC.MANIAX_CONTAO_PORTFOLIO.DASHBOARD.documentation">
+            <trans-unit id="MSC.MANIAX_CONTAO_HOLIDAY.DASHBOARD.documentation">
                 <target>Dokumentation</target>
             </trans-unit>
-            <trans-unit id="MSC.MANIAX_CONTAO_PORTFOLIO.DASHBOARD.report_error">
+            <trans-unit id="MSC.MANIAX_CONTAO_HOLIDAY.DASHBOARD.report_error">
                 <target>Fehler melden</target>
             </trans-unit>
         </body>

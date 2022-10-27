@@ -1,5 +1,5 @@
 services:
-    Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioItem:
+    Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHoliday:
         public: true
         arguments:
             - '@Doctrine\Persistence\ManagerRegistry'
@@ -7,7 +7,7 @@ services:
             - '@request_stack'
             - '@twig'
 
-    Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlManiaxContaoPortfolioCategory:
+    Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayDoc:
         public: true
         arguments:
             - '@Doctrine\Persistence\ManagerRegistry'
@@ -16,7 +16,7 @@ services:
             - '@twig'
 
     # Contao Hooks
-    Maniax\ContaoPortfolio\EventListener\Contao\BackendMenuListener:
+    Maniax\ContaoHoliday\EventListener\Contao\BackendMenuListener:
         public: true
         tags:
             - { name: kernel.event_listener, event: contao.backend_menu_build, priority: -255 }
@@ -24,6 +24,6 @@ services:
           - '@router'
           - '@request_stack'
 
-    Maniax\ContaoPortfolio\EventListener\Contao\DCA\TlModule:
+    Maniax\ContaoHoliday\EventListener\Contao\DCA\TlModule:
         public: true
         arguments: ['@Doctrine\Persistence\ManagerRegistry']
