@@ -39,7 +39,7 @@ class TlModule
 
         $return = [];
         foreach ($docs as $doc) {
-            $return[$doc->getId()] = $doc->getTitle();
+            $return[$doc->getId()] = $doc->getName();
         }
 
         return $return;

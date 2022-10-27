@@ -58,14 +58,7 @@ class TlManiaxContaoHoliday
         $return = [];
         foreach ($docs as $doc) {
 
-            if (0 !== $doc->getPid()) {
-                $mainDocRepository = $this->registry->getRepository(TlManiaxContaoHolidayDocEntity::class);
-                $mainDoc = $mainDocRepository->find($doc->getPid());
-
-                $return[$doc->getId()] = $mainDoc->getTitle() .': '.$doc->getTitle();
-            }else{
-                $return[$doc->getId()] = $doc->getTitle();
-            }
+            $return[$doc->getId()] = $doc->getName();
         }
 
         return $return;
@@ -107,14 +100,7 @@ class TlManiaxContaoHoliday
         $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDocEntity::class);
         $doc = $docRepository->find((int) $labelArr[0]);
 
-        if (0 !== $doc->getPid()) {
-            $mainDocRepository = $this->registry->getRepository(TlManiaxContaoHolidayDocEntity::class);
-            $mainDoc = $mainDocRepository->find($doc->getPid());
-
-            $label = '<strong>'.$labelArr[1] .'</strong>: <small>' .$mainDoc->getTitle(). ' -> ' .$doc->getTitle(). '</small>';
-        }else{
-            $label = '<strong>'.$labelArr[1] .'</strong>: <small>' .$doc->getTitle(). '</small>';
-        }
+        $label = '<strong>'.$labelArr[1] .'</strong>: <small>' .$doc->getName(). '</small>';
 
         return $label;
     }
