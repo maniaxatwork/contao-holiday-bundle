@@ -15,7 +15,7 @@ use Composer\InstalledVersions;
 array_insert($GLOBALS['BE_MOD'], 1, [
     'maniax_contao_holiday' => [
         'maniax_contao_holiday_items' => [
-            'tables' => ['tl_maniax_contao_holiday', 'tl_content'],
+            'tables' => ['tl_maniax_contao_holiday_item', 'tl_content'],
         ],
         'maniax_contao_holiday_docs' => [
             'tables' => ['tl_maniax_contao_holiday_doc'],
