@@ -23,14 +23,15 @@ use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * @FrontendModule("maniax_contao_holiday_list", category="maniaxContaoHoliday", template="mod_maniax_contao_holiday_list", renderer="forward")
+ * @FrontendModule("maniax_contao_holiday_list", doc="maniaxContaoHoliday", template="mod_maniax_contao_holiday_list", renderer="forward")
  */
-class ManiaxContaoHolidayController extends AbstractFrontendModuleController
+class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 {
    /* protected ManagerRegistry $registry;
     protected RouterInterface $router;
@@ -48,23 +49,23 @@ class ManiaxContaoHolidayController extends AbstractFrontendModuleController
     {
         /*
         $holidayItemRepository = $this->registry->getRepository(TlManiaxContaoHolidayItem::class);
-        $categoryRepository = $this->registry->getRepository(TlManiaxContaoHolidayCategory::class);
+        $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDoc::class);
 
-        $moduleCategories = $model->maniaxContaoHolidayCategories;
-        if (!\is_array($moduleCategories)) {
-            $moduleCategories = [];
+        $moduleDocs = $model->maniaxContaoHolidayDocs;
+        if (!\is_array($moduleDocs)) {
+            $moduleDocs = [];
         }
 
-        $categories = \is_array($request->get('category')) && !$model->maniaxContaoHolidayNoFilter ? $request->get('category') : $moduleCategories;
+        $docs = \is_array($request->get('doc')) && !$model->maniaxContaoHolidayNoFilter ? $request->get('doc') : $moduleDocs;
 
-        if (!empty($moduleCategories)) {
-            $categories = array_filter($categories, static fn ($element) => \in_array($element, $moduleCategories, true));
-            if (empty($categories)) {
-                $categories = $moduleCategories;
+        if (!empty($moduleDocs)) {
+            $docs = array_filter($docs, static fn ($element) => \in_array($element, $moduleDocs, true));
+            if (empty($docs)) {
+                $docs = $moduleDocs;
             }
         }
 
-        $sortByCategory = null;
+        $sortByDoc = null;
         $sortBy = $request->get('sortBy') ?? $model->maniaxContaoHolidaySortingDefaultField;
 
         if ($model->maniaxContaoHolidayShowSorting) {
@@ -93,7 +94,7 @@ class ManiaxContaoHolidayController extends AbstractFrontendModuleController
             $template->showSorting = true;
             $template->formId = $formId;
 
-            if ('category' === $sortBy) {
+            if ('doc' === $sortBy) {
                 $sortBy = null;
                 $order = null;
             }
@@ -102,20 +103,20 @@ class ManiaxContaoHolidayController extends AbstractFrontendModuleController
             $order = null;
         }
 
-        $holidayItems = $holidayItemRepository->findAllPublishedByCategory($categories, $sortBy, $order);
+        $holidayItems = $holidayItemRepository->findAllPublishedByDoc($docs, $sortBy, $order);
 
-        if (null !== $sortByCategory) {
+        if (null !== $sortByDoc) {
             $itemParts = [];
-            if (empty($categories)) {
-                foreach ($categoryRepository->findAll() as $category) {
-                    $categories[] = (string) $category->getId();
+            if (empty($docs)) {
+                foreach ($docRepository->findAll() as $doc) {
+                    $docs[] = (string) $doc->getId();
                 }
             }
-            $categoryArr = 'DESC' === $sortByCategory ? array_reverse($categories) : $categories;
-            foreach ($categoryArr as $category) {
-                $joinedCategories = explode('|', $category);
-                foreach ($joinedCategories as $joinedCategory) {
-                    $itemParts[(string) $joinedCategory] = [];
+            $docArr = 'DESC' === $sortByDoc ? array_reverse($docs) : $docs;
+            foreach ($docArr as $doc) {
+                $joinedDocs = explode('|', $doc);
+                foreach ($joinedDocs as $joinedDoc) {
+                    $itemParts[(string) $joinedDoc] = [];
                 }
             }
         }
@@ -127,14 +128,14 @@ class ManiaxContaoHolidayController extends AbstractFrontendModuleController
             $itemTemplate->holidayItem = $holidayItem;
             $itemTemplate->headlineUnit = $model->maniaxContaoHolidayHeadlineTag;
 
-            if (null !== $sortByCategory) {
-                $itemParts[$category][] = $itemTemplate->parse();
+            if (null !== $sortByDoc) {
+                $itemParts[$doc][] = $itemTemplate->parse();
             } else {
                 $items[] = $itemTemplate->parse();
             }
         }
 
-        if (null !== $sortByCategory) {
+        if (null !== $sortByDoc) {
             foreach ($itemParts as $part) {
                 $items = array_merge($items, $part);
             }

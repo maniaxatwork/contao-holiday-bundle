@@ -1,0 +1,355 @@
+<?php //contao.twig.template_hierarchy
+
+return [PHP_INT_MAX, [
+    'mod_portfolio' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/src/Resources/contao/templates/modules/mod_portfolio.html5' => '@Contao_App/mod_portfolio.html5',
+    ],
+    'analytics_google' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/analytics/analytics_google.html5' => '@Contao_ContaoCoreBundle/analytics_google.html5',
+    ],
+    'analytics_matomo' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/analytics/analytics_matomo.html5' => '@Contao_ContaoCoreBundle/analytics_matomo.html5',
+    ],
+    'be_ace' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_ace.html5' => '@Contao_ContaoCoreBundle/be_ace.html5',
+    ],
+    'be_alerts' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_alerts.html5' => '@Contao_ContaoCoreBundle/be_alerts.html5',
+    ],
+    'be_confirm' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_confirm.html5' => '@Contao_ContaoCoreBundle/be_confirm.html5',
+    ],
+    'be_conflict' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_conflict.html5' => '@Contao_ContaoCoreBundle/be_conflict.html5',
+    ],
+    'be_crawl' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_crawl.html5' => '@Contao_ContaoCoreBundle/be_crawl.html5',
+    ],
+    'be_csv_import' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_csv_import.html5' => '@Contao_ContaoCoreBundle/be_csv_import.html5',
+    ],
+    'be_diff' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_diff.html5' => '@Contao_ContaoCoreBundle/be_diff.html5',
+    ],
+    'be_help' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_help.html5' => '@Contao_ContaoCoreBundle/be_help.html5',
+    ],
+    'be_login' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_login.html5' => '@Contao_ContaoCoreBundle/be_login.html5',
+    ],
+    'be_login_two_factor' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_login_two_factor.html5' => '@Contao_ContaoCoreBundle/be_login_two_factor.html5',
+    ],
+    'be_main' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_main.html5' => '@Contao_ContaoCoreBundle/be_main.html5',
+    ],
+    'be_maintenance' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_maintenance.html5' => '@Contao_ContaoCoreBundle/be_maintenance.html5',
+    ],
+    'be_maintenance_mode' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_maintenance_mode.html5' => '@Contao_ContaoCoreBundle/be_maintenance_mode.html5',
+    ],
+    'be_navigation' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_navigation.html5' => '@Contao_ContaoCoreBundle/be_navigation.html5',
+    ],
+    'be_pagination' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_pagination.html5' => '@Contao_ContaoCoreBundle/be_pagination.html5',
+    ],
+    'be_password' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_password.html5' => '@Contao_ContaoCoreBundle/be_password.html5',
+    ],
+    'be_picker' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_picker.html5' => '@Contao_ContaoCoreBundle/be_picker.html5',
+    ],
+    'be_popup' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_popup.html5' => '@Contao_ContaoCoreBundle/be_popup.html5',
+    ],
+    'be_purge_data' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_purge_data.html5' => '@Contao_ContaoCoreBundle/be_purge_data.html5',
+    ],
+    'be_tinyMCE' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_tinyMCE.html5' => '@Contao_ContaoCoreBundle/be_tinyMCE.html5',
+    ],
+    'be_tinyNews' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_tinyNews.html5' => '@Contao_ContaoCoreBundle/be_tinyNews.html5',
+    ],
+    'be_two_factor' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_two_factor.html5' => '@Contao_ContaoCoreBundle/be_two_factor.html5',
+    ],
+    'be_welcome' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_welcome.html5' => '@Contao_ContaoCoreBundle/be_welcome.html5',
+    ],
+    'be_widget' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_widget.html5' => '@Contao_ContaoCoreBundle/be_widget.html5',
+    ],
+    'be_widget_chk' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_widget_chk.html5' => '@Contao_ContaoCoreBundle/be_widget_chk.html5',
+    ],
+    'be_widget_rdo' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_widget_rdo.html5' => '@Contao_ContaoCoreBundle/be_widget_rdo.html5',
+    ],
+    'be_wildcard' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/backend/be_wildcard.html5' => '@Contao_ContaoCoreBundle/be_wildcard.html5',
+    ],
+    'block_searchable' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/block/block_searchable.html5' => '@Contao_ContaoCoreBundle/block_searchable.html5',
+    ],
+    'block_section' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/block/block_section.html5' => '@Contao_ContaoCoreBundle/block_section.html5',
+    ],
+    'block_sections' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/block/block_sections.html5' => '@Contao_ContaoCoreBundle/block_sections.html5',
+    ],
+    'block_unsearchable' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/block/block_unsearchable.html5' => '@Contao_ContaoCoreBundle/block_unsearchable.html5',
+    ],
+    'ce_accordionSingle' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_accordionSingle.html5' => '@Contao_ContaoCoreBundle/ce_accordionSingle.html5',
+    ],
+    'ce_accordionStart' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_accordionStart.html5' => '@Contao_ContaoCoreBundle/ce_accordionStart.html5',
+    ],
+    'ce_accordionStop' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_accordionStop.html5' => '@Contao_ContaoCoreBundle/ce_accordionStop.html5',
+    ],
+    'ce_code' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_code.html5' => '@Contao_ContaoCoreBundle/ce_code.html5',
+    ],
+    'ce_download' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_download.html5' => '@Contao_ContaoCoreBundle/ce_download.html5',
+    ],
+    'ce_downloads' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_downloads.html5' => '@Contao_ContaoCoreBundle/ce_downloads.html5',
+    ],
+    'ce_gallery' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_gallery.html5' => '@Contao_ContaoCoreBundle/ce_gallery.html5',
+    ],
+    'ce_headline' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_headline.html5' => '@Contao_ContaoCoreBundle/ce_headline.html5',
+    ],
+    'ce_html' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_html.html5' => '@Contao_ContaoCoreBundle/ce_html.html5',
+    ],
+    'ce_hyperlink' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_hyperlink.html5' => '@Contao_ContaoCoreBundle/ce_hyperlink.html5',
+    ],
+    'ce_image' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_image.html5' => '@Contao_ContaoCoreBundle/ce_image.html5',
+    ],
+    'ce_list' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_list.html5' => '@Contao_ContaoCoreBundle/ce_list.html5',
+    ],
+    'ce_markdown' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_markdown.html5' => '@Contao_ContaoCoreBundle/ce_markdown.html5',
+    ],
+    'ce_player' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_player.html5' => '@Contao_ContaoCoreBundle/ce_player.html5',
+    ],
+    'ce_sliderStart' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_sliderStart.html5' => '@Contao_ContaoCoreBundle/ce_sliderStart.html5',
+    ],
+    'ce_sliderStop' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_sliderStop.html5' => '@Contao_ContaoCoreBundle/ce_sliderStop.html5',
+    ],
+    'ce_table' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_table.html5' => '@Contao_ContaoCoreBundle/ce_table.html5',
+    ],
+    'ce_teaser' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_teaser.html5' => '@Contao_ContaoCoreBundle/ce_teaser.html5',
+    ],
+    'ce_text' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_text.html5' => '@Contao_ContaoCoreBundle/ce_text.html5',
+    ],
+    'ce_toplink' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_toplink.html5' => '@Contao_ContaoCoreBundle/ce_toplink.html5',
+    ],
+    'ce_vimeo' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_vimeo.html5' => '@Contao_ContaoCoreBundle/ce_vimeo.html5',
+    ],
+    'ce_youtube' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/elements/ce_youtube.html5' => '@Contao_ContaoCoreBundle/ce_youtube.html5',
+    ],
+    'form_captcha' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_captcha.html5' => '@Contao_ContaoCoreBundle/form_captcha.html5',
+    ],
+    'form_checkbox' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_checkbox.html5' => '@Contao_ContaoCoreBundle/form_checkbox.html5',
+    ],
+    'form_explanation' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_explanation.html5' => '@Contao_ContaoCoreBundle/form_explanation.html5',
+    ],
+    'form_fieldsetStart' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_fieldsetStart.html5' => '@Contao_ContaoCoreBundle/form_fieldsetStart.html5',
+    ],
+    'form_fieldsetStop' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_fieldsetStop.html5' => '@Contao_ContaoCoreBundle/form_fieldsetStop.html5',
+    ],
+    'form_hidden' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_hidden.html5' => '@Contao_ContaoCoreBundle/form_hidden.html5',
+    ],
+    'form_html' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_html.html5' => '@Contao_ContaoCoreBundle/form_html.html5',
+    ],
+    'form_message' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_message.html5' => '@Contao_ContaoCoreBundle/form_message.html5',
+    ],
+    'form_password' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_password.html5' => '@Contao_ContaoCoreBundle/form_password.html5',
+    ],
+    'form_radio' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_radio.html5' => '@Contao_ContaoCoreBundle/form_radio.html5',
+    ],
+    'form_range' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_range.html5' => '@Contao_ContaoCoreBundle/form_range.html5',
+    ],
+    'form_row' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_row.html5' => '@Contao_ContaoCoreBundle/form_row.html5',
+    ],
+    'form_select' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_select.html5' => '@Contao_ContaoCoreBundle/form_select.html5',
+    ],
+    'form_submit' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_submit.html5' => '@Contao_ContaoCoreBundle/form_submit.html5',
+    ],
+    'form_textarea' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_textarea.html5' => '@Contao_ContaoCoreBundle/form_textarea.html5',
+    ],
+    'form_textfield' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_textfield.html5' => '@Contao_ContaoCoreBundle/form_textfield.html5',
+    ],
+    'form_upload' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_upload.html5' => '@Contao_ContaoCoreBundle/form_upload.html5',
+    ],
+    'form_wrapper' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_wrapper.html5' => '@Contao_ContaoCoreBundle/form_wrapper.html5',
+    ],
+    'form_xml' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/forms/form_xml.html5' => '@Contao_ContaoCoreBundle/form_xml.html5',
+    ],
+    'fe_page' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/frontend/fe_page.html5' => '@Contao_ContaoCoreBundle/fe_page.html5',
+    ],
+    'gallery_default' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/gallery/gallery_default.html5' => '@Contao_ContaoCoreBundle/gallery_default.html5',
+    ],
+    'image' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/image/image.html5' => '@Contao_ContaoCoreBundle/image.html5',
+    ],
+    'j_accordion' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/jquery/j_accordion.html5' => '@Contao_ContaoCoreBundle/j_accordion.html5',
+    ],
+    'j_colorbox' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/jquery/j_colorbox.html5' => '@Contao_ContaoCoreBundle/j_colorbox.html5',
+    ],
+    'j_tablesort' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/jquery/j_tablesort.html5' => '@Contao_ContaoCoreBundle/j_tablesort.html5',
+    ],
+    'js_autofocus' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/js/js_autofocus.html5' => '@Contao_ContaoCoreBundle/js_autofocus.html5',
+    ],
+    'js_nocookie' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/js/js_nocookie.html5' => '@Contao_ContaoCoreBundle/js_nocookie.html5',
+    ],
+    'js_slider' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/js/js_slider.html5' => '@Contao_ContaoCoreBundle/js_slider.html5',
+    ],
+    'mail_default' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/mail/mail_default.html5' => '@Contao_ContaoCoreBundle/mail_default.html5',
+    ],
+    'member_default' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/member/member_default.html5' => '@Contao_ContaoCoreBundle/member_default.html5',
+    ],
+    'member_grouped' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/member/member_grouped.html5' => '@Contao_ContaoCoreBundle/member_grouped.html5',
+    ],
+    'mod_article' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_article.html5' => '@Contao_ContaoCoreBundle/mod_article.html5',
+    ],
+    'mod_articlelist' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_articlelist.html5' => '@Contao_ContaoCoreBundle/mod_articlelist.html5',
+    ],
+    'mod_articlenav' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_articlenav.html5' => '@Contao_ContaoCoreBundle/mod_articlenav.html5',
+    ],
+    'mod_booknav' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_booknav.html5' => '@Contao_ContaoCoreBundle/mod_booknav.html5',
+    ],
+    'mod_breadcrumb' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_breadcrumb.html5' => '@Contao_ContaoCoreBundle/mod_breadcrumb.html5',
+    ],
+    'mod_changePassword' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_changePassword.html5' => '@Contao_ContaoCoreBundle/mod_changePassword.html5',
+    ],
+    'mod_closeAccount' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_closeAccount.html5' => '@Contao_ContaoCoreBundle/mod_closeAccount.html5',
+    ],
+    'mod_customnav' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_customnav.html5' => '@Contao_ContaoCoreBundle/mod_customnav.html5',
+    ],
+    'mod_html' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_html.html5' => '@Contao_ContaoCoreBundle/mod_html.html5',
+    ],
+    'mod_login' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_login.html5' => '@Contao_ContaoCoreBundle/mod_login.html5',
+    ],
+    'mod_lostPassword' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_lostPassword.html5' => '@Contao_ContaoCoreBundle/mod_lostPassword.html5',
+    ],
+    'mod_message' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_message.html5' => '@Contao_ContaoCoreBundle/mod_message.html5',
+    ],
+    'mod_navigation' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_navigation.html5' => '@Contao_ContaoCoreBundle/mod_navigation.html5',
+    ],
+    'mod_password' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_password.html5' => '@Contao_ContaoCoreBundle/mod_password.html5',
+    ],
+    'mod_quicklink' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_quicklink.html5' => '@Contao_ContaoCoreBundle/mod_quicklink.html5',
+    ],
+    'mod_quicknav' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_quicknav.html5' => '@Contao_ContaoCoreBundle/mod_quicknav.html5',
+    ],
+    'mod_randomImage' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_randomImage.html5' => '@Contao_ContaoCoreBundle/mod_randomImage.html5',
+    ],
+    'mod_search' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_search.html5' => '@Contao_ContaoCoreBundle/mod_search.html5',
+    ],
+    'mod_sitemap' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_sitemap.html5' => '@Contao_ContaoCoreBundle/mod_sitemap.html5',
+    ],
+    'mod_two_factor' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/modules/mod_two_factor.html5' => '@Contao_ContaoCoreBundle/mod_two_factor.html5',
+    ],
+    'moo_accordion' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/mootools/moo_accordion.html5' => '@Contao_ContaoCoreBundle/moo_accordion.html5',
+    ],
+    'moo_chosen' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/mootools/moo_chosen.html5' => '@Contao_ContaoCoreBundle/moo_chosen.html5',
+    ],
+    'moo_mediabox' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/mootools/moo_mediabox.html5' => '@Contao_ContaoCoreBundle/moo_mediabox.html5',
+    ],
+    'moo_tablesort' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/mootools/moo_tablesort.html5' => '@Contao_ContaoCoreBundle/moo_tablesort.html5',
+    ],
+    'nav_default' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/navigation/nav_default.html5' => '@Contao_ContaoCoreBundle/nav_default.html5',
+    ],
+    'pagination' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/pagination/pagination.html5' => '@Contao_ContaoCoreBundle/pagination.html5',
+    ],
+    'picture_default' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/picture/picture_default.html5' => '@Contao_ContaoCoreBundle/picture_default.html5',
+    ],
+    'rss_default' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/rss/rss_default.html5' => '@Contao_ContaoCoreBundle/rss_default.html5',
+    ],
+    'rss_items_only' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/rss/rss_items_only.html5' => '@Contao_ContaoCoreBundle/rss_items_only.html5',
+    ],
+    'search_default' => [
+        'C:/laragon/www/entwicklung/vendor/maniaxatwork/contao-portfolio-bundle/vendor/contao/core-bundle/src/Resources/contao/templates/search/search_default.html5' => '@Contao_ContaoCoreBundle/search_default.html5',
+    ],
+]];
