@@ -14,7 +14,7 @@ use Contao\BackendUser;
 use Contao\System;
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHoliday;
 
-$GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
+$GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
     'config' => [
         'dataContainer' => 'Table',
         'ctable' => ['tl_content'],

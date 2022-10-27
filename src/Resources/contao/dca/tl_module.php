@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlModule;
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_holiday'] =
+$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_holiday_list'] =
     '{title_legend},name,type,holidayDoc;
     {expert_legend:hide},cssID'
 ;
