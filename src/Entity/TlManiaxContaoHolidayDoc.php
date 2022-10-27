@@ -23,6 +23,11 @@ use Doctrine\ORM\Mapping as ORM;
 class TlManiaxContaoHolidayDoc extends DCADefault
 {
     /**
+     * @ORM\Column(type="integer", options={"unsigned": true})
+     */
+    protected int $pid;
+
+    /**
      * @ORM\Column(type="string", length=255, options={"default": ""})
      */
     protected string $name = '';
@@ -46,6 +51,26 @@ class TlManiaxContaoHolidayDoc extends DCADefault
      * @ORM\Column(type="boolean", nullable=false, options={"default": false})
      */
     protected bool $published;
+
+    /**
+     * @return int
+     */
+    public function getPid(): int
+    {
+        return $this->pid;
+    }
+
+    /**
+     * @param string $pid
+     *
+     * @return TlManiaxContaoHolidayDoc
+     */
+    public function setPid(string $pid): self
+    {
+        $this->pid = $pid;
+
+        return $this;
+    }
 
     /**
      * @return string
