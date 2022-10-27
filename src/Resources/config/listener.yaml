@@ -1,5 +1,5 @@
 services:
-    Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHoliday:
+    Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem:
         public: true
         arguments:
             - '@Doctrine\Persistence\ManagerRegistry'
