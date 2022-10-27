@@ -22,11 +22,11 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
         'markAsCopy' => 'title',
         'enableVersioning' => true,
         'onload_callback' => [[
-            TlManiaxContaoHoliday::class,
+            TlManiaxContaoHolidayItem::class,
             'onShowInfoCallback',
         ]],
         'onsubmit_callback' => [[
-            TlManiaxContaoHoliday::class,
+            TlManiaxContaoHolidayItem::class,
             'saveCallbackGlobal',
         ]],
     ],
@@ -42,7 +42,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
             'fields' => ['doc', 'title'],
             'format' => '%s | %s',
             'label_callback' => [
-                TlManiaxContaoHoliday::class,
+                TlManiaxContaoHolidayItem::class,
                 'onLabelCallback'
             ],
         ],
@@ -132,7 +132,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
             'exclude' => true,
             'filter' => true,
             'options_callback' => [
-                TlManiaxContaoHoliday::class,
+                TlManiaxContaoHolidayItem::class,
                 'onDocOptionsCallback',
             ],
             'eval' => [
@@ -148,7 +148,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
             'exclude' => true,
             'filter' => true,
             'options_callback' => [
-                TlManiaxContaoHoliday::class,
+                TlManiaxContaoHolidayItem::class,
                 'onDocOptionsCallback',
             ],
             'eval' => [
@@ -164,7 +164,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
             'exclude' => true,
             'filter' => true,
             'options_callback' => [
-                TlManiaxContaoHoliday::class,
+                TlManiaxContaoHolidayItem::class,
                 'onDocOptionsCallback',
             ],
             'eval' => [
@@ -180,7 +180,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday'] = [
             'exclude' => true,
             'filter' => true,
             'options_callback' => [
-                TlManiaxContaoHoliday::class,
+                TlManiaxContaoHolidayItem::class,
                 'onDocOptionsCallback',
             ],
             'eval' => [
