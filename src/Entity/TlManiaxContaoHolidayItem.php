@@ -18,7 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class TlManiaxContaoHolidayItem.
  *
  * @ORM\Entity(repositoryClass="Maniax\ContaoHoliday\Repository\TlManiaxContaoHolidayItemRepository")
- * @ORM\Table(name="tl_maniax_contao_holiday")
+ * @ORM\Table(name="tl_maniax_contao_holiday_item")
  */
 class TlManiaxContaoHolidayÍtem extends DCADefault
 {
