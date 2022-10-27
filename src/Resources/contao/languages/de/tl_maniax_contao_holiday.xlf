@@ -2,157 +2,157 @@
 <xliff version="1.1">
     <file>
         <body>
-            <trans-unit id="tl_maniax_contao_holiday_item.title_legend">
+            <trans-unit id="tl_maniax_contao_holiday.title_legend">
                 <target>Holidaytitel</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.settings_legend">
+            <trans-unit id="tl_maniax_contao_holiday.settings_legend">
                 <target>Eigenschaften</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.image_legend">
+            <trans-unit id="tl_maniax_contao_holiday.image_legend">
                 <target>Bildeinstellungen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.title.0">
+            <trans-unit id="tl_maniax_contao_holiday.title.0">
                 <target>Holidaytitel</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.title.1">
+            <trans-unit id="tl_maniax_contao_holiday.title.1">
                 <target>Bitte geben Sie den Holidaytitel ein.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.description.0">
+            <trans-unit id="tl_maniax_contao_holiday.description.0">
                 <target>Beschreibung</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.description.1">
+            <trans-unit id="tl_maniax_contao_holiday.description.1">
                 <target>Bitte geben sie eine aussagekräftige Beschreibung ein.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.expert_legend">
+            <trans-unit id="tl_maniax_contao_holiday.expert_legend">
                 <target>Experteneinstellungen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.cssClass.0">
+            <trans-unit id="tl_maniax_contao_holiday.cssClass.0">
                 <target>CSS-Klasse</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.cssClass.1">
+            <trans-unit id="tl_maniax_contao_holiday.cssClass.1">
                 <target>Hier können Sie eine oder mehrere Klassen eingeben.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.publish_legend">
+            <trans-unit id="tl_maniax_contao_holiday.publish_legend">
                 <target>Veröffentlichung</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.published.0">
+            <trans-unit id="tl_maniax_contao_holiday.published.0">
                 <target>Holiday veröffentlichen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.published.1">
+            <trans-unit id="tl_maniax_contao_holiday.published.1">
                 <target>Das Holiday auf der Webseite anzeigen.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.start.0">
+            <trans-unit id="tl_maniax_contao_holiday.start.0">
                 <target>Anzeigen ab</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.start.1">
+            <trans-unit id="tl_maniax_contao_holiday.start.1">
                 <target>Wenn Sie ein Holiday erst ab einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.stop.0">
+            <trans-unit id="tl_maniax_contao_holiday.stop.0">
                 <target>Anzeigen bis</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.stop.1">
+            <trans-unit id="tl_maniax_contao_holiday.stop.1">
                 <target>Wenn Sie ein Holiday nur bis zu einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.tstamp.0">
+            <trans-unit id="tl_maniax_contao_holiday.tstamp.0">
                 <target>Änderungsdatum</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.tstamp.1">
+            <trans-unit id="tl_maniax_contao_holiday.tstamp.1">
                 <target>Datum und Uhrzeit der letzten Änderung</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.category.0">
+            <trans-unit id="tl_maniax_contao_holiday.category.0">
                 <target>Kategorie</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.category.1">
+            <trans-unit id="tl_maniax_contao_holiday.category.1">
                 <target>Bitte wählen Sie eine kategorie aus.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.singleSRC.0">
+            <trans-unit id="tl_maniax_contao_holiday.singleSRC.0">
                 <target>Quelldatei</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.singleSRC.1">
+            <trans-unit id="tl_maniax_contao_holiday.singleSRC.1">
                 <target>Bitte wählen Sie eine Datei aus der Dateiübersicht.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.size.0">
+            <trans-unit id="tl_maniax_contao_holiday.size.0">
                 <target>Bildgröße</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.size.1">
+            <trans-unit id="tl_maniax_contao_holiday.size.1">
                 <target>Hier können Sie die Abmessungen des Bildes und den Skalierungsmodus festlegen.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.overwriteMeta.0">
+            <trans-unit id="tl_maniax_contao_holiday.overwriteMeta.0">
                 <target>Metadaten überschreiben</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.overwriteMeta.1">
+            <trans-unit id="tl_maniax_contao_holiday.overwriteMeta.1">
                 <target>Die Metadaten aus der Dateiverwaltung überschreiben.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.alt.0">
+            <trans-unit id="tl_maniax_contao_holiday.alt.0">
                 <target>Alternativer Text</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.alt.1">
+            <trans-unit id="tl_maniax_contao_holiday.alt.1">
                 <target>Hier können Sie einen alternativen Text für das Bild eingeben (&lt;em&gt;alt&lt;/em&gt;-Attribut).</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.imageTitle.0">
+            <trans-unit id="tl_maniax_contao_holiday.imageTitle.0">
                 <target>Bildtitel</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.imageTitle.1">
+            <trans-unit id="tl_maniax_contao_holiday.imageTitle.1">
                 <target>Hier können Sie den Titel des Bildes eingeben (&lt;em&gt;title&lt;/em&gt;-Attribut).</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.imageUrl.0">
+            <trans-unit id="tl_maniax_contao_holiday.imageUrl.0">
                 <target>Bildlink-Adresse</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.imageUrl.1">
+            <trans-unit id="tl_maniax_contao_holiday.imageUrl.1">
                 <target>Eine eigene Bildlink-Adresse überschreibt den Lightbox-Link, so dass das Bild nicht mehr in der Großansicht dargestellt werden kann.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.fullsize.0">
+            <trans-unit id="tl_maniax_contao_holiday.fullsize.0">
                 <target>Großansicht/Neues Fenster</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.fullsize.1">
+            <trans-unit id="tl_maniax_contao_holiday.fullsize.1">
                 <target>Großansicht des Bildes in einer Lightbox bzw. den Link in einem neuen Browserfenster öffnen.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.videoUrl.0">
+            <trans-unit id="tl_maniax_contao_holiday.videoUrl.0">
                 <target>Video-URL oder YouTube ID</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.videoUrl.1">
+            <trans-unit id="tl_maniax_contao_holiday.videoUrl.1">
                 <target>Bitte geben Sie die Video-URL oder YouTube-Video-ID ein (z. B. &lt;em&gt;j0sYj4wxyk0&lt;/em&gt;)..</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.multiSRC.0">
+            <trans-unit id="tl_maniax_contao_holiday.multiSRC.0">
                 <target>Quelldateien</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.multiSRC.1">
+            <trans-unit id="tl_maniax_contao_holiday.multiSRC.1">
                 <target>Bitte wählen Sie eine oder mehr Dateien oder Ordner aus der Dateiübersicht. Wenn Sie einen Ordner auswählen, werden die darin enthaltenen Dateien automatisch eingefügt.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.sortBy.0">
+            <trans-unit id="tl_maniax_contao_holiday.sortBy.0">
                 <target>Sortieren nach</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.sortBy.1">
+            <trans-unit id="tl_maniax_contao_holiday.sortBy.1">
                 <target>Bitte wählen Sie die Sortierreihenfolge aus.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.custom">
+            <trans-unit id="tl_maniax_contao_holiday.custom">
                 <target>Individuelle Reihenfolge</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.name_asc">
+            <trans-unit id="tl_maniax_contao_holiday.name_asc">
                 <target>Dateiname (aufsteigend)</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.name_desc">
+            <trans-unit id="tl_maniax_contao_holiday.name_desc">
                 <target>Dateiname (absteigend)</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.date_asc">
+            <trans-unit id="tl_maniax_contao_holiday.date_asc">
                 <target>Datum (aufsteigend)</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.date_desc">
+            <trans-unit id="tl_maniax_contao_holiday.date_desc">
                 <target>Datum (absteigend)</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.random">
+            <trans-unit id="tl_maniax_contao_holiday.random">
                 <target>Zufällige Reihenfolge</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.perRow.0">
+            <trans-unit id="tl_maniax_contao_holiday.perRow.0">
                 <target>Vorschaubilder pro Reihe</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.perRow.1">
+            <trans-unit id="tl_maniax_contao_holiday.perRow.1">
                 <target>Die Anzahl an Vorschaubildern pro Reihe.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.url.0">
+            <trans-unit id="tl_maniax_contao_holiday.url.0">
                 <target>Link-Adresse</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.url.1">
+            <trans-unit id="tl_maniax_contao_holiday.url.1">
                 <target>Geben Sie eine Web-Adresse (http://…) ein.</target>
             </trans-unit>
         </body>

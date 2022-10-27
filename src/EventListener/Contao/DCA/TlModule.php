@@ -19,7 +19,7 @@ use Contao\StringUtil;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
-use Maniax\ContaoHoliday\Entity\TlManiaxContaoHoliday as TlManiaxContaoHolidayEntity;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem as TlManiaxContaoHolidayItemEntity;
 
 class TlModule
 {

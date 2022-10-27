@@ -16,14 +16,14 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
-use Maniax\ContaoHoliday\Entity\TlManiaxContaoHoliday;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem;
 use Doctrine\ORM\NoResultException;
 
-class TlManiaxContaoHolidayRepository extends ServiceEntityRepository
+class TlManiaxContaoHolidayItemRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TlManiaxContaoHoliday::class);
+        parent::__construct($registry, TlManiaxContaoHolidayÍtem::class);
     }
 
     public function findAllByPublished(): array

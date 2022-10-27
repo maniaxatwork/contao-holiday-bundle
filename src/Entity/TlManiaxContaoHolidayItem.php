@@ -15,12 +15,12 @@ namespace Maniax\ContaoHoliday\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class TlManiaxContaoHoliday.
+ * Class TlManiaxContaoHolidayItem.
  *
- * @ORM\Entity(repositoryClass="Maniax\ContaoHoliday\Repository\TlManiaxContaoHolidayRepository")
+ * @ORM\Entity(repositoryClass="Maniax\ContaoHoliday\Repository\TlManiaxContaoHolidayItemRepository")
  * @ORM\Table(name="tl_maniax_contao_holiday")
  */
-class TlManiaxContaoHoliday extends DCADefault
+class TlManiaxContaoHolidayÍtem extends DCADefault
 {
 
     /**
@@ -110,7 +110,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string $holidayStart
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setHolidayStart(string $holidayStart): self
     {
@@ -130,7 +130,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string $holidayStop
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setHolidayStop(string $holidayStop): self
     {
@@ -150,7 +150,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param mixed $showBefore
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setShowBefore($showBefore): void
     {
@@ -168,7 +168,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param bool $extend
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setExtend(bool $extend): self
     {
@@ -188,7 +188,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string|null $extendText
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setExtendText(string $extendText): self
     {
@@ -208,7 +208,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param bool $footerline
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setFooterline(bool $footerline): self
     {
@@ -228,7 +228,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string|null $footerlineText
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setFooterlineText(string $footerlineText): self
     {
@@ -248,7 +248,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string|null $doc1
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setDoc1(?string $doc1): self
     {
@@ -267,7 +267,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string|null $doc2
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setDoc2(?string $doc2): self
     {
@@ -287,7 +287,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string|null $doc3
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setDoc3(?string $doc3): self
     {
@@ -307,7 +307,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string|null $doc4
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setDoc4(?string $doc4): self
     {
@@ -327,7 +327,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string $cssClass
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setCssClass(string $cssClass): self
     {
@@ -347,7 +347,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param bool $published
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setPublished(bool $published): self
     {
@@ -367,7 +367,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string $start
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setStart(string $start): self
     {
@@ -387,7 +387,7 @@ class TlManiaxContaoHoliday extends DCADefault
     /**
      * @param string $stop
      *
-     * @return TlManiaxContaoHoliday
+     * @return TlManiaxContaoHolidayÍtem
      */
     public function setStop(string $stop): self
     {

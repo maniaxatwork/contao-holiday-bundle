@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * maniax-at-work.de Contao Jobs Bundle for Contao Open Source CMS
+ * maniax-at-work.de Contao Holiday Bundle for Contao Open Source CMS
  *
  * @copyright     Copyright (c) 2022, maniax-at-work.de
  * @author        maniax-at-work.de <https://www.maniax-at-work.de>
@@ -22,13 +22,13 @@ use Contao\System;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Haste\Form\Form;
-use Maniax\ContaoHoliday\Entity\TlManiaxContaoHoliday;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * @FrontendModule("maniax_contao_holiday", category="maniaxContaoHoliday", template="mod_maniax_contao_holiday", renderer="forward")
+ * @FrontendModule("maniax_contao_holiday_list", category="maniaxContaoHoliday", template="mod_maniax_contao_holiday_list", renderer="forward")
  */
 class ManiaxContaoHolidayController extends AbstractFrontendModuleController
 {

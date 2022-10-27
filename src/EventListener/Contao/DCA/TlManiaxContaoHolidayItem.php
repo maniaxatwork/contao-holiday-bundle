@@ -23,11 +23,11 @@ use Contao\System;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc as TlManiaxContaoHolidayDocEntity;
-use Maniax\ContaoHoliday\Entity\TlManiaxContaoHoliday as TlManiaxContaoHolidayEntity;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem as TlManiaxContaoHolidayItemEntity;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment as TwigEnvironment;
 
-class TlManiaxContaoHoliday
+class TlManiaxContaoHolidayItem
 {
     protected ManagerRegistry $registry;
 
@@ -76,7 +76,7 @@ class TlManiaxContaoHoliday
         }
 
         if (!empty(Input::post('published'))) {
-            $itemRepository = $this->registry->getRepository(TlManiaxContaoHolidayEntity::class);
+            $itemRepository = $this->registry->getRepository(TlManiaxContaoHolidayÍtemEntity::class);
             $item = $itemRepository->find($dc->activeRecord->id);
             $this->registry->getManager()->persist($item);
             $this->registry->getManager()->flush();

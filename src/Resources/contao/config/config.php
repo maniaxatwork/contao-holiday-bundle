@@ -17,7 +17,7 @@ array_insert($GLOBALS['BE_MOD'], 1, [
         'maniax_contao_holiday_items' => [
             'tables' => ['tl_maniax_contao_holiday', 'tl_content'],
         ],
-        'maniax_contao_holiday_docss' => [
+        'maniax_contao_holiday_docs' => [
             'tables' => ['tl_maniax_contao_holiday_doc'],
             'hideInNavigation' => true,
         ],
@@ -31,4 +31,4 @@ if (defined('TL_MODE') && TL_MODE == 'BE') {
 /*
  * Models
  */
-$GLOBALS['TL_MODELS'][Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayModel::getTable()] = Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayModel::class;
+$GLOBALS['TL_MODELS'][Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel::getTable()] = Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel::class;

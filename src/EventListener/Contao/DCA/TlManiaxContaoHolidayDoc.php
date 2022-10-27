@@ -33,6 +33,6 @@ class TlManiaxContaoHolidayDoc
 
     public function listDocs(array $arrRow): string
     {
-        return '<div class="tl_content_left">'.$arrRow['title'].'</div>';
+        return '<div class="tl_content_left">'.$arrRow['name'].'</div>';
     }
 }
