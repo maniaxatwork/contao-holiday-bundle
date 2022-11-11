@@ -100,7 +100,7 @@ class TlManiaxContaoHolidayItem
         $doc = $docRepository->find((int) $labelArr[0]);
 
        // $label = '<strong>'.$labelArr[1] .'</strong>: <small>' .$doc->getName(). '</small>';
-       $label = '<strong>'.$labelArr[1] .'</strong>: <small>test</small>';
+       $label = '<strong>'.$label.'</strong>: <small>test</small>';
 
         return $label;
     }
