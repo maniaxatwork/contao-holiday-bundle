@@ -20,7 +20,7 @@
         "php": "^7.4 || ^8.0",
 	    "ext-json": "*",
 	    "contao/conflicts": "@dev",
-        "contao/core-bundle": "^4.9",
+        "contao/core-bundle": "^4.13",
         "codefog/contao-haste": "^4.17",
 	    "doctrine/orm": "^2.6.4",
         "doctrine/data-fixtures": "^1.4.2",
@@ -29,7 +29,7 @@
     "require-dev": {
         "contao/manager-bundle": "^4.9.1",
         "phpunit/phpunit": "^9.5.10",
-        "contao/test-case": "^4.4.0",
+        "contao/test-case": "^4.13.0",
         "symfony/phpunit-bridge": "v5.3.8",
         "phpstan/phpstan": "^0.12.99",
         "phpstan/phpstan-symfony": "^0.12.44",

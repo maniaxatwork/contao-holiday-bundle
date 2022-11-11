@@ -22,7 +22,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TlManiaxContaoHolidayÍtem extends DCADefault
 {
-
     /**
      * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
      */
@@ -34,7 +33,7 @@ class TlManiaxContaoHolidayÍtem extends DCADefault
     protected string $holidayStop;
 
     /**
-     * @ORM\Column(type="smallint", options={"default": 14})
+     * @ORM\Column(type="integer", options={"default": 14})
      */
     protected string $showBefore;
 
