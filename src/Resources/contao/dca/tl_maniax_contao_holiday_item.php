@@ -76,10 +76,11 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
 
     'palettes' => [
         '__selector__' => ['extend','footerline'],
-        'default' => '{date_legend},holidayStart,holidayStop,showBefore;{extend_legend},extend;{footerline_legend},footerline;{doc_legend},doc1,doc2,doc3,doc4;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'default' => '{date_legend},holidayStart,holidayStop,showBefore;{extend_legend},extend;{footerline_legend},footerline;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
     'subpalettes' => [
-        'extend' => 'extendText',
+        'standard' => 'extendText',
+        'hinweis' => 'doc1,doc2,doc3,doc4',
         'footerline' => 'footerlineText',
     ],
     'fields' => [
@@ -92,12 +93,12 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'holidayStart' => [
             'exclude' => true,
             'inputType' => 'text',
-            'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
+            'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
         ],
         'holidayStop' => [
             'exclude' => true,
             'inputType' => 'text',
-            'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
+            'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
         ],
         'showBefore' => [
 			'exclude' => true,
@@ -107,8 +108,15 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
 		],
         'extend' => [
 			'exclude' => true,
-			'inputType' => 'checkbox',
-			'eval' => ['tl_class'=>'w50 m12'],
+			'inputType' => 'radio',
+            'options' => ['standard', 'hinweis'],
+            'eval' => [
+                'submitOnChange'=>true,
+                'tl_class' => 'w50',
+                'mandatory' => true,
+                'multiple' => false,
+                'chosen' => true,
+            ],
             'sql' => ['type' => 'boolean', 'default' => false],
 		],
         'extendText' => [
