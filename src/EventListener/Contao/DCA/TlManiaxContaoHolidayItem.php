@@ -96,11 +96,7 @@ class TlManiaxContaoHolidayItem
     {
         $labelArr = explode('|', $label);
 
-        $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDocEntity::class);
-        $doc = $docRepository->find((int) $labelArr[0]);
-
-       // $label = '<strong>'.$labelArr[1] .'</strong>: <small>' .$doc->getName(). '</small>';
-       $label = '<strong>'.$label.'</strong>: <small>test</small>';
+        $label = '<strong>'.$labelArr[0] .'</strong>: ' .date('d.m.Y', $labelArr[1]). ' - '.date('d.m.Y', $labelArr[2]).;
 
         return $label;
     }
