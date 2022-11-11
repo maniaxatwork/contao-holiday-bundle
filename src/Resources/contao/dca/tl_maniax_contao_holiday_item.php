@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 use Contao\BackendUser;
 use Contao\System;
-use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHoliday;
+use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
 
 $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
     'config' => [
