@@ -23,7 +23,7 @@ class TlManiaxContaoHolidayItemRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TlManiaxContaoHolidayÍtem::class);
+        parent::__construct($registry, TlManiaxContaoHolidayItem::class);
     }
 
     public function findAllByPublished(): array
