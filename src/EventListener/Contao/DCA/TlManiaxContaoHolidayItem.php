@@ -96,7 +96,7 @@ class TlManiaxContaoHolidayItem
     {
         $labelArr = explode('|', $label);
 
-        $label = '<strong>'.$labelArr[0] .'</strong>: ' .date('d.m.Y', $labelArr[1]). ' - '.date('d.m.Y', $labelArr[2]).;
+        $label = '<strong>'.$labelArr[0] .'</strong>: ' .date('d.m.Y', $labelArr[1]). ' - '.date('d.m.Y', $labelArr[2]);
 
         return $label;
     }
