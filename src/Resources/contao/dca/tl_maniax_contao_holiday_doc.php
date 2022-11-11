@@ -24,12 +24,11 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_doc'] = [
 
     'list' => [
         'sorting' => [
-            'sorting' => [
-                'mode' => 2,
-                'fields' => ['name'],
-                'flag' => 1,
-                'panelLayout' => 'filter;sort,search,limit',
-            ],
+            'mode' => 2,
+            'fields' => ['name'],
+            'flag' => 1,
+            'panelLayout' => 'filter;sort,search,limit',
+        ],
         'label' => [
             'fields' => ['name'],
             'format' => '%s',
