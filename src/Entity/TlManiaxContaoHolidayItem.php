@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="Maniax\ContaoHoliday\Repository\TlManiaxContaoHolidayItemRepository")
  * @ORM\Table(name="tl_maniax_contao_holiday_item")
  */
-class TlManiaxContaoHolidayÍtem extends DCADefault
+class TlManiaxContaoHolidayItem extends DCADefault
 {
     /**
      * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
