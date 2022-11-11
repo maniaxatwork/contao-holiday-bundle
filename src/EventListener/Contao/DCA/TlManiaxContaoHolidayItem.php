@@ -57,7 +57,7 @@ class TlManiaxContaoHolidayItem
 
         $return = [];
         foreach ($docs as $doc) {
-            $return[$doc->getId()] = $doc->getName();
+            $return[$doc->getId()] = $doc->getName() .' | '. $doc->getStreet .', '. $doc->getLocality();
         }
 
         return $return;
