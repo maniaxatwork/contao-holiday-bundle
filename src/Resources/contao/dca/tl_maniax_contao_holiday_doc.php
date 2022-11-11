@@ -89,9 +89,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_doc'] = [
     'fields' => [
         'id' => [
         ],
-        'pid' => [
-            'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
-        ],
         'tstamp' => [
         ],
         'name' => [
