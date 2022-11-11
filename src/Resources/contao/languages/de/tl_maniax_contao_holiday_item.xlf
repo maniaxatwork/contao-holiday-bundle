@@ -2,118 +2,118 @@
 <xliff version="1.1">
     <file>
         <body>
-            <trans-unit id="tl_maniax_contao_holiday.date_legend">
+            <trans-unit id="tl_maniax_contao_holiday_item.date_legend">
                 <target>Urlaubszeit</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.holidayStart.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.holidayStart.0">
                 <target>Urlaubszeit von</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.holidayStart.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.holidayStart.1">
                 <target>Ab wann haben Sie Urlaub?</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.holidayStop.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.holidayStop.0">
                 <target>Urlaubszeit bis</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.holidayStop.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.holidayStop.1">
                 <target>Bis wann haben Sie Urlaub?</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.showBefore.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.showBefore.0">
                 <target>Hinweis x Tage vor dem Ulraub anzeigen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.showBefore.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.showBefore.1">
                 <target>Wieviel Tage vorher soll der Hinweis auf der Homepage zu sehen sein?</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.extend_legend">
+            <trans-unit id="tl_maniax_contao_holiday_item.extend_legend">
                 <target>Erweiterter Hinweis</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.extend.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.extend.0">
                 <target>Erweiterten Hinweis anzeigen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.extend.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.extend.1">
                 <target>Erweiterten Hinweis auf der Homepage anzeigen.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.extendText.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.extendText.0">
                 <target>Inhalt des Hinweises</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.extendText.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.extendText.1">
                 <target>Tragen Sie hier den erweiterten Hinweis ein.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.footerline_legend">
+            <trans-unit id="tl_maniax_contao_holiday_item.footerline_legend">
                 <target>Fußzeile</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.footerline.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.footerline.0">
                 <target>Fußzeile anzeigen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.footerline.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.footerline.1">
                 <target>Fußzeile auf der Homepage anzeigen.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.footerlineText.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.footerlineText.0">
                 <target>Inhalt der Fußzeile</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.footerlineText.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.footerlineText.1">
                 <target>Tragen Sie hier den Inhalt der Fußzeile ein.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc_legend">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc_legend">
                 <target>Vertretungsärzte</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc1.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc1.0">
                 <target>Vertretung Chirurgie Frankenhäuser Straße</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc1.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc1.1">
                 <target>Wählen Sie die Vertretung Chirurgie der Frankenhäuser Straße aus.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc2.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc2.0">
                 <target>Vertretung Allgemein/Kinder Frankenhäuser Straße</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc2.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc2.1">
                 <target>Wählen Sie die Vertretung Allgemein/Kinder der Frankenhäuser Straße aus.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc3.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc3.0">
                 <target>Vertretung Chirurgie Planplatz</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc3.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc3.1">
                 <target>Wählen Sie die Vertretung Chirurgie der Planplatz aus.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc4.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc4.0">
                 <target>Vertretung Allgemein/Kinder Planplatz</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.doc4.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.doc4.1">
                 <target>Wählen Sie die Vertretung Allgemein/Kinder der Planplatz aus.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.expert_legend">
+            <trans-unit id="tl_maniax_contao_holiday_item.expert_legend">
                 <target>Experteneinstellungen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.cssClass.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.cssClass.0">
                 <target>CSS-Klasse</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.cssClass.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.cssClass.1">
                 <target>Hier können Sie eine oder mehrere Klassen eingeben.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.publish_legend">
+            <trans-unit id="tl_maniax_contao_holiday_item.publish_legend">
                 <target>Veröffentlichung</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.published.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.published.0">
                 <target>Holiday veröffentlichen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.published.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.published.1">
                 <target>Das Holiday auf der Webseite anzeigen.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.start.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.start.0">
                 <target>Anzeigen ab</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.start.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.start.1">
                 <target>Wenn Sie ein Holiday erst ab einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.stop.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.stop.0">
                 <target>Anzeigen bis</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.stop.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.stop.1">
                 <target>Wenn Sie ein Holiday nur bis zu einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.tstamp.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.tstamp.0">
                 <target>Änderungsdatum</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.tstamp.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.tstamp.1">
                 <target>Datum und Uhrzeit der letzten Änderung</target>
             </trans-unit>
         </body>
