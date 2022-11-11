@@ -2,26 +2,83 @@
 <xliff version="1.1">
     <file>
         <body>
-            <trans-unit id="tl_maniax_contao_holiday.title_legend">
-                <target>Holidaytitel</target>
+            <trans-unit id="tl_maniax_contao_holiday.date_legend">
+                <target>Urlaubszeit</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.settings_legend">
-                <target>Eigenschaften</target>
+            <trans-unit id="tl_maniax_contao_holiday.holidayStart.0">
+                <target>Urlaubszeit von</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.image_legend">
-                <target>Bildeinstellungen</target>
+            <trans-unit id="tl_maniax_contao_holiday.holidayStart.1">
+                <target>Ab wann haben Sie Urlaub?</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.title.0">
-                <target>Holidaytitel</target>
+            <trans-unit id="tl_maniax_contao_holiday.holidayStop.0">
+                <target>Urlaubszeit bis</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.title.1">
-                <target>Bitte geben Sie den Holidaytitel ein.</target>
+            <trans-unit id="tl_maniax_contao_holiday.holidayStop.1">
+                <target>Bis wann haben Sie Urlaub?</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.description.0">
-                <target>Beschreibung</target>
+            <trans-unit id="tl_maniax_contao_holiday.showBefore.0">
+                <target>Hinweis x Tage vor dem Ulraub anzeigen</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.description.1">
-                <target>Bitte geben sie eine aussagekräftige Beschreibung ein.</target>
+            <trans-unit id="tl_maniax_contao_holiday.showBefore.1">
+                <target>Wieviel Tage vorher soll der Hinweis auf der Homepage zu sehen sein?</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.extend_legend">
+                <target>Erweiterter Hinweis</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.extend.0">
+                <target>Erweiterten Hinweis anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.extend.1">
+                <target>Erweiterten Hinweis auf der Homepage anzeigen.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.extendText.0">
+                <target>Inhalt des Hinweises</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.extendText.1">
+                <target>Tragen Sie hier den erweiterten Hinweis ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.footerline_legend">
+                <target>Fußzeile</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.footerline.0">
+                <target>Fußzeile anzeigen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.footerline.1">
+                <target>Fußzeile auf der Homepage anzeigen.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.footerlineText.0">
+                <target>Inhalt der Fußzeile</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.footerlineText.1">
+                <target>Tragen Sie hier den Inhalt der Fußzeile ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc_legend">
+                <target>Vertretungsärzte</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc1.0">
+                <target>Vertretung Chirurgie Frankenhäuser Straße</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc1.1">
+                <target>Wählen Sie die Vertretung Chirurgie der Frankenhäuser Straße aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc2.0">
+                <target>Vertretung Allgemein/Kinder Frankenhäuser Straße</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc2.1">
+                <target>Wählen Sie die Vertretung Allgemein/Kinder der Frankenhäuser Straße aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc3.0">
+                <target>Vertretung Chirurgie Planplatz</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc3.1">
+                <target>Wählen Sie die Vertretung Chirurgie der Planplatz aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc4.0">
+                <target>Vertretung Allgemein/Kinder Planplatz</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday.doc4.1">
+                <target>Wählen Sie die Vertretung Allgemein/Kinder der Planplatz aus.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday.expert_legend">
                 <target>Experteneinstellungen</target>
@@ -58,102 +115,6 @@
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday.tstamp.1">
                 <target>Datum und Uhrzeit der letzten Änderung</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.category.0">
-                <target>Kategorie</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.category.1">
-                <target>Bitte wählen Sie eine kategorie aus.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.singleSRC.0">
-                <target>Quelldatei</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.singleSRC.1">
-                <target>Bitte wählen Sie eine Datei aus der Dateiübersicht.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.size.0">
-                <target>Bildgröße</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.size.1">
-                <target>Hier können Sie die Abmessungen des Bildes und den Skalierungsmodus festlegen.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.overwriteMeta.0">
-                <target>Metadaten überschreiben</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.overwriteMeta.1">
-                <target>Die Metadaten aus der Dateiverwaltung überschreiben.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.alt.0">
-                <target>Alternativer Text</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.alt.1">
-                <target>Hier können Sie einen alternativen Text für das Bild eingeben (&lt;em&gt;alt&lt;/em&gt;-Attribut).</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.imageTitle.0">
-                <target>Bildtitel</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.imageTitle.1">
-                <target>Hier können Sie den Titel des Bildes eingeben (&lt;em&gt;title&lt;/em&gt;-Attribut).</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.imageUrl.0">
-                <target>Bildlink-Adresse</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.imageUrl.1">
-                <target>Eine eigene Bildlink-Adresse überschreibt den Lightbox-Link, so dass das Bild nicht mehr in der Großansicht dargestellt werden kann.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.fullsize.0">
-                <target>Großansicht/Neues Fenster</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.fullsize.1">
-                <target>Großansicht des Bildes in einer Lightbox bzw. den Link in einem neuen Browserfenster öffnen.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.videoUrl.0">
-                <target>Video-URL oder YouTube ID</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.videoUrl.1">
-                <target>Bitte geben Sie die Video-URL oder YouTube-Video-ID ein (z. B. &lt;em&gt;j0sYj4wxyk0&lt;/em&gt;)..</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.multiSRC.0">
-                <target>Quelldateien</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.multiSRC.1">
-                <target>Bitte wählen Sie eine oder mehr Dateien oder Ordner aus der Dateiübersicht. Wenn Sie einen Ordner auswählen, werden die darin enthaltenen Dateien automatisch eingefügt.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.sortBy.0">
-                <target>Sortieren nach</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.sortBy.1">
-                <target>Bitte wählen Sie die Sortierreihenfolge aus.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.custom">
-                <target>Individuelle Reihenfolge</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.name_asc">
-                <target>Dateiname (aufsteigend)</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.name_desc">
-                <target>Dateiname (absteigend)</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.date_asc">
-                <target>Datum (aufsteigend)</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.date_desc">
-                <target>Datum (absteigend)</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.random">
-                <target>Zufällige Reihenfolge</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.perRow.0">
-                <target>Vorschaubilder pro Reihe</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.perRow.1">
-                <target>Die Anzahl an Vorschaubildern pro Reihe.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.url.0">
-                <target>Link-Adresse</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday.url.1">
-                <target>Geben Sie eine Web-Adresse (http://…) ein.</target>
             </trans-unit>
         </body>
     </file>
