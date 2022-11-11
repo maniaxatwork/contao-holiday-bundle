@@ -38,7 +38,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $showBefore;
 
     /**
-     * @ORM\Column(type="string", nullable=false, options={"default": 'standard'})
+     * @ORM\Column(type="string", nullable=false, options={"default": "standard"})
      */
     protected string $extend;
 
