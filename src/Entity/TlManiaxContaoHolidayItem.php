@@ -38,9 +38,9 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $showBefore;
 
     /**
-     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
+     * @ORM\Column(type="string", nullable=false, options={"default": 'standard'})
      */
-    protected bool $extend;
+    protected string $extend;
 
     /**
      * @ORM\Column(type="text", nullable=true, options={"default": NULL})
@@ -157,19 +157,19 @@ class TlManiaxContaoHolidayItem extends DCADefault
     }
 
     /**
-     * @return bool
+     * @return string
      */
-    public function isExtend(): bool
+    public function getExtend(): string
     {
         return $this->extend;
     }
 
     /**
-     * @param bool $extend
+     * @param string $extend
      *
      * @return TlManiaxContaoHolidayItem
      */
-    public function setExtend(bool $extend): self
+    public function setExtend(string $extend): self
     {
         $this->extend = $extend;
 

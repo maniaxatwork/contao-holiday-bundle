@@ -112,12 +112,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
             'options' => ['standard', 'hinweis'],
             'eval' => [
                 'submitOnChange'=>true,
-                'tl_class' => 'w50',
-                'mandatory' => true,
-                'multiple' => false,
-                'chosen' => true,
             ],
-            'sql' => ['type' => 'boolean', 'default' => false],
+            'sql' => "varchar(12) NOT NULL default 'standard'",
 		],
         'extendText' => [
             'exclude' => true,
