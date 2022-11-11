@@ -104,7 +104,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'extend' => [
 			'exclude' => true,
 			'inputType' => 'checkbox',
-			'eval' => array('tl_class'=>'w50 m12'),
+			'eval' => ['tl_class'=>'w50 m12'],
+            'sql' => ['type' => 'boolean', 'default' => false],
 		],
         'extendText' => [
             'exclude' => true,
@@ -117,7 +118,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'footerline' => [
 			'exclude' => true,
 			'inputType' => 'checkbox',
-			'eval' => array('tl_class'=>'w50 m12'),
+			'eval' => ['tl_class'=>'w50 m12'],
+            'sql' => ['type' => 'boolean', 'default' => false],
 		],
         'footerlineText' => [
             'exclude' => true,

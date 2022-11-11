@@ -38,7 +38,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $showBefore;
 
     /**
-     * @ORM\Column(type="boolean", nullable=false, options={"default": 0})
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
      */
     protected bool $extend;
 
@@ -48,7 +48,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $extendText;
 
     /**
-     * @ORM\Column(type="boolean", nullable=false, options={"default": 1})
+     * @ORM\Column(type="boolean", nullable=false, options={"default": false})
      */
     protected bool $footerline;
 
