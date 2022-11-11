@@ -39,12 +39,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
             'panelLayout' => 'filter;sort,search,limit',
         ],
         'label' => [
-            'fields' => ['doc', 'title'],
-            'format' => '%s | %s',
-            'label_callback' => [
-                TlManiaxContaoHolidayItem::class,
-                'onLabelCallback'
-            ],
+            'fields' => ['extend', 'holidayStart', 'holidayStop'],
+            'format' => '%s: %s - %s',
         ],
         'operations' => [
             'editheader' => [
