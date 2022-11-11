@@ -75,7 +75,7 @@ class TlManiaxContaoHolidayItem
         }
 
         if (!empty(Input::post('published'))) {
-            $itemRepository = $this->registry->getRepository(TlManiaxContaoHolidayÍtemEntity::class);
+            $itemRepository = $this->registry->getRepository(TlManiaxContaoHolidayItemEntity::class);
             $item = $itemRepository->find($dc->activeRecord->id);
             $this->registry->getManager()->persist($item);
             $this->registry->getManager()->flush();

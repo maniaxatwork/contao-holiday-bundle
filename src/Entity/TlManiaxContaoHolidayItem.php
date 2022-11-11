@@ -109,7 +109,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string $holidayStart
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setHolidayStart(string $holidayStart): self
     {
@@ -129,7 +129,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string $holidayStop
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setHolidayStop(string $holidayStop): self
     {
@@ -149,7 +149,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param mixed $showBefore
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setShowBefore($showBefore): void
     {
@@ -167,7 +167,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param bool $extend
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setExtend(bool $extend): self
     {
@@ -187,7 +187,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string|null $extendText
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setExtendText(string $extendText): self
     {
@@ -207,7 +207,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param bool $footerline
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setFooterline(bool $footerline): self
     {
@@ -227,7 +227,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string|null $footerlineText
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setFooterlineText(string $footerlineText): self
     {
@@ -247,7 +247,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string|null $doc1
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setDoc1(?string $doc1): self
     {
@@ -266,7 +266,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string|null $doc2
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setDoc2(?string $doc2): self
     {
@@ -286,7 +286,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string|null $doc3
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setDoc3(?string $doc3): self
     {
@@ -306,7 +306,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string|null $doc4
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setDoc4(?string $doc4): self
     {
@@ -326,7 +326,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string $cssClass
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setCssClass(string $cssClass): self
     {
@@ -346,7 +346,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param bool $published
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setPublished(bool $published): self
     {
@@ -366,7 +366,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string $start
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setStart(string $start): self
     {
@@ -386,7 +386,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     /**
      * @param string $stop
      *
-     * @return TlManiaxContaoHolidayÍtem
+     * @return TlManiaxContaoHolidayItem
      */
     public function setStop(string $stop): self
     {
