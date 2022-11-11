@@ -75,8 +75,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'default' => '{date_legend},holidayStart,holidayStop,showBefore;{extend_legend},extend;{footerline_legend},footerline;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
     ],
     'subpalettes' => [
-        'extend_standard' => 'extendText',
-        'extend_hinweis' => 'doc1,doc2,doc3,doc4',
+        'extend_hinweis' => 'extendText',
+        'extend_standard' => 'doc1,doc2,doc3,doc4',
         'footerline' => 'footerlineText',
     ],
     'fields' => [
@@ -105,7 +105,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'extend' => [
 			'exclude' => true,
 			'inputType' => 'select',
-            'options' => ['standard', 'hinweis'],
+            'options' => ['standard' => 'Urlaubsvertretung', 'Hinweis'],
             'eval' => ['submitOnChange'=>true],
             'sql' => "varchar(12) NOT NULL default 'standard'",
 		],

@@ -24,19 +24,19 @@
                 <target>Wieviel Tage vorher soll der Hinweis auf der Homepage zu sehen sein?</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.extend_legend">
-                <target>Erweiterter Hinweis</target>
+                <target>Anzeigeneinstellungen</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.extend.0">
-                <target>Erweiterten Hinweis anzeigen</target>
+                <target>Art der Anzeige</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.extend.1">
-                <target>Erweiterten Hinweis auf der Homepage anzeigen.</target>
+                <target>Bitte wählen Sie die Art der Anzeige aus.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.extendText.0">
                 <target>Inhalt des Hinweises</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.extendText.1">
-                <target>Tragen Sie hier den erweiterten Hinweis ein.</target>
+                <target>Tragen Sie den Hinweis ein.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.footerline_legend">
                 <target>Fußzeile</target>
