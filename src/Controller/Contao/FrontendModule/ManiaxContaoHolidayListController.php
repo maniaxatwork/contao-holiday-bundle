@@ -52,7 +52,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
         }
 */
         // Fill the template with data from the parent record
-        $template->holidayItems = $holidayItems;
+
         $items = [];
 
         foreach($holidayItems as $holidayItem){
