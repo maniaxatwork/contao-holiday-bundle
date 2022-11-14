@@ -17,17 +17,14 @@ use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController
 use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
-use Contao\StringUtil;
 use Contao\System;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
-use Haste\Form\Form;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\RouterInterface;
-
+use Symfony\Component\HttpFoundation\RequestStack;
 /**
  * @FrontendModule("maniax_contao_holiday_item", doc="maniaxContaoHoliday", template="mod_maniax_contao_holiday_item", renderer="forward")
  */
@@ -44,9 +41,46 @@ class ManiaxContaoHolidayItemController extends AbstractFrontendModuleController
         $this->requestStack = $requestStack;
     }
 
-
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
+        /* @var PageModel $objPage */
+        global $objPage;
+
+        System::loadLanguageFile('tl_maniax_contao_holiday_item');
+
+        $holidayItemRepository = $this->registry->getRepository(TlManiaxContaoHolidayItem::class);
+        $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDoc::class);
+
+        $holidayItems = $holidayItemRepository->findAllByPublished();
+
+        if (null !== $holidayItems) {
+            // Fill the template with data from the parent record
+            $template->holidayItems = $holidayItems;
+
+            $content = '';
+            $items = [];
+
+            foreach($holidayItems as $template->holidayItem){
+                $itemTemplate = new FrontendTemplate('maniax_contao_holiday_item_default');
+                $template->holidayItem = $template->holidayItem;
+
+                $items[] = $itemTemplate->parse();
+
+            }
+
+            $template->items = $items;
+
+
+            $template->content = $content;
+
+            if ($holidayItem->getCssClass()) {
+                $template->class .= ('' != $template->class ? ' ' : '').$holidayItem->getCssClass();
+            }
+
+        }
+
+        return $template->getResponse();
+
         /*
         $holidayItemRepository = $this->registry->getRepository(TlManiaxContaoHolidayItem::class);
         $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDoc::class);
@@ -148,7 +182,7 @@ class ManiaxContaoHolidayItemController extends AbstractFrontendModuleController
         $template->items = $items;
 
 */
-        $template->message = "hi";
+        $template->content = "hi";
         return $template->getResponse();
     }
 }
