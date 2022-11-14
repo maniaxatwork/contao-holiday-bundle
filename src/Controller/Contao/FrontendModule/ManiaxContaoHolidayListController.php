@@ -26,7 +26,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RequestStack;
 /**
- * @FrontendModule("maniax_contao_holiday_item", doc="maniaxContaoHoliday", template="mod_maniax_contao_holiday_item", renderer="forward")
+ * @FrontendModule("maniax_contao_holiday_list", doc="maniaxContaoHoliday", template="mod_maniax_contao_holiday_list", renderer="forward")
  */
 class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 {
