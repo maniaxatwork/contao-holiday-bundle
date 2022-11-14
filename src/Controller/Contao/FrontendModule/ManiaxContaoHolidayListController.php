@@ -59,7 +59,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             $itemTemplate = new FrontendTemplate('maniax_contao_holiday_list_default');
 
             $template->holidayItem = $holidayItem;
-
+            $itemTemplate->doc1 = "doctor 1";
             $items[] = $itemTemplate->parse();
         }
 
