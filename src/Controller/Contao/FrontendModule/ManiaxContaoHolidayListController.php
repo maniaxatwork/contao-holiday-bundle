@@ -45,11 +45,14 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 
         $holidayItems = $holidayItemRepository->findAllByPublished();
 
+
+        /*
         if (null === $holidayItems) {
             return null;
         }
-
+*/
         // Fill the template with data from the parent record
+        $template->holidayItems = $holidayItems;
         $items = [];
 
         foreach($holidayItems as $holidayItem){
