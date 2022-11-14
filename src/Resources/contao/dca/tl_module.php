@@ -13,14 +13,6 @@ declare(strict_types=1);
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlModule;
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_holiday_list'] =
-    '{title_legend},name,type,holidayDoc;
+    '{title_legend},name,type;
     {expert_legend:hide},cssID'
 ;
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['holidayDoc'] = [
-    'exclude' => true,
-    'inputType' => 'select',
-    'options_callback' => [TlModule::class, 'onDocOptionsCallback'],
-    'eval' => ['tl_class' => 'clr w50'],
-    'sql' => 'mediumtext null',
-];
