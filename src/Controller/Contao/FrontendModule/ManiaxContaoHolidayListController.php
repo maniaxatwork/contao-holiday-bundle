@@ -28,7 +28,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 /**
  * @FrontendModule("maniax_contao_holiday_item", doc="maniaxContaoHoliday", template="mod_maniax_contao_holiday_item", renderer="forward")
  */
-class ManiaxContaoHolidayItemController extends AbstractFrontendModuleController
+class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
     protected RequestStack $requestStack;
