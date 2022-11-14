@@ -33,7 +33,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
     protected ManagerRegistry $registry;
 
     public function __construct(
-        ManagerRegistry $registry,
+        ManagerRegistry $registry
     ) {
         $this->registry = $registry;
     }
