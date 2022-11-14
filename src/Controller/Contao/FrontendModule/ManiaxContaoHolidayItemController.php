@@ -29,21 +29,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 
 /**
- * @FrontendModule("maniax_contao_holiday_list", doc="maniaxContaoHoliday", template="mod_maniax_contao_holiday_list", renderer="forward")
+ * @FrontendModule("maniax_contao_holiday_item", doc="maniaxContaoHoliday", template="mod_maniax_contao_holiday_item", renderer="forward")
  */
-class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
+class ManiaxContaoHolidayItemController extends AbstractFrontendModuleController
 {
-   /* protected ManagerRegistry $registry;
-    protected RouterInterface $router;
+    protected ManagerRegistry $registry;
+    protected RequestStack $requestStack;
 
     public function __construct(
         ManagerRegistry $registry,
-        RouterInterface $router
+        RequestStack $requestStack
     ) {
         $this->registry = $registry;
-        $this->router = $router;
+        $this->requestStack = $requestStack;
     }
-    */
+
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
