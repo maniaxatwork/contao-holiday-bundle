@@ -1,12 +1,15 @@
-<div class="layout_default block<?php if ($this->holidayItem->getCssClass()): ?> <?= $this->holidayItem->getCssClass() ?><?php endif; ?>">
+<div class="layout_default block">
     <div class="first-column">
         <div class="holiday-start">
+            <pre>
+                <?php print_r($this->showTemplateVars()); ?>
+            </pre>
             <?= $this->holidayItem['holidayStart']; ?>
         </div>
     </div>
     <div class="second-column">
         <div class="holiday-end">
-            <?= $this->holidayItem['holidayEnd']; ?>
+
         </div>
     </div>
 </div>
