@@ -49,4 +49,31 @@ class TlManiaxContaoHolidayDocRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult(AbstractQuery::HYDRATE_OBJECT);
     }
+    /**
+     * @throws NonUniqueResultException
+     * @throws \Doctrine\ORM\NoResultException
+     */
+    public function findPublishedById(string $id): ?TlManiaxContaoHolidayDoc
+    {
+        $qb = $this->createQueryBuilder('a');
+
+        $qb
+            ->where('a.id=:id')
+            ->setParameter('id', $id);
+
+        $qb
+            ->andwhere('a.published=:published')
+            ->andWhere('a.start<=:time OR a.start=:empty')
+            ->andWhere('a.stop>:time OR a.stop=:empty')
+            ->setParameter('published', '1')
+            ->setParameter('time', time())
+            ->setParameter('empty', '')
+        ;
+
+        try {
+            return $qb->getQuery()->getSingleResult(AbstractQuery::HYDRATE_OBJECT);
+        } catch (NoResultException $ex) {
+            return null;
+        }
+    }
 }
