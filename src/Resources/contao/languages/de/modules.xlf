@@ -26,6 +26,12 @@
             <trans-unit id="FMD.maniaxContaoHoliday">
                 <target>Contao Urlaub</target>
             </trans-unit>
+            <trans-unit id="FMD.maniax_contao_portfolio_list.0">
+                <target>Urluabs-Liste</target>
+            </trans-unit>
+            <trans-unit id="FMD.maniax_contao_portfolio_list.1">
+                <target>Urluabs-Liste</target>
+            </trans-unit>
             <trans-unit id="MOD.maniax_contao_holiday_doc.0">
                 <target>Ärzte verwalten</target>
             </trans-unit>
