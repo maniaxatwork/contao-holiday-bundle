@@ -93,22 +93,22 @@
                 <target>Veröffentlichung</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.published.0">
-                <target>Holiday veröffentlichen</target>
+                <target>Urlaub veröffentlichen</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.published.1">
-                <target>Das Holiday auf der Webseite anzeigen.</target>
+                <target>Den Urlaub auf der Webseite anzeigen.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.start.0">
                 <target>Anzeigen ab</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.start.1">
-                <target>Wenn Sie ein Holiday erst ab einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
+                <target>Wenn Sie einen Urlaub erst ab einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.stop.0">
                 <target>Anzeigen bis</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.stop.1">
-                <target>Wenn Sie ein Holiday nur bis zu einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
+                <target>Wenn Sie einen Urlaub nur bis zu einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.tstamp.0">
                 <target>Änderungsdatum</target>
