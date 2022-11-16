@@ -135,6 +135,35 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                 'tl_class' => 'clr',
             ],
         ],
+        'docSection' => [
+            'label' => 'möp',
+            'exclude' => true,
+            'inputType' => 'multiColumnWizard',
+            'eval' 			=> [
+                'columnFields' => [
+                    'arzt' => [
+                        'label'                 => 'ort1',
+                        'exclude'               => true,
+                        'inputType'             => 'select',
+                        'options_callback' => [
+                            TlManiaxContaoHolidayItem::class,
+                            'onDocOptionsCallback',
+                        ],
+                        'eval' => array('style' => 'width:250px', 'includeBlankOption'=>true, 'chosen'=>true,'mandatory' => true, 'multiple' => true,)
+                    ],
+                    'vertretungStart' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
+                    ],
+                    'vertretungStop' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
+                    ]
+                ]
+            ],
+        ],
         'doc1' => [
             'inputType' => 'select',
             'exclude' => true,
