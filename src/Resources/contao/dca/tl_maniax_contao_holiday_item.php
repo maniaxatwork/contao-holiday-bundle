@@ -138,30 +138,37 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'docSection' => [
             'label' => 'möp',
             'exclude' => true,
-            'inputType' => 'multiColumnWizard',
-            'eval' 			=> [
-                'columnFields' => [
-                    'arzt' => [
-                        'label'                 => 'ort1',
-                        'exclude'               => true,
-                        'inputType'             => 'select',
-                        'options_callback' => [
-                            TlManiaxContaoHolidayItem::class,
-                            'onDocOptionsCallback',
-                        ],
-                        'eval' => array('style' => 'width:250px', 'includeBlankOption'=>true, 'chosen'=>true,'mandatory' => true, 'multiple' => true,)
+            'inputType' => 'group',
+            'palette' => ['doc', 'vertretungStart', 'vertretungStop'],
+            'fields' => [
+                'doc' => [
+                    'label'                 => 'ort1',
+                    'exclude'               => true,
+                    'inputType'             => 'select',
+                    'options_callback' => [
+                        TlManiaxContaoHolidayItem::class,
+                        'onDocOptionsCallback',
                     ],
-                    'vertretungStart' => [
-                        'exclude' => true,
-                        'inputType' => 'text',
-                        'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
-                    ],
-                    'vertretungStop' => [
-                        'exclude' => true,
-                        'inputType' => 'text',
-                        'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
-                    ]
+                    'eval' => array('style' => 'width:250px', 'includeBlankOption'=>true, 'chosen'=>true,'mandatory' => true, 'multiple' => true,)
+                ],
+                'vertretungStart' => [
+                    'exclude' => true,
+                    'inputType' => 'text',
+                    'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
+                ],
+                'vertretungStop' => [
+                    'exclude' => true,
+                    'inputType' => 'text',
+                    'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
                 ]
+            ],
+            'min' => 1,
+            'max' => 5,
+            // store serialized into a blob (default storage backend)
+            'sql' => [
+                'type' => 'blob',
+                'length' => \Doctrine\DBAL\Platforms\MySqlPlatform::LENGTH_LIMIT_BLOB,
+                'notnull' => false,
             ],
         ],
         'doc1' => [
