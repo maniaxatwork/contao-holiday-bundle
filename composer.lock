@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0299b4b3f03fd13738f1eeb3f039289",
+    "content-hash": "11c6cef6bde50e71d7dd778b1929bfab",
     "packages": [
         {
             "name": "ausi/slug-generator",
@@ -3884,81 +3884,6 @@
                 }
             ],
             "time": "2022-07-24T11:55:47+00:00"
-        },
-        {
-            "name": "mvo/contao-group-widget",
-            "version": "v1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/m-vo/contao-group-widget.git",
-                "reference": "d21319523bd157717382fcd9809dc0e1ffa29641"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/m-vo/contao-group-widget/zipball/d21319523bd157717382fcd9809dc0e1ffa29641",
-                "reference": "d21319523bd157717382fcd9809dc0e1ffa29641",
-                "shasum": ""
-            },
-            "require": {
-                "contao/core-bundle": "^4.9 || ^5.0",
-                "doctrine/collections": "^1.4",
-                "doctrine/dbal": "^2.12 || ^3.0",
-                "doctrine/inflector": "^1.4 || ^2.0",
-                "doctrine/orm": "^2.6",
-                "php": ">=7.4",
-                "psr/container": "^1.0",
-                "symfony/config": "^4.4 || ^5.0 || ^6.0",
-                "symfony/dependency-injection": "^4.4 || ^5.0 || ^6.0",
-                "symfony/http-foundation": "^4.4 || ^5.0 || ^6.0",
-                "symfony/http-kernel": "^4.4 || ^5.0 || ^6.0",
-                "symfony/property-access": "^4.4 || ^5.0 || ^6.0",
-                "twig/twig": "^2.7 || ^3.0"
-            },
-            "conflict": {
-                "contao/manager-plugin": "<2.0 || >=3.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4",
-                "contao/manager-plugin": "^2.0",
-                "phpunit/phpunit": "^9.5",
-                "symfony/cache": "^5.4"
-            },
-            "type": "contao-bundle",
-            "extra": {
-                "contao-manager-plugin": "Mvo\\ContaoGroupWidget\\ContaoManager\\Plugin",
-                "bamarni-bin": {
-                    "bin-links": false
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Mvo\\ContaoGroupWidget\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Moritz Vondano",
-                    "homepage": "https://github.com/m-vo/contao-group-widget"
-                }
-            ],
-            "description": "Adds a new group widget that allows repeating a set of DCA fields.",
-            "keywords": [
-                "contao",
-                "dca",
-                "group",
-                "multi",
-                "repeat",
-                "widget"
-            ],
-            "support": {
-                "issues": "https://github.com/m-vo/contao-group-widget/issues",
-                "source": "https://github.com/m-vo/contao-group-widget/tree/v1.4.2"
-            },
-            "time": "2022-10-24T15:42:33+00:00"
         },
         {
             "name": "nelmio/cors-bundle",
