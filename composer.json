@@ -28,7 +28,7 @@
         "menatwork/contao-multicolumnwizard-bundle": "^3.5"
     },
     "require-dev": {
-        "contao/manager-bundle": "^4.9.1",
+        "contao/manager-bundle": "^4.13",
         "phpunit/phpunit": "^9.5.10",
         "contao/test-case": "^4.13.0",
         "symfony/phpunit-bridge": "v5.3.8",
