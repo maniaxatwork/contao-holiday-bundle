@@ -58,7 +58,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             $docs2 = unserialize($holidayItem->getDoc2());
             $doc2 = "";
             foreach($docs2 as $doc){
-                $tmp = $docRepository->findPublishedById($doc['id']);
+                $tmp = $docRepository->findPublishedById($doc);
                 $doc2 .= "<div class='vertretung'>".$tmp['name']."<br \>".$tmp['street']."<br \>".$tmp['locality']."<br \>".$tmp['telephone']."</div>";
             }
 
