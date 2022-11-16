@@ -260,7 +260,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
      */
     public function getDoc2(): ?string
     {
-        return unserialize($this->doc2);
+        return $this->doc2;
     }
 
     /**
