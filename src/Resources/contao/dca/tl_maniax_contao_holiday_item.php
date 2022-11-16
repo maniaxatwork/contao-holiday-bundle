@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 use Contao\BackendUser;
 use Contao\System;
+use Doctrine\DBAL\Platforms\MySqlPlatform;
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
 
 $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
@@ -167,7 +168,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
             // store serialized into a blob (default storage backend)
             'sql' => [
                 'type' => 'blob',
-                'length' => \Doctrine\DBAL\Platforms\MySqlPlatform::LENGTH_LIMIT_BLOB,
+                'length' => MySqlPlatform::LENGTH_LIMIT_BLOB,
                 'notnull' => false,
             ],
         ],
