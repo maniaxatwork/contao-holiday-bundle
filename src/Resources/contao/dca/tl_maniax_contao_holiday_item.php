@@ -104,7 +104,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'showBefore' => [
 			'exclude' => true,
             'inputType' => 'text',
-            'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
+            'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
 		],
         'extend' => [
 			'exclude' => true,
