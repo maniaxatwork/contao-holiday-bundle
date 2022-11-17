@@ -43,7 +43,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
         $holidayItemRepository = $this->registry->getRepository(TlManiaxContaoHolidayItem::class);
         $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDoc::class);
 
-        $holidayItems = $holidayItemRepository->findAllByPublished();
+        $holidayItems = $holidayItemRepository->findAllByPublishedAndViewable();
 
         if (null === $holidayItems) {
             return null;
