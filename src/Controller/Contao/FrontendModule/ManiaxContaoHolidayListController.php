@@ -59,28 +59,28 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             $doc1 = "";
             foreach($docs1 as $doc){
                 $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc1 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."</div>";
+                $doc1 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
             }
 
             $docs2 = $holidayItem->getVertretungDoc2();
             $doc2 = "";
             foreach($docs2 as $doc){
                 $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."</div>";
+                $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
             }
 
             $docs3 = $holidayItem->getVertretungDoc3();
             $doc3 = "";
             foreach($docs3 as $doc){
                 $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc3 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."</div>";
+                $doc3 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
             }
 
             $docs4 = $holidayItem->getVertretungDoc4();
             $doc4 = "";
             foreach($docs4 as $doc){
                 $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc4 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."</div>";
+                $doc4 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
             }
 
             $template->holidayItem = $holidayItem;
