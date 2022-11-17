@@ -92,10 +92,10 @@
             <trans-unit id="tl_maniax_contao_holiday_item.vertretungStart.1">
                 <target>Ab wann werden Sie von Ihrer Auswahl vertreten?</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item. vertretungStop.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungStop.0">
                 <target>Vertretungsende</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item. vertretungStop.1">
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungStop.1">
                 <target>Bis wann werden Sie von Ihrer Auswahl vertreten?</target>
             <trans-unit id="tl_maniax_contao_holiday_item.expert_legend">
                 <target>Experteneinstellungen</target>
