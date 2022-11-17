@@ -129,48 +129,37 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
             'sql' => ['type' => 'boolean', 'default' => false],
 		],
         'vertretungDoc1' => [
-            'inputType' => 'group',
-            'palette' => ['doc', 'vertretungStart', 'vertretungStop'],
-            'fields' => [
-                'doc' => [
-                    'inputType' => 'select',
-                    'exclude' => true,
-                    'filter' => true,
-                    'options_callback' => [
-                        TlManiaxContaoHolidayItem::class,
-                        'onDocOptionsCallback',
+            'label'     => 'test',
+            'exclude'   => true,
+            'inputType' => 'multiColumnWizard',
+            'eval' => [
+                'columnFields' => [
+                    'doc' => [
+                        'inputType' => 'select',
+                        'exclude' => true,
+                        'filter' => true,
+                        'options_callback' => [
+                            TlManiaxContaoHolidayItem::class,
+                            'onDocOptionsCallback',
+                        ],
+                        'eval' => [
+                            'includeBlankOption' => true,
+                            'mandatory' => true,
+                            'multiple' => true,
+                            'chosen' => true,
+                        ],
                     ],
-                    'eval' => [
-                        'includeBlankOption' => true,
-                        'mandatory' => true,
-                        'multiple' => true,
-                        'chosen' => true,
+                    'vertretungStart' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
+                    ],
+                    'vertretungStop' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
                     ],
                 ],
-                'vertretungStart' => [
-                    'exclude' => true,
-                    'inputType' => 'text',
-                    'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
-                ],
-                'vertretungStop' => [
-                    'exclude' => true,
-                    'inputType' => 'text',
-                    'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
-                ],
-            ],
-
-            // force at least 1, at max 5 elements
-            'min' => 1,
-            'max' => 5,
-
-            // disable ordering (on by default)
-            'order' => false,
-
-            // store serialized into a blob (default storage backend)
-            'sql' => [
-                'type' => 'blob',
-                'length' => MySqlPlatform::LENGTH_LIMIT_BLOB,
-                'notnull' => false,
             ],
         ],
         'footerlineText' => [
