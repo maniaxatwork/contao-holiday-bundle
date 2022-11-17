@@ -173,6 +173,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
             'eval' => [
                 'columnFields' => [
                     'doc' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['doc'],
                         'inputType' => 'select',
                         'exclude' => true,
                         'filter' => true,
@@ -183,11 +184,13 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true,],
                     ],
                     'vertretungStart' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
                         'exclude' => true,
                         'inputType' => 'text',
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'clr w50 wizard','mandatory' => true,],
                     ],
                     'vertretungStop' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
                         'exclude' => true,
                         'inputType' => 'text',
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
@@ -201,6 +204,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
             'eval' => [
                 'columnFields' => [
                     'doc' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['doc'],
                         'inputType' => 'select',
                         'exclude' => true,
                         'filter' => true,
@@ -211,11 +215,13 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true,],
                     ],
                     'vertretungStart' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
                         'exclude' => true,
                         'inputType' => 'text',
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'clr w50 wizard','mandatory' => true,],
                     ],
                     'vertretungStop' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
                         'exclude' => true,
                         'inputType' => 'text',
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
@@ -229,6 +235,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
             'eval' => [
                 'columnFields' => [
                     'doc' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['doc'],
                         'inputType' => 'select',
                         'exclude' => true,
                         'filter' => true,
@@ -239,11 +246,13 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true,],
                     ],
                     'vertretungStart' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
                         'exclude' => true,
                         'inputType' => 'text',
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'clr w50 wizard','mandatory' => true,],
                     ],
                     'vertretungStop' => [
+                        'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
                         'exclude' => true,
                         'inputType' => 'text',
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
