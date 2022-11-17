@@ -58,7 +58,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $footerlineText;
 
     /**
-     * @ORM\Column(type="blob", nullable=true, options={"default": NULL})
+     * @ORM\Column(type="array", nullable=true, options={"default": NULL})
      */
     protected array $vertretungDoc1;
 
@@ -246,7 +246,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
      */
     public function getVertretungDoc1(): array
     {
-        return unserialize(stream_get_contents($this->vertretungDoc1));
+        return $this->vertretungDoc1;
     }
 
     /**
@@ -256,7 +256,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
      */
     public function setVertretungDoc1(?array $vertretungDoc1): self
     {
-        $this->vertretungDoc1 = serialize($vertretungDoc1);
+        $this->vertretungDoc1 = $vertretungDoc1;
 
         return $this;
     }
