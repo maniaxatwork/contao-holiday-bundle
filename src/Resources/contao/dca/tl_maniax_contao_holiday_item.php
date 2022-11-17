@@ -155,6 +155,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:20%', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
                     ],
                 ],
+                'generateTableless' => true,
             ],
         ],
         'footerlineText' => [
