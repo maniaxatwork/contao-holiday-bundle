@@ -62,25 +62,20 @@ class TlManiaxContaoHolidayItem extends DCADefault
      */
     protected array $vertretungDoc1;
 
-    /**
-     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
+        /**
+     * @ORM\Column(type="array", nullable=true, options={"default": NULL})
      */
-    protected string $doc1;
+    protected array $vertretungDoc2;
 
         /**
-     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
+     * @ORM\Column(type="array", nullable=true, options={"default": NULL})
      */
-    protected string $doc2;
+    protected array $vertretungDoc3;
 
         /**
-     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
+     * @ORM\Column(type="array", nullable=true, options={"default": NULL})
      */
-    protected string $doc3;
-
-        /**
-     * @ORM\Column(type="text", nullable=true, options={"default": NULL})
-     */
-    protected string $doc4;
+    protected array $vertretungDoc4;
 
     /**
      * @ORM\Column(type="boolean", nullable=false, options={"default": false})
@@ -262,81 +257,61 @@ class TlManiaxContaoHolidayItem extends DCADefault
     }
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getDoc1(): ?string
+    public function getVertretungDoc2(): array
     {
-        return $this->doc1;
+        return $this->vertretungDoc2;
     }
 
     /**
-     * @param string|null $doc1
+     * @param array|null $vertretungDoc2
      *
      * @return TlManiaxContaoHolidayItem
      */
-    public function setDoc1(?string $doc1): self
+    public function setVertretungDoc2(?array $vertretungDoc2): self
     {
-        $this->doc1 = $doc1;
+        $this->vertretungDoc2 = $vertretungDoc2;
 
         return $this;
     }
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getDoc2(): ?string
+    public function getVertretungDoc3(): array
     {
-        return $this->doc2;
+        return $this->vertretungDoc3;
     }
 
     /**
-     * @param string|null $doc2
+     * @param array|null $vertretungDoc3
      *
      * @return TlManiaxContaoHolidayItem
      */
-    public function setDoc2(?string $doc2): self
+    public function setVertretungDoc3(?array $vertretungDoc3): self
     {
-        $this->doc2 = $doc2;
+        $this->vertretungDoc3 = $vertretungDoc3;
 
         return $this;
     }
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getDoc3(): ?string
+    public function getVertretungDoc4(): array
     {
-        return $this->doc3;
+        return $this->vertretungDoc4;
     }
 
     /**
-     * @param string|null $doc3
+     * @param array|null $vertretungDoc4
      *
      * @return TlManiaxContaoHolidayItem
      */
-    public function setDoc3(?string $doc3): self
+    public function setVertretungDoc4(?array $vertretungDoc4): self
     {
-        $this->doc3 = $doc3;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getDoc4(): ?string
-    {
-        return $this->doc4;
-    }
-
-    /**
-     * @param string|null $doc4
-     *
-     * @return TlManiaxContaoHolidayItem
-     */
-    public function setDoc4(?string $doc4): self
-    {
-        $this->doc4 = $doc4;
+        $this->vertretungDoc4 = $vertretungDoc4;
 
         return $this;
     }

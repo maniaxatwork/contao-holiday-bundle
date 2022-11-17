@@ -81,7 +81,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
     ],
     'subpalettes' => [
         'extend_hinweis' => 'extendText',
-        'extend_standard' => 'vertretungDoc1,doc1,doc2,doc3,doc4',
+        'extend_standard' => 'vertretungDoc1,vertretungDoc2,vertretungDoc3,vertretungDoc4',
         'footerline' => 'footerlineText',
     ],
     'fields' => [
@@ -128,8 +128,15 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
 			'eval' => ['tl_class'=>'w50 m12', 'submitOnChange' => true],
             'sql' => ['type' => 'boolean', 'default' => false],
 		],
+        'footerlineText' => [
+            'exclude' => true,
+            'inputType' => 'textarea',
+            'eval' => [
+                'rte' => 'tinyMCE',
+                'tl_class' => 'clr',
+            ],
+        ],
         'vertretungDoc1' => [
-            'label'     => 'test',
             'exclude'   => true,
             'inputType' => 'multiColumnWizard',
             'eval' => [
@@ -157,76 +164,88 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                 ],
             ],
         ],
-        'footerlineText' => [
-            'exclude' => true,
-            'inputType' => 'textarea',
+        'vertretungDoc2' => [
+            'exclude'   => true,
+            'inputType' => 'multiColumnWizard',
             'eval' => [
-                'rte' => 'tinyMCE',
-                'tl_class' => 'clr',
+                'columnFields' => [
+                    'doc' => [
+                        'inputType' => 'select',
+                        'exclude' => true,
+                        'filter' => true,
+                        'options_callback' => [
+                            TlManiaxContaoHolidayItem::class,
+                            'onDocOptionsCallback',
+                        ],
+                        'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true,],
+                    ],
+                    'vertretungStart' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'clr w50 wizard','mandatory' => true,],
+                    ],
+                    'vertretungStop' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
+                    ],
+                ],
             ],
         ],
-        'doc1' => [
-            'inputType' => 'select',
-            'exclude' => true,
-            'filter' => true,
-            'options_callback' => [
-                TlManiaxContaoHolidayItem::class,
-                'onDocOptionsCallback',
-            ],
+        'vertretungDoc3' => [
+            'exclude'   => true,
+            'inputType' => 'multiColumnWizard',
             'eval' => [
-                'includeBlankOption' => true,
-                'tl_class' => 'w50',
-                'mandatory' => true,
-                'multiple' => true,
-                'chosen' => true,
+                'columnFields' => [
+                    'doc' => [
+                        'inputType' => 'select',
+                        'exclude' => true,
+                        'filter' => true,
+                        'options_callback' => [
+                            TlManiaxContaoHolidayItem::class,
+                            'onDocOptionsCallback',
+                        ],
+                        'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true,],
+                    ],
+                    'vertretungStart' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'clr w50 wizard','mandatory' => true,],
+                    ],
+                    'vertretungStop' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
+                    ],
+                ],
             ],
         ],
-        'doc2' => [
-            'inputType' => 'select',
-            'exclude' => true,
-            'filter' => true,
-            'options_callback' => [
-                TlManiaxContaoHolidayItem::class,
-                'onDocOptionsCallback',
-            ],
+        'vertretungDoc4' => [
+            'exclude'   => true,
+            'inputType' => 'multiColumnWizard',
             'eval' => [
-                'includeBlankOption' => true,
-                'tl_class' => 'w50',
-                'mandatory' => true,
-                'multiple' => true,
-                'chosen' => true,
-            ],
-        ],
-        'doc3' => [
-            'inputType' => 'select',
-            'exclude' => true,
-            'filter' => true,
-            'options_callback' => [
-                TlManiaxContaoHolidayItem::class,
-                'onDocOptionsCallback',
-            ],
-            'eval' => [
-                'includeBlankOption' => true,
-                'tl_class' => 'w50',
-                'mandatory' => true,
-                'multiple' => true,
-                'chosen' => true,
-            ],
-        ],
-        'doc4' => [
-            'inputType' => 'select',
-            'exclude' => true,
-            'filter' => true,
-            'options_callback' => [
-                TlManiaxContaoHolidayItem::class,
-                'onDocOptionsCallback',
-            ],
-            'eval' => [
-                'includeBlankOption' => true,
-                'tl_class' => 'w50',
-                'mandatory' => true,
-                'multiple' => true,
-                'chosen' => true,
+                'columnFields' => [
+                    'doc' => [
+                        'inputType' => 'select',
+                        'exclude' => true,
+                        'filter' => true,
+                        'options_callback' => [
+                            TlManiaxContaoHolidayItem::class,
+                            'onDocOptionsCallback',
+                        ],
+                        'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true,],
+                    ],
+                    'vertretungStart' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'clr w50 wizard','mandatory' => true,],
+                    ],
+                    'vertretungStop' => [
+                        'exclude' => true,
+                        'inputType' => 'text',
+                        'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
+                    ],
+                ],
             ],
         ],
         'cssClass' => [
