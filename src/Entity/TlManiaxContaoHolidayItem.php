@@ -33,7 +33,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $holidayStop;
 
     /**
-     * @ORM\Column(type="integer", options={"default": 14})
+     * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
      */
     protected string $showBefore;
 
@@ -139,7 +139,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
     }
 
     /**
-     * @return integer
+     * @return string
      */
     public function getShowBefore()
     {
@@ -147,13 +147,15 @@ class TlManiaxContaoHolidayItem extends DCADefault
     }
 
     /**
-     * @param mixed $showBefore
+     * @param string $showBefore
      *
      * @return TlManiaxContaoHolidayItem
      */
-    public function setShowBefore($showBefore): void
+    public function setShowBefore($showBefore): self
     {
         $this->showBefore = $showBefore;
+
+        return $this;
     }
 
     /**
