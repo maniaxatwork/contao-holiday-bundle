@@ -56,30 +56,47 @@
             <trans-unit id="tl_maniax_contao_holiday_item.doc_legend">
                 <target>Vertretungsärzte</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc1.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc1.0">
                 <target>Vertretung Chirurgie Frankenhäuser Straße</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc1.1">
-                <target>Wählen Sie die Vertretung Chirurgie der Frankenhäuser Straße aus.</target>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc1.1">
+                <target>Vertretung und Zeitraum für die Chirurgie der Frankenhäuser Straße.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc2.0">
-                <target>Vertretung Allgemein/Kinder Frankenhäuser Straße</target>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc2.0">
+                <target>Vertretung Allgemeinmedizin / Kinder Frankenhäuser Straße</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc2.1">
-                <target>Wählen Sie die Vertretung Allgemein/Kinder der Frankenhäuser Straße aus.</target>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc2.1">
+                <target>Vertretung und Zeitraum für die Allgemeinmedizin / Kinder der Frankenhäuser Straße.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc3.0">
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc3.0">
                 <target>Vertretung Chirurgie Planplatz</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc3.1">
-                <target>Wählen Sie die Vertretung Chirurgie der Planplatz aus.</target>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc3.1">
+                <target>Vertretung und Zeitraum für die Chirurgie vom Planplatz.</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc4.0">
-                <target>Vertretung Allgemein/Kinder Planplatz</target>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc4.0">
+                <target>Vertretung Allgemeinmedizin / Kinder Planplatz</target>
             </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.doc4.1">
-                <target>Wählen Sie die Vertretung Allgemein/Kinder der Planplatz aus.</target>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc4.1">
+                <target>Vertretung und Zeitraum für die Allgemeinmedizin / Kinder vom Planplatz.</target>
             </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item.doc.0">
+                <target>Vertretungsärzte</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item.doc.1">
+                <target>Wählen Sie hier die Vertretungsärzte aus.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungStart.0">
+                <target>Vertretungsbeginn</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item.vertretungStart.1">
+                <target>Ab wann werden Sie von Ihrer Auswahl vertreten?</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item. vertretungStop.0">
+                <target>Vertretungsende</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item. vertretungStop.1">
+                <target>Bis wann werden Sie von Ihrer Auswahl vertreten?</target>
             <trans-unit id="tl_maniax_contao_holiday_item.expert_legend">
                 <target>Experteneinstellungen</target>
             </trans-unit>
