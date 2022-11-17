@@ -242,21 +242,21 @@ class TlManiaxContaoHolidayItem extends DCADefault
     }
 
     /**
-     * @return blob|null
+     * @return array|null
      */
-    public function getVertretungDoc1(): ?blob
+    public function getVertretungDoc1(): array
     {
-        return $this->vertretungDoc1;
+        return unserialize(stream_get_contents($this->vertretungDoc1));
     }
 
     /**
-     * @param blob|null $vertretungDoc1
+     * @param array|null $vertretungDoc1
      *
      * @return TlManiaxContaoHolidayItem
      */
-    public function setVertretungDoc1(?blob $vertretungDoc1): self
+    public function setVertretungDoc1(?array $vertretungDoc1): self
     {
-        $this->vertretungDoc1 = $vertretungDoc1;
+        $this->vertretungDoc1 = serialize($vertretungDoc1);
 
         return $this;
     }
