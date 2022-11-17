@@ -18,7 +18,7 @@
                 <target>Bis wann haben Sie Urlaub?</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.showBefore.0">
-                <target>Hinweis x Tage vor dem Ulraub anzeigen</target>
+                <target>Hinweis x Tage vor dem Urlraub anzeigen</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.showBefore.1">
                 <target>Wieviel Tage vorher soll der Hinweis auf der Homepage zu sehen sein?</target>
