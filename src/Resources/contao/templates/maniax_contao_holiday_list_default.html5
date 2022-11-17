@@ -1,8 +1,10 @@
 <div class="holiday_list block">
 
 	<div class="holiday-wrapper">
-		<h2>Urlaubsinformation</h2>
-
+        <div class="headline">
+        	<h2>Urlaubsinformation</h2>
+            <h3>Wir haben Urlaub vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?></h3>
+        </div>
         <div class="columns">
             <div class="column">
                 <h3>Standort<br />Frankenhäußer Straße</h3>
