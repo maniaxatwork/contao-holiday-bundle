@@ -58,6 +58,11 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $footerlineText;
 
     /**
+     * @ORM\Column(type="blob", nullable=true, options={"default": NULL})
+     */
+    protected string $vertretungDoc1;
+
+    /**
      * @ORM\Column(type="text", nullable=true, options={"default": NULL})
      */
     protected string $doc1;
@@ -237,6 +242,26 @@ class TlManiaxContaoHolidayItem extends DCADefault
     }
 
     /**
+     * @return blob|null
+     */
+    public function getVertretungDoc1(): ?blob
+    {
+        return $this->vertretungDoc1;
+    }
+
+    /**
+     * @param blob|null $vertretungDoc1
+     *
+     * @return TlManiaxContaoHolidayItem
+     */
+    public function setVertretungDoc1(?blob $vertretungDoc1): self
+    {
+        $this->vertretungDoc1 = $vertretungDoc1;
+
+        return $this;
+    }
+
+    /**
      * @return string|null
      */
     public function getDoc1(): ?string
@@ -255,6 +280,7 @@ class TlManiaxContaoHolidayItem extends DCADefault
 
         return $this;
     }
+
     /**
      * @return string|null
      */

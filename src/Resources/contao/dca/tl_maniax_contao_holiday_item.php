@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 use Contao\BackendUser;
 use Contao\System;
+use Doctrine\DBAL\Platforms\MySqlPlatform;
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
 
 $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
@@ -127,6 +128,51 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
 			'eval' => ['tl_class'=>'w50 m12', 'submitOnChange' => true],
             'sql' => ['type' => 'boolean', 'default' => false],
 		],
+        'vertretungDoc1' => [
+            'inputType' => 'group',
+            'palette' => ['doc', 'vertretungStart', 'vertretungStop'],
+            'fields' => [
+                'doc' => [
+                    'inputType' => 'select',
+                    'exclude' => true,
+                    'filter' => true,
+                    'options_callback' => [
+                        TlManiaxContaoHolidayItem::class,
+                        'onDocOptionsCallback',
+                    ],
+                    'eval' => [
+                        'includeBlankOption' => true,
+                        'mandatory' => true,
+                        'multiple' => true,
+                        'chosen' => true,
+                    ],
+                ],
+                'vertretungStart' => [
+                    'exclude' => true,
+                    'inputType' => 'text',
+                    'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
+                ],
+                'vertretungStop' => [
+                    'exclude' => true,
+                    'inputType' => 'text',
+                    'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
+                ],
+            ],
+
+            // force at least 1, at max 5 elements
+            'min' => 1,
+            'max' => 5,
+
+            // disable ordering (on by default)
+            'order' => false,
+
+            // store serialized into a blob (default storage backend)
+            'sql' => [
+                'type' => 'blob',
+                'length' => MySqlPlatform::LENGTH_LIMIT_BLOB,
+                'notnull' => false,
+            ],
+        ],
         'footerlineText' => [
             'exclude' => true,
             'inputType' => 'textarea',
