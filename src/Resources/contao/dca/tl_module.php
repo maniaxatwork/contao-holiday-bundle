@@ -16,3 +16,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_holiday_list'] =
     '{title_legend},name,type;
     {expert_legend:hide},cssID'
 ;
+$GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_holiday_form'] =
+    '{title_legend},name,type;
+    {expert_legend:hide},cssID'
+;
