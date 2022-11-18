@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
 
     'palettes' => [
         '__selector__' => ['extend','footerline'],
-        'default' => '{date_legend},holidayStart,holidayStop,showBefore;{extend_legend},extend;{footerline_legend},footerline;{expert_legend:hide},cssClass;{publish_legend},published,start,stop',
+        'default' => '{date_legend},holidayStart,holidayStop,showBefore;{extend_legend},extend;{footerline_legend},footerline;{expert_legend:hide},cssClass;{publish_legend},published',
     ],
     'subpalettes' => [
         'extend_hinweis' => 'extendText',
@@ -277,16 +277,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                 'type' => 'boolean',
                 'default' => false,
             ],
-        ],
-        'start' => [
-            'exclude' => true,
-            'inputType' => 'text',
-            'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
-        ],
-        'stop' => [
-            'exclude' => true,
-            'inputType' => 'text',
-            'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
         ],
     ],
 ];

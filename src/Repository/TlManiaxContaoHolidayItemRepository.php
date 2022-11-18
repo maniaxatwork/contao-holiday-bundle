@@ -30,11 +30,10 @@ class TlManiaxContaoHolidayItemRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->andwhere('a.published=:published')
-            ->andWhere('a.start<:time OR a.start=:empty')
-            ->andWhere('a.stop>:time OR a.stop=:empty')
+            ->andWhere('a.showBefore<=:time')
+            ->andWhere('a.holidayStop>:time')
             ->setParameter('published', '1')
             ->setParameter('time', time())
-            ->setParameter('empty', '')
             ->getQuery()
             ->getResult(AbstractQuery::HYDRATE_OBJECT);
     }
@@ -43,12 +42,10 @@ class TlManiaxContaoHolidayItemRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->andwhere('a.published=:published')
-            ->andwhere('a.showBefore<:time OR a.showBefore=:empty')
-            ->andWhere('a.start<:time OR a.start=:empty')
-            ->andWhere('a.stop>:time OR a.stop=:empty')
+            ->andWhere('a.showBefore<=:time')
+            ->andWhere('a.holidayStop>:time')
             ->setParameter('published', '1')
             ->setParameter('time', time())
-            ->setParameter('empty', '')
             ->getQuery()
             ->getResult(AbstractQuery::HYDRATE_OBJECT);
     }
@@ -67,11 +64,10 @@ class TlManiaxContaoHolidayItemRepository extends ServiceEntityRepository
 
         $qb
             ->andwhere('a.published=:published')
-            ->andWhere('a.start<=:time OR a.start=:empty')
-            ->andWhere('a.stop>:time OR a.stop=:empty')
+            ->andWhere('a.showBefore<=:time')
+            ->andWhere('a.holidayStop>:time')
             ->setParameter('published', '1')
             ->setParameter('time', time())
-            ->setParameter('empty', '')
         ;
 
         try {

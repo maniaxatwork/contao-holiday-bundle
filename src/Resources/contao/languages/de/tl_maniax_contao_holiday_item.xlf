@@ -18,10 +18,10 @@
                 <target>Bis wann haben Sie Urlaub?</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.showBefore.0">
-                <target>Hinweis x Tage vor dem Urlraub anzeigen</target>
+                <target>Anzeigen ab</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.showBefore.1">
-                <target>Wieviel Tage vorher soll der Hinweis auf der Homepage zu sehen sein?</target>
+                <target>Ab welchem Datum soll der Hinweis auf der Homepage erscheinen?</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.extend_legend">
                 <target>Anzeigeneinstellungen</target>
@@ -115,18 +115,6 @@
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.published.1">
                 <target>Den Urlaub auf der Webseite anzeigen.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.start.0">
-                <target>Anzeigen ab</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.start.1">
-                <target>Wenn Sie einen Urlaub erst ab einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.stop.0">
-                <target>Anzeigen bis</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.stop.1">
-                <target>Wenn Sie einen Urlaub nur bis zu einem bestimmten Zeitpunkt auf der Webseite anzeigen möchten, können Sie diesen hier eingeben. Andernfalls lassen Sie das Feld leer.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.tstamp.0">
                 <target>Änderungsdatum</target>

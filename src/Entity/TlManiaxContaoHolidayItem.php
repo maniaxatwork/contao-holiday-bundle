@@ -88,17 +88,6 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $cssClass = '';
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
-     */
-    protected string $start;
-
-    /**
-     * @ORM\Column(type="string", length=10, nullable=false, options={"default": ""})
-     */
-    protected string $stop;
-
-
-    /**
      * @return string
      */
     public function getHolidayStart(): string
@@ -354,46 +343,6 @@ class TlManiaxContaoHolidayItem extends DCADefault
     public function setPublished(bool $published): self
     {
         $this->published = $published;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStart(): string
-    {
-        return $this->start;
-    }
-
-    /**
-     * @param string $start
-     *
-     * @return TlManiaxContaoHolidayItem
-     */
-    public function setStart(string $start): self
-    {
-        $this->start = $start;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStop(): string
-    {
-        return $this->stop;
-    }
-
-    /**
-     * @param string $stop
-     *
-     * @return TlManiaxContaoHolidayItem
-     */
-    public function setStop(string $stop): self
-    {
-        $this->stop = $stop;
 
         return $this;
     }
