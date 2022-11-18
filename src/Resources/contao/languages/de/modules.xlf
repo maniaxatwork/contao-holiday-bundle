@@ -27,16 +27,10 @@
                 <target>Contao Urlaub</target>
             </trans-unit>
             <trans-unit id="FMD.maniax_contao_holiday_list.0">
-                <target>Urluabs-Liste</target>
+                <target>Urlaubs-Popup</target>
             </trans-unit>
             <trans-unit id="FMD.maniax_contao_holiday_list.1">
-                <target>Urluabs-Liste</target>
-            </trans-unit>
-            <trans-unit id="MOD.maniax_contao_holiday_doc.0">
-                <target>Ärzte verwalten</target>
-            </trans-unit>
-            <trans-unit id="MOD.maniax_contao_holiday_doc.1">
-                <target>Hier können Sie die Ärzte konfigurieren.</target>
+                <target>Urlaubs-Popup</target>
             </trans-unit>
         </body>
     </file>
