@@ -45,7 +45,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 
         $holidayItems = $holidayItemRepository->findAllByPublishedAndViewable();
 
-        if (null === $holidayItems) {
+        if (null === $holidayItems || empty($holidayItems)) {
             return null;
         } else {
             foreach ($holidayItems as $key => $row) {
@@ -59,6 +59,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
         $items = [];
 
         //foreach($holidayItems as $holidayItem){
+
             $itemTemplate = new FrontendTemplate('maniax_contao_holiday_list_default');
 
             $docs1 = $holidayItem->getVertretungDoc1();
