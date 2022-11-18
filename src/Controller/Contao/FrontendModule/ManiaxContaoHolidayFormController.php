@@ -18,7 +18,7 @@ use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
 use Contao\System;
-use Codefog\HasteBundle\Form;
+use Haste\Form\Form;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem;
