@@ -95,8 +95,9 @@ class TlManiaxContaoHolidayItem
     public function onLabelCallback(array $row, $label, DataContainer $dc, $attributes): string
     {
         $labelArr = explode('|', $label);
+        $angezeigtAb = ($labelArr[3])? " | angezeigt ab". date('d.m.Y', (int) $labelArr[3]) : "";
 
-        $label = '<strong>'.$labelArr[0] .'</strong>: ' .date('d.m.Y', (int) $labelArr[1]). ' - '.date('d.m.Y', (int) $labelArr[2]);
+        $label = '<strong>'.$labelArr[0] .'</strong>: ' .date('d.m.Y', (int) $labelArr[1]). ' - '.date('d.m.Y', (int) $labelArr[2]) . $angezeigtAb;
 
         return $label;
     }
