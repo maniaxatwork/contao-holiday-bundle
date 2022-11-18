@@ -45,15 +45,11 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 
         $holidayItems = $holidayItemRepository->findAllByPublishedAndViewable();
 
-        if (null === $holidayItems || empty($holidayItems)) {
-            return null;
-        } else {
-            foreach ($holidayItems as $key => $row) {
-                $show[$key] = $row->getShowBefore();
-            }
-            array_multisort($show, SORT_ASC, $holidayItems);
-            $holidayItem = $holidayItems[0];
+        foreach ($holidayItems as $key => $row) {
+            $show[$key] = $row->getShowBefore();
         }
+        array_multisort($show, SORT_ASC, $holidayItems);
+        $holidayItem = $holidayItems[0];
 
         // Fill the template with data
         $items = [];
