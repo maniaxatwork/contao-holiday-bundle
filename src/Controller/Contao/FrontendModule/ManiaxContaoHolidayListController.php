@@ -48,6 +48,10 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
         if (null === $holidayItems) {
             return null;
         } else {
+            foreach ($holidayItems as $key => $row) {
+                $show[$key] = $row->getShowBefore();
+            }
+            array_multisort($show, SORT_ASC, $holidayItems);
             $holidayItem = $holidayItems[0];
         }
 
