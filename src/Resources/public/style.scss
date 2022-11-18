@@ -110,7 +110,7 @@
     }
 
     .column{
-        flex-grow: 1;
+        flex:0 0 calc(50% - 0.75rem);
         display: flex;
         justify-content: space-between;
         align-items: start;
@@ -124,8 +124,8 @@
             margin-bottom: 0.5rem;
         }
 
-        content{
-            flex:0 0 0 0 calc(50% - 1.5rem);
+        .content{
+            flex:0 0 calc(50% - 0.75rem);
             height: 100%;
         }
 
