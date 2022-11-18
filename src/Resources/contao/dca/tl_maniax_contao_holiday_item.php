@@ -34,8 +34,8 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
 
     'list' => [
         'sorting' => [
-            'mode' => 1,
-            'fields' => ['tstamp'],
+            'mode' => 0,
+            'fields' => ['showBefore'],
             'flag' => 12,
             'panelLayout' => 'filter;sort,search,limit',
         ],
@@ -94,7 +94,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'holidayStart' => [
             'exclude' => true,
             'inputType' => 'text',
-            'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard','mandatory' => true,],
+            'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
         ],
         'holidayStop' => [
             'exclude' => true,
@@ -104,7 +104,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
         'showBefore' => [
 			'exclude' => true,
             'inputType' => 'text',
-            'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
+            'eval' => ['rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
 		],
         'extend' => [
 			'exclude' => true,
