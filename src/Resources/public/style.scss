@@ -138,8 +138,12 @@
             height: 100%;
         }
 
-        .vertretung + .vertretung{
-            margin-top: 1rem;
+        .vertretung {
+            color:#000;
+
+            & + .vertretung{
+                margin-top: 1rem;
+            }
         }
     }
 }
