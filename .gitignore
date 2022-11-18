@@ -18,7 +18,7 @@ nbproject/
 /files/
 /system/
 /templates/
-/var/
+/var/*
 /vendor/
 /web/*
 .htaccess
