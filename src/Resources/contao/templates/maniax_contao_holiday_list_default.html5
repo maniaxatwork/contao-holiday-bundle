@@ -4,7 +4,7 @@
 <div class="holiday_list block">
 
 	<div class="holiday-wrapper">
-        <a href="#holidayClose" title="Close" class="close">X</a>
+        <a href="#close" title="Close" class="holidayClose">X</a>
         <div class="headline">
         	<h2>Urlaubsinformation</h2>
             <h3>Wir haben vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?> Urlaub!</h3>
