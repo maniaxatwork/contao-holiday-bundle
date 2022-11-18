@@ -1,4 +1,6 @@
-<?php $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoholiday/style.css'; ?>
+<?php $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoholiday/css/style.css'; ?>
+<?php $GLOBALS['TL_JAVASCRIPT'] = 'bundles/maniaxcontaoholiday/js/script.js' ?>
+
 <div class="holiday_list block">
 
 	<div class="holiday-wrapper">
