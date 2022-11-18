@@ -47,12 +47,14 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 
         if (null === $holidayItems) {
             return null;
+        } else {
+            $holidayItem = $holidayItems[0];
         }
 
-        // Fill the template with data from the parent record
+        // Fill the template with data
         $items = [];
 
-        foreach($holidayItems as $holidayItem){
+        //foreach($holidayItems as $holidayItem){
             $itemTemplate = new FrontendTemplate('maniax_contao_holiday_list_default');
 
             $docs1 = $holidayItem->getVertretungDoc1();
@@ -92,7 +94,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             $itemTemplate->holidayStop = date('d.m.Y', (int) $holidayItem->getHolidayStop());
             $items[] = $itemTemplate->parse();
 
-        }
+        //}
 
         $template->items = $items;
 
