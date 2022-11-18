@@ -22,7 +22,6 @@
         position: relative;
         top: -1000px;
         margin: 10% auto;
-        padding: 5px 20px 13px 20px;
     	-moz-border-radius:10px;
 	    -webkit-border-radius:10px;
         border-radius: 10px;
@@ -97,11 +96,13 @@
     display: flex;
     flex-flow: row wrap;
     gap: 1rem;
+    padding: 1rem;
 
     .headline{
         flex: 0 0 100%;
         text-align: center;
         background: #004161;
+        padding:1rem;
 
         h2,h3{
             color:#fff;
@@ -124,6 +125,7 @@
         gap:1.5rem;
         flex-wrap: wrap;
         padding:1rem;
+        background: rgba(#0087c2, 0.5);
 
         h3{
             flex: 0 0 100%;
