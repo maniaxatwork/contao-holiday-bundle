@@ -6,11 +6,11 @@
 	<div class="holiday-wrapper">
         <div class="headline">
         	<h2>Urlaubsinformation</h2>
-            <h3>Wir haben Urlaub vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?></h3>
+            <h3>Wir haben vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?> Urlaub!</h3>
         </div>
         <div class="columns">
             <div class="column">
-                <h3>Standort<br />Frankenhäußer Straße</h3>
+                <h3>Vertretung Standort<br />Frankenhäußer Straße</h3>
                 <div class="content">
                     <h4>Chirurgie</h4>
                     <?= $this->doc1 ?>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="column">
-                <h3>Standort<br />Planplatz</h3>
+                <h3>Vertretung Standort<br />Planplatz</h3>
                 <div class="content">
                     <h4>Chirurgie</h4>
                     <?= $this->doc3 ?>
