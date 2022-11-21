@@ -55,7 +55,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
             // Changing MCW-fields for frontend
             if ($arrDca['inputType'] == 'multiColumnWizard'){
-                $arrDca['inputType']['text'] = true;
+                $arrDca['inputType'] = 'text';
             }
 
             // you must return true otherwise the field will be skipped
