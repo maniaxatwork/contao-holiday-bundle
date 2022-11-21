@@ -3,7 +3,7 @@
 <?php $this->block('content'); ?>
 <?= $this->form ?>
 
-<script src="bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js"></script>
+<?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js|static'; ?>
 <script>
   (function($){
     $('fieldset.allow-duplication').fieldsetDuplication({
@@ -13,6 +13,5 @@
     });
   })(jQuery);
 </script>
-
 
 <?php $this->endblock(); ?>
