@@ -21,7 +21,7 @@ use Contao\System;
 use Haste\Form\Form;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
-use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem;
+use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
