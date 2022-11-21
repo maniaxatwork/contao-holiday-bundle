@@ -7,14 +7,9 @@
 <script>
   (function($){
     $('fieldset.allow-duplication').fieldsetDuplication({
-      /* when true, prepends the button wrapper within the fieldset, instead of appending */
-      prepend: false,
-      /* text content of the add button */
+      prepend: true,
       buttonAdd: '+',
-      /* text content of the remove button */
       buttonRemove: '&times;',
-      /* a custom widget CSS selector */
-      widgetSelector: '.widget', // defaults to .widget
     });
   })(jQuery);
 </script>
