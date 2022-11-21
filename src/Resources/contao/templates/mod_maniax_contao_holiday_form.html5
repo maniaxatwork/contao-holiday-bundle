@@ -14,7 +14,7 @@
       /* text content of the remove button */
       buttonRemove: '&times;',
       /* a custom widget CSS selector */
-      widgetSelector: '.form-widget', // defaults to .widget
+      widgetSelector: '.widget', // defaults to .widget
     });
   })(jQuery);
 </script>
