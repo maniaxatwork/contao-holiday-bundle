@@ -44,7 +44,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm = new Form('holidayform-' . $model->id, 'POST', function($objHaste) {
             return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
         });
-        $objForm->addFieldsFromDca('tl_maniax_contao_hiliday_item', array($objForm, 'skipFieldsWithoutInputType'));
+        $objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', array($objForm, 'skipFieldsWithoutInputType'));
 
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
