@@ -61,10 +61,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // you must return true otherwise the field will be skipped
             return true;
         });
-        $form->addFormField('foobar_start', [
-            'label' => 'Foobar',
-            'inputType' => 'fieldsetStart',
-        ]);
+
         $objForm->addFormField('vertretung1Start', array(
             'label' => 'Vertretung 1',
             'inputType' => 'fieldsetStart',
