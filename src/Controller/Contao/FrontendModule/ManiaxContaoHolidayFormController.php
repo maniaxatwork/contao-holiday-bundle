@@ -41,7 +41,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
-        $objForm = new Form('holidayform-' . $model->id, function($objHaste) {
+        $objForm = new Form('holidayform-' . $model->id, 'POST', function($objHaste) {
             return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
         });
         $objForm->addFieldsFromDca('tl_maniax_contao_hiliday_item', array($objForm, 'skipFieldsWithoutInputType'));
