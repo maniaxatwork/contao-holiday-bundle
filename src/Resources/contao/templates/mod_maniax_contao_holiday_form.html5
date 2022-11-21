@@ -1,7 +1,23 @@
 <?php $this->extend('block_searchable'); ?>
 
 <?php $this->block('content'); ?>
-
 <?= $this->form ?>
+
+<script src="bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js"></script>
+<script>
+  (function($){
+    $('fieldset.allow-duplication').fieldsetDuplication({
+      /* when true, prepends the button wrapper within the fieldset, instead of appending */
+      prepend: false,
+      /* text content of the add button */
+      buttonAdd: '+',
+      /* text content of the remove button */
+      buttonRemove: '&times;',
+      /* a custom widget CSS selector */
+      widgetSelector: '.form-widget', // defaults to .widget
+    });
+  })(jQuery);
+</script>
+
 
 <?php $this->endblock(); ?>
