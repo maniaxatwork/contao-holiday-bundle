@@ -61,6 +61,18 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // you must return true otherwise the field will be skipped
             return true;
         });
+        $form->addFormField('foobar_start', [
+            'label' => 'Foobar',
+            'inputType' => 'fieldsetStart',
+        ]);
+        $objForm->addFormField('vertretung1Start', array(
+            'label' => 'Vertretung 1',
+            'inputType' => 'fieldsetStart',
+            'eval' => array('text' => '<p>Mandatory</p>', 'class' => 'mandatory-label')
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc1'));
+        $objForm->addFormField('vertretung1Stop', array(
+            'inputType' => 'fieldsetStop',
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc1'));
 
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
