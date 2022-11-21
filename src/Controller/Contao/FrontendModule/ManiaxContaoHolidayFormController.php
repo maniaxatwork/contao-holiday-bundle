@@ -53,7 +53,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         }
 
         // Get the form as string
-        echo $objForm->generate();
+        //echo $objForm->generate();
 
         // Generate the form as a string
         $template->form = $objForm->generate();
