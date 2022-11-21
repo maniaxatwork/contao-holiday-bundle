@@ -41,28 +41,22 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
-        $form = new Form('my-form-' . $model->id, 'POST');
-
-        $form->addFieldsFromDca('tl_maniax_contao_hiliday_item', static function(string &$fieldName, array &$fieldConfig) {
-            // make sure to skip elements without inputType, or you will get an exception
-            if (!isset($fieldConfig['inputType'])) {
-                return false;
-            }
-
-            // Return true to include the field, or false to skip the field
-            return true;
+        $objForm = new Form('holidayform-' . $model->id, function($objHaste) {
+            return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
         });
+        $objForm->addFieldsFromDca('tl_maniax_contao_hiliday_item', array($objForm, 'skipFieldsWithoutInputType'));
 
-        $form->addCaptchaFormField();
-        $form->addSubmitFormField('Urlaub speichern!');
-
-        if ($form->validate()) {
+        // validate() also checks whether the form has been submitted
+        if ($objForm->validate()) {
             // Get all the submitted and parsed data (only works with POST):
-            $formData = $form->fetchAll();
+            $arrData = $objForm->fetchAll();
         }
 
+        // Get the form as string
+        echo $objForm->generate();
+
         // Generate the form as a string
-        $template->form = $form->generate();
+        $template->form = $objForm->generate();
 
         return $template->getResponse();
     }
