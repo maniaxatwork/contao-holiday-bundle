@@ -44,7 +44,37 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm = new Form('holidayform-' . $model->id, 'POST', function($objHaste) {
             return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
         });
-        $objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', array($objForm, 'skipFieldsWithoutInputType'));
+
+        //$objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', array($objForm, 'skipFieldsWithoutInputType'));
+        $objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', function(&$strField, &$arrDca) {
+
+            // make sure to skip elements without inputType or you will get an exception
+            if (!isset($arrDca['inputType'])) {
+                return false;
+            }
+
+            // Changing MCW-fields for frontend
+            if ($arrDca['inputType'] == 'multiColumnWizard'){
+                $objForm->addFormField('vertretungDoc1Start', array(
+                    'label'         => array('This is the <legend>', 'This is the <label>'),
+                    'inputType'     => 'FormFieldSetStart',
+                ));
+
+                $objForm->addFormField('vertretungDoc1Stop', array(
+                    'inputType'     => 'FormFieldSetStop',
+                ));
+
+                $objForm->removeFormField('vertretungDoc1');
+            }
+
+            // add anything you like
+            if ($strField == 'myField') {
+                $arrDca['eval']['mandatory'] = true;
+            }
+
+            // you must return true otherwise the field will be skipped
+            return true;
+        });
 
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
