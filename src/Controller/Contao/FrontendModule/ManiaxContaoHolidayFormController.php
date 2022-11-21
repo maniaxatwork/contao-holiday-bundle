@@ -55,7 +55,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
             // Changing MCW-fields for frontend
             if ($arrDca['inputType'] == 'multiColumnWizard'){
-                $arrDca['inputType'] = 'text';
+                $arrDca['inputType'] = 'select';
+                $arrDca['label'] = 'Arztauswahl';
+                $arrDca['options_callback'] = [TlManiaxContaoHolidayItem::class,'onDocOptionsCallback' ];
+                $arrDca['eval'] = ['mandatory' => true];
             }
 
             // you must return true otherwise the field will be skipped
@@ -65,11 +68,25 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm->addFormField('vertretung1Start', array(
             'label' => 'Vertretung 1',
             'inputType' => 'fieldsetStart',
-            'eval' => array('text' => '<p>Mandatory</p>', 'class' => 'mandatory-label')
+            'eval' => array('class' => 'allow-duplication')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc1'));
+
         $objForm->addFormField('vertretung1Stop', array(
             'inputType' => 'fieldsetStop',
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc1'));
+
+        $objForm->addFormField('vertretungDoc1VertretungStart', array(
+            'label' => 'Vertretungsbeginn',
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung1Stop'));
+
+        $objForm->addFormField('vertretungDoc1VertretungStop', array(
+            'label' => 'Vertretungsende',
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung1Stop'));
+
 
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
