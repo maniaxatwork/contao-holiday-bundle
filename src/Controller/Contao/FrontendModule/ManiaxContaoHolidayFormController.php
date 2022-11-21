@@ -55,21 +55,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
             // Changing MCW-fields for frontend
             if ($arrDca['inputType'] == 'multiColumnWizard'){
-                $objForm->addFormField('vertretungDoc1Start', array(
-                    'label'         => array('This is the <legend>', 'This is the <label>'),
-                    'inputType'     => 'FormFieldSetStart',
-                ));
-
-                $objForm->addFormField('vertretungDoc1Stop', array(
-                    'inputType'     => 'FormFieldSetStop',
-                ));
-
-                $objForm->removeFormField('vertretungDoc1');
-            }
-
-            // add anything you like
-            if ($strField == 'myField') {
-                $arrDca['eval']['mandatory'] = true;
+                $arrDca['inputType']['text'] = true;
             }
 
             // you must return true otherwise the field will be skipped
