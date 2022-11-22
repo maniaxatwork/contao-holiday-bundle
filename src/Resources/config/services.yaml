@@ -7,3 +7,6 @@ services:
     Maniax\ContaoHoliday\:
         resource: ../../../src
         exclude: ../../../src/{Entity,Migrations,Resources,Tests}
+
+    inspiredminds.fieldsetduplication.helper.field:
+        class: InspiredMinds\ContaoFieldsetDuplication\Helper\FieldHelper
