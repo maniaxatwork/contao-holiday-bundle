@@ -171,102 +171,20 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
             $arrData['test']= \Input::post('vertretungDoc1VertretungStart_duplicate_1');
-            $fieldsetGroups = $this->buildFieldsetGroups($arrData);
-            $fieldsetDuplicates = [];
-            // search for duplicates
-            foreach(array_keys($arrData) as $duplicateName){
-                if (false !== ($intPos = strpos($duplicateName, '_duplicate_'))) {
-                    // get the non duplicate name
-                    $originalName = substr($duplicateName, 0, $intPos);
 
-                    // get the duplicate number
-                    $duplicateNumber = (int) (substr($duplicateName, -1));
+            $newSet = [];
+            $duplicateFieldsData = [];
 
-                    // clone the fieldset
-                    foreach ($fieldsetGroups as $fieldsetGroup) {
-                        foreach ($fieldsetGroup as $field) {
-                            if ($field->name === $originalName) {
-                                // new sorting base number
-                                $sorting = $fieldsetGroup[\count($fieldsetGroup) - 1]->sorting;
-
-                                $duplicatedFields = [];
-
-                                foreach ($fieldsetGroup as $field) {
-                                    // set the actual duplicate name
-                                    $duplicateName = $field->name.'_duplicate_'.$duplicateNumber;
-
-                                    // clone the field
-                                    $clone = clone $field;
-
-                                    // remove allow duplication class
-                                    if ($this->fieldHelper->isFieldsetStart($clone)) {
-                                        $clone->class = implode(' ', array_diff(explode(' ', $clone->class), ['allow-duplication']));
-                                        $clone->class .= ($clone->class ? ' ' : '').'duplicate-fieldset-'.$field->id.' duplicate';
-                                    }
-
-                                    // set the id
-                                    $clone->id = $field->id.'_duplicate_'.$duplicateNumber;
-
-                                    // set the original id
-                                    $clone->originalId = $field->id;
-
-                                    // set the name
-                                    $clone->name = $duplicateName;
-
-                                    // set the sorting
-                                    $clone->sorting = ++$sorting;
-
-                                    // add the clone
-                                    $duplicatedFields[] = $clone;
-
-                                    // add to processed
-                                    $processed[] = $duplicateName;
-                                }
-
-                                $fieldsetDuplicates[] = $duplicatedFields;
-
-                                break 2;
-                            }
-                        }
-                    }
+            foreach ($_POST as $name => $value) {
+                if (false !== strpos($name, '_duplicate_')) {
+                    $duplicateFieldsData[$name] = $value;
+                    continue;
                 }
+
+                $newSet[$name] = $value;
             }
 
-            // reverse the fieldset duplicates
-            $fieldsetDuplicates = array_reverse($fieldsetDuplicates);
-
-            // process $fields
-            $arrData = array_values($arrData);
-
-            // go through the duplicated fieldsets
-            foreach ($fieldsetDuplicates as $duplicatedFieldset) {
-                // search for the stop field
-                $stopId = null;
-                foreach ($duplicatedFieldset as $duplicatedField) {
-                    if ($this->fieldHelper->isFieldsetStop($duplicatedField)) {
-                        $stopId = $duplicatedField->originalId;
-                        break;
-                    }
-                }
-
-                // search for the index position of the original stop field
-                if (null !== $stopId) {
-                    $stopIdx = null;
-                    for ($i = 0; $i < \count($arrData); ++$i) {
-                        if ($arrData[$i]->id === $stopId) {
-                            $stopIdx = $i;
-                            break;
-                        }
-                    }
-
-                    // insert fields after original stop field
-                    if (null !== $stopIdx) {
-                        array_splice($arrData, $stopIdx + 1, 0, $duplicatedFieldset);
-                    }
-                }
-            }
-
-            $template->resultOld = $arrData;
+            $template->resultOld = $newSet;
 
             $objModel = new ManiaxContaoHolidayItemModel;
 
