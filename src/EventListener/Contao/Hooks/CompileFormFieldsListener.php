@@ -21,11 +21,21 @@ use Contao\FrontendTemplate;
 use Contao\StringUtil;
 use Contao\Widget;
 use InspiredMinds\ContaoFieldsetDuplication\Helper\FieldHelper;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @Hook("compileFormFields")
  */
 class CompileFormFieldsListener{
+    protected $requestStack;
+    protected $fieldHelper;
+
+    public function __construct(RequestStack $requestStack, FieldHelper $fieldHelper)
+    {
+        $this->requestStack = $requestStack;
+        $this->fieldHelper = $fieldHelper;
+    }
+
     public function __invoke(array $fields, string $formId, Form $form): array
     {
         static $alreadyProcessed = false;
