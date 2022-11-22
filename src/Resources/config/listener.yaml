@@ -32,4 +32,3 @@ services:
         public: true
         arguments:
             - '@request_stack'
-            - '@InspiredMinds\ContaoFieldsetDuplication\Helper\FieldHelper'

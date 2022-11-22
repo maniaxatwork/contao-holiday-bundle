@@ -28,12 +28,10 @@ use Symfony\Component\HttpFoundation\RequestStack;
  */
 class CompileFormFieldsListener{
     protected $requestStack;
-    protected $fieldHelper;
 
-    public function __construct(RequestStack $requestStack, FieldHelper $fieldHelper)
+    public function __construct(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
-        $this->fieldHelper = $fieldHelper;
     }
 
     public function __invoke(array $fields, string $formId, Form $form): array
