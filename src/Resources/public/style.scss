@@ -154,6 +154,10 @@
             width: 100%;
 
             .widget-select{
+                position: relative;
+                float: left;
+                width:50%;
+
                 label{
                     display: block;
                 }
@@ -187,6 +191,17 @@
                     position: absolute;
                     right: 15px;
                     top: 10px;
+                }
+            }
+
+            .widget-text{
+                float: left;
+                width: calc(25% - 30px);
+                margin-left: 30px;
+
+                input{
+                    line-height: 40px;
+                    padding:0;
                 }
             }
         }
