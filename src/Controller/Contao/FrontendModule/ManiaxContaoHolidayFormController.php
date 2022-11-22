@@ -23,6 +23,7 @@ use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
+use Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -44,6 +45,9 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm = new Form('holidayform-' . $model->id, 'POST', function($objHaste) {
             return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
         });
+
+        $objModel = new ManiaxContaoHolidayItemModel;
+        $objForm->bindModel($objModel);
 
         //$objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', array($objForm, 'skipFieldsWithoutInputType'));
         $objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', function(&$strField, &$arrDca) {
@@ -160,6 +164,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             'inputType' => 'text',
             'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung4Stop'));
+
+        $objForm->addSubmitFormField('submit', 'Angaben eintragen');
+
+
 
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
