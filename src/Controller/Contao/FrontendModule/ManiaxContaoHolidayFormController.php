@@ -207,30 +207,42 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
             // Vertretungsdoc 2
             $tmp = [];
+            $date1 = explode(".",$arrData['vertretungDoc2VertretungStart']);
+            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+            $date2 = explode(".",$arrData['vertretungDoc2VertretungStop']);
+            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
             $doc = [
                 "doc" => $arrData['vertretungDoc2'],
-                "vertretungStart" => $arrData['vertretungDoc2VertretungStart'],
-                "vertretungStop" => $arrData['vertretungDoc2VertretungStop'],
+                "vertretungStart" => $tmstp1,
+                "vertretungStop" => $tmstp2,
             ];
             $tmp[] = $doc;
             $objModel->vertretungDoc2 = serialize($tmp);
 
             // Vertretungsdoc 3
             $tmp = [];
+            $date1 = explode(".",$arrData['vertretungDoc3VertretungStart']);
+            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+            $date2 = explode(".",$arrData['vertretungDoc3VertretungStop']);
+            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
             $doc = [
                 "doc" => $arrData['vertretungDoc3'],
-                "vertretungStart" => $arrData['vertretungDoc3VertretungStart'],
-                "vertretungStop" => $arrData['vertretungDoc3VertretungStop'],
+                "vertretungStart" => $tmstp1,
+                "vertretungStop" => $tmstp2,
             ];
             $tmp[] = $doc;
             $objModel->vertretungDoc3 = serialize($tmp);
 
             // Vertretungsdoc 4
             $tmp = [];
+            $date1 = explode(".",$arrData['vertretungDoc4VertretungStart']);
+            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+            $date2 = explode(".",$arrData['vertretungDoc4VertretungStop']);
+            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
             $doc = [
                 "doc" => $arrData['vertretungDoc4'],
-                "vertretungStart" => $arrData['vertretungDoc4VertretungStart'],
-                "vertretungStop" => $arrData['vertretungDoc4VertretungStop'],
+                "vertretungStart" => $tmstp1,
+                "vertretungStop" => $tmstp2,
             ];
             $tmp[] = $doc;
             $objModel->vertretungDoc4 = serialize($tmp);
