@@ -2,12 +2,11 @@
 
 <?php $this->block('content'); ?>
 
-<?= $this->form ?>
-
-<pre>
-  <?= print_r($this->result) ?>
-</pre>
-
+<?php if ($this->success) : ?>
+  <div class="form-success"><h2>Der Urlaub wurde erfolgreich eingetragen!</h2></div>
+<?php else: ?>
+  <?= $this->form ?>
+<?php endif; ?>
 
 <?= Contao\Template::generateScriptTag('bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js', false, null) ?>
 <script>

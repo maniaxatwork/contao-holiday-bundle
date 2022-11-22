@@ -24,7 +24,6 @@ use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
 use Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel;
-use InspiredMinds\ContaoFieldsetDuplication\Helper\FieldHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -34,11 +33,9 @@ use Symfony\Component\HttpFoundation\Response;
 class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
-    protected FieldHelper $fieldHelper;
 
-    public function __construct(ManagerRegistry $registry, FieldHelper $fieldHelper) {
+    public function __construct(ManagerRegistry $registry) {
         $this->registry = $registry;
-        $this->fieldHelper = $fieldHelper;
     }
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
@@ -269,20 +266,20 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                     $i=3;
                 }
             }
-
             $objModel->vertretungDoc2 = serialize($doc);
 
             // Vertretungsdoc 3
-            $tmp = [];
             $date1 = explode(".",$arrData['vertretungDoc3VertretungStart']);
             $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
             $date2 = explode(".",$arrData['vertretungDoc3VertretungStop']);
             $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = [
+            $doc = array();
+            $doc[] = [
                 "doc" => $arrData['vertretungDoc3'],
                 "vertretungStart" => $tmstp1,
                 "vertretungStop" => $tmstp2,
             ];
+
             for($i=1;$i<=3;$i++){
                 if(array_key_exists('vertretungDoc3_duplicate_'.$i, $duplicateFieldsData)){
                     $date1 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStart_duplicate_'.$i]);
@@ -298,16 +295,15 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                     $i=3;
                 }
             }
-            $tmp[] = $doc;
-            $objModel->vertretungDoc3 = serialize($tmp);
+            $objModel->vertretungDoc3 = serialize($doc);
 
             // Vertretungsdoc 4
-            $tmp = [];
             $date1 = explode(".",$arrData['vertretungDoc4VertretungStart']);
             $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
             $date2 = explode(".",$arrData['vertretungDoc4VertretungStop']);
             $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = [
+            $doc = array();
+            $doc[] = [
                 "doc" => $arrData['vertretungDoc4'],
                 "vertretungStart" => $tmstp1,
                 "vertretungStop" => $tmstp2,
@@ -327,45 +323,17 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                     $i=3;
                 }
             }
-            $tmp[] = $doc;
-            $objModel->vertretungDoc4 = serialize($tmp);
+            $objModel->vertretungDoc4 = serialize($doc);
 
             $objModel->save();
 
-            $template->result = $objModel;
-        }
+            $template->success = true;
 
-        // Get the form as string
-        //echo $objForm->generate();
+        }
 
         // Generate the form as a string
         $template->form = $objForm->generate();
 
         return $template->getResponse();
-    }
-
-    private function buildFieldsetGroups(array $fields): array
-    {
-        // field set groups
-        $fieldsetGroups = [];
-
-        // field set group
-        $fieldsetGroup = [];
-
-        // go through each field
-        foreach ($fields as $field) {
-            // check if we can process duplicates
-            if ($this->fieldHelper->isFieldsetStart($field)) {
-                $fieldsetGroup[] = $field;
-            } elseif ($this->fieldHelper->isFieldsetStop($field)) {
-                $fieldsetGroup[] = $field;
-                $fieldsetGroups[$fieldsetGroup[0]->id] = $fieldsetGroup;
-                $fieldsetGroup = [];
-            } elseif (!empty($fieldsetGroup)) {
-                $fieldsetGroup[] = $field;
-            }
-        }
-
-        return $fieldsetGroups;
     }
 }
