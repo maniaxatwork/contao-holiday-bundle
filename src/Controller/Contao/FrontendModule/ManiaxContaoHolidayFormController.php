@@ -242,7 +242,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             }
 
             $tmp[] = $doc;
-            $objModel->vertretungDoc1 = json_encode($tmp);
+            $objModel->vertretungDoc1 = serialize($tmp);
 
             // Vertretungsdoc 2
             $tmp = [];
@@ -273,7 +273,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             }
 
             $tmp[] = $doc;
-            $objModel->vertretungDoc2 = json_encode($tmp);
+            $objModel->vertretungDoc2 = serialize($tmp);
 
             // Vertretungsdoc 3
             $tmp = [];
@@ -302,7 +302,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 }
             }
             $tmp[] = $doc;
-            $objModel->vertretungDoc3 = json_encode($tmp);
+            $objModel->vertretungDoc3 = serialize($tmp);
 
             // Vertretungsdoc 4
             $tmp = [];
@@ -331,7 +331,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 }
             }
             $tmp[] = $doc;
-            $objModel->vertretungDoc4 = json_encode($tmp);
+            $objModel->vertretungDoc4 = serialize($tmp);
 
             $objModel->save();
 
