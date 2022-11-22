@@ -247,7 +247,8 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
             $date2 = explode(".",$arrData['vertretungDoc2VertretungStop']);
             $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = [
+            $doc = array();
+            $doc[] = [
                 "doc" => $arrData['vertretungDoc2'],
                 "vertretungStart" => $tmstp1,
                 "vertretungStop" => $tmstp2,
