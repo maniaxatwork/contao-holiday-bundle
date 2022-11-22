@@ -27,3 +27,7 @@ services:
     Maniax\ContaoHoliday\EventListener\Contao\DCA\TlModule:
         public: true
         arguments: ['@Doctrine\Persistence\ManagerRegistry']
+
+    Maniax\ContaoHoliday\EventListener\Contao\Hooks\FormHookListener:
+        public: true
+        arguments: ['@request_stack']
