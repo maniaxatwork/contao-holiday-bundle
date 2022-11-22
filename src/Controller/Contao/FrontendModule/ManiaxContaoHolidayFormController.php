@@ -12,20 +12,21 @@ declare(strict_types=1);
 
 namespace Maniax\ContaoHoliday\Controller\Contao\FrontendModule;
 
+use Contao\Input;
 use Contao\Config;
-use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
-use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
-use Contao\FrontendTemplate;
-use Contao\ModuleModel;
 use Contao\System;
-use Haste\Form\Form;
 use Contao\Template;
+use Haste\Form\Form;
+use Contao\ModuleModel;
+use Contao\FrontendTemplate;
 use Doctrine\Persistence\ManagerRegistry;
-use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
-use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
-use Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
+use Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel;
+use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
+use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 
 /**
  * @FrontendModule("maniax_contao_holiday_form", category="maniaxContaoHoliday", template="mod_maniax_contao_holiday_form", renderer="forward")
@@ -164,11 +165,12 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         $objForm->addSubmitFormField('submit', 'Angaben eintragen');
 
-        // validate() also checks whether the form has been submitted
-        if ($objForm->validate()) {
+            // validate() also checks whether the form has been submitted
+            if ($objForm->validate()) {
 
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
+            $arrData['test']= Input::post['vertretungDoc1VertretungStart_duplicate_1'];
 
             $template->resultOld = $arrData;
 
