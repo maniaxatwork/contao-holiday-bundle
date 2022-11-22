@@ -243,7 +243,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $objModel->vertretungDoc1 = serialize($doc);
 
             // Vertretungsdoc 2
-            $tmp = [];
             $date1 = explode(".",$arrData['vertretungDoc2VertretungStart']);
             $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
             $date2 = explode(".",$arrData['vertretungDoc2VertretungStop']);
@@ -270,8 +269,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 }
             }
 
-            $tmp[] = $doc;
-            $objModel->vertretungDoc2 = serialize($tmp);
+            $objModel->vertretungDoc2 = serialize($doc);
 
             // Vertretungsdoc 3
             $tmp = [];
