@@ -46,9 +46,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
         });
 
-        $objModel = new ManiaxContaoHolidayItemModel;
-        $objForm->bindModel($objModel);
-
         //$objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', array($objForm, 'skipFieldsWithoutInputType'));
         $objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', function(&$strField, &$arrDca) {
 
@@ -167,33 +164,70 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         $objForm->addSubmitFormField('submit', 'Angaben eintragen');
 
-
-
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
 
-            $template->footerlineBefore = $objModel->footerline;
+            $objModel = new ManiaxContaoHolidayItemModel;
 
+            $objModel->holidayStart = $arrData['holidayStart'];
+            $objModel->holidayStop = $arrData['holidayStop'];
+            $objModel->showBefore = $arrData['showBefore'];
+            $objModel->extend = $arrData['extend'];
+            $objModel->extendText = $arrData['extendText'];
 
-
-            if ($objModel->footerline == "")
+            if ($arrData['footerline'] == "")
                 $objModel->footerline = 0;
             else
                 $objModel->footerline = 1;
 
-            $template->footerlineAfter = $objModel->footerline;
-            $template->result = $objModel;
+            $objModel->footerlineText = $arrData['footerlineText'];
 
-/*
-            if ($objModel->published == "")
-                $objModel->published = false;
+            if ($arrData['published'] == "")
+                $objModel->published = 0;
             else
-                $objModel->published = true;
+                $objModel->published = 1;
 
-            $objModel->save();
-            */
+            $objModel->tstamp = time();
+
+            // Vertretungsdoc 1
+            $doc = [
+                "doc" => $arrData['vertretungDoc1'],
+                "vertretungStart" => $arrData['vertretungDoc1VertretungStart'],
+                "vertretungStop" => $arrData['vertretungDoc1VertretungStop'],
+            ];
+            $tmp[] = $doc;
+            $objModel->vertretungDoc1 = serialize($tmp);
+
+            // Vertretungsdoc 2
+            $doc = [
+                "doc" => $arrData['vertretungDoc2'],
+                "vertretungStart" => $arrData['vertretungDoc2VertretungStart'],
+                "vertretungStop" => $arrData['vertretungDoc2VertretungStop'],
+            ];
+            $tmp[] = $doc;
+            $objModel->vertretungDoc2 = serialize($tmp);
+
+            // Vertretungsdoc 3
+            $doc = [
+                "doc" => $arrData['vertretungDoc3'],
+                "vertretungStart" => $arrData['vertretungDoc3VertretungStart'],
+                "vertretungStop" => $arrData['vertretungDoc3VertretungStop'],
+            ];
+            $tmp[] = $doc;
+            $objModel->vertretungDoc4 = serialize($tmp);
+
+            // Vertretungsdoc 2
+            $doc = [
+                "doc" => $arrData['vertretungDoc4'],
+                "vertretungStart" => $arrData['vertretungDoc4VertretungStart'],
+                "vertretungStop" => $arrData['vertretungDoc4VertretungStop'],
+            ];
+            $tmp[] = $doc;
+            $objModel->vertretungDoc4 = serialize($tmp);
+
+            $template->result = $objModel;
         }
 
         // Get the form as string
