@@ -1,6 +1,10 @@
 <?php $this->extend('block_searchable'); ?>
 
 <?php $this->block('content'); ?>
+<pre>
+  <?= print_r($this->resultOld) ?>
+</pre>
+
 <?= $this->form ?>
 
 <pre>
