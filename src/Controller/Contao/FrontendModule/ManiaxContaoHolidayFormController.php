@@ -216,9 +216,9 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 "vertretungStop" => $arrData['vertretungDoc3VertretungStop'],
             ];
             $tmp[] = $doc;
-            $objModel->vertretungDoc4 = serialize($tmp);
+            $objModel->vertretungDoc3 = serialize($tmp);
 
-            // Vertretungsdoc 2
+            // Vertretungsdoc 4
             $doc = [
                 "doc" => $arrData['vertretungDoc4'],
                 "vertretungStart" => $arrData['vertretungDoc4VertretungStart'],
