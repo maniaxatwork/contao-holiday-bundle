@@ -20,7 +20,6 @@ use Contao\FormFieldModel;
 use Contao\FrontendTemplate;
 use Contao\StringUtil;
 use Contao\Widget;
-use InspiredMinds\ContaoFieldsetDuplication\Helper\EventListener;
 use InspiredMinds\ContaoFieldsetDuplication\Helper\FieldHelper;
 
 /**

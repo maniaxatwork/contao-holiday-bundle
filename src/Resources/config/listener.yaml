@@ -28,6 +28,6 @@ services:
         public: true
         arguments: ['@Doctrine\Persistence\ManagerRegistry']
 
-    Maniax\ContaoHoliday\EventListener\Contao\Hooks\FormHookListener:
+    Maniax\ContaoHoliday\EventListener\Contao\Hooks\CompileFormFieldsListener:
         public: true
         arguments: ['@request_stack']
