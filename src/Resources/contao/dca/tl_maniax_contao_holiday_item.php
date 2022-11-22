@@ -164,6 +164,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
                     ],
                 ],
+                'maxCount' => 3,
             ],
         ],
         'vertretungDoc2' => [
@@ -180,7 +181,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                             TlManiaxContaoHolidayItem::class,
                             'onDocOptionsCallback',
                         ],
-                        'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true,],
+                        'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'mandatory' => true, 'chosen' => true],
                     ],
                     'vertretungStart' => [
                         'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
@@ -195,6 +196,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
                     ],
                 ],
+                'maxCount' => 3,
             ],
         ],
         'vertretungDoc3' => [
@@ -226,6 +228,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
                     ],
                 ],
+                'maxCount' => 3,
             ],
         ],
         'vertretungDoc4' => [
@@ -257,6 +260,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                         'eval' => ['style'=> 'width:200px', 'rgxp' => 'date', 'datepicker' => true, 'tl_class' => 'w50 wizard', 'mandatory' => true,],
                     ],
                 ],
+                'maxCount' => 3,
             ],
         ],
         'cssClass' => [

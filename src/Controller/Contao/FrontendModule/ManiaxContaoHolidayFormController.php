@@ -170,10 +170,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
-            $arrData['test']= \Input::post('vertretungDoc1VertretungStart_duplicate_1');
 
             $newSet = [];
             $duplicateFieldsData = [];
+            $template->resultOld = $newSet;
 
             foreach ($_POST as $name => $value) {
                 if (false !== strpos($name, '_duplicate_')) {
@@ -225,8 +225,24 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 "vertretungStop" => $tmstp2,
             ];
 
+            for($i=1;$i<=3;$i++){
+                if(array_key_exists('vertretungDoc1_duplicate_'.$i, $duplicateFieldsData)){
+                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc1VertretungStart_duplicate_'.$i]);
+                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc1VertretungStop_duplicate_'.$i]);
+                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                    $doc[] = [
+                        "doc" => $duplicateFieldsData['vertretungDoc1_duplicate_'.$i],
+                        "vertretungStart" => $tmstp1,
+                        "vertretungStop" => $tmstp2,
+                    ];
+                }else{
+                    $i=3;
+                }
+            }
+
             $tmp[] = $doc;
-            $objModel->vertretungDoc1 = serialize($tmp);
+            $objModel->vertretungDoc1 = json_encode($tmp);
 
             // Vertretungsdoc 2
             $tmp = [];
@@ -239,8 +255,25 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 "vertretungStart" => $tmstp1,
                 "vertretungStop" => $tmstp2,
             ];
+
+            for($i=1;$i<=3;$i++){
+                if(array_key_exists('vertretungDoc2_duplicate_'.$i, $duplicateFieldsData)){
+                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc2VertretungStart_duplicate_'.$i]);
+                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc2VertretungStop_duplicate_'.$i]);
+                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                    $doc[] = [
+                        "doc" => $duplicateFieldsData['vertretungDoc2_duplicate_'.$i],
+                        "vertretungStart" => $tmstp1,
+                        "vertretungStop" => $tmstp2,
+                    ];
+                }else{
+                    $i=3;
+                }
+            }
+
             $tmp[] = $doc;
-            $objModel->vertretungDoc2 = serialize($tmp);
+            $objModel->vertretungDoc2 = json_encode($tmp);
 
             // Vertretungsdoc 3
             $tmp = [];
@@ -253,8 +286,23 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 "vertretungStart" => $tmstp1,
                 "vertretungStop" => $tmstp2,
             ];
+            for($i=1;$i<=3;$i++){
+                if(array_key_exists('vertretungDoc3_duplicate_'.$i, $duplicateFieldsData)){
+                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStart_duplicate_'.$i]);
+                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStop_duplicate_'.$i]);
+                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                    $doc[] = [
+                        "doc" => $duplicateFieldsData['vertretungDoc3_duplicate_'.$i],
+                        "vertretungStart" => $tmstp1,
+                        "vertretungStop" => $tmstp2,
+                    ];
+                }else{
+                    $i=3;
+                }
+            }
             $tmp[] = $doc;
-            $objModel->vertretungDoc3 = serialize($tmp);
+            $objModel->vertretungDoc3 = json_encode($tmp);
 
             // Vertretungsdoc 4
             $tmp = [];
@@ -267,8 +315,23 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 "vertretungStart" => $tmstp1,
                 "vertretungStop" => $tmstp2,
             ];
+            for($i=1;$i<=3;$i++){
+                if(array_key_exists('vertretungDoc4_duplicate_'.$i, $duplicateFieldsData)){
+                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStart_duplicate_'.$i]);
+                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStop_duplicate_'.$i]);
+                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                    $doc[] = [
+                        "doc" => $duplicateFieldsData['vertretungDoc4_duplicate_'.$i],
+                        "vertretungStart" => $tmstp1,
+                        "vertretungStop" => $tmstp2,
+                    ];
+                }else{
+                    $i=3;
+                }
+            }
             $tmp[] = $doc;
-            $objModel->vertretungDoc4 = serialize($tmp);
+            $objModel->vertretungDoc4 = json_encode($tmp);
 
             $objModel->save();
 
