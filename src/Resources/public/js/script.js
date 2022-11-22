@@ -10,9 +10,4 @@ $(document).ready(function() {
         e.preventDefault();
         $('.mod_maniax_contao_holiday_list').removeClass('show');
     })
-
-    //test
-
-    $('.mod_maniax_contao_holiday_list').addClass('show');
-    // end test
 });
