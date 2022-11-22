@@ -3,7 +3,7 @@
 <?php $this->block('content'); ?>
 <?= $this->form ?>
 
-<?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js|static'; ?>
+<?= Contao\Template::generateScriptTag('bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js', false, null) ?>
 <script>
   (function($){
     $('fieldset.allow-duplication').fieldsetDuplication({
