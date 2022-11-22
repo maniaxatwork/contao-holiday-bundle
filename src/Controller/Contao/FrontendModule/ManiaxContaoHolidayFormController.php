@@ -166,8 +166,11 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
+
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
+
+            $template->resultOld = $arrData;
 
             $objModel = new ManiaxContaoHolidayItemModel;
 
