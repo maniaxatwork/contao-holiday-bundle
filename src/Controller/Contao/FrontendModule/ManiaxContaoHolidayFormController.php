@@ -206,6 +206,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $objModel->vertretungDoc1 = serialize($tmp);
 
             // Vertretungsdoc 2
+            $tmp = [];
             $doc = [
                 "doc" => $arrData['vertretungDoc2'],
                 "vertretungStart" => $arrData['vertretungDoc2VertretungStart'],
@@ -215,6 +216,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $objModel->vertretungDoc2 = serialize($tmp);
 
             // Vertretungsdoc 3
+            $tmp = [];
             $doc = [
                 "doc" => $arrData['vertretungDoc3'],
                 "vertretungStart" => $arrData['vertretungDoc3VertretungStart'],
@@ -224,6 +226,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $objModel->vertretungDoc3 = serialize($tmp);
 
             // Vertretungsdoc 4
+            $tmp = [];
             $doc = [
                 "doc" => $arrData['vertretungDoc4'],
                 "vertretungStart" => $arrData['vertretungDoc4VertretungStart'],
