@@ -95,7 +95,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm->addFormField('vertretung2Start', array(
             'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc2'],
             'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
+            'eval' => array('class' => 'allow-duplication duplicate-fieldset-2 duplicate-fieldset-maxRows-3')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc2'));
 
         $objForm->addFormField('vertretung2Stop', array(
@@ -118,7 +118,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm->addFormField('vertretung3Start', array(
             'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc3'],
             'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
+            'eval' => array('class' => 'allow-duplication duplicate-fieldset-3 duplicate-fieldset-maxRows-3')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc3'));
 
         $objForm->addFormField('vertretung3Stop', array(
@@ -137,11 +137,11 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung3Stop'));
 
-        // Vertretung 2
+        // Vertretung 4
         $objForm->addFormField('vertretung4Start', array(
             'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc4'],
             'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
+            'eval' => array('class' => 'allow-duplication duplicate-fieldset-4 duplicate-fieldset-maxRows-3')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc4'));
 
         $objForm->addFormField('vertretung4Stop', array(
@@ -162,8 +162,8 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         $objForm->addSubmitFormField('submit', 'Angaben eintragen');
 
-            // validate() also checks whether the form has been submitted
-            if ($objForm->validate()) {
+        // validate() also checks whether the form has been submitted
+        if ($objForm->validate()) {
 
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
