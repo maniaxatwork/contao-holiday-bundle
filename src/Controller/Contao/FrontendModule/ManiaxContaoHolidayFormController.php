@@ -24,6 +24,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
 use Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel;
+use InspiredMinds\ContaoFieldsetDuplication\Helper\FieldHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -33,11 +34,11 @@ use Symfony\Component\HttpFoundation\Response;
 class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
+    protected FieldHelper $fieldHelper;
 
-    public function __construct(
-        ManagerRegistry $registry
-    ) {
+    public function __construct(ManagerRegistry $registry, FieldHelper $fieldHelper) {
         $this->registry = $registry;
+        $this->fieldHelper = $fieldHelper;
     }
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
@@ -170,6 +171,100 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
             $arrData['test']= \Input::post('vertretungDoc1VertretungStart_duplicate_1');
+            $fieldsetGroups = $this->buildFieldsetGroups($arrData);
+            $fieldsetDuplicates = [];
+            // search for duplicates
+            foreach(array_keys($arrData) as $duplicateName){
+                if (false !== ($intPos = strpos($duplicateName, '_duplicate_'))) {
+                    // get the non duplicate name
+                    $originalName = substr($duplicateName, 0, $intPos);
+
+                    // get the duplicate number
+                    $duplicateNumber = (int) (substr($duplicateName, -1));
+
+                    // clone the fieldset
+                    foreach ($fieldsetGroups as $fieldsetGroup) {
+                        foreach ($fieldsetGroup as $field) {
+                            if ($field->name === $originalName) {
+                                // new sorting base number
+                                $sorting = $fieldsetGroup[\count($fieldsetGroup) - 1]->sorting;
+
+                                $duplicatedFields = [];
+
+                                foreach ($fieldsetGroup as $field) {
+                                    // set the actual duplicate name
+                                    $duplicateName = $field->name.'_duplicate_'.$duplicateNumber;
+
+                                    // clone the field
+                                    $clone = clone $field;
+
+                                    // remove allow duplication class
+                                    if ($this->fieldHelper->isFieldsetStart($clone)) {
+                                        $clone->class = implode(' ', array_diff(explode(' ', $clone->class), ['allow-duplication']));
+                                        $clone->class .= ($clone->class ? ' ' : '').'duplicate-fieldset-'.$field->id.' duplicate';
+                                    }
+
+                                    // set the id
+                                    $clone->id = $field->id.'_duplicate_'.$duplicateNumber;
+
+                                    // set the original id
+                                    $clone->originalId = $field->id;
+
+                                    // set the name
+                                    $clone->name = $duplicateName;
+
+                                    // set the sorting
+                                    $clone->sorting = ++$sorting;
+
+                                    // add the clone
+                                    $duplicatedFields[] = $clone;
+
+                                    // add to processed
+                                    $processed[] = $duplicateName;
+                                }
+
+                                $fieldsetDuplicates[] = $duplicatedFields;
+
+                                break 2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // reverse the fieldset duplicates
+            $fieldsetDuplicates = array_reverse($fieldsetDuplicates);
+
+            // process $fields
+            $arrData = array_values($arrData);
+
+            // go through the duplicated fieldsets
+            foreach ($fieldsetDuplicates as $duplicatedFieldset) {
+                // search for the stop field
+                $stopId = null;
+                foreach ($duplicatedFieldset as $duplicatedField) {
+                    if ($this->fieldHelper->isFieldsetStop($duplicatedField)) {
+                        $stopId = $duplicatedField->originalId;
+                        break;
+                    }
+                }
+
+                // search for the index position of the original stop field
+                if (null !== $stopId) {
+                    $stopIdx = null;
+                    for ($i = 0; $i < \count($arrData); ++$i) {
+                        if ($arrData[$i]->id === $stopId) {
+                            $stopIdx = $i;
+                            break;
+                        }
+                    }
+
+                    // insert fields after original stop field
+                    if (null !== $stopIdx) {
+                        array_splice($arrData, $stopIdx + 1, 0, $duplicatedFieldset);
+                    }
+                }
+            }
 
             $template->resultOld = $arrData;
 
@@ -269,5 +364,30 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $template->form = $objForm->generate();
 
         return $template->getResponse();
+    }
+
+    private function buildFieldsetGroups(array $fields): array
+    {
+        // field set groups
+        $fieldsetGroups = [];
+
+        // field set group
+        $fieldsetGroup = [];
+
+        // go through each field
+        foreach ($fields as $field) {
+            // check if we can process duplicates
+            if ($this->fieldHelper->isFieldsetStart($field)) {
+                $fieldsetGroup[] = $field;
+            } elseif ($this->fieldHelper->isFieldsetStop($field)) {
+                $fieldsetGroup[] = $field;
+                $fieldsetGroups[$fieldsetGroup[0]->id] = $fieldsetGroup;
+                $fieldsetGroup = [];
+            } elseif (!empty($fieldsetGroup)) {
+                $fieldsetGroup[] = $field;
+            }
+        }
+
+        return $fieldsetGroups;
     }
 }
