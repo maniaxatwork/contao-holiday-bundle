@@ -56,7 +56,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // Changing MCW-fields for frontend
             if ($arrDca['inputType'] == 'multiColumnWizard'){
                 $arrDca['inputType'] = 'select';
-                $arrDca['label'] = 'Arztauswahl';
+                $arrDca['label'] = &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['doc'];
                 $arrDca['options_callback'] = [TlManiaxContaoHolidayItem::class,'onDocOptionsCallback' ];
                 $arrDca['eval'] = ['mandatory' => true];
             }
@@ -66,7 +66,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         });
 
         $objForm->addFormField('vertretung1Start', array(
-            'label' => 'Vertretung 1',
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc1'],
             'inputType' => 'fieldsetStart',
             'eval' => array('class' => 'allow-duplication')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc1'));
@@ -76,13 +76,13 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc1'));
 
         $objForm->addFormField('vertretungDoc1VertretungStart', array(
-            'label' => 'Vertretungsbeginn',
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
             'inputType' => 'text',
             'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung1Stop'));
 
         $objForm->addFormField('vertretungDoc1VertretungStop', array(
-            'label' => 'Vertretungsende',
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
             'inputType' => 'text',
             'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung1Stop'));
