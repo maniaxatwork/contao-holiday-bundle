@@ -74,7 +74,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm->addFormField('vertretung1Start', array(
             'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc1'],
             'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
+            'eval' => array('class' => 'allow-duplication duplicate-fieldset-1 duplicate-fieldset-maxRows-3')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc1'));
 
         $objForm->addFormField('vertretung1Stop', array(
