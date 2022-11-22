@@ -65,10 +65,11 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             return true;
         });
 
+        // Vertretung 1
         $objForm->addFormField('vertretung1Start', array(
             'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc1'],
             'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'allow-duplication')
+            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc1'));
 
         $objForm->addFormField('vertretung1Stop', array(
@@ -87,6 +88,74 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung1Stop'));
 
+        // Vertretung 2
+        $objForm->addFormField('vertretung2Start', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc2'],
+            'inputType' => 'fieldsetStart',
+            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc2'));
+
+        $objForm->addFormField('vertretung2Stop', array(
+            'inputType' => 'fieldsetStop',
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc2'));
+
+        $objForm->addFormField('vertretungDoc2VertretungStart', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung2Stop'));
+
+        $objForm->addFormField('vertretungDoc2VertretungStop', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung2Stop'));
+
+        // Vertretung 3
+        $objForm->addFormField('vertretung3Start', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc3'],
+            'inputType' => 'fieldsetStart',
+            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc3'));
+
+        $objForm->addFormField('vertretung3Stop', array(
+            'inputType' => 'fieldsetStop',
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc3'));
+
+        $objForm->addFormField('vertretungDoc3VertretungStart', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung3Stop'));
+
+        $objForm->addFormField('vertretungDoc3VertretungStop', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung3Stop'));
+
+        // Vertretung 2
+        $objForm->addFormField('vertretung4Start', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc4'],
+            'inputType' => 'fieldsetStart',
+            'eval' => array('class' => 'allow-duplication widget widget-fieldset')
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc4'));
+
+        $objForm->addFormField('vertretung4Stop', array(
+            'inputType' => 'fieldsetStop',
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc4'));
+
+        $objForm->addFormField('vertretungDoc4VertretungStart', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung4Stop'));
+
+        $objForm->addFormField('vertretungDoc4VertretungStop', array(
+            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
+            'inputType' => 'text',
+            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung4Stop'));
 
         // validate() also checks whether the form has been submitted
         if ($objForm->validate()) {
