@@ -171,9 +171,15 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
             $objModel = new ManiaxContaoHolidayItemModel;
 
-            $objModel->holidayStart = $arrData['holidayStart'];
-            $objModel->holidayStop = $arrData['holidayStop'];
-            $objModel->showBefore = $arrData['showBefore'];
+            $date = explode(".",$arrData['holidayStart']);
+            $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
+            $objModel->holidayStart = $tmstp;
+            $date = explode(".",$arrData['holidayStart']);
+            $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
+            $objModel->holidayStop = $tmstp;
+            $date = explode(".",$arrData['showBefore']);
+            $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
+            $objModel->showBefore = $tmstp;
             $objModel->extend = $arrData['extend'];
             $objModel->extendText = $arrData['extendText'];
 
@@ -246,6 +252,8 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             ];
             $tmp[] = $doc;
             $objModel->vertretungDoc4 = serialize($tmp);
+
+            $objModel->save();
 
             $template->result = $objModel;
         }
