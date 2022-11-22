@@ -192,14 +192,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $objModel->tstamp = time();
 
             // Vertretungsdoc 1
-            $date1 = explode(".",$arrData['vertretungDoc1VertretungStart']);
-            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-            $date2 = explode(".",$arrData['vertretungDoc1VertretungStart']);
-            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
             $doc = [
                 "doc" => $arrData['vertretungDoc1'],
-                "vertretungStart" => $tmstp1,
-                "vertretungStop" => $tmstp2,
+                "vertretungStart" => $arrData['vertretungDoc1VertretungStart'],
+                "vertretungStop" => $arrData['vertretungDoc1VertretungStop'],
             ];
             $tmp[] = $doc;
             $objModel->vertretungDoc1 = serialize($tmp);
