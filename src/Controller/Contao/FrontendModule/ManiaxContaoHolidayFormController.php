@@ -174,14 +174,15 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
 
+            $objModel->footerline
             $template->result = $objModel;
 
-            /*
-            if ($objModel->footerline == "")
-                $objModel->footerline = false;
-            else
-                $objModel->footerline = true;
 
+            if ($objModel->footerline == "")
+                $objModel->footerline = 0;
+            else
+                $objModel->footerline = 1;
+/*
             if ($objModel->published == "")
                 $objModel->published = false;
             else
