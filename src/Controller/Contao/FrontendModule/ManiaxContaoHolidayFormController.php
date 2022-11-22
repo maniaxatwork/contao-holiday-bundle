@@ -53,6 +53,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 return false;
             }
 
+            if ($strField == 'cssClass'){
+                return false;
+            }
+
             // Changing MCW-fields for frontend
             if ($arrDca['inputType'] == 'multiColumnWizard'){
                 $arrDca['inputType'] = 'select';

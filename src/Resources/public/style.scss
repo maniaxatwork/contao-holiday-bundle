@@ -149,49 +149,53 @@
 }
 
 .mod_maniax_contao_holiday_form{
+
+    .widget-select{
+        position: relative;
+
+        label{
+            display: block;
+        }
+
+        select{
+            appearance: none;
+            background: #004161;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            font-family: "Open Sans",sans-serif;
+            font-size: 18px;
+            height: 40px;
+            outline: none;
+            padding-left: 10px;
+            width: 100%;
+        }
+
+        &::after{
+            content:"\f107";
+            font-family: "Font Awesome 5 Free";
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            font-weight: 900;
+            color: #fff;
+            font-size: 20px;
+            pointer-events: none;
+            position: absolute;
+            right: 15px;
+            top: 36px;
+        }
+    }
+
     .widget-fieldset{
         &.allow-duplication{
             width: 100%;
 
             .widget-select{
-                position: relative;
                 float: left;
                 width:50%;
-
-                label{
-                    display: block;
-                }
-
-                select{
-                    appearance: none;
-                    background: #004161;
-                    border: none;
-                    border-radius: 3px;
-                    color: #fff;
-                    cursor: pointer;
-                    font-family: "Open Sans",sans-serif;
-                    font-size: 18px;
-                    height: 40px;
-                    outline: none;
-                    padding-left: 10px;
-                    width: 100%;
-                }
-
-                &::after{
-                    content:"\f107";
-                    font-family: "Font Awesome 5 Free";
-                    font-style: normal;
-                    font-variant: normal;
-                    text-rendering: auto;
-                    line-height: 1;
-                    font-weight: 900;
-                    color: #fff;
-                    font-size: 20px;
-                    pointer-events: none;
-                    position: absolute;
-                    right: 15px;
-                    top: 10px;
-                }
             }
 
             .widget-text{
@@ -205,5 +209,9 @@
                 }
             }
         }
+    }
+
+    .textarea{
+        height: 200px;
     }
 }
