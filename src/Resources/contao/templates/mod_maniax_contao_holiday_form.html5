@@ -3,6 +3,16 @@
 <?php $this->block('content'); ?>
 <?= $this->form ?>
 
+<pre>
+  <?= print_r($this->footerlineBefore) ?>
+</pre>
+<pre>
+  <?= print_r($this->result) ?>
+</pre>
+<pre>
+  <?= print_r($this->footerlineAfter) ?>
+</pre>
+
 <?= Contao\Template::generateScriptTag('bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js', false, null) ?>
 <script>
   (function($){
