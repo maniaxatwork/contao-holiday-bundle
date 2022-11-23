@@ -340,7 +340,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         }
 
-        $template->request = serialize($request);
+        $template->request = serialize($request->request->all());
         // Generate the form as a string
         $template->form = $objForm->generate();
 
