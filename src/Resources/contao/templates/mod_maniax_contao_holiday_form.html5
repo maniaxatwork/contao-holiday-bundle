@@ -2,19 +2,6 @@
 
 <?php $this->block('content'); ?>
 
-
-<pre>
-  <?= "Übergabe aus Formular: " ?>
-  <?php print_r($this->pass) ?>
-  <br>
-  <?= "in der DB gespeichert: " ?>
-  <?php print_r($this->savedPass) ?>
-<br>
-  <?= "Übergabe aus Formular + Hash: " ?>
-  <?php print_r($this->hashedPass) ?>
-
-</pre>
-
 <?php if ($this->passwordError) : ?>
   <div class="form-error"><?= $this->passwordError ?></div>
   <?= $this->login ?>

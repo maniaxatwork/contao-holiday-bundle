@@ -192,17 +192,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         if ($objFormLogin->validate()) {
             $arrData = $objFormLogin->fetchAll();
 
-            $passwordHasher = System::getContainer()->get('security.password_hasher_factory')->getPasswordHasher(FrontendUser::class);
-            $encodedPassword = $passwordHasher->verify($model->maniaxPassword, \Input::post('password'));
+            $passwordHasher = \System::getContainer()->get('security.password_hasher_factory')->getPasswordHasher(FrontendUser::class);
+            $correctPassword = $passwordHasher->verify($model->maniaxPassword, \Input::post('password'));
 
-            $opts04 = [ "cost" => 15, "salt" => "njmko698475radgnhmji8b54hrg" ];
-            $value = password_hash(\Input::post('password'), PASSWORD_BCRYPT, $opts04);
-
-            $template->savedPass = $model->maniaxPassword;
-            $template->pass = $arrData['password'];
-            $template->hashedPass = $encodedPassword;
-
-            if (\Input::post('password') !== "12345678"){
+            if (!$correctPassword){
                 $template->passwordError = "<h3>Falsches Passwort</h3><p>Bitte versuchen Sie es erneut</p>";
             } else{
                 $template->loginSuccess = true;
