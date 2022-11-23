@@ -204,163 +204,170 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
 
-            $newSet = [];
-            $duplicateFieldsData = [];
+            if(isset($arrData['password'])){
+                if ($arrData['password'] !== "12345678"){
+                    $template->passwordError = "<h3>Falsches Passowrd</h3><p>Bitte evrsuchen Sie es erneut</p>";
+                }
+            }else{
+                $newSet = [];
+                $duplicateFieldsData = [];
 
-            foreach ($_POST as $name => $value) {
-                if (false !== strpos($name, '_duplicate_')) {
-                    $duplicateFieldsData[$name] = $value;
-                    continue;
+                foreach ($_POST as $name => $value) {
+                    if (false !== strpos($name, '_duplicate_')) {
+                        $duplicateFieldsData[$name] = $value;
+                        continue;
+                    }
+
+                    $newSet[$name] = $value;
                 }
 
-                $newSet[$name] = $value;
-            }
+                $objModel = new ManiaxContaoHolidayItemModel;
 
-            $objModel = new ManiaxContaoHolidayItemModel;
+                $date = explode(".",$arrData['holidayStart']);
+                $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
+                $objModel->holidayStart = $tmstp;
+                $date = explode(".",$arrData['holidayStart']);
+                $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
+                $objModel->holidayStop = $tmstp;
+                $date = explode(".",$arrData['showBefore']);
+                $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
+                $objModel->showBefore = $tmstp;
+                $objModel->extend = $arrData['extend'];
+                $objModel->extendText = $arrData['extendText'];
 
-            $date = explode(".",$arrData['holidayStart']);
-            $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
-            $objModel->holidayStart = $tmstp;
-            $date = explode(".",$arrData['holidayStart']);
-            $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
-            $objModel->holidayStop = $tmstp;
-            $date = explode(".",$arrData['showBefore']);
-            $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
-            $objModel->showBefore = $tmstp;
-            $objModel->extend = $arrData['extend'];
-            $objModel->extendText = $arrData['extendText'];
+                if ($arrData['footerline'] == "")
+                    $objModel->footerline = 0;
+                else
+                    $objModel->footerline = 1;
 
-            if ($arrData['footerline'] == "")
-                $objModel->footerline = 0;
-            else
-                $objModel->footerline = 1;
+                $objModel->footerlineText = $arrData['footerlineText'];
 
-            $objModel->footerlineText = $arrData['footerlineText'];
+                if ($arrData['published'] == "")
+                    $objModel->published = 0;
+                else
+                    $objModel->published = 1;
 
-            if ($arrData['published'] == "")
-                $objModel->published = 0;
-            else
-                $objModel->published = 1;
+                $objModel->tstamp = time();
 
-            $objModel->tstamp = time();
+                // Vertretungsdoc 1
+                $date1 = explode(".",$arrData['vertretungDoc1VertretungStart']);
+                $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                $date2 = explode(".",$arrData['vertretungDoc1VertretungStop']);
+                $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                $doc[] = [
+                    "doc" => $arrData['vertretungDoc1'],
+                    "vertretungStart" => $tmstp1,
+                    "vertretungStop" => $tmstp2,
+                ];
 
-            // Vertretungsdoc 1
-            $date1 = explode(".",$arrData['vertretungDoc1VertretungStart']);
-            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-            $date2 = explode(".",$arrData['vertretungDoc1VertretungStop']);
-            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc[] = [
-                "doc" => $arrData['vertretungDoc1'],
-                "vertretungStart" => $tmstp1,
-                "vertretungStop" => $tmstp2,
-            ];
-
-            for($i=1;$i<=3;$i++){
-                if(array_key_exists('vertretungDoc1_duplicate_'.$i, $duplicateFieldsData)){
-                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc1VertretungStart_duplicate_'.$i]);
-                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc1VertretungStop_duplicate_'.$i]);
-                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-                    $doc[] = [
-                        "doc" => $duplicateFieldsData['vertretungDoc1_duplicate_'.$i],
-                        "vertretungStart" => $tmstp1,
-                        "vertretungStop" => $tmstp2,
-                    ];
-                }else{
-                    $i=3;
+                for($i=1;$i<=3;$i++){
+                    if(array_key_exists('vertretungDoc1_duplicate_'.$i, $duplicateFieldsData)){
+                        $date1 = explode(".",$duplicateFieldsData['vertretungDoc1VertretungStart_duplicate_'.$i]);
+                        $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                        $date2 = explode(".",$duplicateFieldsData['vertretungDoc1VertretungStop_duplicate_'.$i]);
+                        $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                        $doc[] = [
+                            "doc" => $duplicateFieldsData['vertretungDoc1_duplicate_'.$i],
+                            "vertretungStart" => $tmstp1,
+                            "vertretungStop" => $tmstp2,
+                        ];
+                    }else{
+                        $i=3;
+                    }
                 }
-            }
-            $objModel->vertretungDoc1 = serialize($doc);
+                $objModel->vertretungDoc1 = serialize($doc);
 
-            // Vertretungsdoc 2
-            $date1 = explode(".",$arrData['vertretungDoc2VertretungStart']);
-            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-            $date2 = explode(".",$arrData['vertretungDoc2VertretungStop']);
-            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = array();
-            $doc[] = [
-                "doc" => $arrData['vertretungDoc2'],
-                "vertretungStart" => $tmstp1,
-                "vertretungStop" => $tmstp2,
-            ];
+                // Vertretungsdoc 2
+                $date1 = explode(".",$arrData['vertretungDoc2VertretungStart']);
+                $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                $date2 = explode(".",$arrData['vertretungDoc2VertretungStop']);
+                $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                $doc = array();
+                $doc[] = [
+                    "doc" => $arrData['vertretungDoc2'],
+                    "vertretungStart" => $tmstp1,
+                    "vertretungStop" => $tmstp2,
+                ];
 
-            for($i=1;$i<=3;$i++){
-                if(array_key_exists('vertretungDoc2_duplicate_'.$i, $duplicateFieldsData)){
-                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc2VertretungStart_duplicate_'.$i]);
-                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc2VertretungStop_duplicate_'.$i]);
-                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-                    $doc[] = [
-                        "doc" => $duplicateFieldsData['vertretungDoc2_duplicate_'.$i],
-                        "vertretungStart" => $tmstp1,
-                        "vertretungStop" => $tmstp2,
-                    ];
-                }else{
-                    $i=3;
+                for($i=1;$i<=3;$i++){
+                    if(array_key_exists('vertretungDoc2_duplicate_'.$i, $duplicateFieldsData)){
+                        $date1 = explode(".",$duplicateFieldsData['vertretungDoc2VertretungStart_duplicate_'.$i]);
+                        $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                        $date2 = explode(".",$duplicateFieldsData['vertretungDoc2VertretungStop_duplicate_'.$i]);
+                        $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                        $doc[] = [
+                            "doc" => $duplicateFieldsData['vertretungDoc2_duplicate_'.$i],
+                            "vertretungStart" => $tmstp1,
+                            "vertretungStop" => $tmstp2,
+                        ];
+                    }else{
+                        $i=3;
+                    }
                 }
-            }
-            $objModel->vertretungDoc2 = serialize($doc);
+                $objModel->vertretungDoc2 = serialize($doc);
 
-            // Vertretungsdoc 3
-            $date1 = explode(".",$arrData['vertretungDoc3VertretungStart']);
-            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-            $date2 = explode(".",$arrData['vertretungDoc3VertretungStop']);
-            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = array();
-            $doc[] = [
-                "doc" => $arrData['vertretungDoc3'],
-                "vertretungStart" => $tmstp1,
-                "vertretungStop" => $tmstp2,
-            ];
+                // Vertretungsdoc 3
+                $date1 = explode(".",$arrData['vertretungDoc3VertretungStart']);
+                $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                $date2 = explode(".",$arrData['vertretungDoc3VertretungStop']);
+                $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                $doc = array();
+                $doc[] = [
+                    "doc" => $arrData['vertretungDoc3'],
+                    "vertretungStart" => $tmstp1,
+                    "vertretungStop" => $tmstp2,
+                ];
 
-            for($i=1;$i<=3;$i++){
-                if(array_key_exists('vertretungDoc3_duplicate_'.$i, $duplicateFieldsData)){
-                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStart_duplicate_'.$i]);
-                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStop_duplicate_'.$i]);
-                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-                    $doc[] = [
-                        "doc" => $duplicateFieldsData['vertretungDoc3_duplicate_'.$i],
-                        "vertretungStart" => $tmstp1,
-                        "vertretungStop" => $tmstp2,
-                    ];
-                }else{
-                    $i=3;
+                for($i=1;$i<=3;$i++){
+                    if(array_key_exists('vertretungDoc3_duplicate_'.$i, $duplicateFieldsData)){
+                        $date1 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStart_duplicate_'.$i]);
+                        $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                        $date2 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStop_duplicate_'.$i]);
+                        $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                        $doc[] = [
+                            "doc" => $duplicateFieldsData['vertretungDoc3_duplicate_'.$i],
+                            "vertretungStart" => $tmstp1,
+                            "vertretungStop" => $tmstp2,
+                        ];
+                    }else{
+                        $i=3;
+                    }
                 }
-            }
-            $objModel->vertretungDoc3 = serialize($doc);
+                $objModel->vertretungDoc3 = serialize($doc);
 
-            // Vertretungsdoc 4
-            $date1 = explode(".",$arrData['vertretungDoc4VertretungStart']);
-            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-            $date2 = explode(".",$arrData['vertretungDoc4VertretungStop']);
-            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = array();
-            $doc[] = [
-                "doc" => $arrData['vertretungDoc4'],
-                "vertretungStart" => $tmstp1,
-                "vertretungStop" => $tmstp2,
-            ];
-            for($i=1;$i<=3;$i++){
-                if(array_key_exists('vertretungDoc4_duplicate_'.$i, $duplicateFieldsData)){
-                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStart_duplicate_'.$i]);
-                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStop_duplicate_'.$i]);
-                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-                    $doc[] = [
-                        "doc" => $duplicateFieldsData['vertretungDoc4_duplicate_'.$i],
-                        "vertretungStart" => $tmstp1,
-                        "vertretungStop" => $tmstp2,
-                    ];
-                }else{
-                    $i=3;
+                // Vertretungsdoc 4
+                $date1 = explode(".",$arrData['vertretungDoc4VertretungStart']);
+                $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                $date2 = explode(".",$arrData['vertretungDoc4VertretungStop']);
+                $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                $doc = array();
+                $doc[] = [
+                    "doc" => $arrData['vertretungDoc4'],
+                    "vertretungStart" => $tmstp1,
+                    "vertretungStop" => $tmstp2,
+                ];
+                for($i=1;$i<=3;$i++){
+                    if(array_key_exists('vertretungDoc4_duplicate_'.$i, $duplicateFieldsData)){
+                        $date1 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStart_duplicate_'.$i]);
+                        $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
+                        $date2 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStop_duplicate_'.$i]);
+                        $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
+                        $doc[] = [
+                            "doc" => $duplicateFieldsData['vertretungDoc4_duplicate_'.$i],
+                            "vertretungStart" => $tmstp1,
+                            "vertretungStop" => $tmstp2,
+                        ];
+                    }else{
+                        $i=3;
+                    }
                 }
+                $objModel->vertretungDoc4 = serialize($doc);
+
+                $objModel->save();
+
+                $template->success = true;
             }
-            $objModel->vertretungDoc4 = serialize($doc);
 
-            $objModel->save();
-
-            $template->success = true;
         }
 
         // Generate the form as a string
