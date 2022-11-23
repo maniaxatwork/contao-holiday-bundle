@@ -44,7 +44,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
         });
 
-        //$objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', array($objForm, 'skipFieldsWithoutInputType'));
         $objForm->addFieldsFromDca('tl_maniax_contao_holiday_item', function(&$strField, &$arrDca) {
 
             // make sure to skip elements without inputType or you will get an exception
@@ -341,6 +340,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         }
 
+        $template->request = serialize($request);
         // Generate the form as a string
         $template->form = $objForm->generate();
 
