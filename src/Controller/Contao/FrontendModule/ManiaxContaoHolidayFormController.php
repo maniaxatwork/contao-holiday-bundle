@@ -18,6 +18,7 @@ use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
 use Contao\FrontendTemplate;
 use Contao\ModuleModel;
 use Contao\System;
+use Contao\Encryption;
 use Haste\Form\Form;
 use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
@@ -54,7 +55,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         ));
 
         $objFormLogin->addValidator('password', function($varValue, \Widget $objWidget, Form $objForm){
-            if ($value !== '12345678') {
+            $enc = new Encryption;
+            $passVerify = $enc->verify('12345678', $varValue);
+
+            if (!$passVerify) {
                 throw new \Exception('Falsches Passwort!');
             }
             return $varValue;
