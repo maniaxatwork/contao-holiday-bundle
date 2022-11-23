@@ -1,0 +1,3 @@
+security:
+    encoders:
+        Maniax\ContaoHoliday\Controller\Contao\FrontendModule\FrontendUser: bcrypt
