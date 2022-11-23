@@ -2,6 +2,13 @@
 
 <?php $this->block('content'); ?>
 
+<pre>
+  <?php print_r($this->pass)?>
+  <br>
+  <?php print_r($this->passVerify)?>
+  <br>
+  <?php print_r($this->passEnc)?>
+</pre>
 <?php if ($this->passwordError) : ?>
   <div class="form-error"><?= $this->passwordError ?></div>
   <?= $this->login ?>
