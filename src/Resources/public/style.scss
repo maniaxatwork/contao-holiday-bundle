@@ -268,3 +268,20 @@
         }
     }
 }
+
+.holidayInfoIcon{
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 25%;
+    overflow: visible;
+    padding: 30px;
+    background: #0087c2;
+    color: #fff;
+    font-size: 2.2rem;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 8px 8px 12px 0 rgba(0,0,0,0.4);
+    line-height: 1;
+    letter-spacing: 8px;
+}
