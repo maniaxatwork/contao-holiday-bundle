@@ -26,7 +26,8 @@
         "doctrine/data-fixtures": "^1.4.2",
         "doctrine/dbal": "^2.10.1 || ^3.2.0",
         "menatwork/contao-multicolumnwizard-bundle": "^3.5.8",
-        "inspiredminds/contao-fieldset-duplication": "^2.0"
+        "inspiredminds/contao-fieldset-duplication": "^2.0",
+        "symfony/security-bundle" : "^6.1"
     },
     "require-dev": {
         "contao/manager-bundle": "^4.9",

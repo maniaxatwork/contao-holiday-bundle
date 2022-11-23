@@ -14,9 +14,9 @@ namespace Maniax\ContaoHoliday\Controller\Contao\FrontendModule;
 
 use Contao\Config;
 use Contao\System;
+use \Contao\FrontendUser;
 use Contao\Template;
 use Haste\Form\Form;
-use Contao\Encryption;
 use Contao\ModuleModel;
 use Contao\FrontendTemplate;
 use Doctrine\Persistence\ManagerRegistry;
