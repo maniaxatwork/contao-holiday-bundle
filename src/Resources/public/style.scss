@@ -285,6 +285,7 @@
     line-height: 1;
     letter-spacing: 2px;
     cursor: pointer;
+    transition: .2s ease;
 
     &:hover{
         background: #004161;
