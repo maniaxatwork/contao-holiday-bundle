@@ -2,10 +2,10 @@
 
 <?php $this->block('content'); ?>
 
-<pre>
-  <?php print_r($this->request) ?>
-</pre>
-<?php if ($this->success) : ?>
+<?php if ($this->passowrdError) : ?>
+  <div class="form-error"><?= $this->passowrdError ?></div>
+  <?= $this->form ?>
+<?php elseif ($this->success) : ?>
   <div class="form-success"><h2>Der Urlaub wurde erfolgreich eingetragen!</h2></div>
 <?php else: ?>
   <?= $this->form ?>
