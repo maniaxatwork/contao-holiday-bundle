@@ -226,6 +226,17 @@
 
         fieldset{
             flex: 0 0 calc(50% - 15px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .widget-select{
+                flex: 0 0 100%;
+            }
+
+            .widget-text{
+                flex: 0 0 calc(50% - 10px);
+            }
         }
 
         & + .fieldset_outer{
