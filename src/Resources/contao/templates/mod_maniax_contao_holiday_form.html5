@@ -4,11 +4,14 @@
 
 
 <pre>
-  <?= "Übergabe aus Formular: ".print_r($this->pass) ?>
+  <?= "Übergabe aus Formular: " ?>
+  <?php print_r($this->pass) ?>
   <br>
-  <?= "in der DB gespeichert: ".print_r($this->savedPass) ?>
+  <?= "in der DB gespeichert: " ?>
+  <?php print_r($this->savedPass) ?>
 <br>
-  <?= "Übergabe aus Formular + Hash: ".print_r($this->hashedPass) ?>
+  <?= "Übergabe aus Formular + Hash: " ?>
+  <?php print_r($this->hashedPass) ?>
 
 </pre>
 
