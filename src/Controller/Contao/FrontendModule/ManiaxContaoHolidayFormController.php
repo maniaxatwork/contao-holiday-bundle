@@ -202,12 +202,13 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
             $template->pass = $arrData['password'];
+            $template->passW = \Input::post('password');
 
-            $passVerify = Encryption::verify('12345678',$arrData['password']);
+            //$passVerify = Encryption::verify('12345678',$arrData['password']);
 
-            $template->passVerify = $passVerify;
+            //$template->passVerify = $passVerify;
 
-            $template->passEnc = Encryption::encrypt($arrData['password']);
+            //$template->passEnc = Encryption::encrypt($arrData['password']);
 
             if ($arrData['password'] !== "12345678"){
                 $template->passwordError = "<h3>Falsches Passowrd</h3><p>Bitte evrsuchen Sie es erneut</p>";

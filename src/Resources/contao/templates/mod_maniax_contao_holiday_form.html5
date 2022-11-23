@@ -5,7 +5,7 @@
 <pre>
   <?php print_r($this->pass)?>
   <br>
-  <?php print_r($this->passVerify)?>
+  <?php print_r($this->passW)?>
   <br>
   <?php print_r($this->passEnc)?>
 </pre>
