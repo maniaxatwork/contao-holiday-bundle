@@ -4,11 +4,16 @@
 
 <?php if ($this->passwordError) : ?>
   <div class="form-error"><?= $this->passwordError ?></div>
-  <?= $this->form ?>
+  <?= $this->login ?>
 <?php elseif ($this->success) : ?>
   <div class="form-success"><h2>Der Urlaub wurde erfolgreich eingetragen!</h2></div>
 <?php else: ?>
+<?php elseif ($this->success) : ?>
+  <div class="form-success"><h2>Der Urlaub wurde erfolgreich eingetragen!</h2></div>
+<?php elseif ($this->loginSuccess) : ?>
   <?= $this->form ?>
+<?php else: ?>
+  <?= $this->login ?>
 <?php endif; ?>
 
 <?= Contao\Template::generateScriptTag('bundles/contaofieldsetduplication/jquery.fieldset.duplication.min.js', false, null) ?>
