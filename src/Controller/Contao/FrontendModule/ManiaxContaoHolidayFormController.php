@@ -56,7 +56,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
 
         $objFormLogin->addValidator('password', function($varValue, \Widget $objWidget, Form $objForm){
-            $passVerify = Encryption::verify('12345678', $varValue);
+            $passVerify = password_verify(12345678, $varValue);
 
             if (!$passVerify) {
                 throw new \Exception('Falsches Passwort!');
@@ -204,14 +204,8 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $template->pass = $arrData['password'];
             $template->passW = \Input::post('password');
 
-            //$passVerify = Encryption::verify('12345678',$arrData['password']);
-
-            //$template->passVerify = $passVerify;
-
-            //$template->passEnc = Encryption::encrypt($arrData['password']);
-
             if ($arrData['password'] !== "12345678"){
-                $template->passwordError = "<h3>Falsches Passowrd</h3><p>Bitte evrsuchen Sie es erneut</p>";
+                $template->passwordError = "<h3>Falsches Passwort</h3><p>Bitte versuchen Sie es erneut</p>";
             } else{
                 $template->loginSuccess = true;
             }
