@@ -60,17 +60,17 @@
 .holidayClose {
     background: #606061;
     color: #FFFFFF;
-    line-height: 25px;
+    line-height: 50px;
     position: absolute;
-    right: -12px;
+    right: -25px;
     text-align: center;
-    top: -10px;
-    width: 24px;
+    top: -20px;
+    width: 50px;
     text-decoration: none;
     font-weight: bold;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
     box-shadow: 0 0 10px #000; // Opera, FFX4
     -moz-box-shadow:0 0 10px #000; // FFX3.5
     -webkit-box-shadow:0 0 10px #000; // Safari/Chrome/WebKit
@@ -78,16 +78,11 @@
     -webkit-transition: all .5s ease-out;
     -o-transition: all .5s ease-out;
     transition: all .5s ease-out;
-    -webkit-transition-delay: .2s;
-    -moz-transition-delay: .2s;
-    -o-transition-delay: .2s;
-    -transition-delay: .2s;
+    text-align: center;
 
     &:hover {
         background: #00d9ff;
-        -moz-transition: all .5s ease-out;
-        -webkit-transition: all .5s ease-out;
-        -o-transition: all .5s ease-out;
+        color:#fff;
         transition: all .5s ease-out;
     }
 }
