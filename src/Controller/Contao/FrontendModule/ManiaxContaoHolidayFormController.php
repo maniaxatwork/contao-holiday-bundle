@@ -41,8 +41,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
-        $req = $request->request->all();
-
         // Loginform
         $objFormLogin = new Form('holidaylogin-' . $model->id, 'POST', function($objHaste) {
             return \Input::post('FORM_SUBMIT') === $objHaste->getFormId();
@@ -53,16 +51,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             'inputType' => 'password',
             'eval' => array('mandatory'=>true)
         ));
-
-
-        $objFormLogin->addValidator('password', function($varValue, \Widget $objWidget, Form $objForm){
-            $passVerify = password_verify(12345678, $varValue);
-
-            if (!$passVerify) {
-                throw new \Exception('Falsches Passwort!');
-            }
-            return $varValue;
-        });
 
         $objFormLogin->addSubmitFormField('submit', 'Absenden');
 
@@ -199,12 +187,9 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm->addSubmitFormField('submit', 'Angaben eintragen');
 
         if ($objFormLogin->validate()) {
-            // Get all the submitted and parsed data (only works with POST):
             $arrData = $objForm->fetchAll();
-            $template->pass = $arrData['password'];
-            $template->passW = \Input::post('password');
 
-            if ($arrData['password'] !== "12345678"){
+            if (\Input::post('password') !== "12345678"){
                 $template->passwordError = "<h3>Falsches Passwort</h3><p>Bitte versuchen Sie es erneut</p>";
             } else{
                 $template->loginSuccess = true;
@@ -375,7 +360,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $template->success = true;
         }
 
-        // Generate the form as a string
+        // Generate the forms as strings
         $template->login = $objFormLogin->generate();
         $template->form = $objForm->generate();
 

@@ -17,6 +17,14 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_holiday_list'] =
     {expert_legend:hide},cssID'
 ;
 $GLOBALS['TL_DCA']['tl_module']['palettes']['maniax_contao_holiday_form'] =
-    '{title_legend},name,type;
+    '{title_legend},name,type,maniaxPassword;
     {expert_legend:hide},cssID'
 ;
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['maniaxPassword'] = [
+    'exclude' => true,
+    'inputType' => 'password',
+    'eval' => ['tl_class' => 'clr w50'],
+    'sql' => 'mediumtext null',
+];
+
