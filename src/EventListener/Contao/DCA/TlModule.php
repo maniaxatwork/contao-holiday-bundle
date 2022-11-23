@@ -45,12 +45,4 @@ class TlModule
 
         return $return;
     }
-
-    public function savePass($value, DataContainer $dc): string
-    {
-        $opts04 = [ "cost" => 15, "salt" => "njmko698475radgnhmji8b54hrg" ];
-        $value = password_hash($value, PASSWORD_BCRYPT, $opts04);
-
-        return $value;
-    }
 }

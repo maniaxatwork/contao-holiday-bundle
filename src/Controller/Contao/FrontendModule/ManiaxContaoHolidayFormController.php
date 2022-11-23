@@ -13,20 +13,21 @@ declare(strict_types=1);
 namespace Maniax\ContaoHoliday\Controller\Contao\FrontendModule;
 
 use Contao\Config;
-use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
-use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
-use Contao\FrontendTemplate;
-use Contao\ModuleModel;
 use Contao\System;
-use Contao\Encryption;
-use Haste\Form\Form;
 use Contao\Template;
+use Haste\Form\Form;
+use Contao\Encryption;
+use Contao\ModuleModel;
+use Contao\FrontendTemplate;
 use Doctrine\Persistence\ManagerRegistry;
-use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
-use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
-use Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
+use Maniax\ContaoHoliday\Contao\Model\ManiaxContaoHolidayItemModel;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayItem;
+use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 
 /**
  * @FrontendModule("maniax_contao_holiday_form", category="maniaxContaoHoliday", template="mod_maniax_contao_holiday_form", renderer="forward")
@@ -34,9 +35,11 @@ use Symfony\Component\HttpFoundation\Response;
 class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 {
     protected ManagerRegistry $registry;
+    protected EncoderFactoryInterface $encoderFactory;
 
-    public function __construct(ManagerRegistry $registry) {
+    public function __construct(ManagerRegistry $registry, EncoderFactoryInterface $encoderFactory) {
         $this->registry = $registry;
+        $this->encoderFactory = $encoderFactory;
     }
 
     protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
@@ -189,12 +192,16 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         if ($objFormLogin->validate()) {
             $arrData = $objFormLogin->fetchAll();
 
+            $encoder = $this->encoderFactory->getEncoder(FrontendUser::class);
+            $encodedPassword = $encoder->encodePassword(\Input::post('password'), null);
+
+
             $opts04 = [ "cost" => 15, "salt" => "njmko698475radgnhmji8b54hrg" ];
             $value = password_hash(\Input::post('password'), PASSWORD_BCRYPT, $opts04);
 
             $template->savedPass = $model->maniaxPassword;
             $template->pass = $arrData['password'];
-            $template->hashedPass = $value;
+            $template->hashedPass = $encodedPassword;
 
             if (\Input::post('password') !== "12345678"){
                 $template->passwordError = "<h3>Falsches Passwort</h3><p>Bitte versuchen Sie es erneut</p>";

@@ -25,10 +25,6 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['maniaxPassword'] = [
     'exclude' => true,
     'inputType' => 'password',
     'eval' => ['tl_class' => 'clr w50'],
-    'save_callback' => [[
-        TlModule::class,
-        'savePass',
-    ]],
     'sql' => 'mediumtext null',
 ];
 
