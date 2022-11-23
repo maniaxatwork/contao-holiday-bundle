@@ -32,6 +32,12 @@
             <trans-unit id="FMD.maniax_contao_holiday_list.1">
                 <target>Urlaubs-Popup</target>
             </trans-unit>
+            <trans-unit id="FMD.maniax_contao_holiday_form.0">
+                <target>Urlaubs-Formular</target>
+            </trans-unit>
+            <trans-unit id="FMD.maniax_contao_holiday_form.1">
+                <target>Urlaubs-Formular</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
