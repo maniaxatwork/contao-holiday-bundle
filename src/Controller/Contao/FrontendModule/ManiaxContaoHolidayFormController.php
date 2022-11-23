@@ -187,7 +187,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         $objForm->addSubmitFormField('submit', 'Angaben eintragen');
 
         if ($objFormLogin->validate()) {
-            $arrData = $objForm->fetchAll();
+            $arrData = $objFormLogin->fetchAll();
 
             $template->savedPass = $model->maniaxPassword;
             $template->pass = $arrData['password'];

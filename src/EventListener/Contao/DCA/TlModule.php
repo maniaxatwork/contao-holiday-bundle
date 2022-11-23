@@ -17,6 +17,7 @@ use Contao\DataContainer;
 use Contao\Input;
 use Contao\StringUtil;
 use Doctrine\Persistence\ManagerRegistry;
+use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Exception;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem as TlManiaxContaoHolidayItemEntity;
@@ -43,5 +44,13 @@ class TlModule
         }
 
         return $return;
+    }
+
+    public function savePass($value, DataContainer $dc): string
+    {
+        $opts04 = [ "cost" => 15, "salt" => "njmko698475radgnhmji8b54hrg" ];
+        $value = password_hash($value, PASSWORD_BCRYPT, $opts04);
+
+        return $value;
     }
 }
