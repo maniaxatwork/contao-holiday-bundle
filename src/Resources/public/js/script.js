@@ -15,7 +15,7 @@ $(document).ready(function() {
         $('#headerimage .inside').append('<div id="holidayInfoIcon" class="holidayInfoIcon"><i class="fas fa-circle-info" aria-hidden="true"></i> Urlaub</div>');
 
         $('.holidayInfoIcon').on('click', function(e){
-            $('.mod_maniax_contao_holiday_list').removeClass('show');
+            $('.mod_maniax_contao_holiday_list').addClass('show');
         })
     }
 });
