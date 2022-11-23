@@ -189,8 +189,12 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
         if ($objFormLogin->validate()) {
             $arrData = $objFormLogin->fetchAll();
 
+            $opts04 = [ "cost" => 15, "salt" => "njmko698475radgnhmji8b54hrg" ];
+            $value = password_hash($arrData['password'], PASSWORD_BCRYPT, $opts04);
+
             $template->savedPass = $model->maniaxPassword;
             $template->pass = $arrData['password'];
+            $template->hashedPass = $value;
 
             if (\Input::post('password') !== "12345678"){
                 $template->passwordError = "<h3>Falsches Passwort</h3><p>Bitte versuchen Sie es erneut</p>";
