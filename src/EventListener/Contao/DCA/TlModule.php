@@ -49,7 +49,7 @@ class TlModule
     public function savePass($value, DataContainer $dc): string
     {
         $opts04 = [ "cost" => 15, "salt" => "njmko698475radgnhmji8b54hrg" ];
-        $value = password_hash($value, PASSWORD_BCRYPT, $opts04);
+        $value = "test".password_hash($value, PASSWORD_BCRYPT, $opts04);
 
         return $value;
     }

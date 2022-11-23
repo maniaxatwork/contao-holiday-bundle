@@ -190,7 +190,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $arrData = $objFormLogin->fetchAll();
 
             $opts04 = [ "cost" => 15, "salt" => "njmko698475radgnhmji8b54hrg" ];
-            $value = password_hash($arrData['password'], PASSWORD_BCRYPT, $opts04);
+            $value = password_hash(\Input::post('password'), PASSWORD_BCRYPT, $opts04);
 
             $template->savedPass = $model->maniaxPassword;
             $template->pass = $arrData['password'];
