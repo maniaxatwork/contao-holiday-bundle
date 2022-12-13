@@ -150,71 +150,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             'inputType' => 'fieldsetStop',
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretung2Stop'));
 
-        // Vertretung 3
-        $objForm->addFormField('vertretung3ContStart', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc3'],
-            'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'fieldset_outer')
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc3'));
-
-        $objForm->addFormField('vertretung3Start', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretung'],
-            'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'allow-duplication duplicate-fieldset-3 duplicate-fieldset-maxRows-3')
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc3'));
-
-        $objForm->addFormField('vertretung3Stop', array(
-            'inputType' => 'fieldsetStop',
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc3'));
-
-        $objForm->addFormField('vertretungDoc3VertretungStart', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
-            'inputType' => 'text',
-            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung3Stop'));
-
-        $objForm->addFormField('vertretungDoc3VertretungStop', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
-            'inputType' => 'text',
-            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung3Stop'));
-
-        $objForm->addFormField('vertretung3ContStop', array(
-            'inputType' => 'fieldsetStop',
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretung3Stop'));
-
-        // Vertretung 4
-        $objForm->addFormField('vertretung4ContStart', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungDoc4'],
-            'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'fieldset_outer')
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc4'));
-        $objForm->addFormField('vertretung4Start', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretung'],
-            'inputType' => 'fieldsetStart',
-            'eval' => array('class' => 'allow-duplication duplicate-fieldset-4 duplicate-fieldset-maxRows-3')
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretungDoc4'));
-
-        $objForm->addFormField('vertretung4Stop', array(
-            'inputType' => 'fieldsetStop',
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretungDoc4'));
-
-        $objForm->addFormField('vertretungDoc4VertretungStart', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStart'],
-            'inputType' => 'text',
-            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung4Stop'));
-
-        $objForm->addFormField('vertretungDoc4VertretungStop', array(
-            'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['vertretungStop'],
-            'inputType' => 'text',
-            'eval' => array('rgxp' => 'date','datepicker' => true,'mandatory' => true),
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'vertretung4Stop'));
-
-        $objForm->addFormField('vertretung4ContStop', array(
-            'inputType' => 'fieldsetStop',
-        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretung4Stop'));
-
         $objForm->addSubmitFormField('submit', 'Angaben eintragen');
 
         if ($objFormLogin->validate()) {
@@ -332,62 +267,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             }
             $objModel->vertretungDoc2 = serialize($doc);
 
-            // Vertretungsdoc 3
-            $date1 = explode(".",$arrData['vertretungDoc3VertretungStart']);
-            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-            $date2 = explode(".",$arrData['vertretungDoc3VertretungStop']);
-            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = array();
-            $doc[] = [
-                "doc" => $arrData['vertretungDoc3'],
-                "vertretungStart" => $tmstp1,
-                "vertretungStop" => $tmstp2,
-            ];
-
-            for($i=1;$i<=3;$i++){
-                if(array_key_exists('vertretungDoc3_duplicate_'.$i, $duplicateFieldsData)){
-                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStart_duplicate_'.$i]);
-                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc3VertretungStop_duplicate_'.$i]);
-                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-                    $doc[] = [
-                        "doc" => $duplicateFieldsData['vertretungDoc3_duplicate_'.$i],
-                        "vertretungStart" => $tmstp1,
-                        "vertretungStop" => $tmstp2,
-                    ];
-                }else{
-                    $i=3;
-                }
-            }
-            $objModel->vertretungDoc3 = serialize($doc);
-
-            // Vertretungsdoc 4
-            $date1 = explode(".",$arrData['vertretungDoc4VertretungStart']);
-            $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-            $date2 = explode(".",$arrData['vertretungDoc4VertretungStop']);
-            $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-            $doc = array();
-            $doc[] = [
-                "doc" => $arrData['vertretungDoc4'],
-                "vertretungStart" => $tmstp1,
-                "vertretungStop" => $tmstp2,
-            ];
-            for($i=1;$i<=3;$i++){
-                if(array_key_exists('vertretungDoc4_duplicate_'.$i, $duplicateFieldsData)){
-                    $date1 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStart_duplicate_'.$i]);
-                    $tmstp1 = strtotime($date1[2]."-".$date1[1]."-".$date1[0]);
-                    $date2 = explode(".",$duplicateFieldsData['vertretungDoc4VertretungStop_duplicate_'.$i]);
-                    $tmstp2 = strtotime($date2[2]."-".$date2[1]."-".$date2[0]);
-                    $doc[] = [
-                        "doc" => $duplicateFieldsData['vertretungDoc4_duplicate_'.$i],
-                        "vertretungStart" => $tmstp1,
-                        "vertretungStop" => $tmstp2,
-                    ];
-                }else{
-                    $i=3;
-                }
-            }
-            $objModel->vertretungDoc4 = serialize($doc);
 
             $objModel->save();
 
