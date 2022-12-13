@@ -53,28 +53,33 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 
         // Fill the template with data
         $items = [];
-        if (!empty($holidayItem)){
+        if (!empty($holidayItems)){
             $itemTemplate = new FrontendTemplate('maniax_contao_holiday_list_default');
 
-            $docs1 = $holidayItem->getVertretungDoc1();
-            $doc1 = "";
-            foreach($docs1 as $doc){
-                $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc1 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
+            foreach ($holidayItems as $holidayItem){
+                $docs1 = $holidayItem->getVertretungDoc1();
+                $doc1 = "";
+                foreach($docs1 as $doc){
+                    $tmp = $docRepository->findPublishedById($doc['doc']);
+                    $doc1 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
+                }
+
+                $docs2 = $holidayItem->getVertretungDoc2();
+                $doc2 = "";
+                foreach($docs2 as $doc){
+                    $tmp = $docRepository->findPublishedById($doc['doc']);
+                    $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
+                }
+                $items[$holidayItem->getLocation()] = [
+                    'raw' => $holidayItem,
+                    'doc1' => $doc1,
+                    'doc2' => $doc2,
+                    'holidayStart' => date('d.m.Y', (int) $holidayItem->getHolidayStart()),
+                    'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop())
+                ];
             }
 
-            $docs2 = $holidayItem->getVertretungDoc2();
-            $doc2 = "";
-            foreach($docs2 as $doc){
-                $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
-            }
-
-            $template->holidayItem = $holidayItem;
-            $itemTemplate->doc1 = $doc1;
-            $itemTemplate->doc2 = $doc2;
-            $itemTemplate->holidayStart = date('d.m.Y', (int) $holidayItem->getHolidayStart());
-            $itemTemplate->holidayStop = date('d.m.Y', (int) $holidayItem->getHolidayStop());
+            $template->holidayItems = $holidayItems;
             $items[] = $itemTemplate->parse();
         }
 

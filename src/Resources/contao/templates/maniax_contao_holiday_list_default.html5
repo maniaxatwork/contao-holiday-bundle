@@ -4,23 +4,26 @@
 <div class="holiday_list block">
 
 	<div class="holiday-wrapper">
-        <a href="#close" title="Close" class="holidayClose">X</a>
+        <a href="#close" title="Schließen" class="holidayClose">X</a>
         <div class="headline">
         	<h2>Urlaubsinformation</h2>
             <h3>Wir haben vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?> Urlaub!</h3>
         </div>
         <div class="columns">
-            <div class="column">
-                <h3>Vertretung Standort<br />Frankenhäußer Straße</h3>
-                <div class="content">
-                    <h4>Chirurgie</h4>
-                    <?= $this->doc1 ?>
+            <?php foreach ($this->items as $key=>$value): ?>
+
+                <div class="column">
+                    <h3>Vertretung Standort<br /><?= $key ?></h3>
+                    <div class="content">
+                        <h4>Chirurgie</h4>
+                        <?= $this->doc1 ?>
+                    </div>
+                    <div class="content">
+                        <h4>Allgemeinmedizin / Kinder</h4>
+                        <?= $this->doc2 ?>
+                    </div>
                 </div>
-                <div class="content">
-                    <h4>Allgemeinmedizin / Kinder</h4>
-                    <?= $this->doc2 ?>
-                </div>
-            </div>
+            <?php endforeach; ?>
             <div class="column">
                 <h3>Vertretung Standort<br />Planplatz</h3>
                 <div class="content">
