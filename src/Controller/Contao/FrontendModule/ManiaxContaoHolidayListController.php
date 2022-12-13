@@ -22,6 +22,7 @@ use Contao\Template;
 use Doctrine\Persistence\ManagerRegistry;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayLocation;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -42,6 +43,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
     {
         $holidayItemRepository = $this->registry->getRepository(TlManiaxContaoHolidayItem::class);
         $docRepository = $this->registry->getRepository(TlManiaxContaoHolidayDoc::class);
+        $locRepository = $this->registry->getRepository(TlManiaxContaoHolidayLocation::class);
 
         $holidayItems = $holidayItemRepository->findAllByPublishedAndViewable();
 
@@ -70,8 +72,11 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                     $tmp = $docRepository->findPublishedById($doc['doc']);
                     $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
                 }
-                $items[$holidayItem->getLocation()] = [
+                $location = $locRepository->findPublishedById($holidayItem->getLocation());
+
+                $items[] = [
                     'raw' => $holidayItem,
+                    'location' => $location->getStreet(),
                     'doc1' => $doc1,
                     'doc2' => $doc2,
                     'holidayStart' => date('d.m.Y', (int) $holidayItem->getHolidayStart()),
@@ -80,7 +85,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             }
 
             $template->holidayItems = $holidayItems;
-            $items[] = $itemTemplate->parse();
+            //$items[] = $itemTemplate->parse();
         }
 
         $template->empty = "";
