@@ -15,7 +15,7 @@ services:
             - '@request_stack'
             - '@twig'
 
-        Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayLocation:
+    Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayLocation:
         public: true
         arguments:
             - '@Doctrine\Persistence\ManagerRegistry'
