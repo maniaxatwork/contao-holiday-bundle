@@ -111,6 +111,12 @@ class TlManiaxContaoHolidayItem
     {
         $labelArr = explode('|', $label);
 
+        $locRepository = $this->registry->getRepository(TlManiaxContaoHolidayLocationEntity::class);
+
+        $loc = $locRepository->findPublishedById( $labelArr[1]);
+
+        $labelArr[1] = $loc->getStreet() .', '. $loc->getLocality();
+
         $label = '<strong>'.$labelArr[0] .' - '.$labelArr[1] .'</strong>: ' .date('d.m.Y', (int) $labelArr[2]). ' - '.date('d.m.Y', (int) $labelArr[3]) . " | angezeigt ab: ". date('d.m.Y', (int) $labelArr[4]);
 
         return $label;
