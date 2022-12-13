@@ -72,16 +72,6 @@ class TlManiaxContaoHolidayItem extends DCADefault
      */
     protected array $vertretungDoc2;
 
-        /**
-     * @ORM\Column(type="array", nullable=true, options={"default": NULL})
-     */
-    protected array $vertretungDoc3;
-
-        /**
-     * @ORM\Column(type="array", nullable=true, options={"default": NULL})
-     */
-    protected array $vertretungDoc4;
-
     /**
      * @ORM\Column(type="boolean", nullable=false, options={"default": false})
      */
