@@ -23,6 +23,7 @@ use Contao\System;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc as TlManiaxContaoHolidayDocEntity;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayLocation as TlManiaxContaoHolidayLocationEntity;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem as TlManiaxContaoHolidayItemEntity;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment as TwigEnvironment;
@@ -58,6 +59,20 @@ class TlManiaxContaoHolidayItem
         $return = [];
         foreach ($docs as $doc) {
             $return[$doc->getId()] = $doc->getName() .' | '. $doc->getStreet() .', '. $doc->getLocality();
+        }
+
+        return $return;
+    }
+
+    public function onLocationOptionsCallback(): array
+    {
+        $locRepository = $this->registry->getRepository(TlManiaxContaoHolidayLocationEntity::class);
+
+        $locs = $locRepository->findAllPublished();
+
+        $return = [];
+        foreach ($locs as $loc) {
+            $return[$loc->getId()] = $loc->getStreet() .', '. $loc->getLocality();
         }
 
         return $return;
