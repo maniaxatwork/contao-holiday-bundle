@@ -1,9 +1,7 @@
 <?php $this->extend('block_searchable'); ?>
 
 <?php $this->block('content'); ?>
-<pre>
-    <?php print_r($this->showTemplateVars()) ?>
-</pre>
+
 <?= implode('', $this->items) ?>
 
 <?php $this->endblock(); ?>

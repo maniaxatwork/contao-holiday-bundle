@@ -83,6 +83,12 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                     'holidayStart' => date('d.m.Y', (int) $holidayItem->getHolidayStart()),
                     'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop())
                 ];
+
+                $tmpStart = date('d.m.Y', (int) $holidayItem->getHolidayStart());
+                $template->holidayStart =  ($tmpStart < $template->holidayStart) ? $tmpStart : $template->holidayStart;
+
+                $tmpStop = date('d.m.Y', (int) $holidayItem->getholidayStop());
+                $template->holidayStop =  ($tmpStart > $template->holidayStop) ? $tmpStart : $template->holidayStop;
             }
             $itemTemplate->locations = $locations;
             $template->holidayItems = $holidayItems;

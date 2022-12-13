@@ -10,35 +10,21 @@
             <h3>Wir haben vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?> Urlaub!</h3>
         </div>
         <div class="columns">
-            <?php foreach ($this->locations as $loc): ?>
-                <?=  $loc['doc1'] ?>
-            <?php endforeach; ?>
-            test
-            <?php foreach ($this->items as $item): ?>
+            <?php foreach ($this->locations as $item): ?>
 
                 <div class="column">
                     <h3>Vertretung Standort<br /><?= $item['location'] ?></h3>
                     <div class="content">
-                        <h4>Chirurgie test</h4>
+                        <h4>Chirurgie</h4>
                         <?= $item['doc1'] ?>
                     </div>
                     <div class="content">
                         <h4>Allgemeinmedizin / Kinder</h4>
-                        <?= $this->doc2 ?>
+                        <?= $item['doc2'] ?>
                     </div>
                 </div>
+
             <?php endforeach; ?>
-            <div class="column">
-                <h3>Vertretung Standort<br />Planplatz</h3>
-                <div class="content">
-                    <h4>Chirurgie</h4>
-                    <?= $this->doc3 ?>
-                </div>
-                <div class="content">
-                    <h4>Allgemeinmedizin / Kinder</h4>
-                    <?= $this->doc4 ?>
-                </div>
-            </div>
         </div>
 	</div>
 </div>
