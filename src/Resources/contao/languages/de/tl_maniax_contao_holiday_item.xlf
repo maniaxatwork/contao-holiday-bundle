@@ -53,6 +53,15 @@
             <trans-unit id="tl_maniax_contao_holiday_item.footerlineText.1">
                 <target>Tragen Sie hier den Inhalt der Fußzeile ein.</target>
             </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item.location_legend">
+                <target>Standort</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item.location.0">
+                <target>Standort auswählen.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_item.location.1">
+                <target>Wählen Sie hier den Standort aus, für welchen die Urlaubsvertretung gültig ist.</target>
+            </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.doc_legend">
                 <target>Vertretungsärzte</target>
             </trans-unit>
