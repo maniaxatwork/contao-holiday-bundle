@@ -53,7 +53,7 @@ class TlManiaxContaoHolidayLocationRepository extends ServiceEntityRepository
      * @throws NonUniqueResultException
      * @throws \Doctrine\ORM\NoResultException
      */
-    public function findPublishedById(string $id): ?TlManiaxContaoHolidayDoc
+    public function findPublishedById(string $id): ?TlManiaxContaoHolidayLocation
     {
         $qb = $this->createQueryBuilder('a');
 
