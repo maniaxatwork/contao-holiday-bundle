@@ -81,7 +81,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
     ],
     'subpalettes' => [
         'extend_hinweis' => 'extendText',
-        'extend_standard' => '{location_legend},location;{doc_legend},vertretungDoc1,vertretungDoc2',
+        'extend_standard' => ';{location_legend},location;{doc_legend},vertretungDoc1,vertretungDoc2',
         'footerline' => 'footerlineText',
     ],
     'fields' => [
