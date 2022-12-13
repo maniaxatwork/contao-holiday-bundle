@@ -144,7 +144,7 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                 TlManiaxContaoHolidayItem::class,
                 'onLocationOptionsCallback',
             ],
-            'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'chosen' => true,],
+            'eval' => ['style'=> 'width:400px', 'includeBlankOption' => true, 'tl_class' => 'w50', 'chosen' => true, 'mandatory' => true],
         ],
         'vertretungDoc1' => [
             'exclude'   => true,
