@@ -17,6 +17,12 @@
             <trans-unit id="MOD.maniax_contao_holiday_docs.1">
                 <target>Ärzte verwalten</target>
             </trans-unit>
+            <trans-unit id="MOD.maniax_contao_holiday_locations.0">
+                <target>Standorte verwalten</target>
+            </trans-unit>
+            <trans-unit id="MOD.maniax_contao_holiday_locations.1">
+                <target>Standorte verwalten</target>
+            </trans-unit>
             <trans-unit id="MOD.maniax_contao_holiday_settings.0">
                 <target>Einstellungen</target>
             </trans-unit>

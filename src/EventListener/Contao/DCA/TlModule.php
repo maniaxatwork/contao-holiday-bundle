@@ -20,6 +20,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Exception;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayDoc;
+use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayLocation;
 use Maniax\ContaoHoliday\Entity\TlManiaxContaoHolidayItem as TlManiaxContaoHolidayItemEntity;
 
 class TlModule
@@ -41,6 +42,20 @@ class TlModule
         $return = [];
         foreach ($docs as $doc) {
             $return[$doc->getId()] = $doc->getName();
+        }
+
+        return $return;
+    }
+
+    public function onLocationOptionsCallback(): array
+    {
+        $locRepository = $this->registry->getRepository(TlManiaxContaoHolidayLocation::class);
+
+        $locs = $locRepository->findAll();
+
+        $return = [];
+        foreach ($locs as $loc) {
+            $return[$loc->getId()] = $loc->getName();
         }
 
         return $return;

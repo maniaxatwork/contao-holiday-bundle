@@ -15,6 +15,14 @@ services:
             - '@request_stack'
             - '@twig'
 
+        Maniax\ContaoHoliday\EventListener\Contao\DCA\TlManiaxContaoHolidayLocation:
+        public: true
+        arguments:
+            - '@Doctrine\Persistence\ManagerRegistry'
+            - '@contao.slug'
+            - '@request_stack'
+            - '@twig'
+
     # Contao Hooks
     Maniax\ContaoHoliday\EventListener\Contao\BackendMenuListener:
         public: true

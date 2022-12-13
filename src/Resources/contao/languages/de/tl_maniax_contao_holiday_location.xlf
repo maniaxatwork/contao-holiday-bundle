@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file>
+        <body>
+            <trans-unit id="tl_maniax_contao_holiday_location.location_legend">
+                <target>Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.street.0">
+                <target>Straße / Hausnummer</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.street.1">
+                <target>Bitte geben Sie die Straße und Hausnummer des Standortes ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.locality.0">
+                <target>Ort</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.locality.1">
+                <target>Bitte geben Sie den Ort des Standortes ein.</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.new.0">
+                <target>Neuer Standort</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.new.1">
+                <target>Einen neuen Standort anlegen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.publish_legend">
+                <target>Veröffentlichung</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.published.0">
+                <target>Standort veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_maniax_contao_holiday_location.published.1">
+                <target>Den Standort auf der Webseite anzeigen.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

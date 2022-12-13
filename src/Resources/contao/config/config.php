@@ -21,6 +21,10 @@ array_insert($GLOBALS['BE_MOD'], 1, [
             'tables' => ['tl_maniax_contao_holiday_doc'],
             'hideInNavigation' => true,
         ],
+        'maniax_contao_holiday_locations' => [
+            'tables' => ['tl_maniax_contao_holiday_location'],
+            'hideInNavigation' => true,
+        ],
     ],
 ]);
 
