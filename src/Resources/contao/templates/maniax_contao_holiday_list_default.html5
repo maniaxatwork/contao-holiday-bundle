@@ -15,8 +15,8 @@
                 <div class="column">
                     <h3>Vertretung Standort<br /><?= $item['location'] ?></h3>
                     <div class="content">
-                        <h4>Chirurgie</h4>
-                        <?= $this->doc1 ?>
+                        <h4>Chirurgie test</h4>
+                        <?= $item['doc1'] ?>
                     </div>
                     <div class="content">
                         <h4>Allgemeinmedizin / Kinder</h4>

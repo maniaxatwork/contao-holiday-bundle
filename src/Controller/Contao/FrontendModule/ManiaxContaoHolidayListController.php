@@ -75,7 +75,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                 }
                 $location = $locRepository->findPublishedById($holidayItem->getLocation());
 
-                $tmpLoc[] = [
+                $items['locations'] = [
                     'raw' => $holidayItem,
                     'location' => $location->getStreet(),
                     'doc1' => $doc1,
