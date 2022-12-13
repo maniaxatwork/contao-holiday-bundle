@@ -57,28 +57,16 @@
                 <target>Vertretungsärzte</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc1.0">
-                <target>Vertretung Chirurgie Frankenhäuser Straße</target>
+                <target>Vertretung Chirurgie</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc1.1">
-                <target>Vertretung und Zeitraum für die Chirurgie der Frankenhäuser Straße.</target>
+                <target>Vertretung und Zeitraum für die Chirurgie.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc2.0">
-                <target>Vertretung Allgemeinmedizin / Kinder Frankenhäuser Straße</target>
+                <target>Vertretung Allgemeinmedizin / Kinder</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc2.1">
-                <target>Vertretung und Zeitraum für die Allgemeinmedizin / Kinder der Frankenhäuser Straße.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc3.0">
-                <target>Vertretung Chirurgie Planplatz</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc3.1">
-                <target>Vertretung und Zeitraum für die Chirurgie vom Planplatz.</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc4.0">
-                <target>Vertretung Allgemeinmedizin / Kinder Planplatz</target>
-            </trans-unit>
-            <trans-unit id="tl_maniax_contao_holiday_item.vertretungDoc4.1">
-                <target>Vertretung und Zeitraum für die Allgemeinmedizin / Kinder vom Planplatz.</target>
+                <target>Vertretung und Zeitraum für die Allgemeinmedizin / Kinder.</target>
             </trans-unit>
             <trans-unit id="tl_maniax_contao_holiday_item.doc.0">
                 <target>Vertretungsärzte</target>

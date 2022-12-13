@@ -70,25 +70,9 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                 $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
             }
 
-            $docs3 = $holidayItem->getVertretungDoc3();
-            $doc3 = "";
-            foreach($docs3 as $doc){
-                $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc3 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
-            }
-
-            $docs4 = $holidayItem->getVertretungDoc4();
-            $doc4 = "";
-            foreach($docs4 as $doc){
-                $tmp = $docRepository->findPublishedById($doc['doc']);
-                $doc4 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
-            }
-
             $template->holidayItem = $holidayItem;
             $itemTemplate->doc1 = $doc1;
             $itemTemplate->doc2 = $doc2;
-            $itemTemplate->doc3 = $doc3;
-            $itemTemplate->doc4 = $doc4;
             $itemTemplate->holidayStart = date('d.m.Y', (int) $holidayItem->getHolidayStart());
             $itemTemplate->holidayStop = date('d.m.Y', (int) $holidayItem->getHolidayStop());
             $items[] = $itemTemplate->parse();

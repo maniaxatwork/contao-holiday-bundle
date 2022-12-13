@@ -293,46 +293,6 @@ class TlManiaxContaoHolidayItem extends DCADefault
     }
 
     /**
-     * @return array|null
-     */
-    public function getVertretungDoc3(): array
-    {
-        return $this->vertretungDoc3;
-    }
-
-    /**
-     * @param array|null $vertretungDoc3
-     *
-     * @return TlManiaxContaoHolidayItem
-     */
-    public function setVertretungDoc3(?array $vertretungDoc3): self
-    {
-        $this->vertretungDoc3 = $vertretungDoc3;
-
-        return $this;
-    }
-
-    /**
-     * @return array|null
-     */
-    public function getVertretungDoc4(): array
-    {
-        return $this->vertretungDoc4;
-    }
-
-    /**
-     * @param array|null $vertretungDoc4
-     *
-     * @return TlManiaxContaoHolidayItem
-     */
-    public function setVertretungDoc4(?array $vertretungDoc4): self
-    {
-        $this->vertretungDoc4 = $vertretungDoc4;
-
-        return $this;
-    }
-
-    /**
      * @return string
      */
     public function getCssClass(): string
