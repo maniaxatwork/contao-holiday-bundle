@@ -58,6 +58,11 @@ class TlManiaxContaoHolidayItem extends DCADefault
     protected string $footerlineText;
 
     /**
+     * @ORM\Column(type="text", nullable=false, options={"default": ""})
+     */
+    protected string $location;
+
+    /**
      * @ORM\Column(type="array", nullable=true, options={"default": NULL})
      */
     protected array $vertretungDoc1;
@@ -223,6 +228,26 @@ class TlManiaxContaoHolidayItem extends DCADefault
     public function setFooterlineText(string $footerlineText): self
     {
         $this->footerlineText = $footerlineText;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param string $location
+     *
+     * @return TlManiaxContaoHolidayItem
+     */
+    public function setLocation(string $location): self
+    {
+        $this->location = $location;
 
         return $this;
     }
