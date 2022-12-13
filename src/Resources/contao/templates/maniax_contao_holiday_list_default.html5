@@ -10,7 +10,7 @@
             <h3>Wir haben vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?> Urlaub!</h3>
         </div>
         <div class="columns">
-            <?php foreach ($this->items as $key=>$value): ?>
+            <?php foreach ($this->location as $key=>$value): ?>
 
                 <div class="column">
                     <h3>Vertretung Standort<br /><?= $key ?></h3>

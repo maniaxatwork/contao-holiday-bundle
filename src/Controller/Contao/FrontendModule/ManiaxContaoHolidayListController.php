@@ -58,6 +58,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
         if (!empty($holidayItems)){
             $itemTemplate = new FrontendTemplate('maniax_contao_holiday_list_default');
 
+            $tmpLoc = array();
             foreach ($holidayItems as $holidayItem){
                 $docs1 = $holidayItem->getVertretungDoc1();
                 $doc1 = "";
@@ -74,7 +75,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                 }
                 $location = $locRepository->findPublishedById($holidayItem->getLocation());
 
-                $itemTemplate[$location->getStreet()] = [
+                $tmpLoc[] = [
                     'raw' => $holidayItem,
                     'location' => $location->getStreet(),
                     'doc1' => $doc1,
@@ -83,7 +84,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                     'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop())
                 ];
             }
-
+            $itemTemplate->locations = $tmpLoc;
             $template->holidayItems = $holidayItems;
             $items[] = $itemTemplate->parse();
         }

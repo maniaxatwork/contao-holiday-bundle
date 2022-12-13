@@ -4,6 +4,6 @@
 <pre>
     <?php print_r($this->showTemplateVars()) ?>
 </pre>
-<?= implode('', $this->items) ?>
+<?= implode('', $this->locations) ?>
 
 <?php $this->endblock(); ?>
