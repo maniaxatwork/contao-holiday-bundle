@@ -121,20 +121,6 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                 'tl_class' => 'clr',
             ],
         ],
-        'footerline' => [
-			'exclude' => true,
-			'inputType' => 'checkbox',
-			'eval' => ['tl_class'=>'w50 m12', 'submitOnChange' => true],
-            'sql' => ['type' => 'boolean', 'default' => false],
-		],
-        'footerlineText' => [
-            'exclude' => true,
-            'inputType' => 'textarea',
-            'eval' => [
-                'rte' => 'tinyMCE',
-                'tl_class' => 'clr',
-            ],
-        ],
         'location' => [
             'label' => &$GLOBALS['TL_LANG']['tl_maniax_contao_holiday_item']['location'],
             'inputType' => 'select',
@@ -208,6 +194,20 @@ $GLOBALS['TL_DCA']['tl_maniax_contao_holiday_item'] = [
                     ],
                 ],
                 'maxCount' => 3,
+            ],
+        ],
+        'footerline' => [
+			'exclude' => true,
+			'inputType' => 'checkbox',
+			'eval' => ['tl_class'=>'w50 m12', 'submitOnChange' => true],
+            'sql' => ['type' => 'boolean', 'default' => false],
+		],
+        'footerlineText' => [
+            'exclude' => true,
+            'inputType' => 'textarea',
+            'eval' => [
+                'rte' => 'tinyMCE',
+                'tl_class' => 'clr',
             ],
         ],
         'cssClass' => [

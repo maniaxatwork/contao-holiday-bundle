@@ -152,6 +152,28 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         $objForm->addSubmitFormField('submit', 'Angaben eintragen');
 
+        // Container für Hinweis
+        $objForm->addFormField('hinweisContStart', array(
+            'label' => 'Hinweis',
+            'inputType' => 'fieldsetStart',
+            'eval' => array('class' => 'hinweisCont')
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'extendText'));
+        $objForm->addFormField('hinweisContStop', array(
+            'inputType' => 'fieldsetStop',
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'extendText'));
+
+        // Container für Urlaub
+        $objForm->addFormField('urlaubContStart', array(
+            'label' => 'Hinweis',
+            'inputType' => 'fieldsetStart',
+            'eval' => array('class' => 'urlaubCont')
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'location'));
+
+        $objForm->addFormField('urlaubContStop', array(
+            'inputType' => 'fieldsetStop',
+        ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::AFTER, 'vertretung2ContStop'));
+
+
         if ($objFormLogin->validate()) {
             $arrData = $objFormLogin->fetchAll();
 
@@ -195,6 +217,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $objModel->showBefore = $tmstp;
             $objModel->extend = $arrData['extend'];
             $objModel->extendText = $arrData['extendText'];
+            $objModel->location = $arrData['location'];
 
             if ($arrData['footerline'] == "")
                 $objModel->footerline = 0;
@@ -266,7 +289,6 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 }
             }
             $objModel->vertretungDoc2 = serialize($doc);
-
 
             $objModel->save();
 

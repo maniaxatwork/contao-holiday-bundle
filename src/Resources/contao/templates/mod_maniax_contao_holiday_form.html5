@@ -22,6 +22,10 @@
       buttonRemove: '&times;',
     });
   })(jQuery);
+
+  $('#ctrl_extend').on('change', function(){
+    $(this).val
+  });
 </script>
 
 <?php $this->endblock(); ?>
