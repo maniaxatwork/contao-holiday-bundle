@@ -39,7 +39,7 @@
     });
 
     $('#opt_footerline_0').on('change', function(){
-      if ($(this).val() == true){
+      if ($(this).is(':checked')){
         $('.footerlineText').show();
       } else{
         $('.footerlineText').hide();
