@@ -81,6 +81,11 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 $arrDca['eval'] = ['mandatory' => true];
             }
 
+
+            if ($strField == 'location'){
+                $arrDca['eval'] = ['mandatory' => false];
+            }
+
             // you must return true otherwise the field will be skipped
             return true;
         });
