@@ -23,8 +23,14 @@
     });
   })(jQuery);
 
-  $('#ctrl_extend').on('change', function(){
-    $(this).val
+  $(document).ready(function() {
+    $('.hinweisCont').hide();
+    $('.urlaubCont').hide();
+    $('.footerlineText').hide();
+
+    $('#ctrl_extend').on('change', function(){
+      $(this).val
+    });
   });
 </script>
 

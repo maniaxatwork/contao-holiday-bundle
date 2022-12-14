@@ -86,6 +86,10 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
                 $arrDca['eval'] = ['mandatory' => false];
             }
 
+            if ($strField == 'footerlineText'){
+                $arrDca['eval'] = ['class' => 'footerlineText'];
+            }
+
             // you must return true otherwise the field will be skipped
             return true;
         });
