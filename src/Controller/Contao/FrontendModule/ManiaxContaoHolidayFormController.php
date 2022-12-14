@@ -169,7 +169,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
 
         // Container für Urlaub
         $objForm->addFormField('urlaubContStart', array(
-            'label' => 'Hinweis',
+            'label' => 'Urlaubsvertretung',
             'inputType' => 'fieldsetStart',
             'eval' => array('class' => 'urlaubCont')
         ), new \Haste\Util\ArrayPosition(\Haste\Util\ArrayPosition::BEFORE, 'location'));
