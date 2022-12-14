@@ -218,7 +218,7 @@ class ManiaxContaoHolidayFormController extends AbstractFrontendModuleController
             $date = explode(".",$arrData['holidayStart']);
             $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
             $objModel->holidayStart = $tmstp;
-            $date = explode(".",$arrData['holidayStart']);
+            $date = explode(".",$arrData['holidayStop']);
             $tmstp = strtotime($date[2]."-".$date[1]."-".$date[0]);
             $objModel->holidayStop = $tmstp;
             $date = explode(".",$arrData['showBefore']);
