@@ -25,11 +25,25 @@
 
   $(document).ready(function() {
     $('.hinweisCont').hide();
-    $('.urlaubCont').hide();
+    $('.urlaubCont').show();
     $('.footerlineText').hide();
 
     $('#ctrl_extend').on('change', function(){
-      $(this).val
+      if ($(this).val() == 'hinweis'){
+        $('.hinweisCont').show();
+        $('.urlaubCont').hide();
+      } elseif($(this).val() == 'standard'){
+        $('.hinweisCont').hide();
+        $('.urlaubCont').show();
+      }
+    });
+
+    $('#opt_footerline_0').on('change', function(){
+      if ($(this).val() == true){
+        $('.footerlineText').show();
+      } else{
+        $('.footerlineText').hide();
+      }
     });
   });
 </script>
