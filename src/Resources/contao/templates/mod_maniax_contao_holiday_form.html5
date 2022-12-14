@@ -32,7 +32,7 @@
       if ($(this).val() == 'hinweis'){
         $('.hinweisCont').show();
         $('.urlaubCont').hide();
-      } elseif($(this).val() == 'standard'){
+      } else if($(this).val() == 'standard'){
         $('.hinweisCont').hide();
         $('.urlaubCont').show();
       }
