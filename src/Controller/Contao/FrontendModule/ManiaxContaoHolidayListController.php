@@ -61,7 +61,7 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             foreach ($holidayItems as $holidayItem){
                 $location = $locRepository->findPublishedById($holidayItem->getLocation());
 
-                if(in_array($location->getStreet(), $locations))
+                if(array_search($location->getStreet(), array_column($locations, 'location')) !== FALSE)
                     continue;
 
                 $docs1 = $holidayItem->getVertretungDoc1();
