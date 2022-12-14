@@ -51,7 +51,6 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             $show[$key] = $row->getShowBefore();
         }
         array_multisort($show, SORT_ASC, $holidayItems);
-        $holidayItem = $holidayItems[0];
 
         // Fill the template with data
         $items = [];
@@ -60,6 +59,10 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 
             $locations = array();
             foreach ($holidayItems as $holidayItem){
+                $location = $locRepository->findPublishedById($holidayItem->getLocation());
+                if(in_array($location->getStreet(), $holidayItem))
+                    return;
+
                 $docs1 = $holidayItem->getVertretungDoc1();
                 $doc1 = "";
                 foreach($docs1 as $doc){
@@ -73,7 +76,6 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                     $tmp = $docRepository->findPublishedById($doc['doc']);
                     $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
                 }
-                $location = $locRepository->findPublishedById($holidayItem->getLocation());
 
                 $locations[] = [
                     'raw' => $holidayItem,
