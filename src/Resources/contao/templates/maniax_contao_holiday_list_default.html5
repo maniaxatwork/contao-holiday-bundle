@@ -7,19 +7,19 @@
         <a href="#close" title="Schließen" class="holidayClose">X</a>
         <div class="headline">
         	<h2>Urlaubsinformation</h2>
-            <h3>Wir haben vom <?= $this->holidayStart ?> bis <?= $this->holidayStop ?> Urlaub!</h3>
         </div>
         <div class="columns">
             <?php foreach ($this->locations as $item): ?>
 
                 <div class="column">
-                    <h3>Vertretung Standort<br /><?= $item['location'] ?></h3>
+                    <h3>Standort<br /><?= $item['location'] ?></h3>
+                    <h4>Wir haben vom <?= $item['holidayStart'] ?> bis <?= $item['holidayStop'] ?>geschlossen.</h4>
                     <div class="content">
-                        <h4>Chirurgie</h4>
+                        <h4>Vertretung <br />Chirurgie</h4>
                         <?= $item['doc1'] ?>
                     </div>
                     <div class="content">
-                        <h4>Allgemeinmedizin / Kinder</h4>
+                        <h4>Vertretung <br />Allgemeinmedizin / Kinder</h4>
                         <?= $item['doc2'] ?>
                     </div>
                 </div>
