@@ -1,7 +1,25 @@
 <?php $this->extend('block_searchable'); ?>
 
-<?php $this->block('content'); ?>
+<?php if(is_array($this->items)): ?>
 
-<?= implode('', $this->items) ?>
+	<?php $this->block('content'); ?>
 
-<?php $this->endblock(); ?>
+	<?php $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoholiday/css/style.css'; ?>
+	<?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/maniaxcontaoholiday/js/script.js|static'; ?>
+
+	<div class="holiday_list block" data-date="<?= $this->tstamp ?>">
+
+		<div class="holiday-wrapper">
+			<a href="#close" title="Schließen" class="holidayClose">X</a>
+			<div class="headline">
+				<h2>Urlaubsinformation</h2>
+			</div>
+			<div class="columns">
+
+				<?= implode('', $this->items) ?>
+			</div>
+		</div>
+	</div>
+	<?php $this->endblock(); ?>
+
+<?php endif; ?>

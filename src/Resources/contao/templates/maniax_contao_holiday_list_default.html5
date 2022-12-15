@@ -1,30 +1,17 @@
-<?php $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoholiday/css/style.css'; ?>
-<?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/maniaxcontaoholiday/js/script.js|static'; ?>
 
-<div class="holiday_list block" data-date="<?= $this->tstamp ?>">
+<?php foreach ($this->locations as $item): ?>
 
-	<div class="holiday-wrapper">
-        <a href="#close" title="Schließen" class="holidayClose">X</a>
-        <div class="headline">
-        	<h2>Urlaubsinformation</h2>
+    <div class="column">
+        <h3>Standort<br /><?= $item['location'] ?></h3>
+        <h4>Wir haben vom <?= $item['holidayStart'] ?> bis <?= $item['holidayStop'] ?> geschlossen.</h4>
+        <div class="content">
+            <h4>Vertretung <br />Chirurgie</h4>
+            <?= $item['doc1'] ?>
         </div>
-        <div class="columns">
-            <?php foreach ($this->locations as $item): ?>
-
-                <div class="column">
-                    <h3>Standort<br /><?= $item['location'] ?></h3>
-                    <h4>Wir haben vom <?= $item['holidayStart'] ?> bis <?= $item['holidayStop'] ?> geschlossen.</h4>
-                    <div class="content">
-                        <h4>Vertretung <br />Chirurgie</h4>
-                        <?= $item['doc1'] ?>
-                    </div>
-                    <div class="content">
-                        <h4>Vertretung <br />Allgemeinmedizin / Kinder</h4>
-                        <?= $item['doc2'] ?>
-                    </div>
-                </div>
-
-            <?php endforeach; ?>
+        <div class="content">
+            <h4>Vertretung <br />Allgemeinmedizin / Kinder</h4>
+            <?= $item['doc2'] ?>
         </div>
-	</div>
-</div>
+    </div>
+
+<?php endforeach; ?>
