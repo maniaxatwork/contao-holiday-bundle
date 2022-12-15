@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let shown = localStorage.getItem('holidayShown');
-    let vDate = $('.holiday_list').getAttribute('data-date');
+    let vDate = $('.holiday_list').attr('data-date');
     console.log(vDate);
     console.log(Math.floor(new Date().getTime()/1000));
 
