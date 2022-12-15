@@ -4,7 +4,7 @@ $(document).ready(function() {
     console.log(vDate);
     console.log(Math.floor(new Date().getTime()/1000));
 
-    if(shown === null || shown < ){
+    if(shown === null || shown < vDate){
         $('.mod_maniax_contao_holiday_list').addClass('show');
         localStorage.setItem('holidayShown', 1);
     }
