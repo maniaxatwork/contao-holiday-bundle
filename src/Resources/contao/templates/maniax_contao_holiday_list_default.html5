@@ -13,7 +13,7 @@
 
                 <div class="column">
                     <h3>Standort<br /><?= $item['location'] ?></h3>
-                    <h4>Wir haben vom <?= $item['holidayStart'] ?> bis <?= $item['holidayStop'] ?>geschlossen.</h4>
+                    <h4>Wir haben vom <?= $item['holidayStart'] ?> bis <?= $item['holidayStop'] ?> geschlossen.</h4>
                     <div class="content">
                         <h4>Vertretung <br />Chirurgie</h4>
                         <?= $item['doc1'] ?>
