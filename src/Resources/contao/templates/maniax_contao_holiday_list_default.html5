@@ -1,7 +1,7 @@
 <?php $GLOBALS['TL_CSS'][] = 'bundles/maniaxcontaoholiday/css/style.css'; ?>
 <?php $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/maniaxcontaoholiday/js/script.js|static'; ?>
 
-<div class="holiday_list block" data-date="<?= $this->tstmp ?>">
+<div class="holiday_list block" data-date="<?= $this->tstamp ?>">
 
 	<div class="holiday-wrapper">
         <a href="#close" title="Schließen" class="holidayClose">X</a>

@@ -1,5 +1,6 @@
 $(document).ready(function() {
     let shown = localStorage.getItem('holidayShown');
+    console.group(Date.now());
 
     if(shown != 1){
         $('.mod_maniax_contao_holiday_list').addClass('show');
