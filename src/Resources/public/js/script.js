@@ -1,8 +1,10 @@
 $(document).ready(function() {
     let shown = localStorage.getItem('holidayShown');
+    let vDate = $('.holiday_list').getAttribute('data-date');
+    console.log(vDate);
     console.log(Math.floor(new Date().getTime()/1000));
 
-    if(shown != 1){
+    if(shown === null || shown < ){
         $('.mod_maniax_contao_holiday_list').addClass('show');
         localStorage.setItem('holidayShown', 1);
     }
