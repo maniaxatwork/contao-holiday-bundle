@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    let shown = localStorage.getItem('holidayShown');
-    let vDate = $('.holiday_list').attr('data-date');
+    let hID = localStorage.getItem('holidayID');
+    let vId = $('.holiday_list').attr('data-id');
 
-    if(shown === null || shown < vDate){
+    if(hID === null || hID < vId){
         $('.mod_maniax_contao_holiday_list').addClass('show');
-        localStorage.setItem('holidayShown', vDate);
+        localStorage.setItem('holidayID', vId);
     }
 
     $('.holidayClose').on('click', function(e){
