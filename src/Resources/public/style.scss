@@ -38,6 +38,10 @@
             margin: 2% auto;
             width: 90%;
         }
+
+        @media (max-width:767px){
+            top: -10000px;
+        }
     }
 
     &.show{
