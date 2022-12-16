@@ -354,6 +354,11 @@
     cursor: pointer;
     transition: .2s ease;
 
+    @media (max-width:1200px){
+        padding:20px;
+        font-size: 2rem;
+    }
+
     &:hover{
         background: #004161;
     }
