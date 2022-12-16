@@ -94,6 +94,11 @@
     transition: all .5s ease-out;
     text-align: center;
 
+    @media (max-width:767px){
+        right: -15px;
+        top: -5px;
+    }
+
     &:hover {
         background: #00d9ff;
         color:#fff;
@@ -117,7 +122,11 @@
             color:#fff;
             margin-bottom: 0;
             line-height: 1.5;
-        }
+
+                @media (max-width:767px){
+                    font-size: 1.5rem;
+                }
+            }
     }
 
     .columns{
@@ -128,6 +137,10 @@
         @media (max-width:1200px){
             flex-wrap:wrap;
             overflow-y: scroll;
+        }
+
+        @media (max-width:767px){
+            height: 80vh;
         }
     }
 
@@ -142,6 +155,10 @@
         background: rgba(#0087c2, 0.5);
         text-align: center;
 
+        @media (max-width:767px){
+            gap:0.75rem;
+        }
+
         @media (max-width:1200px){
             flex:0 0 100%;
             justify-content: center;
@@ -150,6 +167,10 @@
                 margin-bottom: 10px;
                 font-size: 1.25rem;
                 text-align: center;
+
+                @media (max-width:767px){
+                    font-size: 1.125rem;
+                }
             }
         }
 
@@ -157,6 +178,10 @@
             flex: 0 0 100%;
             text-align: center;
             margin-bottom: 0.5rem;
+
+            @media (max-width:767px){
+                font-size: 1.25rem;
+            }
         }
 
         .content{
