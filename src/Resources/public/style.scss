@@ -359,6 +359,12 @@
         font-size: 2rem;
     }
 
+    @media (max-width:767px){
+        padding: 15px;
+        font-size: 1.25rem;
+        letter-spacing: 2px;
+    }
+
     &:hover{
         background: #004161;
     }
