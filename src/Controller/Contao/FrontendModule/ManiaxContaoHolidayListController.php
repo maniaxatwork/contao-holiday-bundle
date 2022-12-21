@@ -59,43 +59,51 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             $itemTemplate = new FrontendTemplate('maniax_contao_holiday_list_default');
 
             $locations = array();
+            $hinweis = "";
             foreach ($holidayItems as $holidayItem){
-                $location = $locRepository->findPublishedById($holidayItem->getLocation());
-                if ($firstId == 0)
-                    $firstId = $holidayItem->getId();
 
-                if(array_search($location->getStreet(), array_column($locations, 'location')) !== FALSE)
-                    continue;
+                if ($holidayItem->getExtend() == "hinweis"){
+                    $hinweis = $holidayItem->getExtendText();
+                }else{
+                    $location = $locRepository->findPublishedById($holidayItem->getLocation());
+                    if ($firstId == 0)
+                        $firstId = $holidayItem->getId();
 
-                $docs1 = $holidayItem->getVertretungDoc1();
-                $doc1 = "";
-                foreach($docs1 as $doc){
-                    if ($doc['doc'] == "") continue;
+                    if(array_search($location->getStreet(), array_column($locations, 'location')) !== FALSE)
+                        continue;
 
-                    $tmp = $docRepository->findPublishedById($doc['doc']);
-                    $doc1 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
+                    $docs1 = $holidayItem->getVertretungDoc1();
+                    $doc1 = "";
+                    foreach($docs1 as $doc){
+                        if ($doc['doc'] == "") continue;
+
+                        $tmp = $docRepository->findPublishedById($doc['doc']);
+                        $doc1 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
+                    }
+
+                    $docs2 = $holidayItem->getVertretungDoc2();
+                    $doc2 = "";
+                    foreach($docs2 as $doc){
+                        if ($doc['doc'] == "") continue;
+
+                        $tmp = $docRepository->findPublishedById($doc['doc']);
+                        $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
+                    }
+
+                    $locations[] = [
+                        'raw' => $holidayItem,
+                        'location' => $location->getStreet(),
+                        'doc1' => $doc1,
+                        'doc2' => $doc2,
+                        'holidayStart' => date('d.m.Y', (int) $holidayItem->getHolidayStart()),
+                        'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop())
+                    ];
                 }
 
-                $docs2 = $holidayItem->getVertretungDoc2();
-                $doc2 = "";
-                foreach($docs2 as $doc){
-                    if ($doc['doc'] == "") continue;
-
-                    $tmp = $docRepository->findPublishedById($doc['doc']);
-                    $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
-                }
-
-                $locations[] = [
-                    'raw' => $holidayItem,
-                    'location' => $location->getStreet(),
-                    'doc1' => $doc1,
-                    'doc2' => $doc2,
-                    'holidayStart' => date('d.m.Y', (int) $holidayItem->getHolidayStart()),
-                    'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop())
-                ];
             }
 
             $itemTemplate->locations = $locations;
+            $itemTemplate->hinweis = $hinweis;
             $template->holidayItems = $holidayItems;
             $items[] = $itemTemplate->parse();
         }

@@ -1,21 +1,25 @@
 
-<?php foreach ($this->locations as $item): ?>
+<?php if ($this->hinweis != ""): ?>
+    <div class="urlaubshinweis"><?= $this->hinweis ?></div>
+<?php else: ?>
+    <?php foreach ($this->locations as $item): ?>
 
-    <div class="column">
-        <h3>Standort<br /><?= $item['location'] ?></h3>
-        <h4>Wir haben vom <?= $item['holidayStart'] ?> bis <?= $item['holidayStop'] ?> geschlossen.</h4>
-        <?php if ($item['doc1'] != "") : ?>
-            <div class="content">
-                <h4>Vertretung <br />Chirurgie</h4>
-                <?= $item['doc1'] ?>
-            </div>
-        <?php endif; ?>
-        <?php if ($item['doc2'] != "") : ?>
-            <div class="content">
-                <h4>Vertretung <br />Allgemeinmedizin / Kinder</h4>
-                <?= $item['doc2'] ?>
-            </div>
-        <?php endif; ?>
-    </div>
+        <div class="column">
+            <h3>Standort<br /><?= $item['location'] ?></h3>
+            <h4>Wir haben vom <?= $item['holidayStart'] ?> bis <?= $item['holidayStop'] ?> geschlossen.</h4>
+            <?php if ($item['doc1'] != "") : ?>
+                <div class="content">
+                    <h4>Vertretung <br />Chirurgie</h4>
+                    <?= $item['doc1'] ?>
+                </div>
+            <?php endif; ?>
+            <?php if ($item['doc2'] != "") : ?>
+                <div class="content">
+                    <h4>Vertretung <br />Allgemeinmedizin / Kinder</h4>
+                    <?= $item['doc2'] ?>
+                </div>
+            <?php endif; ?>
+        </div>
 
-<?php endforeach; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
