@@ -70,6 +70,8 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                 $docs1 = $holidayItem->getVertretungDoc1();
                 $doc1 = "";
                 foreach($docs1 as $doc){
+                    if ($doc['doc'] == "") continue;
+
                     $tmp = $docRepository->findPublishedById($doc['doc']);
                     $doc1 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
                 }
@@ -77,6 +79,8 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                 $docs2 = $holidayItem->getVertretungDoc2();
                 $doc2 = "";
                 foreach($docs2 as $doc){
+                    if ($doc['doc'] == "") continue;
+
                     $tmp = $docRepository->findPublishedById($doc['doc']);
                     $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
                 }
