@@ -34,4 +34,4 @@
 <?php endif; ?>
 <?php if ($this->footerline != ""): ?>
     <div class="footerline"><?= $this->footerline ?></div>
-<?php else: ?>
+<?php endif; ?>
