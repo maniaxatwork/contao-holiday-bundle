@@ -111,8 +111,8 @@ class TlManiaxContaoHolidayItem
     {
         $labelArr = explode('|', $label);
 
-        if ($labelArr[0] == "Hinweis"){
-            $label = '<strong>'.$labelArr[0] .': Von '.$labelArr[2] .' bis '.$labelArr[3] .'</strong>: ';
+        if ($labelArr[0] == "Hinweis "){
+            $label = '<strong>'.$labelArr[0] .': Von '.date('d.m.Y', (int) $labelArr[2]).' bis '.date('d.m.Y', (int) $labelArr[3]).'</strong>: ';
         }else{
             $locRepository = $this->registry->getRepository(TlManiaxContaoHolidayLocationEntity::class);
 
