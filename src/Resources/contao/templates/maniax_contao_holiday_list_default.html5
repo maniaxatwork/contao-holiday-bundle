@@ -32,6 +32,3 @@
 
     <?php endforeach; ?>
 <?php endif; ?>
-<?php if ($this->footerline != ""): ?>
-    <div class="footerline"><?= $this->footerline ?></div>
-<?php endif; ?>
