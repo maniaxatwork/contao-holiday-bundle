@@ -121,10 +121,14 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
             $itemTemplate->footerline = $footerline;
             $template->holidayItems = $holidayItems;
             $items[] = $itemTemplate->parse();
+
+            $template->firstId = $firstId;
+
+            $template->items = $items;
+        }else{
+            $template->empty = true;
         }
-        $template->firstId = $firstId;
-        $template->empty = "";
-        $template->items = $items;
+
 
         return $template->getResponse();
     }

@@ -1,6 +1,6 @@
 <?php $this->extend('block_searchable'); ?>
 
-<?php if(is_array($this->items)): ?>
+<?php if(!$this->empty): ?>
 
 	<?php $this->block('content'); ?>
 
