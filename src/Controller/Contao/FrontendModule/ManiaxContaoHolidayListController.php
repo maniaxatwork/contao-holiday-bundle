@@ -60,10 +60,17 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
 
             $locations = array();
             $hinweis = "";
+            $footerline ="";
+
             foreach ($holidayItems as $holidayItem){
 
                 if ($holidayItem->getExtend() == "hinweis"){
                     $hinweis = $holidayItem->getExtendText();
+
+                    if ($holidayItem->isFooterline()){
+                        $footerline = $holidayItem->getFooterlineText();
+                    }
+
                 }else{
                     $location = $locRepository->findPublishedById($holidayItem->getLocation());
                     if ($firstId == 0)
@@ -90,20 +97,26 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                         $doc2 .= "<div class='vertretung'>".$tmp->getName()."<br \>".$tmp->getStreet()."<br \>".$tmp->getLocality()."<br \>".$tmp->getTelephone()."<br \>Vom ".date('d.m.Y', $doc['vertretungStart'])." - ".date('d.m.Y', $doc['vertretungStop'])."</div>";
                     }
 
+
+                    if ($holidayItem->isFooterline()){
+                        $footerline = $holidayItem->getFooterlineText();
+                    }
+
                     $locations[] = [
                         'raw' => $holidayItem,
                         'location' => $location->getStreet(),
                         'doc1' => $doc1,
                         'doc2' => $doc2,
                         'holidayStart' => date('d.m.Y', (int) $holidayItem->getHolidayStart()),
-                        'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop())
+                        'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop()),
+                        'footerline' => $footerline
                     ];
                 }
-
             }
 
             $itemTemplate->locations = $locations;
             $itemTemplate->hinweis = $hinweis;
+            $itemTemplate->footerline = $footerline;
             $template->holidayItems = $holidayItems;
             $items[] = $itemTemplate->parse();
         }

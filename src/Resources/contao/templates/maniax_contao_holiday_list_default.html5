@@ -1,6 +1,12 @@
 
 <?php if ($this->hinweis != ""): ?>
-    <div class="urlaubshinweis"><?= $this->hinweis ?></div>
+    <div class="urlaubshinweis">
+        <?= $this->hinweis ?>
+
+        <?php if ($this->footerline != "") : ?>
+            <div class="footerline"><?= $this->footerline ?></div>
+        <?php endif; ?>
+    </div>
 <?php else: ?>
     <?php foreach ($this->locations as $item): ?>
 
@@ -19,7 +25,13 @@
                     <?= $item['doc2'] ?>
                 </div>
             <?php endif; ?>
+            <?php if ($item['footerline'] != "") : ?>
+                <div class="footerline"><?= $item['footerline'] ?></div>
+            <?php endif; ?>
         </div>
 
     <?php endforeach; ?>
 <?php endif; ?>
+<?php if ($this->footerline != ""): ?>
+    <div class="footerline"><?= $this->footerline ?></div>
+<?php else: ?>
