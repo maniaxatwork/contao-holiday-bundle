@@ -111,13 +111,18 @@ class TlManiaxContaoHolidayItem
     {
         $labelArr = explode('|', $label);
 
-        $locRepository = $this->registry->getRepository(TlManiaxContaoHolidayLocationEntity::class);
+        if ($labelArr[0] == "hinweis"){
+            $label = '<strong>'.$labelArr[0] .': Von '.$labelArr[2] .' bis '.$labelArr[3] .'</strong>: ';
+        }else{
+            $locRepository = $this->registry->getRepository(TlManiaxContaoHolidayLocationEntity::class);
 
-        $loc = $locRepository->findPublishedById( $labelArr[1]);
+            $loc = $locRepository->findPublishedById( $labelArr[1]);
 
-        $labelArr[1] = $loc->getStreet() .', '. $loc->getLocality();
+            $labelArr[1] = $loc->getStreet() .', '. $loc->getLocality();
 
-        $label = '<strong>'.$labelArr[0] .' - '.$labelArr[1] .'</strong>: ' .date('d.m.Y', (int) $labelArr[2]). ' - '.date('d.m.Y', (int) $labelArr[3]) . " | angezeigt ab: ". date('d.m.Y', (int) $labelArr[4]);
+            $label = '<strong>'.$labelArr[0] .' - '.$labelArr[1] .'</strong>: ' .date('d.m.Y', (int) $labelArr[2]). ' - '.date('d.m.Y', (int) $labelArr[3]) . " | angezeigt ab: ". date('d.m.Y', (int) $labelArr[4]);
+
+        }
 
         return $label;
     }
