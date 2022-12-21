@@ -111,6 +111,8 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
                         'holidayStop' => date('d.m.Y', (int) $holidayItem->getHolidayStop()),
                         'footerline' => $footerline
                     ];
+
+                    $footerline ="";
                 }
             }
 
