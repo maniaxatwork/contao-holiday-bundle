@@ -50,8 +50,9 @@ class ManiaxContaoHolidayListController extends AbstractFrontendModuleController
         foreach ($holidayItems as $key => $row) {
             $show[$key] = $row->getShowBefore();
         }
-        is_array($show) ? array_multisort($show, SORT_ASC, $holidayItems);
-
+        if(is_array($show)){array_multisort($show, SORT_ASC, $holidayItems)};
+		//array_multisort($show, SORT_ASC, $holidayItems);
+        
         // Fill the template with data
         $items = [];
         $firstId = 0;
